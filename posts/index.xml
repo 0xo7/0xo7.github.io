@@ -3,7 +3,23 @@
     <title>所有文章 - A_Yu&#39;s Blog</title>
     <link>http://example.org/posts/</link>
     <description>所有文章 | A_Yu&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 10 Mar 2023 12:46:17 &#43;0800</lastBuildDate><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 04 Jun 2023 15:15:34 &#43;0800</lastBuildDate><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
+  <title>花生十三行测每日一练总结✍</title>
+  <link>http://example.org/posts/2023-0604-01/</link>
+  <pubDate>Sun, 04 Jun 2023 15:15:34 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>http://example.org/posts/2023-0604-01/</guid>
+  <description><![CDATA[转载自花生十三老师微博]]></description>
+</item>
+<item>
+  <title>Hugo和Github常见操作</title>
+  <link>http://example.org/posts/2023-0424-01/</link>
+  <pubDate>Mon, 24 Apr 2023 18:51:26 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>http://example.org/posts/2023-0424-01/</guid>
+  <description><![CDATA[Github 常见操作和 Git Action 自动提交]]></description>
+</item>
+<item>
   <title>Kali 配置</title>
   <link>http://example.org/posts/2023-0310-01/</link>
   <pubDate>Fri, 10 Mar 2023 12:46:17 &#43;0800</pubDate>
@@ -66,24 +82,6 @@
   <author>作者</author>
   <guid>http://example.org/posts/2022-1122-01/</guid>
   <description><![CDATA[本文带你深入了解 Linux 下的提权技术，并持续补充各种 Linux 下的各种提权姿势]]></description>
-</item>
-<item>
-  <title>hugo主题魔改(二)</title>
-  <link>http://example.org/posts/2022-1112-01/</link>
-  <pubDate>Sat, 12 Nov 2022 12:01:03 &#43;0800</pubDate>
-  <author>作者</author>
-  <guid>http://example.org/posts/2022-1112-01/</guid>
-  <description><![CDATA[<div class="featured-image">
-        <img src="/featuredImage/1.jpeg" referrerpolicy="no-referrer">
-      </div>记录图片的各种插入方式，同时修改图片插入后的大小]]></description>
-</item>
-<item>
-  <title>Hugo主题魔改(一)</title>
-  <link>http://example.org/posts/2022-1111-01/</link>
-  <pubDate>Fri, 11 Nov 2022 20:01:31 &#43;0800</pubDate>
-  <author>作者</author>
-  <guid>http://example.org/posts/2022-1111-01/</guid>
-  <description><![CDATA[对0.2.16版本Fixlt主题的样式进行部分修改]]></description>
 </item>
 </channel>
 </rss>
