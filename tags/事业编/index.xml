@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>事业编 - 标签 - A_Yu&#39;s Blog</title>
+    <link>http://example.org/tags/%E4%BA%8B%E4%B8%9A%E7%BC%96/</link>
+    <description>事业编 - 标签 - A_Yu&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 09 Jun 2023 12:16:02 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/%E4%BA%8B%E4%B8%9A%E7%BC%96/" rel="self" type="application/rss+xml" /><item>
+  <title>超格公基学霸笔记——法律部分</title>
+  <link>http://example.org/posts/2023-0609-01/</link>
+  <pubDate>Fri, 09 Jun 2023 12:16:02 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>http://example.org/posts/2023-0609-01/</guid>
+  <description><![CDATA[整理自超格学霸笔记，原电子版看起来不方便]]></description>
+</item>
+</channel>
+</rss>

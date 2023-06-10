@@ -141,8 +141,11 @@
   </div><main class="container" data-page-style="noraml"><div class="page archive">
     <div class="header"><h1 class="single-title animate__animated animate__pulse animate__faster">
         📈&nbsp;所有文章
-        <sup>12</sup>
-      </h1><p class="single-subtitle total-word-count" title='总计约 62277 字'><i class="111" aria-hidden="true"></i> 📃 总计约 62.28K 字</p></div><h2 class="group-title">🎯 2023</h2><article class="archive-item">
+        <sup>13</sup>
+      </h1><p class="single-subtitle total-word-count" title='总计约 62333 字'><i class="111" aria-hidden="true"></i> 📃 总计约 62.33K 字</p></div><h2 class="group-title">🎯 2023</h2><article class="archive-item">
+            <a href="/posts/2023-0609-01/" class="archive-item-link">超格公基学霸笔记——法律部分</a>
+            <span class="archive-item-date" title='2023-06-09 12:16:02'>06-09</span>
+          </article><article class="archive-item">
             <a href="/posts/2023-0604-01/" class="archive-item-link">花生十三行测每日一练总结✍</a>
             <span class="archive-item-date" title='2023-06-04 15:15:34'>06-04</span>
           </article><article class="archive-item">
@@ -215,6 +218,12 @@ function heatmap_width(months){
 
 
 var datatemp = {};
+
+  var datetemp = "2023-06-09";
+  if (!datatemp[datetemp]) {
+    datatemp[datetemp] = 0;
+  }
+  datatemp[datetemp]++;
 
   var datetemp = "2023-06-04";
   if (!datatemp[datetemp]) {
@@ -307,6 +316,11 @@ for (var datetemp in datatemp) {
   data.push([datetemp, datatemp[datetemp]]);
 }
 
+data.push(
+    [
+        "2023-06-09",
+    ],
+);
 data.push(
     [
         "2023-06-04",

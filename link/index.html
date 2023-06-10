@@ -203,6 +203,12 @@ function heatmap_width(months){
 
 var datatemp = {};
 
+  var datetemp = "2023-06-09";
+  if (!datatemp[datetemp]) {
+    datatemp[datetemp] = 0;
+  }
+  datatemp[datetemp]++;
+
   var datetemp = "2023-06-04";
   if (!datatemp[datetemp]) {
     datatemp[datetemp] = 0;
@@ -294,6 +300,11 @@ for (var datetemp in datatemp) {
   data.push([datetemp, datatemp[datetemp]]);
 }
 
+data.push(
+    [
+        "2023-06-09",
+    ],
+);
 data.push(
     [
         "2023-06-04",

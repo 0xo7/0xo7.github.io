@@ -140,24 +140,8 @@
     <div id="search-dropdown-mobile"></div>
   </div><main class="container" data-page-style="noraml"><div class="page archive"><h2 class="single-title animate__animated animate__pulse animate__faster">
       📚&nbsp;所有分类
-      <sup>6</sup>
+      <sup>7</sup>
     </h2><div class="categories-card"><div class="card-item">
-            <div class="card-item-wrapper">
-              <h3 class="card-item-title">
-                <a href='/categories/draft/'>
-                  <i class="111" aria-hidden="true"></i>
-                  📂 draft&nbsp;<sup>4</sup>
-                </a>
-              </h3><article class="archive-item">
-                  <a href="/posts/2023-0424-01/" class="archive-item-link">Hugo和Github常见操作</a>
-                </article><article class="archive-item">
-                  <a href="/posts/2023-0129-01/" class="archive-item-link">面试题汇总</a>
-                </article><article class="archive-item">
-                  <a href="/posts/2022-1229-01/" class="archive-item-link">C/C&#43;&#43; 从入门到入土</a>
-                </article><article class="archive-item">
-                  <a href="/posts/2022-1226-01/" class="archive-item-link">Web 渗透测试指北</a>
-                </article></div>
-          </div><div class="card-item">
             <div class="card-item-wrapper">
               <h3 class="card-item-title">
                 <a href='/categories/hugo/'>
@@ -184,6 +168,26 @@
           </div><div class="card-item">
             <div class="card-item-wrapper">
               <h3 class="card-item-title">
+                <a href='/categories/web%E5%AE%89%E5%85%A8/'>
+                  <i class="111" aria-hidden="true"></i>
+                  📂 Web安全&nbsp;<sup>1</sup>
+                </a>
+              </h3><article class="archive-item">
+                  <a href="/posts/2022-1226-01/" class="archive-item-link">Web 渗透测试指北</a>
+                </article></div>
+          </div><div class="card-item">
+            <div class="card-item-wrapper">
+              <h3 class="card-item-title">
+                <a href='/categories/%E4%BA%8B%E4%B8%9A%E7%BC%96%E8%80%83%E8%AF%95/'>
+                  <i class="111" aria-hidden="true"></i>
+                  📂 事业编考试&nbsp;<sup>1</sup>
+                </a>
+              </h3><article class="archive-item">
+                  <a href="/posts/2023-0609-01/" class="archive-item-link">超格公基学霸笔记——法律部分</a>
+                </article></div>
+          </div><div class="card-item">
+            <div class="card-item-wrapper">
+              <h3 class="card-item-title">
                 <a href='/categories/%E5%85%AC%E5%8A%A1%E5%91%98%E8%80%83%E8%AF%95/'>
                   <i class="111" aria-hidden="true"></i>
                   📂 公务员考试&nbsp;<sup>1</sup>
@@ -194,22 +198,22 @@
           </div><div class="card-item">
             <div class="card-item-wrapper">
               <h3 class="card-item-title">
+                <a href='/categories/%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/'>
+                  <i class="111" aria-hidden="true"></i>
+                  📂 基础配置&nbsp;<sup>1</sup>
+                </a>
+              </h3><article class="archive-item">
+                  <a href="/posts/2023-0310-01/" class="archive-item-link">Kali 配置</a>
+                </article></div>
+          </div><div class="card-item">
+            <div class="card-item-wrapper">
+              <h3 class="card-item-title">
                 <a href='/categories/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/'>
                   <i class="111" aria-hidden="true"></i>
                   📂 权限提升&nbsp;<sup>1</sup>
                 </a>
               </h3><article class="archive-item">
                   <a href="/posts/2022-1122-01/" class="archive-item-link">Linux权限提升</a>
-                </article></div>
-          </div><div class="card-item">
-            <div class="card-item-wrapper">
-              <h3 class="card-item-title">
-                <a href='/categories/%E9%85%8D%E7%BD%AE/'>
-                  <i class="111" aria-hidden="true"></i>
-                  📂 配置&nbsp;<sup>1</sup>
-                </a>
-              </h3><article class="archive-item">
-                  <a href="/posts/2023-0310-01/" class="archive-item-link">Kali 配置</a>
                 </article></div>
           </div></div></div></main><footer class="footer">
     <div class="footer-container"><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
@@ -248,6 +252,12 @@ function heatmap_width(months){
 
 
 var datatemp = {};
+
+  var datetemp = "2023-06-09";
+  if (!datatemp[datetemp]) {
+    datatemp[datetemp] = 0;
+  }
+  datatemp[datetemp]++;
 
   var datetemp = "2023-06-04";
   if (!datatemp[datetemp]) {
@@ -340,6 +350,11 @@ for (var datetemp in datatemp) {
   data.push([datetemp, datatemp[datetemp]]);
 }
 
+data.push(
+    [
+        "2023-06-09",
+    ],
+);
 data.push(
     [
         "2023-06-04",

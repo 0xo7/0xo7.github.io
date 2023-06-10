@@ -3,7 +3,15 @@
     <title>Categories - 分类 - A_Yu&#39;s Blog</title>
     <link>http://example.org/categories/</link>
     <description>Categories - 分类 - A_Yu&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 04 Jun 2023 15:15:34 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/" rel="self" type="application/rss+xml" /><item>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 09 Jun 2023 12:16:02 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/" rel="self" type="application/rss+xml" /><item>
+  <title>事业编考试</title>
+  <link>http://example.org/categories/%E4%BA%8B%E4%B8%9A%E7%BC%96%E8%80%83%E8%AF%95/</link>
+  <pubDate>Fri, 09 Jun 2023 12:16:02 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>http://example.org/categories/%E4%BA%8B%E4%B8%9A%E7%BC%96%E8%80%83%E8%AF%95/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
   <title>公务员考试</title>
   <link>http://example.org/categories/%E5%85%AC%E5%8A%A1%E5%91%98%E8%80%83%E8%AF%95/</link>
   <pubDate>Sun, 04 Jun 2023 15:15:34 &#43;0800</pubDate>
@@ -12,19 +20,19 @@
   <description><![CDATA[]]></description>
 </item>
 <item>
-  <title>draft</title>
-  <link>http://example.org/categories/draft/</link>
-  <pubDate>Mon, 24 Apr 2023 18:51:26 &#43;0800</pubDate>
+  <title>基础配置</title>
+  <link>http://example.org/categories/%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/</link>
+  <pubDate>Fri, 10 Mar 2023 12:46:17 &#43;0800</pubDate>
   <author>作者</author>
-  <guid>http://example.org/categories/draft/</guid>
+  <guid>http://example.org/categories/%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/</guid>
   <description><![CDATA[]]></description>
 </item>
 <item>
-  <title>配置</title>
-  <link>http://example.org/categories/%E9%85%8D%E7%BD%AE/</link>
-  <pubDate>Fri, 10 Mar 2023 12:46:17 &#43;0800</pubDate>
+  <title>Web安全</title>
+  <link>http://example.org/categories/web%E5%AE%89%E5%85%A8/</link>
+  <pubDate>Mon, 26 Dec 2022 17:52:16 &#43;0800</pubDate>
   <author>作者</author>
-  <guid>http://example.org/categories/%E9%85%8D%E7%BD%AE/</guid>
+  <guid>http://example.org/categories/web%E5%AE%89%E5%85%A8/</guid>
   <description><![CDATA[]]></description>
 </item>
 <item>
