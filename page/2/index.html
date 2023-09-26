@@ -32,7 +32,7 @@
   <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper"><header class="desktop animate__faster" id="header-desktop">
   <div class="header-wrapper" data-github-corner="right">
     <div class="header-title">
-      <a href="/" title="A_Yu&#39;s Blog"><span class="header-title-pre"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-plant"></use></svg></span><span class="header-title-text">A_Yu&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+      <a href="/" title="A_Yu&#39;s Blog"><span class="header-title-pre"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-plant"></use></svg></span><span class="header-title-text">nUllo&#39;s Blog</span></a><span class="header-subtitle"></span></div>
     <nav>
       <ul class="menu"><li class="menu-item">
               <a
@@ -55,56 +55,42 @@
               >🏷️ 标签</a></li><li class="menu-item">
               <a
                 class="menu-link"
-                href="/talk/"
+                href="/friends/"
                 
                 
-              >💬 说说</a></li><li class="menu-item">
+              >🤝 友链</a></li><li class="menu-item has-children">
               <a
                 class="menu-link"
-                href="/link/"
+                href="/#"
                 
                 
-              >🤝 友链</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
-            <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-desktop">
-            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
-              <i class="1" aria-hidden="true"></i>🔍
-            </a>
-            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
-              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
-            </a>
-            <span class="search-button search-loading" id="search-loading-desktop">
-              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
-            </span>
-          </li></ul>
+              >📝 笔记</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+                <ul class="sub-menu">
+                  <li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/posts/2022-1229-01/"
+                          
+                          
+                        >C语言 &amp;&amp; C&#43;&#43;</a>
+                      </li></ul></li><li class="menu-item delimiter"></li>
+      </ul>
     </nav>
   </div>
 </header><header class="mobile animate__faster" id="header-mobile">
   <div class="header-container">
     <div class="header-wrapper">
       <div class="header-title">
-        <a href="/" title="A_Yu&#39;s Blog"><span class="header-title-pre"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-plant"></use></svg></span><span class="header-title-text">A_Yu&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+        <a href="/" title="A_Yu&#39;s Blog"><span class="header-title-pre"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-plant"></use></svg></span><span class="header-title-text">nUllo&#39;s Blog</span></a><span class="header-subtitle"></span></div>
       <div class="menu-toggle" id="menu-toggle-mobile">
         <span></span><span></span><span></span>
       </div>
     </div>
     <nav>
-      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
-            <div class="search mobile" id="search-mobile">
-              <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-mobile">
-              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
-                <i class="1" aria-hidden="true"></i>🔍
-              </a>
-              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
-                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
-              </a>
-              <span class="search-button search-loading" id="search-loading-mobile">
-                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
-              </span>
-            </div>
-            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-              取消
-            </a>
-          </li><li
+      <ul class="menu" id="menu-mobile">
+     <li
               class="menu-item"
             ><a
                   class="menu-link"
@@ -129,17 +115,31 @@
               class="menu-item"
             ><a
                   class="menu-link"
-                  href="/talk/"
+                  href="/friends/"
                   
                   
-                >💬 说说</a></li><li
+                >🤝 友链</a></li><li
               class="menu-item"
-            ><a
-                  class="menu-link"
-                  href="/link/"
-                  
-                  
-                >🤝 友链</a></li></ul>
+            ><span class="nested-item">
+                  <a
+                    class="menu-link"
+                    href="/#"
+                    
+                    
+                  >📝 笔记</a>
+                  <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </span>
+                <ul class="sub-menu">
+                  <li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/posts/2022-1229-01/"
+                          
+                          
+                        >C语言 &amp;&amp; C&#43;&#43;</a>
+                      </li></ul></li></ul>
     </nav>
   </div>
 </header><div class="search-dropdown desktop">
@@ -197,7 +197,7 @@
     <head>
         <meta charset="utf-8">
         <title>文章热力图</title>
-        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <script src="/d3.js"></script>
         <style>
              
             title {
@@ -376,7 +376,7 @@
                 } else {
                     width = svgContainerWidth - 50;
                 }
-                const margin = 15;				
+                const margin = 0;				
                 const weekBoxWidth = 20;		
                 const monthBoxHeight = 20;
 
@@ -386,8 +386,8 @@
                 
                 let cellSize;
                 if (displayMonths === 6) {
-                    cellSize = (width - margin - weekBoxWidth - 27 * cellMargin) / 27;
-                    rili_width = (width - margin - weekBoxWidth + 10)		
+                    cellSize = (width - margin - weekBoxWidth - 28 * cellMargin) / 28;
+                    rili_width = (width - margin - weekBoxWidth )		
                     console.log(rili_width)
                 } else {
                     cellSize = (width - margin - weekBoxWidth - 53 * cellMargin) / 54;		
@@ -411,7 +411,7 @@
                 monthBox.selectAll('text').data(displayDataset.months).enter().append('text').text(v=>{
                     return v;
                 }
-                ).attr('font-size', '0.75em').attr('fill', '#999').attr('x', (v,i)=>{
+                ).attr('font-size', '0.75em').attr('fill', '#999b').attr('x', (v,i)=>{
                     return monthScale(i);
                 }
                 );
@@ -432,7 +432,7 @@
                 weekBox.selectAll('text').data(weeks).enter().append('text').text(v=>{
                     return v;
                 }
-                ).attr('font-size', '0.75em').attr('fill', '#999').attr('y', (v,i)=>{
+                ).attr('font-size', '0.75em').attr('fill', '#999b').attr('y', (v,i)=>{
                     return weekScale(i);
                 }
                 );
@@ -490,6 +490,24 @@
         </script>
     </body>
 </html></div>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+      <a href="/posts/2022-1229-01/" aria-label="C/C&#43;&#43; 从入门到入土"><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="/featuredImagePreview/6.png"
+    data-srcset="/featuredImagePreview/6.png, /featuredImagePreview/6.png 1.25x, /featuredImagePreview/6.png 1.25x"
+    data-sizes="auto"
+    alt="/featuredImagePreview/6.png"
+    title="记录C/C&#43;&#43; 学习中的重点知识"/></a>
+    </div><h1 class="single-title" itemprop="name headline">
+    <a href="/posts/2022-1229-01/">C/C&#43;&#43; 从入门到入土</a>
+  </h1><div class="post-meta">
+    
+	<svg class="icon3" aria-hidden="true">
+		<use xlink:href="#icon-yonghuming1"></use>
+	</svg>&nbsp;<span class="post-publish" title='2022-12-29 18:43:09'>发布于 <time datetime="2022-12-29">2022-12-29</time></span>&nbsp;|&nbsp;未收录</div><div class="content">记录C/C++ 学习中的重点知识</div><div class="post-footer">
+    <a href="/posts/2022-1229-01/">阅读全文</a><div class="post-tags"><a href='/tags/c/c&#43;&#43;/' class="post-tag">🏷️ C/C&#43;&#43;</a></div></div>
+</article>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
       <a href="/posts/2022-1226-01/" aria-label="Web 渗透测试指北"><img
     class="lazyload"
@@ -580,24 +598,6 @@
 	</svg>&nbsp;<span class="post-publish" title='2022-11-22 19:45:23'>发布于 <time datetime="2022-11-22">2022-11-22</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/"><i class="1111" aria-hidden="true"></i> 📂 权限提升</a></span></div><div class="content">本文带你深入了解 Linux 下的提权技术，并持续补充各种 Linux 下的各种提权姿势，待补充</div><div class="post-footer">
     <a href="/posts/2022-1122-01/">阅读全文</a><div class="post-tags"><a href='/tags/linux%E6%8F%90%E6%9D%83/' class="post-tag">🏷️ linux提权</a></div></div>
 </article>
-<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-      <a href="/posts/2022-1112-01/" aria-label="hugo主题魔改(二)"><img
-    class="lazyload"
-    src="/svg/loading.min.svg"
-    data-src="/featuredImagePreview/1.jpg"
-    data-srcset="/featuredImagePreview/1.jpg, /featuredImagePreview/1.jpg 1.25x, /featuredImagePreview/1.jpg 1.25x"
-    data-sizes="auto"
-    alt="/featuredImagePreview/1.jpg"
-    title="记录图片的各种插入方式，同时修改图片插入后的大小"/></a>
-    </div><h1 class="single-title" itemprop="name headline">
-    <a href="/posts/2022-1112-01/">hugo主题魔改(二)</a>
-  </h1><div class="post-meta">
-    
-	<svg class="icon3" aria-hidden="true">
-		<use xlink:href="#icon-yonghuming1"></use>
-	</svg>&nbsp;<span class="post-publish" title='2022-11-12 12:01:03'>发布于 <time datetime="2022-11-12">2022-11-12</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/hugo/"><i class="1111" aria-hidden="true"></i> 📂 Hugo</a></span></div><div class="content">记录图片的各种插入方式，同时修改图片插入后的大小</div><div class="post-footer">
-    <a href="/posts/2022-1112-01/">阅读全文</a><div class="post-tags"><a href='/tags/hugo/' class="post-tag">🏷️ Hugo</a></div></div>
-</article>
 <ul class="pagination"><li class="page-item">
           <span class="page-link">
             <a href="/">1</a>
@@ -611,7 +611,7 @@
             <a href="/page/3/">3</a>
           </span>
         </li></ul></div></main><footer class="footer">
-    <div class="footer-container"><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+    <div class="footer-container"><script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="c4d6143e-e2df-4ed2-b9e1-cd69306c8691";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">
               <a href="/"></a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中 ...'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i>&nbsp;<span class="run-times">网站运行中 ...</span></span></div><div class="footer-line ibruce">
           <span id="busuanzi_container_site_uv" title='总访客数'><i class="fa-regular fa-user fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='总访问量'><i class="fa-regular fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
@@ -648,13 +648,25 @@ function heatmap_width(months){
 
 var datatemp = {};
 
-  var datetemp = "2023-06-09";
+  var datetemp = "2022-11-11";
   if (!datatemp[datetemp]) {
     datatemp[datetemp] = 0;
   }
   datatemp[datetemp]++;
 
-  var datetemp = "2023-06-04";
+  var datetemp = "2023-09-20";
+  if (!datatemp[datetemp]) {
+    datatemp[datetemp] = 0;
+  }
+  datatemp[datetemp]++;
+
+  var datetemp = "2023-07-02";
+  if (!datatemp[datetemp]) {
+    datatemp[datetemp] = 0;
+  }
+  datatemp[datetemp]++;
+
+  var datetemp = "2023-06-09";
   if (!datatemp[datetemp]) {
     datatemp[datetemp] = 0;
   }
@@ -720,24 +732,6 @@ var datatemp = {};
   }
   datatemp[datetemp]++;
 
-  var datetemp = "2022-11-11";
-  if (!datatemp[datetemp]) {
-    datatemp[datetemp] = 0;
-  }
-  datatemp[datetemp]++;
-
-  var datetemp = "2021-08-31";
-  if (!datatemp[datetemp]) {
-    datatemp[datetemp] = 0;
-  }
-  datatemp[datetemp]++;
-
-  var datetemp = "0001-01-01";
-  if (!datatemp[datetemp]) {
-    datatemp[datetemp] = 0;
-  }
-  datatemp[datetemp]++;
-
 
 
 var data = [];
@@ -747,12 +741,22 @@ for (var datetemp in datatemp) {
 
 data.push(
     [
-        "2023-06-09",
+        "2022-11-11",
     ],
 );
 data.push(
     [
-        "2023-06-04",
+        "2023-09-20",
+    ],
+);
+data.push(
+    [
+        "2023-07-02",
+    ],
+);
+data.push(
+    [
+        "2023-06-09",
     ],
 );
 data.push(
@@ -803,21 +807,6 @@ data.push(
 data.push(
     [
         "2022-11-12",
-    ],
-);
-data.push(
-    [
-        "2022-11-11",
-    ],
-);
-data.push(
-    [
-        "2021-08-31",
-    ],
-);
-data.push(
-    [
-        "0001-01-01",
     ],
 );if(window.matchMedia('(max-width: 320px)').matches){
     var rangeArr = heatmap_width(3);
@@ -1084,7 +1073,7 @@ observer.observe(document.body, {
 			 
 			var frequency =  1 ;
 			 
-			var plug_count =  7 ;
+			var plug_count =  5 ;
 			$("div.home-avatar a").click(function(e) {
 				if (avatar_click % frequency === 0) {
 					avatar_plug ++;
@@ -1099,5 +1088,8 @@ observer.observe(document.body, {
 		});</script><script>fetch('https://v1.hitokoto.cn/?c=e&c=j&c=k').then(response=>response.json()).then(data=>{var str=`📣 ${data.hitokoto} —— ${data.from_who||""}《${data.from}》`;const hitokoto=document.querySelector('#hitokoto_text')
 hitokoto.innerText=str}).catch(console.error)</script>
 
-<script src="/iconfont.js"></script></body>
+<script src="/iconfont.js"></script>
+
+
+<script src="/codeblock.js"></script></body>
 </html>

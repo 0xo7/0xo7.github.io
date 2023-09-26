@@ -3,21 +3,29 @@
     <title>所有文章 - A_Yu&#39;s Blog</title>
     <link>http://example.org/posts/</link>
     <description>所有文章 | A_Yu&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 09 Jun 2023 12:16:02 &#43;0800</lastBuildDate><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
-  <title>超格公基学霸笔记——法律部分</title>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 20 Sep 2023 18:48:31 &#43;0800</lastBuildDate><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
+  <title>Fixlt主题魔改记录</title>
+  <link>http://example.org/posts/2022-1111-01/</link>
+  <pubDate>Fri, 11 Nov 2022 20:01:31 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>http://example.org/posts/2022-1111-01/</guid>
+  <description><![CDATA[本文记录对0.2.16或0.2.17版本Fixlt主题的魔改过程]]></description>
+</item>
+<item>
+  <title>自动化工具—rayder dev版</title>
+  <link>http://example.org/posts/2023-0920-01/</link>
+  <pubDate>Wed, 20 Sep 2023 18:48:31 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>http://example.org/posts/2023-0920-01/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>思维导图备份</title>
   <link>http://example.org/posts/2023-0609-01/</link>
   <pubDate>Fri, 09 Jun 2023 12:16:02 &#43;0800</pubDate>
   <author>作者</author>
   <guid>http://example.org/posts/2023-0609-01/</guid>
-  <description><![CDATA[整理自超格学霸笔记，原电子版看起来不方便]]></description>
-</item>
-<item>
-  <title>花生十三行测每日一练总结✍</title>
-  <link>http://example.org/posts/2023-0604-01/</link>
-  <pubDate>Sun, 04 Jun 2023 15:15:34 &#43;0800</pubDate>
-  <author>作者</author>
-  <guid>http://example.org/posts/2023-0604-01/</guid>
-  <description><![CDATA[转载自花生十三老师微博]]></description>
+  <description><![CDATA[]]></description>
 </item>
 <item>
   <title>Hugo和Github常见操作</title>
@@ -74,14 +82,6 @@
   <author>作者</author>
   <guid>http://example.org/posts/2022-1212-01/</guid>
   <description><![CDATA[记录 kerberos 协议中的相关安全问题，未完结]]></description>
-</item>
-<item>
-  <title>深入理解 Kerberos 协议 (上)</title>
-  <link>http://example.org/posts/2022-1207-01/</link>
-  <pubDate>Wed, 07 Dec 2022 20:39:21 &#43;0800</pubDate>
-  <author>作者</author>
-  <guid>http://example.org/posts/2022-1207-01/</guid>
-  <description><![CDATA[参考一些文章来深入理解 kerberos 协议，已完结，如果理解有误，欢迎大佬斧正]]></description>
 </item>
 </channel>
 </rss>
