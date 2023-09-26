@@ -30,14 +30,6 @@
   <description><![CDATA[详解截位直除、错位直除的本质，以及为何出现误差等]]></description>
 </item>
 <item>
-  <title>Dockit工具箱⚔️</title>
-  <link>http://example.org/posts/2023-0616-01/</link>
-  <pubDate>Fri, 16 Jun 2023 19:41:33 &#43;0800</pubDate>
-  <author>作者</author>
-  <guid>http://example.org/posts/2023-0616-01/</guid>
-  <description><![CDATA[依赖于 Docker 环境的渗透测试集成工具箱]]></description>
-</item>
-<item>
   <title>思维导图备份</title>
   <link>http://example.org/posts/2023-0609-01/</link>
   <pubDate>Fri, 09 Jun 2023 12:16:02 &#43;0800</pubDate>
