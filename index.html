@@ -75,8 +75,18 @@
                           
                           
                         >C语言 &amp;&amp; C&#43;&#43;</a>
-                      </li></ul></li><li class="menu-item delimiter"></li>
-      </ul>
+                      </li></ul></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="1" aria-hidden="true"></i>🔍
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li></ul>
     </nav>
   </div>
 </header><header class="mobile animate__faster" id="header-mobile">
@@ -89,8 +99,23 @@
       </div>
     </div>
     <nav>
-      <ul class="menu" id="menu-mobile">
-     <li
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="1" aria-hidden="true"></i>🔍
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
               class="menu-item"
             ><a
                   class="menu-link"
@@ -376,7 +401,7 @@
                 } else {
                     width = svgContainerWidth - 50;
                 }
-                const margin = 0;				
+                const margin = 15;				
                 const weekBoxWidth = 20;		
                 const monthBoxHeight = 20;
 
@@ -386,8 +411,8 @@
                 
                 let cellSize;
                 if (displayMonths === 6) {
-                    cellSize = (width - margin - weekBoxWidth - 28 * cellMargin) / 28;
-                    rili_width = (width - margin - weekBoxWidth )		
+                    cellSize = (width - margin - weekBoxWidth - 27 * cellMargin) / 27;
+                    rili_width = (width - margin - weekBoxWidth + 10)		
                     console.log(rili_width)
                 } else {
                     cellSize = (width - margin - weekBoxWidth - 53 * cellMargin) / 54;		
@@ -411,7 +436,7 @@
                 monthBox.selectAll('text').data(displayDataset.months).enter().append('text').text(v=>{
                     return v;
                 }
-                ).attr('font-size', '0.75em').attr('fill', '#999b').attr('x', (v,i)=>{
+                ).attr('font-size', '0.75em').attr('fill', '#999').attr('x', (v,i)=>{
                     return monthScale(i);
                 }
                 );
@@ -432,7 +457,7 @@
                 weekBox.selectAll('text').data(weeks).enter().append('text').text(v=>{
                     return v;
                 }
-                ).attr('font-size', '0.75em').attr('fill', '#999b').attr('y', (v,i)=>{
+                ).attr('font-size', '0.75em').attr('fill', '#999').attr('y', (v,i)=>{
                     return weekScale(i);
                 }
                 );
@@ -527,6 +552,42 @@
     <a href="/posts/2023-0920-01/">阅读全文</a><div class="post-tags"><a href='/tags/draft/' class="post-tag">🏷️ draft</a></div></div>
 </article>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+      <a href="/posts/2023-0924-01/" aria-label="一文搞懂除法直除速算技巧"><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="/featuredImagePreview/1.jpg"
+    data-srcset="/featuredImagePreview/1.jpg, /featuredImagePreview/1.jpg 1.25x, /featuredImagePreview/1.jpg 1.25x"
+    data-sizes="auto"
+    alt="/featuredImagePreview/1.jpg"
+    title="详解截位直除、错位直除的本质，以及为何出现误差等"/></a>
+    </div><h1 class="single-title" itemprop="name headline">
+    <a href="/posts/2023-0924-01/">一文搞懂除法直除速算技巧</a>
+  </h1><div class="post-meta">
+    
+	<svg class="icon3" aria-hidden="true">
+		<use xlink:href="#icon-yonghuming1"></use>
+	</svg>&nbsp;<span class="post-publish" title='2023-09-24 10:23:28'>发布于 <time datetime="2023-09-24">2023-09-24</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/draft/"><i class="1111" aria-hidden="true"></i> 📂 draft</a></span></div><div class="content">详解截位直除、错位直除的本质，以及为何出现误差等</div><div class="post-footer">
+    <a href="/posts/2023-0924-01/">阅读全文</a><div class="post-tags"><a href='/tags/draft/' class="post-tag">🏷️ draft</a></div></div>
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+      <a href="/posts/2023-0616-01/" aria-label="Dockit工具箱⚔️"><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="/featuredImagePreview/docker.jpeg"
+    data-srcset="/featuredImagePreview/docker.jpeg, /featuredImagePreview/docker.jpeg 1.25x, /featuredImagePreview/docker.jpeg 1.25x"
+    data-sizes="auto"
+    alt="/featuredImagePreview/docker.jpeg"
+    title="依赖于 Docker 环境的渗透测试集成工具箱"/></a>
+    </div><h1 class="single-title" itemprop="name headline">
+    <a href="/posts/2023-0616-01/">Dockit工具箱⚔️</a>
+  </h1><div class="post-meta">
+    
+	<svg class="icon3" aria-hidden="true">
+		<use xlink:href="#icon-yonghuming1"></use>
+	</svg>&nbsp;<span class="post-publish" title='2023-06-16 19:41:33'>发布于 <time datetime="2023-06-16">2023-06-16</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91/"><i class="1111" aria-hidden="true"></i> 📂 安全开发</a></span></div><div class="content">依赖于 Docker 环境的渗透测试集成工具箱</div><div class="post-footer">
+    <a href="/posts/2023-0616-01/">阅读全文</a><div class="post-tags"><a href='/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/' class="post-tag">🏷️ 自动化</a><a href='/tags/%E6%AD%A6%E5%99%A8%E5%BA%93/' class="post-tag">🏷️ 武器库</a></div></div>
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
       <a href="/posts/2023-0609-01/" aria-label="思维导图备份"><img
     class="lazyload"
     src="/svg/loading.min.svg"
@@ -561,42 +622,6 @@
 		<use xlink:href="#icon-yonghuming1"></use>
 	</svg>&nbsp;<span class="post-publish" title='2023-04-24 18:51:26'>发布于 <time datetime="2023-04-24">2023-04-24</time></span>&nbsp;|&nbsp;未收录</div><div class="content">Github 常见操作和 Git Action 自动提交，未完结</div><div class="post-footer">
     <a href="/posts/2023-0424-01/">阅读全文</a><div class="post-tags"><a href='/tags/git/' class="post-tag">🏷️ git</a></div></div>
-</article>
-<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-      <a href="/posts/2023-0310-01/" aria-label="Kali 配置"><img
-    class="lazyload"
-    src="/svg/loading.min.svg"
-    data-src="/featuredImagePreview/kali.png"
-    data-srcset="/featuredImagePreview/kali.png, /featuredImagePreview/kali.png 1.25x, /featuredImagePreview/kali.png 1.25x"
-    data-sizes="auto"
-    alt="/featuredImagePreview/kali.png"
-    title="有时会重新下载 kali，所以简单记录常见配置"/></a>
-    </div><h1 class="single-title" itemprop="name headline">
-    <a href="/posts/2023-0310-01/">Kali 配置</a>
-  </h1><div class="post-meta">
-    
-	<svg class="icon3" aria-hidden="true">
-		<use xlink:href="#icon-yonghuming1"></use>
-	</svg>&nbsp;<span class="post-publish" title='2023-03-10 12:46:17'>发布于 <time datetime="2023-03-10">2023-03-10</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/"><i class="1111" aria-hidden="true"></i> 📂 基础配置</a></span></div><div class="content">有时会重新下载 kali，所以简单记录常见配置</div><div class="post-footer">
-    <a href="/posts/2023-0310-01/">阅读全文</a><div class="post-tags"><a href='/tags/kali%E9%85%8D%E7%BD%AE/' class="post-tag">🏷️ kali配置</a></div></div>
-</article>
-<article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-      <a href="/posts/2023-0129-01/" aria-label="面试题汇总"><img
-    class="lazyload"
-    src="/svg/loading.min.svg"
-    data-src="/featuredImagePreview/mianshi.png"
-    data-srcset="/featuredImagePreview/mianshi.png, /featuredImagePreview/mianshi.png 1.25x, /featuredImagePreview/mianshi.png 1.25x"
-    data-sizes="auto"
-    alt="/featuredImagePreview/mianshi.png"
-    title="待补充"/></a>
-    </div><h1 class="single-title" itemprop="name headline">
-    <a href="/posts/2023-0129-01/">面试题汇总</a>
-  </h1><div class="post-meta">
-    
-	<svg class="icon3" aria-hidden="true">
-		<use xlink:href="#icon-yonghuming1"></use>
-	</svg>&nbsp;<span class="post-publish" title='2023-01-29 13:35:28'>发布于 <time datetime="2023-01-29">2023-01-29</time></span>&nbsp;|&nbsp;未收录</div><div class="content">待补充</div><div class="post-footer">
-    <a href="/posts/2023-0129-01/">阅读全文</a><div class="post-tags"><a href='/tags/%E9%9D%A2%E8%AF%95/' class="post-tag">🏷️ 面试</a></div></div>
 </article>
 <ul class="pagination"><li class="page-item active">
           <span class="page-link">
@@ -660,7 +685,19 @@ var datatemp = {};
   }
   datatemp[datetemp]++;
 
+  var datetemp = "2023-09-24";
+  if (!datatemp[datetemp]) {
+    datatemp[datetemp] = 0;
+  }
+  datatemp[datetemp]++;
+
   var datetemp = "2023-07-02";
+  if (!datatemp[datetemp]) {
+    datatemp[datetemp] = 0;
+  }
+  datatemp[datetemp]++;
+
+  var datetemp = "2023-06-16";
   if (!datatemp[datetemp]) {
     datatemp[datetemp] = 0;
   }
@@ -751,7 +788,17 @@ data.push(
 );
 data.push(
     [
+        "2023-09-24",
+    ],
+);
+data.push(
+    [
         "2023-07-02",
+    ],
+);
+data.push(
+    [
+        "2023-06-16",
     ],
 );
 data.push(
@@ -1060,7 +1107,7 @@ observer.observe(document.body, {
         </div></div><a href="https://github.com/hugo-fixit/FixIt" title="github"target="_blank" rel="external nofollow" class="github-corner right d-none-mobile"><svg viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><div id="mask"></div><noscript>
     <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
   </noscript>
-</div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/lunr/lunr.min.js" defer></script><script src="/lib/lunr/lunr.stemmer.support.min.js" defer></script><script src="/lib/lunr/lunr.zh.min.js" defer></script><script src="/lib/lazysizes/lazysizes.min.js" async defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":true},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"data":{"typeit-profile-subtitle":"凡是过往，皆为序章 "},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50},"siteTime":"2022-11-11T16:15:22+08:00"};</script><script src="/js/theme.min.js"></script><script src="/js/custom.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+</div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/lunr/lunr.min.js" defer></script><script src="/lib/lunr/lunr.stemmer.support.min.js" defer></script><script src="/lib/lunr/lunr.zh.min.js" defer></script><script src="/lib/lazysizes/lazysizes.min.js" async defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":true},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"data":{"typeit-profile-subtitle":"凡是过往，皆为序章 "},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50},"siteTime":"2022-11-11T16:15:22+08:00"};</script><script src="/js/theme.min.js" defer></script><script src="/js/custom.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
 
 

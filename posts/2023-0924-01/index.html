@@ -5,21 +5,42 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>协议 - 标签 - A_Yu&#39;s Blog</title><meta name="author" content="">
+    <title>一文搞懂除法直除速算技巧 - A_Yu&#39;s Blog</title><meta name="author" content="">
 <meta name="author-link" content="">
-<meta name="description" content="这是我的全新Hugo_FixIt网站" /><meta name="keywords" content='Hugo, FixIt' /><meta itemprop="name" content="协议">
-<meta itemprop="description" content="这是我的全新Hugo_FixIt网站"><meta property="og:title" content="协议" />
-<meta property="og:description" content="这是我的全新Hugo_FixIt网站" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://example.org/tags/%E5%8D%8F%E8%AE%AE/" />
+<meta name="description" content="详解截位直除、错位直除的本质，以及为何出现误差等" /><meta name="keywords" content='draft' /><meta itemprop="name" content="一文搞懂除法直除速算技巧">
+<meta itemprop="description" content="详解截位直除、错位直除的本质，以及为何出现误差等"><meta itemprop="datePublished" content="2023-09-24T10:23:28+08:00" />
+<meta itemprop="dateModified" content="2023-09-26T21:19:47+08:00" />
+<meta itemprop="wordCount" content="627">
+<meta itemprop="keywords" content="draft," /><meta property="og:title" content="一文搞懂除法直除速算技巧" />
+<meta property="og:description" content="详解截位直除、错位直除的本质，以及为何出现误差等" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/2023-0924-01/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-24T10:23:28+08:00" />
+<meta property="article:modified_time" content="2023-09-26T21:19:47+08:00" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="协议"/>
-<meta name="twitter:description" content="这是我的全新Hugo_FixIt网站"/>
+<meta name="twitter:title" content="一文搞懂除法直除速算技巧"/>
+<meta name="twitter:description" content="详解截位直除、错位直除的本质，以及为何出现误差等"/>
 <meta name="application-name" content="FixIt">
 <meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="http://example.org/tags/%E5%8D%8F%E8%AE%AE/" /><link rel="alternate" href="/tags/%E5%8D%8F%E8%AE%AE/index.xml" type="application/rss+xml" title="A_Yu&#39;s Blog">
-  <link rel="feed" href="/tags/%E5%8D%8F%E8%AE%AE/index.xml" type="application/rss+xml" title="A_Yu&#39;s Blog"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"></head>
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="http://example.org/posts/2023-0924-01/" /><link rel="prev" href="http://example.org/posts/2023-0616-01/" /><link rel="next" href="http://example.org/posts/2023-0920-01/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "一文搞懂除法直除速算技巧",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/example.org\/posts\/2023-0924-01\/"
+    },"genre": "posts","keywords": "draft","wordcount":  627 ,
+    "url": "http:\/\/example.org\/posts\/2023-0924-01\/","datePublished": "2023-09-24T10:23:28+08:00","dateModified": "2023-09-26T21:19:47+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "作者"
+      },"description": "详解截位直除、错位直除的本质，以及为何出现误差等"
+  }
+  </script></head>
   <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper"><header class="desktop animate__faster" id="header-desktop">
   <div class="header-wrapper" data-github-corner="right">
     <div class="header-title">
@@ -163,11 +184,199 @@
   </div>
   <div class="search-dropdown mobile">
     <div id="search-dropdown-mobile"></div>
-  </div><main class="container" data-page-style="noraml"><div class="page archive"><h2 class="single-title animate__animated animate__pulse animate__faster"><i class="111" aria-hidden="true"></i>
-        🏷️ 协议&nbsp;<sup>1</sup></h2><h3 class="group-title">🎯 2022</h3><article class="archive-item">
-            <a href="/posts/2022-1207-01/" class="archive-item-link">深入理解 Kerberos 协议 (上)</a>
-            <span class="archive-item-date" title=2022-12-07&#32;20:39:21>12-07</span>
-          </article></div></main><footer class="footer">
+  </div><main class="container" data-page-style="noraml"><aside class="toc" id="toc-auto"><h2 class="toc-title">
+        📌&nbsp目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    </aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX">
+        <span>一文搞懂除法直除速算技巧</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><svg class="icon3" aria-hidden="true">
+	<use xlink:href="#icon-yonghuming1
+"></use>
+  </svg><span class="author"><i class="111" aria-hidden="true"></i>
+      </span></span>
+          <span class="post-category">收录于 <a href="/categories/draft/"><i class="111" aria-hidden="true"></i> 📂 draft</a></span></div>
+      <div class="post-meta-line"><span title=2023-09-24&#32;10:23:28><i class="111" aria-hidden="true"></i><time datetime="2023-09-24">
+<svg class="icon2" aria-hidden="true">
+  <use xlink:href="#icon-rili3"></use>
+</svg>
+			2023-09-24</time></span>&nbsp;<span><i class="111" aria-hidden="true"></i> 
+<svg class="icon2" aria-hidden="true">
+  <use xlink:href="#icon-qianbi1"></use>
+</svg>
+			约 627 字</span>&nbsp;<span><i class="111" aria-hidden="true"></i> 
+<svg class="icon2" aria-hidden="true">
+  <use xlink:href="#icon-shalou2"></use>
+</svg>
+			预计阅读 2 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#截位直除">截位直除</a></li>
+    <li><a href="#错位直除">错位直除</a></li>
+    <li><a href="#错位直除思想求增量">错位直除思想求增量</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><blockquote>
+<p>资料分析中有关除法的速算最常见的就是求前期和增量，相关的技巧有非常多，实际上用的多的就几种方法，每个人都有自己习惯的方法。但个人还是比较喜欢直除，感觉直除在实战中更加好用。本文记录自己对于直除技巧的理解，尽量做到知其然知其所以然</p>
+</blockquote>
+<h2 id="截位直除">截位直除</h2>
+<p>在资料分析中，一般给需要计算的数都比较大，比如：12345 /  1369</p>
+<p>通过计算器计算后，保留小数点后五位，如下：</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20230924104655997.png"
+    data-srcset="image-20230924104655997.png, image-20230924104655997.png 1.25x, image-20230924104655997.png 1.25x"
+    data-sizes="auto"
+    alt="image-20230924104655997"
+    title="image-20230924104655997"/></p>
+<p>我们可以通过截位来优化计算过程，比如：四舍五入</p>
+<p>四舍五入后，同样保留小数点后五位，如下：</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20230924104934423.png"
+    data-srcset="image-20230924104934423.png, image-20230924104934423.png 1.25x, image-20230924104934423.png 1.25x"
+    data-sizes="auto"
+    alt="image-20230924104934423"
+    title="image-20230924104934423"/></p>
+<p>四舍五入后计算出的结果和原来相比变小了，误差为：9.01753 ➖ 9.01459 = 0.00294</p>
+<p>那么这个误差到底是如何出现的呢 ？</p>
+<p>12345 ➗ 1369，四舍五入后用 1235 ➗ 137 来计算，实际上应该说是用 12350 ➗ 1370 ，只不过最后分子分母同时约去了一个 0，这样我们就很容易想清楚误差的具体来源，如下：</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20230924105801392.png"
+    data-srcset="image-20230924105801392.png, image-20230924105801392.png 1.25x, image-20230924105801392.png 1.25x"
+    data-sizes="auto"
+    alt="image-20230924105801392"
+    title="image-20230924105801392"/></p>
+<br/>
+<p>与原式相比，分子和分母同时变大了，导致出现了误差，但是四舍五入后为啥上面的结果变小了呢 ？？如何判断具体是变小还是变大呢 ？？</p>
+<p>我们首先来了解一个常识点，如果分子和分母扩大或缩小的时候，分子变化值/分母变化值 =  原来的  分子/分母，那么放缩后的值肯定还是不变的，如下：</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20230924113107786.png"
+    data-srcset="image-20230924113107786.png, image-20230924113107786.png 1.25x, image-20230924113107786.png 1.25x"
+    data-sizes="auto"
+    alt="image-20230924113107786"
+    title="image-20230924113107786"/></p>
+<p>上面的常识点，有点类似于盐水的问题，注意这里分母代表的是溶剂，分子代表溶质。比如如下：</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20230924121810434.png"
+    data-srcset="image-20230924121810434.png, image-20230924121810434.png 1.25x, image-20230924121810434.png 1.25x"
+    data-sizes="auto"
+    alt="image-20230924121810434"
+    title="image-20230924121810434"/></p>
+<p>这样分析完后，我们就很容易判断出误差到底是变大还是变小，如下：</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20230924122943968.png"
+    data-srcset="image-20230924122943968.png, image-20230924122943968.png 1.25x, image-20230924122943968.png 1.25x"
+    data-sizes="auto"
+    alt="image-20230924122943968"
+    title="image-20230924122943968"/></p>
+<p>我们再分析一个误差变大的情况，如下：
+<img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20230924130254250.png"
+    data-srcset="image-20230924130254250.png, image-20230924130254250.png 1.25x, image-20230924130254250.png 1.25x"
+    data-sizes="auto"
+    alt="image-20230924130254250"
+    title="image-20230924130254250"/></p>
+<p>分析如下：</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20230924131232079.png"
+    data-srcset="image-20230924131232079.png, image-20230924131232079.png 1.25x, image-20230924131232079.png 1.25x"
+    data-sizes="auto"
+    alt="image-20230924131232079"
+    title="image-20230924131232079"/></p>
+<br/>
+<p>注意：截位的时候，即使遵守四舍五入原则，得到的结果也不一定是最优，如下，我们可以看到反而全部舍掉误差最小</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20230924131407663.png"
+    data-srcset="image-20230924131407663.png, image-20230924131407663.png 1.25x, image-20230924131407663.png 1.25x"
+    data-sizes="auto"
+    alt="image-20230924131407663"
+    title="image-20230924131407663"/></p>
+<h2 id="错位直除">错位直除</h2>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="D:%5cLucy%e5%bf%ab%e9%80%9f%e5%90%af%e5%8a%a8v1.7.6%5c%e4%b8%aa%e4%ba%ba%5cHugoBlog%5ccontent%5cposts%5c2023-0924-01%5cimage-20230926182426770.png"
+    data-srcset="D:%5cLucy%e5%bf%ab%e9%80%9f%e5%90%af%e5%8a%a8v1.7.6%5c%e4%b8%aa%e4%ba%ba%5cHugoBlog%5ccontent%5cposts%5c2023-0924-01%5cimage-20230926182426770.png, D:%5cLucy%e5%bf%ab%e9%80%9f%e5%90%af%e5%8a%a8v1.7.6%5c%e4%b8%aa%e4%ba%ba%5cHugoBlog%5ccontent%5cposts%5c2023-0924-01%5cimage-20230926182426770.png 1.25x, D:%5cLucy%e5%bf%ab%e9%80%9f%e5%90%af%e5%8a%a8v1.7.6%5c%e4%b8%aa%e4%ba%ba%5cHugoBlog%5ccontent%5cposts%5c2023-0924-01%5cimage-20230926182426770.png 1.25x"
+    data-sizes="auto"
+    alt="image-20230926182426770"
+    title="image-20230926182426770"/></p>
+<h2 id="错位直除思想求增量">错位直除思想求增量</h2></div><div class="post-reward">
+    <div class="comment"></div>
+    <input type="checkbox" class="reward-input" name="reward" id="fi-reward" hidden />
+    <label class="reward-button" for="fi-reward">赞赏</label>
+    <div class="reward-ways"><div>
+            <img src="/images/wechatpay.png" alt=" 微信">
+            <span data-animation>微信</span>
+          </div></div>
+  </div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title=2023-09-26&#32;21:19:47>更新于 2023-09-26&nbsp;</span>
+      </div></div>
+    <div class="post-info-line">
+      <div class="post-info-md"><span><a href="/posts%5c2023-0924-01.md" title="编辑此页" class="link-to-edit">编辑此页</a></span></div>
+      <div class="post-info-share">
+        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://example.org/posts/2023-0924-01/" data-title="一文搞懂除法直除速算技巧" data-hashtags="draft"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://example.org/posts/2023-0924-01/" data-title="一文搞懂除法直除速算技巧"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://example.org/posts/2023-0924-01/" data-title="一文搞懂除法直除速算技巧"><i class="fa-brands fa-evernote fa-fw" aria-hidden="true"></i></a>
+  </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="111" aria-hidden="true"></i><a href='/tags/draft/' class="post-tag">🏷️ draft</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/posts/2023-0616-01/" class="post-nav-item" rel="prev" title="Dockit工具箱⚔️"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Dockit工具箱⚔️</a>
+      <a href="/posts/2023-0920-01/" class="post-nav-item" rel="next" title="自动化工具—rayder dev版">自动化工具—rayder dev版<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<script src="https://giscus.app/client.js"
+        data-repo="ayuxy/blog_comment"
+        data-repo-id="R_kgDOKV9mcQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOKV9mcc4CZe2E"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script></article></main><footer class="footer">
     <div class="footer-container"><script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="c4d6143e-e2df-4ed2-b9e1-cd69306c8691";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">
               <a href="/"></a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中 ...'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i>&nbsp;<span class="run-times">网站运行中 ...</span></span></div><div class="footer-line ibruce">
@@ -639,7 +848,7 @@ observer.observe(document.body, {
         </div></div><a href="https://github.com/hugo-fixit/FixIt" title="github"target="_blank" rel="external nofollow" class="github-corner right d-none-mobile"><svg viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><div id="mask"></div><noscript>
     <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
   </noscript>
-</div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/lunr/lunr.min.js" defer></script><script src="/lib/lunr/lunr.stemmer.support.min.js" defer></script><script src="/lib/lunr/lunr.zh.min.js" defer></script><script src="/lib/lazysizes/lazysizes.min.js" async defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":true},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50},"siteTime":"2022-11-11T16:15:22+08:00"};</script><script src="/js/theme.min.js" defer></script><script src="/js/custom.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+</div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/lunr/lunr.min.js" defer></script><script src="/lib/lunr/lunr.stemmer.support.min.js" defer></script><script src="/lib/lunr/lunr.zh.min.js" defer></script><script src="/lib/lazysizes/lazysizes.min.js" async defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":true},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"search":{"highlightTag":"em","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50},"siteTime":"2022-11-11T16:15:22+08:00"};</script><script src="/js/theme.min.js" defer></script><script src="/js/custom.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
 
 
