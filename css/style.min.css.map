@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "style.min.css",
-	"sourceRoot": "D:/Lucy快速启动v1.7.6/个人/HugoBlog",
+	"sourceRoot": "/home/runner/work/Blog_Backup/Blog_Backup",
 	"sources": [
 		"themes/FixIt/assets/css/style.scss",
 		"themes/FixIt/assets/css/_variables.scss",
