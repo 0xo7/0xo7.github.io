@@ -5,20 +5,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>自动化工具—rayder dev版 - A_Yu&#39;s Blog</title><meta name="author" content="">
+    <title>自动化工具 - A_Yu&#39;s Blog</title><meta name="author" content="">
 <meta name="author-link" content="">
-<meta name="description" content="这是我的全新Hugo_FixIt网站" /><meta name="keywords" content='draft' /><meta itemprop="name" content="自动化工具—rayder dev版">
+<meta name="description" content="这是我的全新Hugo_FixIt网站" /><meta name="keywords" content='draft' /><meta itemprop="name" content="自动化工具">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-09-20T18:48:31+08:00" />
-<meta itemprop="dateModified" content="2023-10-01T00:35:20+00:00" />
-<meta itemprop="wordCount" content="273">
-<meta itemprop="keywords" content="draft," /><meta property="og:title" content="自动化工具—rayder dev版" />
+<meta itemprop="dateModified" content="2023-10-01T01:13:23+00:00" />
+<meta itemprop="wordCount" content="1460">
+<meta itemprop="keywords" content="draft," /><meta property="og:title" content="自动化工具" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://example.org/posts/2023-0920-01/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-09-20T18:48:31+08:00" />
-<meta property="article:modified_time" content="2023-10-01T00:35:20+00:00" />
+<meta property="article:modified_time" content="2023-10-01T01:13:23+00:00" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="自动化工具—rayder dev版"/>
+<meta name="twitter:title" content="自动化工具"/>
 <meta name="twitter:description" content=""/>
 <meta name="application-name" content="FixIt">
 <meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -27,13 +27,13 @@
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "headline": "自动化工具—rayder dev版",
+    "headline": "自动化工具",
     "inLanguage": "zh-CN",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/example.org\/posts\/2023-0920-01\/"
-    },"genre": "posts","keywords": "draft","wordcount":  273 ,
-    "url": "http:\/\/example.org\/posts\/2023-0920-01\/","datePublished": "2023-09-20T18:48:31+08:00","dateModified": "2023-10-01T00:35:20+00:00","publisher": {
+    },"genre": "posts","keywords": "draft","wordcount":  1460 ,
+    "url": "http:\/\/example.org\/posts\/2023-0920-01\/","datePublished": "2023-09-20T18:48:31+08:00","dateModified": "2023-10-01T01:13:23+00:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
         "@type": "Person",
@@ -193,7 +193,7 @@
 
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX">
-        <span>自动化工具—rayder dev版</span>
+        <span>自动化工具</span>
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><svg class="icon3" aria-hidden="true">
 	<use xlink:href="#icon-yonghuming1
@@ -209,11 +209,11 @@
 <svg class="icon2" aria-hidden="true">
   <use xlink:href="#icon-qianbi1"></use>
 </svg>
-			约 273 字</span>&nbsp;<span><i class="111" aria-hidden="true"></i> 
+			约 1460 字</span>&nbsp;<span><i class="111" aria-hidden="true"></i> 
 <svg class="icon2" aria-hidden="true">
   <use xlink:href="#icon-shalou2"></use>
 </svg>
-			预计阅读 1 分钟</span>&nbsp;</div>
+			预计阅读 3 分钟</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>目录</span>
@@ -223,31 +223,253 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#二次开发">二次开发</a></li>
-        <li><a href="#待添加镜像">待添加镜像</a></li>
+        <li><a href="#修改">修改</a></li>
+        <li><a href="#待添加">待添加</a></li>
+        <li><a href="#工具下载">工具下载</a></li>
+        <li><a href="#yaml模板下载">YAML模板下载</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
       </div><div class="content" id="content"><blockquote>
-<p>原工具来自 GitHub，在原工具的基础上做了二次开发，同时用 docker 编写 yaml 中的各个模块实现自动化。主要用于自动化挖掘 hackerone 等漏洞来获取赏金，也可以用于</p>
+<p>新的工具主要用于辅助渗透测试和漏洞挖掘，原工具来自 <a href="https://github.com/devanshbatham/rayder"target="_blank" rel="external nofollow noopener noreferrer">https://github.com/devanshbatham/rayder</a>，在原工具的基础上做了二次开发，重写了代码逻辑，添加了一些新功能。</p>
 </blockquote>
-<h3 id="二次开发">二次开发</h3>
-<ul> <input type="checkbox" checked onclick="this.checked=!this.checked"> 非静默模式下，支持 docker run 的 -it 参数</ul>
+<h3 id="修改">修改</h3>
+<ul> <input type="checkbox" checked onclick="this.checked=!this.checked"> 支持docker 的-it参数，在静默模式下-it参数会自动修改成-i参数</ul>
 <ul> <input type="checkbox" checked onclick="this.checked=!this.checked"> 修改并发执行的逻辑，允许某些任务可以并发执行，而并非所有任务都并发执行 </ul>
 <ul> <input type="checkbox" checked onclick="this.checked=!this.checked"> 添加 ctrlc 字段，按下 ctrl+c 的时候，执行 ctrlc 字段的内容 </ul>
+<ul> <input type="checkbox" checked onclick="this.checked=!this.checked"> 内置了 {{YamlName}} 变量，代表 -w 加载的yaml的模板名称 </ul>
 <ul> <input type="checkbox" onclick="this.checked=!this.checked"> 支持和兼容 windwos 下的运行 </ul>
 <ul> <input type="checkbox" onclick="this.checked=!this.checked"> 优化非静默模式和静默模式的显示结果，静默模式下扫描完成后，显示生成xxx文件 </ul>
-<ul> <input type="checkbox" onclick="this.checked=!this.checked"> 代码逻辑优化</ul>
-<h3 id="待添加镜像">待添加镜像</h3>
-<ul> <input type="checkbox" > 每周自动下载最新的资产信息等</ul>
-<ul> <input type="checkbox" > 扫描快照中的 URL 和端点信息</ul>
+<h3 id="待添加">待添加</h3>
+<ul> <input type="checkbox" > 自动下载每周最新的赏金资产信息等</ul>
 <ul> <input type="checkbox" > 添加 afrog 做漏洞扫描</ul>
-<ul> <input type="checkbox" > 整理所有的输出结果</ul>
-<ul> <input type="checkbox" > 推送输出结果到 telegram 或 slack</ul>
-<ul> <input type="checkbox" > 添加自动化 XSS 扫描工具</ul>
-<ul> <input type="checkbox" > </ul>
-编辑测试测试</div><div class="post-reward">
+<ul> <input type="checkbox" > 添加 XSS 扫描工具</ul>
+<ul> <input type="checkbox" > 整合所有的输出结果</ul>
+<ul> <input type="checkbox" > 通过 git action 自动更新docker镜像</ul>
+<ul> <input type="checkbox" > 由于 notify (https://github.com/projectdiscovery/notify) 目前不支持 dingding，支持以后再考虑推送到 dingding</ul>
+<h3 id="工具下载">工具下载</h3>
+<p>修改后的工具如下，所有功能实现后会把修改后的代码放到 github
+<a href="/rayder" title="Download rayder" class="card-link" download="rayder"><span class="cl-backdrop" style="--cl-bg-url: url(/fixit.min.svg);"></span>
+    <span class="cl-content">
+      <span class="cl-text">
+        <span class="cl-title">rayder</span>
+        <span class="cl-meta">
+          <svg class="cl-icon-link" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path d="M574 665.4c-3.1-3.1-8.2-3.1-11.3 0L446.5 781.6c-53.8 53.8-144.6 59.5-204 0-59.5-59.5-53.8-150.2 0-204l116.2-116.2c3.1-3.1 3.1-8.2 0-11.3l-39.8-39.8c-3.1-3.1-8.2-3.1-11.3 0L191.4 526.5c-84.6 84.6-84.6 221.5 0 306s221.5 84.6 306 0l116.2-116.2c3.1-3.1 3.1-8.2 0-11.3L574 665.4zM832.6 191.4c-84.6-84.6-221.5-84.6-306 0L410.3 307.6c-3.1 3.1-3.1 8.2 0 11.3l39.7 39.7c3.1 3.1 8.2 3.1 11.3 0l116.2-116.2c53.8-53.8 144.6-59.5 204 0 59.5 59.5 53.8 150.2 0 204L665.3 562.6c-3.1 3.1-3.1 8.2 0 11.3l39.8 39.8c3.1 3.1 8.2 3.1 11.3 0l116.2-116.2c84.5-84.6 84.5-221.5 0-306.1z" fill="#a9a9b3"></path><path d="M610.1 372.3c-3.1-3.1-8.2-3.1-11.3 0L372.3 598.7c-3.1 3.1-3.1 8.2 0 11.3l39.6 39.6c3.1 3.1 8.2 3.1 11.3 0l226.4-226.4c3.1-3.1 3.1-8.2 0-11.3l-39.5-39.6z" fill="#a9a9b3"></path></svg>
+          <span class="cl-url">/rayder</span>
+        </span>
+      </span><svg class="cl-icon-download" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="64" height="64"><path d="M824.32 473.6c-15.36-2.56-25.6-15.36-25.6-30.72 0-112.64-71.68-217.6-179.2-250.88-148.48-46.08-289.28 38.4-332.8 166.4-2.56 10.24-12.8 17.92-23.04 20.48C143.36 401.92 51.2 509.44 51.2 637.44v2.56c0 115.2 97.28 204.8 209.92 204.8h524.8c102.4-2.56 184.32-84.48 184.32-186.88 2.56-89.6-61.44-163.84-145.92-184.32z m-273.92 225.28c-12.8 12.8-30.72 15.36-46.08 10.24H501.76c-5.12-2.56-10.24-5.12-15.36-10.24L366.08 578.56c-15.36-15.36-15.36-43.52 0-58.88 15.36-15.36 43.52-15.36 58.88 0l51.2 51.2V352.4608c0-23.04 17.92-40.96 40.96-40.96 23.04 0 40.96 17.92 40.96 40.96v218.4192l51.2-51.2c17.92-17.92 43.52-17.92 61.44 0 17.92 15.36 17.92 40.96 0 58.88l-120.32 120.32z" fill="#4FC089"></path></svg></span></a></p>
+<h3 id="yaml模板下载">YAML模板下载</h3>
+<p>YAML 模板待完善，目前仅完成了部分功能，输入  <code>./rayder -w workflow.yaml file=input.txt</code> 即可使用</p>
+<p>YAML模板如下，需要填写 slack 的 <a href="https://github.com/projectdiscovery/notify#references"target="_blank" rel="external nofollow noopener noreferrer">配置信息</a>，国内应用商店不支持下载，可以通过 Google Play Store下载，后续使用无需挂代理（只填写slack_webhook_url即可，observer_ward 的漏洞推送也是通过 slack 来实现的），在用 observer_ward 进行指纹识别的时候，匹配到指纹后，会做<a href="https://github.com/0x727/FingerprintHub/tree/main/plugins"target="_blank" rel="external nofollow noopener noreferrer">相关的漏洞</a>验证，如果存在漏洞，则推送到 slack 中，测试 thinkphp 的 rce 如下：</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20230930224935611.png"
+    data-srcset="image-20230930224935611.png, image-20230930224935611.png 1.25x, image-20230930224935611.png 1.25x"
+    data-sizes="auto"
+    alt="image-20230930224935611"
+    title="image-20230930224935611"/></p>
+<ul>
+<li>
+<p>首次执行的时候，会拉取 docker 镜像，速度会比较慢</p>
+</li>
+<li>
+<p>当任务的 parallel 为 false 的时候，必须等待该任务执行完后才能继续向下执行，如果是true，那么该任务无需执行完即可向下执行</p>
+</li>
+<li>
+<p>首次执行的时候，最好设置所有任务为非静默模式（silent: false），方便查看运行和报错情况等</p>
+</li>
+<li>
+<p>注意：当设置非静默输出的时候，若存在多个任务并发执行，显示可能会出现顺序上的错乱</p>
+</li>
+<li>
+<p>当按下ctrl+c的时候，会执行 ctrlc 字段的命令</p>
+</li>
+</ul>
+
+
+
+    
+
+
+
+<div class="codetitle"></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">modules</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">过滤域名</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">parallel</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cmds</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker run --rm --network host -v &#34;$(pwd)&#34;:/tools/  --name morefind1 ayuxy/tools-morefind -d -f {{file}}  | docker run --rm -i --network host -v &#34;$(pwd)&#34;:/tools/ -w /tools/ --name httpx1 ayuxy/tools-httpx -o Domain.txt</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">silent</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ctrlc</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker kill morefind1 httpx1 &gt;/dev/null 2&gt;&amp;1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">挖掘子域名</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">parallel</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cmds</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker run --rm --network host -v &#34;$(pwd)&#34;:/tools/ --name morefind2 ayuxy/tools-morefind -d --root -f {{file}}  | docker run --rm -i --network host -v &#34;$(pwd)&#34;:/tools/ -w /tools/ --name subfinder1 ayuxy/tools-subfinder -silent | docker run --rm -i --network host -v &#34;$(pwd)&#34;:/tools/ -w /tools/ --name httpx2 ayuxy/tools-httpx -silent -o SubDomain.txt</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          line_count=$(wc -l &lt; &#34;SubDomain.txt&#34;)          
+</span></span></span><span class="line"><span class="cl"><span class="sd">          echo &#34;子域名扫描完成,收集到存活子域名共 $line_count 条,具体信息如下:&#34; | docker run --rm -i -v $(pwd):/tools --name notify1 ayuxy/tools-notify -pc {{YamlName}} -id slack  -bulk </span><span class="w">          
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker run --rm -v $(pwd):/tools --name notify2 ayuxy/tools-notify -pc {{YamlName}} -data SubDomain.txt -id slack  -bulk </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">silent</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ctrlc</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker kill morefind2 subfinder1 httpx2 notify1 notify2 &gt;/dev/null 2&gt;&amp;1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">端口扫描</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">parallel</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cmds</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker run --rm --network host -v &#34;$(pwd)&#34;:/tools/ --name morefind3 ayuxy/tools-morefind -d -f SubDomain.txt | docker run --rm -i --network host -v &#34;$(pwd)&#34;:/tools/ --name naabu1 -w /tools/ ayuxy/tools-naabu -list SubDomain.txt -top-ports 1000 -o SubDomain_Port.txt</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          line_count=$(wc -l &lt; &#34;SubDomain_Port.txt&#34;)          
+</span></span></span><span class="line"><span class="cl"><span class="sd">          echo &#34;端口扫描完成，收集到信息共 $line_count 条,具体信息如下:&#34; | docker run --rm -i -v $(pwd):/tools --name notify3 ayuxy/tools-notify -pc {{YamlName}} -id slack  -bulk </span><span class="w">          
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker run --rm -v $(pwd):/tools --name notify4 ayuxy/tools-notify -pc {{YamlName}} -data SubDomain_Port.txt -id slack  -bulk </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">silent</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ctrlc</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker kill morefind3 naabu1 notify3 notify4 &gt;/dev/null 2&gt;&amp;1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">目录扫描</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">parallel</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cmds</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker run --rm -it --network host -v &#34;$(pwd)&#34;:/tools/ -w /tools/ --name dirsearch1 ayuxy/tools-dirsearch  -l SubDomain_Port.txt --exclude-status 405,404,402,401,400,500,501,502,503,504,505 --random-agent --format=html -o Dirsearch_Report.html</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">silent</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ctrlc</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker kill dirsearch1 &gt;/dev/null 2&gt;&amp;1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">过滤无效URL</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">parallel</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cmds</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker run --rm -v &#34;$(pwd)&#34;:/tools/ -w /tools/ --name dirsearch_url_filter1 ayuxy/tools-dirsearch_url_filter -f Dirsearch_Report.html -o Filter_url.txt</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          line_count=$(wc -l &lt; &#34;Filter_url.txt&#34;)          
+</span></span></span><span class="line"><span class="cl"><span class="sd">          echo &#34;目录扫描完成,过滤掉疑似无效URL后,收集到URL共 $line_count 条,具体信息如下:&#34; | docker run --rm -i -v $(pwd):/tools --name notify5 ayuxy/tools-notify -pc {{YamlName}} -id slack  -bulk </span><span class="w">          
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker run --rm -v $(pwd):/tools --name notify6 ayuxy/tools-notify -pc {{YamlName}} -data Filter_url.txt -id slack  -bulk          </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">silent</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ctrlc</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker kill dirsearch_url_filter1 notify5 notify6 &gt;/dev/null 2&gt;&amp;1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">指纹识别消息推送服务</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">parallel</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cmds</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker run --rm --network host --name observer_ward_notify1  ayuxy/tools-observer_ward_notify -f {{YamlName}}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">silent</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ctrlc</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker kill observer_ward_notify1 &gt;/dev/null 2&gt;&amp;1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">指纹识别</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">parallel</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cmds</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker run --rm -i --network host -v observer_ward_data-volume:/root/ -v &#34;$(pwd)&#34;:/tools/ -w /tools/ --name observer_ward1  ayuxy/tools-observer_ward -f Filter_url.txt  --path /plugins --nargs &#34;-etags mod-proxy&#34; -c Observer_ward_result.csv --webhook http://127.0.0.1:5000/slack</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">sleep 2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker kill observer_ward_notify1 &gt;/dev/null 2&gt;&amp;1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">silent</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ctrlc</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker kill observer_ward1 &gt;/dev/null 2&gt;&amp;1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">                
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># notify设置</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">slack</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;slack&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">slack_channel</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;recon&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">slack_username</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;test&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">slack_format</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{data}}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">slack_webhook_url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;xxxxxxxxxxxxxxxxxxx&#34;</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+<p>你也可以自己自定义 YAML 模板，具体参考 <a href="https://github.com/devanshbatham/rayder"target="_blank" rel="external nofollow noopener noreferrer">https://github.com/devanshbatham/rayder</a></p></div><div class="post-reward">
     <div class="comment"></div>
     <input type="checkbox" class="reward-input" name="reward" id="fi-reward" hidden />
     <label class="reward-button" for="fi-reward">赞赏</label>
@@ -259,14 +481,14 @@
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title=2023-10-01&#32;00:35:20>更新于 2023-10-01&nbsp;</span>
+        <span title=2023-10-01&#32;01:13:23>更新于 2023-10-01&nbsp;</span>
       </div></div>
     <div class="post-info-line">
       <div class="post-info-md"><span><a href="https://github.com/ayuxy/Blog_Backup/tree/main/content/posts/2023-0920-01.md" title="编辑此页"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-edit">编辑此页</a></span></div>
       <div class="post-info-share">
-        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://example.org/posts/2023-0920-01/" data-title="自动化工具—rayder dev版" data-hashtags="draft"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://example.org/posts/2023-0920-01/" data-title="自动化工具—rayder dev版"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://example.org/posts/2023-0920-01/" data-title="自动化工具—rayder dev版"><i class="fa-brands fa-evernote fa-fw" aria-hidden="true"></i></a>
+        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://example.org/posts/2023-0920-01/" data-title="自动化工具" data-hashtags="draft"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://example.org/posts/2023-0920-01/" data-title="自动化工具"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://example.org/posts/2023-0920-01/" data-title="自动化工具"><i class="fa-brands fa-evernote fa-fw" aria-hidden="true"></i></a>
   </span>
       </div>
     </div>
@@ -360,6 +582,12 @@ var datatemp = {};
   }
   datatemp[datetemp]++;
 
+  var datetemp = "2023-06-09";
+  if (!datatemp[datetemp]) {
+    datatemp[datetemp] = 0;
+  }
+  datatemp[datetemp]++;
+
   var datetemp = "2023-04-24";
   if (!datatemp[datetemp]) {
     datatemp[datetemp] = 0;
@@ -445,6 +673,11 @@ data.push(
 data.push(
     [
         "2023-07-02",
+    ],
+);
+data.push(
+    [
+        "2023-06-09",
     ],
 );
 data.push(

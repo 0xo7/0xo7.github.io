@@ -19,7 +19,6 @@ window.onload = function() {
                 var endOffsetTop = endSpan.offsetTop;
                 var totalHeight = endOffsetTop - startOffsetTop + endSpan.offsetHeight;
 
-                console.log('从第一个<span class="lnt">到第10个<span class="lnt">的总高度为:', totalHeight, '像素。');
             } else {
                 console.log('索引超出范围');
             }
@@ -33,16 +32,14 @@ window.onload = function() {
         var paddingNumbers = paddingValue.split(" ");
         var firstPaddingValue = parseInt(paddingNumbers[0]);
 
-        console.log("padding 的值为：" + firstPaddingValue);
-
         const lines = highlightElement.getElementsByClassName('line');
         const numLines = lines.length;
         numLinesArray.push(numLines);
-        console.log('未折叠前行数：', numLines);
+
 
         const maxHeight = totalHeight + firstPaddingValue + 5;		//最后的这个5可以根据实际微调
         maxHeights.push(maxHeight);
-        console.log('maxHeight的值:', maxHeight);
+
     }
     );
 
@@ -57,9 +54,7 @@ const CodeBlock = {
         const codeBlocks = document.getElementsByClassName('highlight');
         Array.from(codeBlocks).forEach(function(codeBlock, index) {
             const numLines = codeBlock.getElementsByClassName('line').length;
-            console.log('未折叠前行数：', numLines);
             const maxHeight = maxHeights[index];
-            console.log('maxHeight的值:', maxHeight);
 
             if (numLines > CodeBlock.maxLines) {
                 let codeWrapper = codeBlock.querySelector('.table-wrapper');
