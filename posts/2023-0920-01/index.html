@@ -9,14 +9,14 @@
 <meta name="author-link" content="">
 <meta name="description" content="这是我的全新Hugo_FixIt网站" /><meta name="keywords" content='draft' /><meta itemprop="name" content="自动化工具">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-09-20T18:48:31+08:00" />
-<meta itemprop="dateModified" content="2023-10-04T10:15:19+00:00" />
-<meta itemprop="wordCount" content="1466">
+<meta itemprop="dateModified" content="2023-10-04T12:22:41+00:00" />
+<meta itemprop="wordCount" content="1481">
 <meta itemprop="keywords" content="draft," /><meta property="og:title" content="自动化工具" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://example.org/posts/2023-0920-01/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-09-20T18:48:31+08:00" />
-<meta property="article:modified_time" content="2023-10-04T10:15:19+00:00" />
+<meta property="article:modified_time" content="2023-10-04T12:22:41+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="自动化工具"/>
 <meta name="twitter:description" content=""/>
@@ -32,8 +32,8 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/example.org\/posts\/2023-0920-01\/"
-    },"genre": "posts","keywords": "draft","wordcount":  1466 ,
-    "url": "http:\/\/example.org\/posts\/2023-0920-01\/","datePublished": "2023-09-20T18:48:31+08:00","dateModified": "2023-10-04T10:15:19+00:00","publisher": {
+    },"genre": "posts","keywords": "draft","wordcount":  1481 ,
+    "url": "http:\/\/example.org\/posts\/2023-0920-01\/","datePublished": "2023-09-20T18:48:31+08:00","dateModified": "2023-10-04T12:22:41+00:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
         "@type": "Person",
@@ -209,7 +209,7 @@
 <svg class="icon2" aria-hidden="true">
   <use xlink:href="#icon-qianbi1"></use>
 </svg>
-			约 1466 字</span>&nbsp;<span><i class="111" aria-hidden="true"></i> 
+			约 1481 字</span>&nbsp;<span><i class="111" aria-hidden="true"></i> 
 <svg class="icon2" aria-hidden="true">
   <use xlink:href="#icon-shalou2"></use>
 </svg>
@@ -380,15 +380,13 @@
 </span><span class="lnt">80
 </span><span class="lnt">81
 </span><span class="lnt">82
-</span><span class="lnt">83
-</span><span class="lnt">84
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">modules</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">过滤域名</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">parallel</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cmds</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker run --rm --network host -v &#34;$(pwd)&#34;:/tools/  --name morefind1 ayuxy/tools-morefind -d -f {{file}}  | docker run --rm -i --network host -v &#34;$(pwd)&#34;:/tools/ -w /tools/ --name httpx1 ayuxy/tools-httpx -o Domain.txt</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker run --rm --network host -v &#34;$(pwd)&#34;:/tools/  --name morefind1 ayuxy/tools-morefind -d -f {{file}}  | docker run --rm -i --network host -v &#34;$(pwd)&#34;:/tools/ -w /tools/ --name httpx1 ayuxy/tools-httpx -silent  -o Domain.txt</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">silent</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ctrlc</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker kill morefind1 httpx1 &gt;/dev/null 2&gt;&amp;1</span><span class="w">
@@ -399,8 +397,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker run --rm --network host -v &#34;$(pwd)&#34;:/tools/ --name morefind2 ayuxy/tools-morefind -d --root -f {{file}}  | docker run --rm -i --network host -v &#34;$(pwd)&#34;:/tools/ -w /tools/ --name subfinder1 ayuxy/tools-subfinder -silent | docker run --rm -i --network host -v &#34;$(pwd)&#34;:/tools/ -w /tools/ --name httpx2 ayuxy/tools-httpx -silent -o SubDomain.txt</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="p">|</span><span class="sd">
 </span></span></span><span class="line"><span class="cl"><span class="sd">          line_count=$(wc -l &lt; &#34;SubDomain.txt&#34;)          
-</span></span></span><span class="line"><span class="cl"><span class="sd">          echo &#34;子域名扫描完成,收集到存活子域名共 $line_count 条,具体信息如下:&#34; | docker run --rm -i -v $(pwd):/tools --name notify1 ayuxy/tools-notify -pc {{YamlName}} -id slack  -bulk </span><span class="w">          
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker run --rm -v $(pwd):/tools --name notify2 ayuxy/tools-notify -pc {{YamlName}} -data SubDomain.txt -id slack  -bulk </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          echo &#34;子域名扫描完成,收集到存活子域名共 $line_count 条,具体信息如下:&#34; | docker run --rm -i -v $(pwd):/tools --name notify1 ayuxy/tools-notify -pc {{YamlName}} -id slack  -bulk -silent</span><span class="w">          
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker run --rm -v $(pwd):/tools --name notify2 ayuxy/tools-notify -pc {{YamlName}} -data SubDomain.txt -id slack  -bulk -silent</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">silent</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ctrlc</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker kill morefind2 subfinder1 httpx2 notify1 notify2 &gt;/dev/null 2&gt;&amp;1</span><span class="w">
@@ -408,11 +406,11 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">端口扫描</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">parallel</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cmds</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker run --rm --network host -v &#34;$(pwd)&#34;:/tools/ --name morefind3 ayuxy/tools-morefind -d -f SubDomain.txt | docker run --rm -i --network host -v &#34;$(pwd)&#34;:/tools/ --name naabu1 -w /tools/ ayuxy/tools-naabu -list SubDomain.txt -top-ports 1000 -o SubDomain_Port.txt</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker run --rm --network host -v &#34;$(pwd)&#34;:/tools/ --name morefind3 ayuxy/tools-morefind -d -f SubDomain.txt | docker run --rm -i --network host -v &#34;$(pwd)&#34;:/tools/ --name naabu1 -w /tools/ ayuxy/tools-naabu -list SubDomain.txt -top-ports 1000 -o SubDomain_Port.txt -silent</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="p">|</span><span class="sd">
 </span></span></span><span class="line"><span class="cl"><span class="sd">          line_count=$(wc -l &lt; &#34;SubDomain_Port.txt&#34;)          
-</span></span></span><span class="line"><span class="cl"><span class="sd">          echo &#34;端口扫描完成，收集到信息共 $line_count 条,具体信息如下:&#34; | docker run --rm -i -v $(pwd):/tools --name notify3 ayuxy/tools-notify -pc {{YamlName}} -id slack  -bulk </span><span class="w">          
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker run --rm -v $(pwd):/tools --name notify4 ayuxy/tools-notify -pc {{YamlName}} -data SubDomain_Port.txt -id slack  -bulk </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          echo &#34;端口扫描完成，收集到信息共 $line_count 条,具体信息如下:&#34; | docker run --rm -i -v $(pwd):/tools --name notify3 ayuxy/tools-notify -pc {{YamlName}} -id slack  -bulk -silent</span><span class="w">          
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker run --rm -v $(pwd):/tools --name notify4 ayuxy/tools-notify -pc {{YamlName}} -data SubDomain_Port.txt -id slack  -bulk -silent</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">silent</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ctrlc</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker kill morefind3 naabu1 notify3 notify4 &gt;/dev/null 2&gt;&amp;1</span><span class="w">
@@ -421,7 +419,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">目录扫描</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">parallel</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cmds</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker run --rm -it --network host -v &#34;$(pwd)&#34;:/tools/ -w /tools/ --name dirsearch1 ayuxy/tools-dirsearch  -l SubDomain_Port.txt --exclude-status 405,404,402,401,400,500,501,502,503,504,505 --random-agent --format=html -o Dirsearch_Report.html</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker run --rm -it --network host -v &#34;$(pwd)&#34;:/tools/ -w /tools/ --name dirsearch1 ayuxy/tools-dirsearch -l SubDomain_Port.txt --exclude-status 405,404,402,401,400,500,501,502,503,504,505 --random-agent --format=html -o Dirsearch_Report.html</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">silent</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ctrlc</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker kill dirsearch1 &gt;/dev/null 2&gt;&amp;1</span><span class="w">
@@ -432,17 +430,17 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker run --rm -v &#34;$(pwd)&#34;:/tools/ -w /tools/ --name dirsearch_url_filter1 ayuxy/tools-dirsearch_url_filter -f Dirsearch_Report.html -o Filter_url.txt</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="p">|</span><span class="sd">
 </span></span></span><span class="line"><span class="cl"><span class="sd">          line_count=$(wc -l &lt; &#34;Filter_url.txt&#34;)          
-</span></span></span><span class="line"><span class="cl"><span class="sd">          echo &#34;目录扫描完成,过滤掉疑似无效URL后,收集到URL共 $line_count 条,具体信息如下:&#34; | docker run --rm -i -v $(pwd):/tools --name notify5 ayuxy/tools-notify -pc {{YamlName}} -id slack  -bulk </span><span class="w">          
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker run --rm -v $(pwd):/tools --name notify6 ayuxy/tools-notify -pc {{YamlName}} -data Filter_url.txt -id slack  -bulk          </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          echo &#34;目录扫描完成,过滤掉疑似无效URL后,收集到URL共 $line_count 条,具体信息如下:&#34; | docker run --rm -i -v $(pwd):/tools --name notify5 ayuxy/tools-notify -pc {{YamlName}} -id slack  -bulk -silent</span><span class="w">          
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker run --rm -v $(pwd):/tools --name notify6 ayuxy/tools-notify -pc {{YamlName}} -data Filter_url.txt -id slack  -bulk  -silent        </span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">silent</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ctrlc</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker kill dirsearch_url_filter1 notify5 notify6 &gt;/dev/null 2&gt;&amp;1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">指纹识别消息推送服务</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">开启指纹识别消息推送</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">parallel</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cmds</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker run --rm --network host --name observer_ward_notify1  ayuxy/tools-observer_ward_notify -f {{YamlName}}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">( docker run -d --rm --network host -v &#34;$(pwd)&#34;:/tools/ -w /tools/  --name observer_ward_notify1  ayuxy/tools-observer_ward_notify -f {{YamlName}} ) &gt;/dev/null 2&gt;&amp;1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">silent</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ctrlc</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker kill observer_ward_notify1 &gt;/dev/null 2&gt;&amp;1</span><span class="w">
@@ -450,16 +448,14 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">指纹识别</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">parallel</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cmds</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker run --rm -i --network host -v observer_ward_data-volume:/root/ -v &#34;$(pwd)&#34;:/tools/ -w /tools/ --name observer_ward1  ayuxy/tools-observer_ward -f Filter_url.txt  --path /plugins --nargs &#34;-etags mod-proxy&#34; -c Observer_ward_result.csv --webhook http://127.0.0.1:5000/slack</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker run --rm -i --network host -v observer_ward_data-volume:/root/ -v &#34;$(pwd)&#34;:/tools/ -w /tools/ --name observer_ward1  ayuxy/tools-observer_ward -f Filter_url.txt  --path /plugins --nargs &#34;-etags mod-proxy&#34; -c Observer_ward_result.csv --webhook http://127.0.0.1:5000/slack </span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">sleep 2</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker kill observer_ward_notify1 &gt;/dev/null 2&gt;&amp;1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker kill observer_ward_notify1 &gt;/dev/null 2&gt;&amp;1                </span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">silent</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ctrlc</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">docker kill observer_ward1 &gt;/dev/null 2&gt;&amp;1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        
 </span></span></span><span class="line"><span class="cl"><span class="w">                
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># notify设置</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">slack</span><span class="p">:</span><span class="w">
@@ -467,7 +463,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">slack_channel</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;recon&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">slack_username</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;test&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">slack_format</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{data}}&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">slack_webhook_url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;xxxxxxxxxxxxxxxxxxx&#34;</span></span></span></code></pre></td></tr></table>
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">slack_webhook_url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://hooks.slack.com/services/xxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <p>你也可以自己自定义 YAML 模板，具体参考 <a href="https://github.com/devanshbatham/rayder"target="_blank" rel="external nofollow noopener noreferrer">https://github.com/devanshbatham/rayder</a></p></div><div class="post-reward">
@@ -482,7 +478,7 @@
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title=2023-10-04&#32;10:15:19>更新于 2023-10-04&nbsp;</span>
+        <span title=2023-10-04&#32;12:22:41>更新于 2023-10-04&nbsp;</span>
       </div></div>
     <div class="post-info-line">
       <div class="post-info-md"><span><a href="https://github.com/ayuxy/Blog_Backup/tree/main/content/posts/2023-0920-01.md" title="编辑此页"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-edit">编辑此页</a></span></div>
