@@ -211,31 +211,13 @@ function heatmap_width(months){
 
 var datatemp = {};
 
-  var datetemp = "2022-11-11";
-  if (!datatemp[datetemp]) {
-    datatemp[datetemp] = 0;
-  }
-  datatemp[datetemp]++;
-
   var datetemp = "2023-09-20";
   if (!datatemp[datetemp]) {
     datatemp[datetemp] = 0;
   }
   datatemp[datetemp]++;
 
-  var datetemp = "2023-09-24";
-  if (!datatemp[datetemp]) {
-    datatemp[datetemp] = 0;
-  }
-  datatemp[datetemp]++;
-
   var datetemp = "2023-07-02";
-  if (!datatemp[datetemp]) {
-    datatemp[datetemp] = 0;
-  }
-  datatemp[datetemp]++;
-
-  var datetemp = "2023-06-09";
   if (!datatemp[datetemp]) {
     datatemp[datetemp] = 0;
   }
@@ -253,25 +235,7 @@ var datatemp = {};
   }
   datatemp[datetemp]++;
 
-  var datetemp = "2023-01-29";
-  if (!datatemp[datetemp]) {
-    datatemp[datetemp] = 0;
-  }
-  datatemp[datetemp]++;
-
   var datetemp = "2022-12-29";
-  if (!datatemp[datetemp]) {
-    datatemp[datetemp] = 0;
-  }
-  datatemp[datetemp]++;
-
-  var datetemp = "2022-12-26";
-  if (!datatemp[datetemp]) {
-    datatemp[datetemp] = 0;
-  }
-  datatemp[datetemp]++;
-
-  var datetemp = "2022-12-14";
   if (!datatemp[datetemp]) {
     datatemp[datetemp] = 0;
   }
@@ -301,6 +265,12 @@ var datatemp = {};
   }
   datatemp[datetemp]++;
 
+  var datetemp = "2022-11-11";
+  if (!datatemp[datetemp]) {
+    datatemp[datetemp] = 0;
+  }
+  datatemp[datetemp]++;
+
 
 
 var data = [];
@@ -310,27 +280,12 @@ for (var datetemp in datatemp) {
 
 data.push(
     [
-        "2022-11-11",
-    ],
-);
-data.push(
-    [
         "2023-09-20",
     ],
 );
 data.push(
     [
-        "2023-09-24",
-    ],
-);
-data.push(
-    [
         "2023-07-02",
-    ],
-);
-data.push(
-    [
-        "2023-06-09",
     ],
 );
 data.push(
@@ -345,22 +300,7 @@ data.push(
 );
 data.push(
     [
-        "2023-01-29",
-    ],
-);
-data.push(
-    [
         "2022-12-29",
-    ],
-);
-data.push(
-    [
-        "2022-12-26",
-    ],
-);
-data.push(
-    [
-        "2022-12-14",
     ],
 );
 data.push(
@@ -381,6 +321,11 @@ data.push(
 data.push(
     [
         "2022-11-12",
+    ],
+);
+data.push(
+    [
+        "2022-11-11",
     ],
 );if(window.matchMedia('(max-width: 320px)').matches){
     var rangeArr = heatmap_width(3);

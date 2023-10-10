@@ -3,20 +3,12 @@
     <title>Tags - 标签 - A_Yu&#39;s Blog</title>
     <link>http://example.org/tags/</link>
     <description>Tags - 标签 - A_Yu&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 24 Sep 2023 10:23:28 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/" rel="self" type="application/rss+xml" /><item>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 20 Sep 2023 18:48:31 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/" rel="self" type="application/rss+xml" /><item>
   <title>draft</title>
   <link>http://example.org/tags/draft/</link>
-  <pubDate>Sun, 24 Sep 2023 10:23:28 &#43;0800</pubDate>
+  <pubDate>Wed, 20 Sep 2023 18:48:31 &#43;0800</pubDate>
   <author>作者</author>
   <guid>http://example.org/tags/draft/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>事业编</title>
-  <link>http://example.org/tags/%E4%BA%8B%E4%B8%9A%E7%BC%96/</link>
-  <pubDate>Fri, 09 Jun 2023 12:16:02 &#43;0800</pubDate>
-  <author>作者</author>
-  <guid>http://example.org/tags/%E4%BA%8B%E4%B8%9A%E7%BC%96/</guid>
   <description><![CDATA[]]></description>
 </item>
 <item>
@@ -33,30 +25,6 @@
   <pubDate>Fri, 10 Mar 2023 12:46:17 &#43;0800</pubDate>
   <author>作者</author>
   <guid>http://example.org/tags/kali%E9%85%8D%E7%BD%AE/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>面试</title>
-  <link>http://example.org/tags/%E9%9D%A2%E8%AF%95/</link>
-  <pubDate>Sun, 29 Jan 2023 13:35:28 &#43;0800</pubDate>
-  <author>作者</author>
-  <guid>http://example.org/tags/%E9%9D%A2%E8%AF%95/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>Web渗透</title>
-  <link>http://example.org/tags/web%E6%B8%97%E9%80%8F/</link>
-  <pubDate>Mon, 26 Dec 2022 17:52:16 &#43;0800</pubDate>
-  <author>作者</author>
-  <guid>http://example.org/tags/web%E6%B8%97%E9%80%8F/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>培训</title>
-  <link>http://example.org/tags/%E5%9F%B9%E8%AE%AD/</link>
-  <pubDate>Wed, 14 Dec 2022 23:32:35 &#43;0800</pubDate>
-  <author>作者</author>
-  <guid>http://example.org/tags/%E5%9F%B9%E8%AE%AD/</guid>
   <description><![CDATA[]]></description>
 </item>
 <item>
@@ -81,6 +49,22 @@
   <pubDate>Tue, 22 Nov 2022 19:45:23 &#43;0800</pubDate>
   <author>作者</author>
   <guid>http://example.org/tags/linux%E6%8F%90%E6%9D%83/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>Hugo</title>
+  <link>http://example.org/tags/hugo/</link>
+  <pubDate>Sat, 12 Nov 2022 12:01:03 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>http://example.org/tags/hugo/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>C/C&#43;&#43;</title>
+  <link>http://example.org/tags/c/c&#43;&#43;/</link>
+  <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
+  <author>作者</author>
+  <guid>http://example.org/tags/c/c&#43;&#43;/</guid>
   <description><![CDATA[]]></description>
 </item>
 </channel>
