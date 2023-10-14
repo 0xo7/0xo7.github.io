@@ -9,14 +9,14 @@
 <meta name="author-link" content="">
 <meta name="description" content="本文记录对0.2.16版本Fixlt主题的魔改过程" /><meta name="keywords" content='Hugo' /><meta itemprop="name" content="Fixlt主题魔改记录">
 <meta itemprop="description" content="本文记录对0.2.16版本Fixlt主题的魔改过程"><meta itemprop="datePublished" content="2022-11-11T20:01:31+08:00" />
-<meta itemprop="dateModified" content="2023-10-13T23:58:51+00:00" />
-<meta itemprop="wordCount" content="44618">
+<meta itemprop="dateModified" content="2023-10-14T12:45:30+00:00" />
+<meta itemprop="wordCount" content="46181">
 <meta itemprop="keywords" content="Hugo," /><meta property="og:title" content="Fixlt主题魔改记录" />
 <meta property="og:description" content="本文记录对0.2.16版本Fixlt主题的魔改过程" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://example.org/posts/2022-1111-01/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-11-11T20:01:31+08:00" />
-<meta property="article:modified_time" content="2023-10-13T23:58:51+00:00" />
+<meta property="article:modified_time" content="2023-10-14T12:45:30+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Fixlt主题魔改记录"/>
 <meta name="twitter:description" content="本文记录对0.2.16版本Fixlt主题的魔改过程"/>
@@ -32,8 +32,8 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/example.org\/posts\/2022-1111-01\/"
-    },"genre": "posts","keywords": "Hugo","wordcount":  44618 ,
-    "url": "http:\/\/example.org\/posts\/2022-1111-01\/","datePublished": "2022-11-11T20:01:31+08:00","dateModified": "2023-10-13T23:58:51+00:00","publisher": {
+    },"genre": "posts","keywords": "Hugo","wordcount":  46181 ,
+    "url": "http:\/\/example.org\/posts\/2022-1111-01\/","datePublished": "2022-11-11T20:01:31+08:00","dateModified": "2023-10-14T12:45:30+00:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
         "@type": "Person",
@@ -209,11 +209,11 @@
 <svg class="icon2" aria-hidden="true">
   <use xlink:href="#icon-qianbi1"></use>
 </svg>
-			约 44618 字</span>&nbsp;<span><i class="111" aria-hidden="true"></i> 
+			约 46181 字</span>&nbsp;<span><i class="111" aria-hidden="true"></i> 
 <svg class="icon2" aria-hidden="true">
   <use xlink:href="#icon-shalou2"></use>
 </svg>
-			预计阅读 90 分钟</span>&nbsp;</div>
+			预计阅读 93 分钟</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>目录</span>
@@ -255,6 +255,7 @@
       </ul>
     </li>
     <li><a href="#bug">Bug</a></li>
+    <li><a href="#hugo-辅助脚本">Hugo 辅助脚本</a></li>
   </ul>
 </nav></div>
       </div><div class="content" id="content"><h2 id="修改h2h6主题">修改h2~h6主题</h2>
@@ -6486,7 +6487,391 @@
     data-srcset="image-20230927111130762.png, image-20230927111130762.png 1.25x, image-20230927111130762.png 1.25x"
     data-sizes="auto"
     alt="image-20230927111130762"
-    title="image-20230927111130762"/></p></div><div class="post-reward">
+    title="image-20230927111130762"/></p>
+<h2 id="hugo-辅助脚本">Hugo 辅助脚本</h2>
+<p>编译成二进制文件后，直接在 posts 目录下执行就行，该脚本会自动清理未引用的图片，以及把图片调整为符合 hugo 规范的形式</p>
+
+
+
+    
+
+
+
+<div class="codetitle"></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span><span class="lnt">182
+</span><span class="lnt">183
+</span><span class="lnt">184
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-GO" data-lang="GO"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;io/ioutil&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;os&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;regexp&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;strings&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 设置要扫描的当前目录
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">folderPath</span> <span class="o">:=</span> <span class="s">&#34;.&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 获取当前目录下的所有文件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">files</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadDir</span><span class="p">(</span><span class="nx">folderPath</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;无法读取文件夹:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 匹配Markdown中不符合hugo规则的图片链接
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">regex_false</span> <span class="o">:=</span> <span class="s">`!\[image-[0-9]+\]\(.*\\image-[0-9]+\.[a-zA-Z]+\)`</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 匹配Markdown中符合hugo规则的图片链接
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">regex_true</span> <span class="o">:=</span> <span class="s">`!\[image-[0-9]+\]\(image-[0-9]+\.[a-zA-Z]+\)`</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">file</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">files</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 检查文件是否是Markdown文件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">if</span> <span class="nf">isMarkdownFile</span><span class="p">(</span><span class="nx">file</span><span class="p">.</span><span class="nf">Name</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">filePath</span> <span class="o">:=</span> <span class="nx">folderPath</span> <span class="o">+</span> <span class="s">&#34;/&#34;</span> <span class="o">+</span> <span class="nx">file</span><span class="p">.</span><span class="nf">Name</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;====================================================================&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;正在处理文件:&#34;</span><span class="p">,</span> <span class="nx">file</span><span class="p">.</span><span class="nf">Name</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">()</span> <span class="c1">// 用于分隔不同文件的输出
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nf">processMarkdownFile_false</span><span class="p">(</span><span class="nx">filePath</span><span class="p">,</span> <span class="nx">regex_false</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="nf">processMarkdownFile_true</span><span class="p">(</span><span class="nx">filePath</span><span class="p">,</span> <span class="nx">regex_true</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 检查文件名是否以.md或.markdown扩展名结尾
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">isMarkdownFile</span><span class="p">(</span><span class="nx">fileName</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">HasSuffix</span><span class="p">(</span><span class="nx">fileName</span><span class="p">,</span> <span class="s">&#34;.md&#34;</span><span class="p">)</span> <span class="o">||</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">HasSuffix</span><span class="p">(</span><span class="nx">fileName</span><span class="p">,</span> <span class="s">&#34;.markdown&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 处理Markdown文件中不符合规则的图片
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">processMarkdownFile_false</span><span class="p">(</span><span class="nx">filePath</span><span class="p">,</span> <span class="nx">regex</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">data</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadFile</span><span class="p">(</span><span class="nx">filePath</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;无法读取文件:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 编译正则表达式
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">re</span> <span class="o">:=</span> <span class="nx">regexp</span><span class="p">.</span><span class="nf">MustCompile</span><span class="p">(</span><span class="nx">regex</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 查找所有匹配的子串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">matches</span> <span class="o">:=</span> <span class="nx">re</span><span class="p">.</span><span class="nf">FindAllString</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">data</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">matches</span><span class="p">)</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;检查&#34;</span><span class="p">,</span> <span class="nx">filePath</span><span class="p">,</span> <span class="s">&#34;，在里面找到以下不符合hugo规则的图片：&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">match</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">matches</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">match</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">()</span> <span class="c1">// 用于分隔不同文件的输出
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="c1">// 修改匹配到的图片链接格式
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nx">modified</span> <span class="o">:=</span> <span class="nf">modifyImageLink</span><span class="p">(</span><span class="nx">match</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">data</span> <span class="p">=</span> <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">strings</span><span class="p">.</span><span class="nf">ReplaceAll</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">data</span><span class="p">),</span> <span class="nx">match</span><span class="p">,</span> <span class="nx">modified</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">// 保存修改后的内容回文件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">WriteFile</span><span class="p">(</span><span class="nx">filePath</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="mo">0644</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;无法保存文件:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;图片已经更改为符合hugo规则的格式!&#34;</span><span class="p">,</span> <span class="nx">filePath</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">()</span> <span class="c1">// 用于分隔不同文件的输出
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 处理Markdown文件中符合规则的图片
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">processMarkdownFile_true</span><span class="p">(</span><span class="nx">filePath</span><span class="p">,</span> <span class="nx">regex</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">data</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadFile</span><span class="p">(</span><span class="nx">filePath</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;无法读取文件:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 编译正则表达式
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">re</span> <span class="o">:=</span> <span class="nx">regexp</span><span class="p">.</span><span class="nf">MustCompile</span><span class="p">(</span><span class="nx">regex</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 查找所有匹配的子串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">matches</span> <span class="o">:=</span> <span class="nx">re</span><span class="p">.</span><span class="nf">FindAllString</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">data</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">matches</span><span class="p">)</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;检查&#34;</span><span class="p">,</span> <span class="nx">filePath</span><span class="p">,</span> <span class="s">&#34;，在里面找到以下符合hugo规则的图片：&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">match</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">matches</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">match</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="nx">pattern</span> <span class="o">:=</span> <span class="s">`\((.*?)\)`</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">re_match</span> <span class="o">:=</span> <span class="nx">regexp</span><span class="p">.</span><span class="nf">MustCompile</span><span class="p">(</span><span class="nx">pattern</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">re_matches</span> <span class="o">:=</span> <span class="nx">re_match</span><span class="p">.</span><span class="nf">FindStringSubmatch</span><span class="p">(</span><span class="nx">match</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">re_matches</span><span class="p">)</span> <span class="p">&gt;</span> <span class="mi">1</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">match</span> <span class="o">:=</span> <span class="nx">re_matches</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">matches</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">matches</span><span class="p">,</span> <span class="nx">match</span><span class="p">)</span> <span class="c1">// 将匹配结果追加到切片中
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 使用字符串分割函数获取文件名部分
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">parts</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">Split</span><span class="p">(</span><span class="nx">filePath</span><span class="p">,</span> <span class="s">&#34;/&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fileNameWithExtension</span> <span class="o">:=</span> <span class="nx">parts</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nx">parts</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">// 使用字符串分割函数获取去除扩展名后的文件名
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">fileNameParts</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">Split</span><span class="p">(</span><span class="nx">fileNameWithExtension</span><span class="p">,</span> <span class="s">&#34;.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">pic_file_name</span> <span class="o">:=</span> <span class="nx">fileNameParts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">//存放图片的文件夹名
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">pic_file_name_matches</span> <span class="o">:=</span> <span class="nf">getFilenamesInFolder</span><span class="p">(</span><span class="nx">pic_file_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;比较文件名和匹配结果:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">pic_file_name_matche</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">pic_file_name_matches</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="p">!</span><span class="nf">contains</span><span class="p">(</span><span class="nx">matches</span><span class="p">,</span> <span class="nx">pic_file_name_matche</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;图片文件夹中的&#34;</span><span class="p">,</span> <span class="nx">pic_file_name_matche</span><span class="p">,</span> <span class="s">&#34;未在md文件中使用&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">				<span class="nx">pic_Path_del</span> <span class="o">:=</span> <span class="s">&#34;./&#34;</span> <span class="o">+</span> <span class="nx">pic_file_name</span> <span class="o">+</span> <span class="s">&#34;/&#34;</span> <span class="o">+</span> <span class="nx">pic_file_name_matche</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;正在删除&#34;</span><span class="p">,</span> <span class="nx">pic_Path_del</span><span class="p">,</span> <span class="s">&#34;文件&#34;</span><span class="p">,</span> <span class="nx">pic_Path_del</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Remove</span><span class="p">(</span><span class="nx">pic_Path_del</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;无法删&#34;</span><span class="p">,</span> <span class="nx">pic_Path_del</span><span class="p">,</span> <span class="s">&#34;除文件，报错: %v&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;已删除&#34;</span><span class="p">,</span> <span class="nx">pic_Path_del</span><span class="p">,</span> <span class="s">&#34;文件&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 修改匹配到的图片链接格式
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">modifyImageLink</span><span class="p">(</span><span class="nx">match</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 提取文件名部分
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">re_pic_name</span> <span class="o">:=</span> <span class="nx">regexp</span><span class="p">.</span><span class="nf">MustCompile</span><span class="p">(</span><span class="s">`image-[0-9]+`</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">re_pic_kuozhanming</span> <span class="o">:=</span> <span class="nx">regexp</span><span class="p">.</span><span class="nf">MustCompile</span><span class="p">(</span><span class="s">`image-[0-9]+\.[a-zA-Z]+`</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">pic_Name</span> <span class="o">:=</span> <span class="nx">re_pic_name</span><span class="p">.</span><span class="nf">FindString</span><span class="p">(</span><span class="nx">match</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">pic_Kuozhanming</span> <span class="o">:=</span> <span class="nx">re_pic_kuozhanming</span><span class="p">.</span><span class="nf">FindString</span><span class="p">(</span><span class="nx">match</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 修改链接格式
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">modified</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;![%s](%s)&#34;</span><span class="p">,</span> <span class="nx">pic_Name</span><span class="p">,</span> <span class="nx">pic_Kuozhanming</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;对不符合hugo规则的图片进行修改，修改后的图片如下：&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;![%s](%s)&#34;</span><span class="p">,</span> <span class="nx">pic_Name</span><span class="p">,</span> <span class="nx">pic_Kuozhanming</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">modified</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">contains</span><span class="p">(</span><span class="nx">slice</span> <span class="p">[]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">target</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">item</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">slice</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">item</span> <span class="o">==</span> <span class="nx">target</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">getFilenamesInFolder</span><span class="p">(</span><span class="nx">folderPath</span> <span class="kt">string</span><span class="p">)</span> <span class="p">[]</span><span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 读取指定文件夹
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">files</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadDir</span><span class="p">(</span><span class="nx">folderPath</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;无法读取文件夹:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">filenames</span> <span class="p">[]</span><span class="kt">string</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 遍历文件夹中的文件，并将文件名添加到切片中
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">file</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">files</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">!</span><span class="nx">file</span><span class="p">.</span><span class="nf">IsDir</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">filenames</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">filenames</span><span class="p">,</span> <span class="nx">file</span><span class="p">.</span><span class="nf">Name</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">filenames</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-reward">
     <div class="comment"></div>
     <input type="checkbox" class="reward-input" name="reward" id="fi-reward" hidden />
     <label class="reward-button" for="fi-reward">赞赏</label>
@@ -6498,7 +6883,7 @@
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title=2023-10-13&#32;23:58:51>更新于 2023-10-13&nbsp;</span>
+        <span title=2023-10-14&#32;12:45:30>更新于 2023-10-14&nbsp;</span>
       </div></div>
     <div class="post-info-line">
       <div class="post-info-md"><span><a href="https://github.com/ayuxy/Blog_Backup/tree/main/content/posts/2022-1111-01.md" title="编辑此页"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-edit">编辑此页</a></span></div>
@@ -6575,12 +6960,6 @@ function heatmap_width(months){
 
 var datatemp = {};
 
-  var datetemp = "2023-10-12";
-  if (!datatemp[datetemp]) {
-    datatemp[datetemp] = 0;
-  }
-  datatemp[datetemp]++;
-
   var datetemp = "2023-09-20";
   if (!datatemp[datetemp]) {
     datatemp[datetemp] = 0;
@@ -6648,11 +7027,6 @@ for (var datetemp in datatemp) {
   data.push([datetemp, datatemp[datetemp]]);
 }
 
-data.push(
-    [
-        "2023-10-12",
-    ],
-);
 data.push(
     [
         "2023-09-20",
