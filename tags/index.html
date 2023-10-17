@@ -166,7 +166,7 @@
   </div><main class="container" data-page-style="noraml"><div class="page archive"><h2 class="single-title animate__animated animate__pulse animate__faster">
       🏷️&nbsp;所有标签
       <sup>8</sup>
-    </h2><div class="tag-cloud-tags">🏷️<a href='/tags/hugo/'>Hugo <sup>2</sup></a>🏷️<a href='/tags/c/c&#43;&#43;/'>C/C&#43;&#43; <sup>1</sup></a>🏷️<a href='/tags/draft/'>draft <sup>1</sup></a>🏷️<a href='/tags/git/'>git <sup>1</sup></a>🏷️<a href='/tags/kali%E9%85%8D%E7%BD%AE/'>kali配置 <sup>1</sup></a>🏷️<a href='/tags/kerberos/'>kerberos <sup>1</sup></a>🏷️<a href='/tags/linux%E6%8F%90%E6%9D%83/'>linux提权 <sup>1</sup></a>🏷️<a href='/tags/%E5%8D%8F%E8%AE%AE/'>协议 <sup>1</sup></a></div></div></main><footer class="footer">
+    </h2><div class="tag-cloud-tags">🏷️<a href='/tags/draft/'>draft <sup>3</sup></a>🏷️<a href='/tags/hugo/'>Hugo <sup>2</sup></a>🏷️<a href='/tags/c/c&#43;&#43;/'>C/C&#43;&#43; <sup>1</sup></a>🏷️<a href='/tags/git/'>git <sup>1</sup></a>🏷️<a href='/tags/kali%E9%85%8D%E7%BD%AE/'>kali配置 <sup>1</sup></a>🏷️<a href='/tags/kerberos/'>kerberos <sup>1</sup></a>🏷️<a href='/tags/linux%E6%8F%90%E6%9D%83/'>linux提权 <sup>1</sup></a>🏷️<a href='/tags/%E5%8D%8F%E8%AE%AE/'>协议 <sup>1</sup></a></div></div></main><footer class="footer">
     <div class="footer-container"><script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="c4d6143e-e2df-4ed2-b9e1-cd69306c8691";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">
               <a href="/"></a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中 ...'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i>&nbsp;<span class="run-times">网站运行中 ...</span></span></div><div class="footer-line ibruce">
@@ -203,6 +203,18 @@ function heatmap_width(months){
 
 
 var datatemp = {};
+
+  var datetemp = "2023-10-17";
+  if (!datatemp[datetemp]) {
+    datatemp[datetemp] = 0;
+  }
+  datatemp[datetemp]++;
+
+  var datetemp = "2023-10-17";
+  if (!datatemp[datetemp]) {
+    datatemp[datetemp] = 0;
+  }
+  datatemp[datetemp]++;
 
   var datetemp = "2023-09-20";
   if (!datatemp[datetemp]) {
@@ -271,6 +283,16 @@ for (var datetemp in datatemp) {
   data.push([datetemp, datatemp[datetemp]]);
 }
 
+data.push(
+    [
+        "2023-10-17",
+    ],
+);
+data.push(
+    [
+        "2023-10-17",
+    ],
+);
 data.push(
     [
         "2023-09-20",

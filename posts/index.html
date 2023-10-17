@@ -166,8 +166,14 @@
   </div><main class="container" data-page-style="noraml"><div class="page archive">
     <div class="header"><h1 class="single-title animate__animated animate__pulse animate__faster">
         📈&nbsp;所有文章
-        <sup>9</sup>
-      </h1><p class="single-subtitle total-word-count" title='总计约 76130 字'><i class="111" aria-hidden="true"></i> 📃 总计约 76.13K 字</p></div><h2 class="group-title">🎯 2023</h2><article class="archive-item">
+        <sup>11</sup>
+      </h1><p class="single-subtitle total-word-count" title='总计约 76152 字'><i class="111" aria-hidden="true"></i> 📃 总计约 76.15K 字</p></div><h2 class="group-title">🎯 2023</h2><article class="archive-item">
+            <a href="/posts/2023-1017-02/" class="archive-item-link">PDF test2</a>
+            <span class="archive-item-date" title='2023-10-17 09:23:24'>10-17</span>
+          </article><article class="archive-item">
+            <a href="/posts/2023-1017-01/" class="archive-item-link">PDF Test</a>
+            <span class="archive-item-date" title='2023-10-17 09:14:36'>10-17</span>
+          </article><article class="archive-item">
             <a href="/posts/2023-0920-01/" class="archive-item-link">自动化工具</a>
             <span class="archive-item-date" title='2023-09-20 18:48:31'>09-20</span>
           </article><article class="archive-item">
@@ -231,6 +237,18 @@ function heatmap_width(months){
 
 
 var datatemp = {};
+
+  var datetemp = "2023-10-17";
+  if (!datatemp[datetemp]) {
+    datatemp[datetemp] = 0;
+  }
+  datatemp[datetemp]++;
+
+  var datetemp = "2023-10-17";
+  if (!datatemp[datetemp]) {
+    datatemp[datetemp] = 0;
+  }
+  datatemp[datetemp]++;
 
   var datetemp = "2023-09-20";
   if (!datatemp[datetemp]) {
@@ -299,6 +317,16 @@ for (var datetemp in datatemp) {
   data.push([datetemp, datatemp[datetemp]]);
 }
 
+data.push(
+    [
+        "2023-10-17",
+    ],
+);
+data.push(
+    [
+        "2023-10-17",
+    ],
+);
 data.push(
     [
         "2023-09-20",
