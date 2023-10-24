@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <title>Hugo - 分类 - A_Yu&#39;s Blog</title>
+    <title>Hugo - 分类 - nUllo&#39;s Blog</title>
     <link>http://example.org/categories/hugo/</link>
-    <description>Hugo - 分类 - A_Yu&#39;s Blog</description>
+    <description>Hugo - 分类 - nUllo&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 12 Nov 2022 12:01:03 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/hugo/" rel="self" type="application/rss+xml" /><item>
   <title>Fixlt主题魔改—-图片插入问题修改</title>
   <link>http://example.org/posts/2022-1112-01/</link>

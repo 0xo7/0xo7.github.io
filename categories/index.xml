@@ -1,12 +1,12 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <title>Categories - 分类 - A_Yu&#39;s Blog</title>
+    <title>Categories - 分类 - nUllo&#39;s Blog</title>
     <link>http://example.org/categories/</link>
-    <description>Categories - 分类 - A_Yu&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 20 Sep 2023 18:48:31 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/" rel="self" type="application/rss+xml" /><item>
+    <description>Categories - 分类 - nUllo&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 24 Oct 2023 18:52:37 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/" rel="self" type="application/rss+xml" /><item>
   <title>draft</title>
   <link>http://example.org/categories/draft/</link>
-  <pubDate>Wed, 20 Sep 2023 18:48:31 &#43;0800</pubDate>
+  <pubDate>Tue, 24 Oct 2023 18:52:37 &#43;0800</pubDate>
   <author>作者</author>
   <guid>http://example.org/categories/draft/</guid>
   <description><![CDATA[]]></description>

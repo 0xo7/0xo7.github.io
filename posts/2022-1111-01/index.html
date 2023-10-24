@@ -5,18 +5,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>Fixlt主题魔改记录 - A_Yu&#39;s Blog</title><meta name="author" content="">
+    <title>Fixlt主题魔改记录 - nUllo&#39;s Blog</title><meta name="author" content="">
 <meta name="author-link" content="">
 <meta name="description" content="本文记录对0.2.16版本Fixlt主题的魔改过程" /><meta name="keywords" content='Hugo' /><meta itemprop="name" content="Fixlt主题魔改记录">
 <meta itemprop="description" content="本文记录对0.2.16版本Fixlt主题的魔改过程"><meta itemprop="datePublished" content="2022-11-11T20:01:31+08:00" />
-<meta itemprop="dateModified" content="2023-10-24T10:54:45+00:00" />
+<meta itemprop="dateModified" content="2023-10-24T11:41:36+00:00" />
 <meta itemprop="wordCount" content="46181">
 <meta itemprop="keywords" content="Hugo," /><meta property="og:title" content="Fixlt主题魔改记录" />
 <meta property="og:description" content="本文记录对0.2.16版本Fixlt主题的魔改过程" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://example.org/posts/2022-1111-01/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-11-11T20:01:31+08:00" />
-<meta property="article:modified_time" content="2023-10-24T10:54:45+00:00" />
+<meta property="article:modified_time" content="2023-10-24T11:41:36+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Fixlt主题魔改记录"/>
 <meta name="twitter:description" content="本文记录对0.2.16版本Fixlt主题的魔改过程"/>
@@ -33,7 +33,7 @@
       "@type": "WebPage",
       "@id": "http:\/\/example.org\/posts\/2022-1111-01\/"
     },"genre": "posts","keywords": "Hugo","wordcount":  46181 ,
-    "url": "http:\/\/example.org\/posts\/2022-1111-01\/","datePublished": "2022-11-11T20:01:31+08:00","dateModified": "2023-10-24T10:54:45+00:00","publisher": {
+    "url": "http:\/\/example.org\/posts\/2022-1111-01\/","datePublished": "2022-11-11T20:01:31+08:00","dateModified": "2023-10-24T11:41:36+00:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
         "@type": "Person",
@@ -44,7 +44,7 @@
   <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper"><header class="desktop animate__faster" id="header-desktop">
   <div class="header-wrapper" data-github-corner="right">
     <div class="header-title">
-      <a href="/" title="A_Yu&#39;s Blog"><span class="header-title-pre"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-plant"></use></svg></span><span class="header-title-text">nUllo&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+      <a href="/" title="nUllo&#39;s Blog"><span class="header-title-pre"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-plant"></use></svg></span><span class="header-title-text">nUllo&#39;s Blog</span></a><span class="header-subtitle"></span></div>
     <nav>
       <ul class="menu"><li class="menu-item">
               <a
@@ -105,7 +105,7 @@
   <div class="header-container">
     <div class="header-wrapper">
       <div class="header-title">
-        <a href="/" title="A_Yu&#39;s Blog"><span class="header-title-pre"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-plant"></use></svg></span><span class="header-title-text">nUllo&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+        <a href="/" title="nUllo&#39;s Blog"><span class="header-title-pre"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-plant"></use></svg></span><span class="header-title-text">nUllo&#39;s Blog</span></a><span class="header-subtitle"></span></div>
       <div class="menu-toggle" id="menu-toggle-mobile">
         <span></span><span></span><span></span>
       </div>
@@ -6883,7 +6883,7 @@
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title=2023-10-24&#32;10:54:45>更新于 2023-10-24&nbsp;</span>
+        <span title=2023-10-24&#32;11:41:36>更新于 2023-10-24&nbsp;</span>
       </div></div>
     <div class="post-info-line">
       <div class="post-info-md"><span><a href="https://github.com/ayuxy/Blog_Backup/tree/main/content/posts/2022-1111-01.md" title="编辑此页"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-edit">编辑此页</a></span></div>
@@ -6960,6 +6960,12 @@ function heatmap_width(months){
 
 var datatemp = {};
 
+  var datetemp = "2023-10-24";
+  if (!datatemp[datetemp]) {
+    datatemp[datetemp] = 0;
+  }
+  datatemp[datetemp]++;
+
   var datetemp = "2023-09-20";
   if (!datatemp[datetemp]) {
     datatemp[datetemp] = 0;
@@ -7027,6 +7033,11 @@ for (var datetemp in datatemp) {
   data.push([datetemp, datatemp[datetemp]]);
 }
 
+data.push(
+    [
+        "2023-10-24",
+    ],
+);
 data.push(
     [
         "2023-09-20",

@@ -1,11 +1,19 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <title>A_Yu&#39;s Blog</title>
+    <title>nUllo&#39;s Blog</title>
     <link>http://example.org/</link>
     <description>这是我的全新Hugo_FixIt网站</description>
-    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 20 Sep 2023 18:48:31 &#43;0800</lastBuildDate>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 24 Oct 2023 18:52:37 &#43;0800</lastBuildDate>
       <atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
+  <title>2023 1024 01</title>
+  <link>http://example.org/posts/2023-1024-01/</link>
+  <pubDate>Tue, 24 Oct 2023 18:52:37 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>http://example.org/posts/2023-1024-01/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
   <title>自动化工具</title>
   <link>http://example.org/posts/2023-0920-01/</link>
   <pubDate>Wed, 20 Sep 2023 18:48:31 &#43;0800</pubDate>

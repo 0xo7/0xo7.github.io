@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <title>C/C&#43;&#43; - 标签 - A_Yu&#39;s Blog</title>
+    <title>C/C&#43;&#43; - 标签 - nUllo&#39;s Blog</title>
     <link>http://example.org/tags/c/c&#43;&#43;/</link>
-    <description>C/C&#43;&#43; - 标签 - A_Yu&#39;s Blog</description>
+    <description>C/C&#43;&#43; - 标签 - nUllo&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><atom:link href="http://example.org/tags/c/c&#43;&#43;/" rel="self" type="application/rss+xml" /><item>
   <title>C/C&#43;&#43; 从入门到入土</title>
   <link>http://example.org/posts/2022-1229-01/</link>
