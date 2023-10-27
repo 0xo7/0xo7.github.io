@@ -7,19 +7,19 @@
     <meta name="robots" content="noodp" />
     <title>C/C&#43;&#43; 从入门到入土 - nUllo&#39;s Blog</title><meta name="author" content="">
 <meta name="author-link" content="">
-<meta name="description" content="记录C/C&#43;&#43; 学习中的重点知识" /><meta name="keywords" content='C/C&#43;&#43;' /><meta itemprop="name" content="C/C&#43;&#43; 从入门到入土">
-<meta itemprop="description" content="记录C/C&#43;&#43; 学习中的重点知识"><meta itemprop="datePublished" content="2022-12-29T18:43:09+08:00" />
-<meta itemprop="dateModified" content="2023-10-24T11:42:32+00:00" />
-<meta itemprop="wordCount" content="16215">
+<meta name="description" content="C/C&#43;&#43; 笔记" /><meta name="keywords" content='C/C&#43;&#43;' /><meta itemprop="name" content="C/C&#43;&#43; 从入门到入土">
+<meta itemprop="description" content="C/C&#43;&#43; 笔记"><meta itemprop="datePublished" content="2022-12-29T18:43:09+08:00" />
+<meta itemprop="dateModified" content="2023-10-27T13:01:35+00:00" />
+<meta itemprop="wordCount" content="18203">
 <meta itemprop="keywords" content="C/C&#43;&#43;," /><meta property="og:title" content="C/C&#43;&#43; 从入门到入土" />
-<meta property="og:description" content="记录C/C&#43;&#43; 学习中的重点知识" />
+<meta property="og:description" content="C/C&#43;&#43; 笔记" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://example.org/posts/2022-1229-01/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-12-29T18:43:09+08:00" />
-<meta property="article:modified_time" content="2023-10-24T11:42:32+00:00" />
+<meta property="article:modified_time" content="2023-10-27T13:01:35+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="C/C&#43;&#43; 从入门到入土"/>
-<meta name="twitter:description" content="记录C/C&#43;&#43; 学习中的重点知识"/>
+<meta name="twitter:description" content="C/C&#43;&#43; 笔记"/>
 <meta name="application-name" content="FixIt">
 <meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -32,13 +32,13 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/example.org\/posts\/2022-1229-01\/"
-    },"genre": "posts","keywords": "C\/C\u002b\u002b","wordcount":  16215 ,
-    "url": "http:\/\/example.org\/posts\/2022-1229-01\/","datePublished": "2022-12-29T18:43:09+08:00","dateModified": "2023-10-24T11:42:32+00:00","publisher": {
+    },"genre": "posts","keywords": "C\/C\u002b\u002b","wordcount":  18203 ,
+    "url": "http:\/\/example.org\/posts\/2022-1229-01\/","datePublished": "2022-12-29T18:43:09+08:00","dateModified": "2023-10-27T13:01:35+00:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
         "@type": "Person",
         "name": "作者"
-      },"description": "记录C/C++ 学习中的重点知识"
+      },"description": "C/C++ 笔记"
   }
   </script></head>
   <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper"><header class="desktop animate__faster" id="header-desktop">
@@ -204,11 +204,11 @@
 <svg class="icon2" aria-hidden="true">
   <use xlink:href="#icon-qianbi1"></use>
 </svg>
-			约 16215 字</span>&nbsp;<span><i class="111" aria-hidden="true"></i> 
+			约 18203 字</span>&nbsp;<span><i class="111" aria-hidden="true"></i> 
 <svg class="icon2" aria-hidden="true">
   <use xlink:href="#icon-shalou2"></use>
 </svg>
-			预计阅读 33 分钟</span>&nbsp;</div>
+			预计阅读 37 分钟</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>目录</span>
@@ -216,6 +216,23 @@
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
+    <li><a href="#创建c文件">创建C文件</a></li>
+    <li><a href="#c语言执行流程">C语言执行流程</a></li>
+    <li><a href="#内存窗口">内存窗口</a></li>
+    <li><a href="#const和define区别">const和#define区别</a></li>
+    <li><a href="#x86和x64的调试区别">x86和x64的调试区别</a></li>
+    <li><a href="#变量存储方式">变量存储方式</a></li>
+    <li><a href="#内存分配">内存分配</a></li>
+    <li><a href="#数据类型">数据类型</a></li>
+    <li><a href="#线程">线程</a></li>
+    <li><a href="#句柄">句柄</a></li>
+    <li><a href="#窗口重点api">窗口重点API</a>
+      <ul>
+        <li><a href="#mesagebox">MesageBox</a></li>
+        <li><a href="#findwindow">FindWindow</a></li>
+      </ul>
+    </li>
+    <li><a href="#宽字符窄字符">宽字符窄字符</a></li>
     <li><a href="#p-p-p-的含义">p *p &amp;p 的含义</a></li>
     <li><a href="#二级指针">二级指针</a></li>
     <li><a href="#const">const</a></li>
@@ -281,7 +298,473 @@
     <li><a href="#文件分割">文件分割</a></li>
   </ul>
 </nav></div>
-      </div><div class="content" id="content"><h2 id="p-p-p-的含义">p *p &amp;p 的含义</h2>
+      </div><div class="content" id="content"><h2 id="创建c文件">创建C文件</h2>
+<p>使用 Visual Studio 新建空项目</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20231026211637074.png"
+    data-srcset="image-20231026211637074.png, image-20231026211637074.png 1.25x, image-20231026211637074.png 1.25x"
+    data-sizes="auto"
+    alt="image-20231026211637074"
+    title="image-20231026211637074"/></p>
+<p>然后源文件—&gt;添加—&gt;新建项</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20221026123430461.png"
+    data-srcset="image-20221026123430461.png, image-20221026123430461.png 1.25x, image-20221026123430461.png 1.25x"
+    data-sizes="auto"
+    alt="image-20221026123430461"
+    title="image-20221026123430461"/></p>
+<h2 id="c语言执行流程">C语言执行流程</h2>
+<p>执行流程为：预编译(预处理)阶段 &gt; 编译阶段 &gt; 汇编阶段 &gt; 链接阶段（linux下生成.out文件、windows下生成.exe文件）</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20221102205504542.png"
+    data-srcset="image-20221102205504542.png, image-20221102205504542.png 1.25x, image-20221102205504542.png 1.25x"
+    data-sizes="auto"
+    alt="image-20221102205504542"
+    title="image-20221102205504542"/></p>
+<p>作用如下：</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20221028214828287.png"
+    data-srcset="image-20221028214828287.png, image-20221028214828287.png 1.25x, image-20221028214828287.png 1.25x"
+    data-sizes="auto"
+    alt="image-20221028214828287"
+    title="image-20221028214828287"/></p>
+<h2 id="内存窗口">内存窗口</h2>
+<p>打断点</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20221028222351825.png"
+    data-srcset="image-20221028222351825.png, image-20221028222351825.png 1.25x, image-20221028222351825.png 1.25x"
+    data-sizes="auto"
+    alt="image-20221028222351825"
+    title="image-20221028222351825"/></p>
+<p>然后调试，得到a的地址</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20221028222936196.png"
+    data-srcset="image-20221028222936196.png, image-20221028222936196.png 1.25x, image-20221028222936196.png 1.25x"
+    data-sizes="auto"
+    alt="image-20221028222936196"
+    title="image-20221028222936196"/></p>
+<p>打开内存窗口（只有打断点后才能找到内存窗口）</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20221028222550072.png"
+    data-srcset="image-20221028222550072.png, image-20221028222550072.png 1.25x, image-20221028222550072.png 1.25x"
+    data-sizes="auto"
+    alt="image-20221028222550072"
+    title="image-20221028222550072"/></p>
+<p>查找 000000E42FEFF5E4 地址处的数据</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20221028223025061.png"
+    data-srcset="image-20221028223025061.png, image-20221028223025061.png 1.25x, image-20221028223025061.png 1.25x"
+    data-sizes="auto"
+    alt="image-20221028223025061"
+    title="image-20221028223025061"/></p>
+<p>为了方便数据查看，改为4字节</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20221028223213830.png"
+    data-srcset="image-20221028223213830.png, image-20221028223213830.png 1.25x, image-20221028223213830.png 1.25x"
+    data-sizes="auto"
+    alt="image-20221028223213830"
+    title="image-20221028223213830"/></p>
+<p>而十六进制的00000064对应十进制就是100</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20221028223248517.png"
+    data-srcset="image-20221028223248517.png, image-20221028223248517.png 1.25x, image-20221028223248517.png 1.25x"
+    data-sizes="auto"
+    alt="image-20221028223248517"
+    title="image-20221028223248517"/></p>
+<h2 id="const和define区别">const和#define区别</h2>
+<blockquote>
+<p>实际上const常量并不算真正意义上的常量，我们用const定义的常量仍然可以修改，但#define定义的则是真正的常量</p>
+</blockquote>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20221028225158369.png"
+    data-srcset="image-20221028225158369.png, image-20221028225158369.png 1.25x, image-20221028225158369.png 1.25x"
+    data-sizes="auto"
+    alt="image-20221028225158369"
+    title="image-20221028225158369"/></p>
+<h2 id="x86和x64的调试区别">x86和x64的调试区别</h2>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20221028231245458.png"
+    data-srcset="image-20221028231245458.png, image-20221028231245458.png 1.25x, image-20221028231245458.png 1.25x"
+    data-sizes="auto"
+    alt="image-20221028231245458"
+    title="image-20221028231245458"/></p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20221028231332619.png"
+    data-srcset="image-20221028231332619.png, image-20221028231332619.png 1.25x, image-20221028231332619.png 1.25x"
+    data-sizes="auto"
+    alt="image-20221028231332619"
+    title="image-20221028231332619"/></p>
+<h2 id="变量存储方式">变量存储方式</h2>
+<ul>
+<li>静态存储：变量定义的时候，分配了一定的内存单元，在整个程序中，内存单元都不变，只能初始化一次，可以多次赋值，静态存储变量不初始化，则初始为0</li>
+<li>动态存储：程序执行过程中才分配内存单元，使用完后就释放，如形参，函数的形式参数就是动态存储方式，声明函数的时候不给它分配内存单元，调用的时候传入实参，就分配内存单元,然后函数执行完后，就释放内存。动态存储变量若不初始化，则初始值为一个随机数</li>
+</ul>
+<blockquote>
+<p>为啥静态存储未初始化时，值为0（全局变量未定义时值为0），而动态存储未初始化时，值为随机数 ？（局部变量未定义值为随机数）</p>
+</blockquote>
+<ol>
+<li>
+<p>未初始化的静态变量一般是分配在BSS段，程序加载时会对整个BSS段进行清0操作，因此这些静态变量初始值是0</p>
+</li>
+<li>
+<p>临时变量是分配在栈堆里的，而栈堆是反复使用的，如果不初始化，里面存放的值就是一个垃圾值，因此未初始化，临时变量的值是不确定的</p>
+</li>
+</ol>
+<h2 id="内存分配">内存分配</h2>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20221101214619743.png"
+    data-srcset="image-20221101214619743.png, image-20221101214619743.png 1.25x, image-20221101214619743.png 1.25x"
+    data-sizes="auto"
+    alt="image-20221101214619743"
+    title="image-20221101214619743"/></p>
+
+
+
+    
+
+
+
+<div class="codetitle"></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="c1">//demo.c
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>   <span class="c1">// 数据段
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">char</span> <span class="o">*</span><span class="n">p1</span><span class="p">;</span> <span class="c1">// BSS段 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">b</span><span class="p">;</span> 	<span class="c1">// 栈
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">char</span> <span class="n">s</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&#34;abc&#34;</span><span class="p">;</span>	<span class="c1">//  栈
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">char</span> <span class="o">*</span><span class="n">p2</span><span class="p">;</span>	<span class="c1">//  栈
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">char</span> <span class="o">*</span><span class="n">p3</span> <span class="o">=</span> <span class="s">&#34;123456&#34;</span><span class="p">;</span> <span class="c1">// 123456\0在常量区，p3在栈上。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">static</span> <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span><span class="mi">0</span><span class="err">；</span> <span class="c1">// BSS段
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">Class</span> <span class="n">c1</span> <span class="o">=</span> <span class="n">new</span> <span class="nf">Class</span><span class="p">();</span><span class="c1">//new出的对象就在堆区
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">strcpy</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="s">&#34;123456&#34;</span><span class="p">);</span> <span class="c1">//123456\0放在常量区，编译器可能会将它与p3所指向的&#34;123456&#34;优化成一个地方。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="数据类型">数据类型</h2>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20221030163739142.png"
+    data-srcset="image-20221030163739142.png, image-20221030163739142.png 1.25x, image-20221030163739142.png 1.25x"
+    data-sizes="auto"
+    alt="image-20221030163739142"
+    title="image-20221030163739142"/></p>
+<blockquote>
+<p>什么是数据类型？ 为什么需要数据类型 ?</p>
+</blockquote>
+<p>数据类型是为了更好进行内存的管理,让编译器能确定分配多少内存</p>
+<p>我们现实生活中，狗是狗，鸟是鸟等等，每一种事物都有自己的类型，那么程序中使用 数据类型也是来源于生活</p>
+<p>当我们给狗分配内存的时候，也就相当于给狗建造狗窝，给鸟分配内存的时候，也就是 给鸟建造一个鸟窝，我们可以给他们各自建造一个别墅，但是会造成内存的浪费，不能很好 的利用内存空间</p>
+<p>我们在想，如果给鸟分配内存，只需要鸟窝大小的空间就够了，如果给狗分配内存，那 么也只需要狗窝大小的内存，而不是给鸟和狗都分配一座别墅，造成内存的浪费</p>
+<p>当我们定义一个变量，a = 10，编译器如何分配内存？计算机只是一个机器，它怎么知 道用多少内存可以放得下 10 ？</p>
+<p>所以说，数据类型非常重要，它可以告诉编译器分配多少内存可以放得下我们的数据</p>
+<h2 id="线程">线程</h2>
+<p>弹窗5次，代码如下：</p>
+
+
+
+    
+
+
+
+<div class="codetitle"></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdbool.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;windows.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">MessageBoxA</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#34;窗口&#34;</span><span class="p">,</span> <span class="s">&#34;hacker&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+<p>创建线程，再次弹窗</p>
+
+
+
+    
+
+
+
+<div class="codetitle"></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdbool.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;windows.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;process.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">run</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">MessageBoxA</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#34;hacker&#34;</span><span class="p">,</span> <span class="s">&#34;弹窗&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">_beginthread</span><span class="p">(</span><span class="n">run</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">system</span><span class="p">(</span><span class="s">&#34;pause&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="句柄">句柄</h2>
+<p>对应的英文是handle，翻译成“把手”更恰当：你要操作某个资源，告诉操作系统这个资源的“把手”，剩余的工作交给操作系统就行了；操作系统会根据这个 “把手” 找到要操作的资源并完成操作。</p>
+<h2 id="窗口重点api">窗口重点API</h2>
+<blockquote>
+<p>结合WIN32API大全学习</p>
+</blockquote>
+<h3 id="mesagebox">MesageBox</h3>
+<blockquote>
+<p>弹窗</p>
+</blockquote>
+
+
+
+    
+
+
+
+<div class="codetitle"></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">MessageBoxA(0, &#34;没找到&#34;, &#34;提示&#34;, 0);</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20221102181826985.png"
+    data-srcset="image-20221102181826985.png, image-20221102181826985.png 1.25x, image-20221102181826985.png 1.25x"
+    data-sizes="auto"
+    alt="image-20221102181826985"
+    title="image-20221102181826985"/></p>
+<h3 id="findwindow">FindWindow</h3>
+
+
+
+    
+
+
+
+<div class="codetitle"></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">功能：该函数获得一个窗口的句柄，该窗口的类名和窗口名与给定的字符串相匹配。这个函数查找子窗口，从排在给定的子窗口后面的下一个子窗口开始。在查找时不区分大小写。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">函数型：HWND FindWindow（LPCTSTR IpClassName，LPCTSTR IpWindowName）;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">参数：
+</span></span><span class="line"><span class="cl">	IpClassName ：类名
+</span></span><span class="line"><span class="cl">    IpWindowName：窗口名
+</span></span><span class="line"><span class="cl">    返回值：如果函数成功，返回值为具有指定类名和窗口名的窗口句柄；如果函数失败，返回值为NULL。</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<blockquote>
+<p>如何查找类名和窗口名，比如查找计算机的类名和窗口名</p>
+</blockquote>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20221102175629026.png"
+    data-srcset="image-20221102175629026.png, image-20221102175629026.png 1.25x, image-20221102175629026.png 1.25x"
+    data-sizes="auto"
+    alt="image-20221102175629026"
+    title="image-20221102175629026"/></p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20221102175810829.png"
+    data-srcset="image-20221102175810829.png, image-20221102175810829.png 1.25x, image-20221102175810829.png 1.25x"
+    data-sizes="auto"
+    alt="image-20221102175810829"
+    title="image-20221102175810829"/></p>
+<blockquote>
+<p>代码：计算器程序闪烁</p>
+</blockquote>
+
+
+
+    
+
+
+
+<div class="codetitle"></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdbool.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;windows.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;process.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">system</span><span class="p">(</span><span class="s">&#34;calc&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//FindWindowA代表窄字节，FindWindowW代表宽字节，FindWindow根据环境自动选择
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">HWND</span> <span class="n">win</span> <span class="o">=</span> <span class="nf">FindWindowA</span><span class="p">(</span><span class="s">&#34;Windows.UI.Core.CoreWindow&#34;</span><span class="p">,</span><span class="s">&#34;计算器&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//判断有没有找到句柄win
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span> <span class="p">(</span><span class="n">win</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">MessageBoxA</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#34;没找到&#34;</span><span class="p">,</span> <span class="s">&#34;提示&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">else</span> <span class="p">{</span>		<span class="c1">//如果找到可以让“计算机”闪烁
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nf">ShowWindow</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">SW_HIDE</span><span class="p">);</span>	
+</span></span><span class="line"><span class="cl">			<span class="nf">Sleep</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>		<span class="c1">//500毫秒
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nf">ShowWindow</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">SW_HIDE</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">			<span class="nf">Sleep</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>		<span class="c1">//500毫秒
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="宽字符窄字符">宽字符窄字符</h2>
+<ul>
+<li>A代表窄字符</li>
+<li>W代表宽字符</li>
+</ul>
+<p>一个项目中到底使用宽字符还是窄字符，要看其项目属性</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20221103195431828.png"
+    data-srcset="image-20221103195431828.png, image-20221103195431828.png 1.25x, image-20221103195431828.png 1.25x"
+    data-sizes="auto"
+    alt="image-20221103195431828"
+    title="image-20221103195431828"/></p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20221103195338557.png"
+    data-srcset="image-20221103195338557.png, image-20221103195338557.png 1.25x, image-20221103195338557.png 1.25x"
+    data-sizes="auto"
+    alt="image-20221103195338557"
+    title="image-20221103195338557"/></p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20221103195534232.png"
+    data-srcset="image-20221103195534232.png, image-20221103195534232.png 1.25x, image-20221103195534232.png 1.25x"
+    data-sizes="auto"
+    alt="image-20221103195534232"
+    title="image-20221103195534232"/></p>
+<h2 id="p-p-p-的含义">p *p &amp;p 的含义</h2>
 
 
 
@@ -4608,7 +5091,20 @@
 </div>
 </div>
 <h2 id="文件分割">文件分割</h2>
-<p>我们在windwos下打开一个文件时，操作系统首先把这个文件的内容放到内存里，然后操作系统会专门在内存里面创建一片内存，这片内存就是缓冲区，缓冲区就是用于读写文件的，我们打开文件的时候，操作系统会帮我们维护一个文件指针，当我们刚打开文件的时候，这个指针就在文件的头部，当我们读取的时候，如果每次读取一个字符，那么这个指针就会逐渐往下移动，以<a href="https://www.ruanyifeng.com/blog/2011/11/eof.html"target="_blank" rel="external nofollow noopener noreferrer">EOF</a>结尾，也就是以-1结尾。</p></div><div class="post-reward">
+<p>我们在windwos下打开一个文件时，操作系统首先把这个文件的内容放到内存里，然后操作系统会专门在内存里面创建一片内存，这片内存就是缓冲区，缓冲区就是用于读写文件的，我们打开文件的时候，操作系统会帮我们维护一个文件指针，当我们刚打开文件的时候，这个指针就在文件的头部，当我们读取的时候，如果每次读取一个字符，那么这个指针就会逐渐往下移动，以<a href="https://www.ruanyifeng.com/blog/2011/11/eof.html"target="_blank" rel="external nofollow noopener noreferrer">EOF</a>结尾，也就是以-1结尾。</p>
+
+
+
+
+
+<div class="codetitle"></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-reward">
     <div class="comment"></div>
     <input type="checkbox" class="reward-input" name="reward" id="fi-reward" hidden />
     <label class="reward-button" for="fi-reward">赞赏</label>
@@ -4620,7 +5116,7 @@
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title=2023-10-24&#32;11:42:32>更新于 2023-10-24&nbsp;</span>
+        <span title=2023-10-27&#32;13:01:35>更新于 2023-10-27&nbsp;</span>
       </div></div>
     <div class="post-info-line">
       <div class="post-info-md"><span><a href="https://github.com/ayuxy/Blog_Backup/tree/main/content/posts/2022-1229-01.md" title="编辑此页"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-edit">编辑此页</a></span></div>
