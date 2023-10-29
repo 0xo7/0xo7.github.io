@@ -9,14 +9,14 @@
 <meta name="author-link" content="">
 <meta name="description" content="C/C&#43;&#43; 笔记" /><meta name="keywords" content='C/C&#43;&#43;' /><meta itemprop="name" content="C/C&#43;&#43; 从入门到入土">
 <meta itemprop="description" content="C/C&#43;&#43; 笔记"><meta itemprop="datePublished" content="2022-12-29T18:43:09+08:00" />
-<meta itemprop="dateModified" content="2023-10-27T13:01:35+00:00" />
-<meta itemprop="wordCount" content="18203">
+<meta itemprop="dateModified" content="2023-10-29T01:45:02+00:00" />
+<meta itemprop="wordCount" content="18367">
 <meta itemprop="keywords" content="C/C&#43;&#43;," /><meta property="og:title" content="C/C&#43;&#43; 从入门到入土" />
 <meta property="og:description" content="C/C&#43;&#43; 笔记" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://example.org/posts/2022-1229-01/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-12-29T18:43:09+08:00" />
-<meta property="article:modified_time" content="2023-10-27T13:01:35+00:00" />
+<meta property="article:modified_time" content="2023-10-29T01:45:02+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="C/C&#43;&#43; 从入门到入土"/>
 <meta name="twitter:description" content="C/C&#43;&#43; 笔记"/>
@@ -32,8 +32,8 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/example.org\/posts\/2022-1229-01\/"
-    },"genre": "posts","keywords": "C\/C\u002b\u002b","wordcount":  18203 ,
-    "url": "http:\/\/example.org\/posts\/2022-1229-01\/","datePublished": "2022-12-29T18:43:09+08:00","dateModified": "2023-10-27T13:01:35+00:00","publisher": {
+    },"genre": "posts","keywords": "C\/C\u002b\u002b","wordcount":  18367 ,
+    "url": "http:\/\/example.org\/posts\/2022-1229-01\/","datePublished": "2022-12-29T18:43:09+08:00","dateModified": "2023-10-29T01:45:02+00:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
         "@type": "Person",
@@ -204,7 +204,7 @@
 <svg class="icon2" aria-hidden="true">
   <use xlink:href="#icon-qianbi1"></use>
 </svg>
-			约 18203 字</span>&nbsp;<span><i class="111" aria-hidden="true"></i> 
+			约 18367 字</span>&nbsp;<span><i class="111" aria-hidden="true"></i> 
 <svg class="icon2" aria-hidden="true">
   <use xlink:href="#icon-shalou2"></use>
 </svg>
@@ -296,6 +296,7 @@
       </ul>
     </li>
     <li><a href="#文件分割">文件分割</a></li>
+    <li><a href="#虚拟内存加载-shellcode">虚拟内存加载 shellcode</a></li>
   </ul>
 </nav></div>
       </div><div class="content" id="content"><h2 id="创建c文件">创建C文件</h2>
@@ -5092,19 +5093,109 @@
 </div>
 <h2 id="文件分割">文件分割</h2>
 <p>我们在windwos下打开一个文件时，操作系统首先把这个文件的内容放到内存里，然后操作系统会专门在内存里面创建一片内存，这片内存就是缓冲区，缓冲区就是用于读写文件的，我们打开文件的时候，操作系统会帮我们维护一个文件指针，当我们刚打开文件的时候，这个指针就在文件的头部，当我们读取的时候，如果每次读取一个字符，那么这个指针就会逐渐往下移动，以<a href="https://www.ruanyifeng.com/blog/2011/11/eof.html"target="_blank" rel="external nofollow noopener noreferrer">EOF</a>结尾，也就是以-1结尾。</p>
+<p>复制文本文件 123.txt 的内容到 456.txt</p>
 
 
+
+    
 
 
 
 <div class="codetitle"></div>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code></code></pre></td>
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cp">#define _CRT_SECURE_NO_WARNINGS
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;Windows.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;process.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">FILE</span><span class="o">*</span> <span class="n">p1</span> <span class="o">=</span> <span class="nf">fopen</span><span class="p">(</span><span class="s">&#34;C://123.txt&#34;</span><span class="p">,</span><span class="s">&#34;r&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">FILE</span><span class="o">*</span> <span class="n">p2</span> <span class="o">=</span> <span class="nf">fopen</span><span class="p">(</span><span class="s">&#34;C://456.txt&#34;</span><span class="p">,</span><span class="s">&#34;w&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">ch</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">while</span> <span class="p">((</span><span class="n">ch</span> <span class="o">=</span> <span class="nf">fgetc</span><span class="p">(</span><span class="n">p1</span><span class="p">))</span> <span class="o">!=</span> <span class="n">EOF</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">fputc</span><span class="p">(</span><span class="n">ch</span><span class="p">,</span> <span class="n">p2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nf">fclose</span><span class="p">(</span><span class="n">p2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">fclose</span><span class="p">(</span><span class="n">p1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
-</div></div><div class="post-reward">
+</div>
+<p>获取当前指针距离文件开头的长度：</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20231028094330154.png"
+    data-srcset="image-20231028094330154.png, image-20231028094330154.png 1.25x, image-20231028094330154.png 1.25x"
+    data-sizes="auto"
+    alt="image-20231028094330154"
+    title="image-20231028094330154"/></p>
+
+
+
+    
+
+
+
+<div class="codetitle"></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cp">#define _CRT_SECURE_NO_WARNINGS
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;Windows.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;process.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">FILE</span><span class="o">*</span> <span class="n">p1</span> <span class="o">=</span> <span class="nf">fopen</span><span class="p">(</span><span class="s">&#34;C://123.txt&#34;</span><span class="p">,</span> <span class="s">&#34;r&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">fseek</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="n">SEEK_END</span><span class="p">);</span> <span class="c1">//将文件指针移动到指定的地方
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="nf">ftell</span><span class="p">(</span><span class="n">p1</span><span class="p">);</span> <span class="c1">//获取当前指针距离文件开头的长度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">fclose</span><span class="p">(</span><span class="n">p1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="虚拟内存加载-shellcode">虚拟内存加载 shellcode</h2></div><div class="post-reward">
     <div class="comment"></div>
     <input type="checkbox" class="reward-input" name="reward" id="fi-reward" hidden />
     <label class="reward-button" for="fi-reward">赞赏</label>
@@ -5116,7 +5207,7 @@
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title=2023-10-27&#32;13:01:35>更新于 2023-10-27&nbsp;</span>
+        <span title=2023-10-29&#32;01:45:02>更新于 2023-10-29&nbsp;</span>
       </div></div>
     <div class="post-info-line">
       <div class="post-info-md"><span><a href="https://github.com/ayuxy/Blog_Backup/tree/main/content/posts/2022-1229-01.md" title="编辑此页"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-edit">编辑此页</a></span></div>
