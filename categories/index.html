@@ -12,6 +12,7 @@
 <meta property="og:description" content="这是我的全新Hugo_FixIt网站" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://example.org/categories/" />
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Categories"/>
 <meta name="twitter:description" content="这是我的全新Hugo_FixIt网站"/>
@@ -169,6 +170,18 @@
     </h2><div class="categories-card"><div class="card-item">
             <div class="card-item-wrapper">
               <h3 class="card-item-title">
+                <a href='/categories/draft/'>
+                  <i class="111" aria-hidden="true"></i>
+                  📂 draft&nbsp;<sup>2</sup>
+                </a>
+              </h3><article class="archive-item">
+                  <a href="/posts/2023-0920-01/" class="archive-item-link">自动化工具</a>
+                </article><article class="archive-item">
+                  <a href="/posts/2022-0820-01/" class="archive-item-link">8086汇编</a>
+                </article></div>
+          </div><div class="card-item">
+            <div class="card-item-wrapper">
+              <h3 class="card-item-title">
                 <a href='/categories/hugo/'>
                   <i class="111" aria-hidden="true"></i>
                   📂 Hugo&nbsp;<sup>2</sup>
@@ -189,16 +202,6 @@
                   <a href="/posts/2022-1212-01/" class="archive-item-link">深入理解 Kerberos 协议 (下)</a>
                 </article><article class="archive-item">
                   <a href="/posts/2022-1207-01/" class="archive-item-link">深入理解 Kerberos 协议 (上)</a>
-                </article></div>
-          </div><div class="card-item">
-            <div class="card-item-wrapper">
-              <h3 class="card-item-title">
-                <a href='/categories/draft/'>
-                  <i class="111" aria-hidden="true"></i>
-                  📂 draft&nbsp;<sup>1</sup>
-                </a>
-              </h3><article class="archive-item">
-                  <a href="/posts/2023-0920-01/" class="archive-item-link">自动化工具</a>
                 </article></div>
           </div><div class="card-item">
             <div class="card-item-wrapper">
@@ -318,6 +321,12 @@ var datatemp = {};
   }
   datatemp[datetemp]++;
 
+  var datetemp = "2022-08-20";
+  if (!datatemp[datetemp]) {
+    datatemp[datetemp] = 0;
+  }
+  datatemp[datetemp]++;
+
 
 
 var data = [];
@@ -373,6 +382,11 @@ data.push(
 data.push(
     [
         "2022-11-11",
+    ],
+);
+data.push(
+    [
+        "2022-08-20",
     ],
 );if(window.matchMedia('(max-width: 320px)').matches){
     var rangeArr = heatmap_width(3);

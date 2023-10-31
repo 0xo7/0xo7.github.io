@@ -11,5 +11,13 @@
   <guid>http://example.org/posts/2023-0920-01/</guid>
   <description><![CDATA[]]></description>
 </item>
+<item>
+  <title>8086汇编</title>
+  <link>http://example.org/posts/2022-0820-01/</link>
+  <pubDate>Sat, 20 Aug 2022 10:49:12 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>http://example.org/posts/2022-0820-01/</guid>
+  <description><![CDATA[]]></description>
+</item>
 </channel>
 </rss>

@@ -12,6 +12,7 @@
 <meta property="og:description" content="这是我的全新Hugo_FixIt网站" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://example.org/categories/hugo/" />
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hugo"/>
 <meta name="twitter:description" content="这是我的全新Hugo_FixIt网站"/>
@@ -268,6 +269,12 @@ var datatemp = {};
   }
   datatemp[datetemp]++;
 
+  var datetemp = "2022-08-20";
+  if (!datatemp[datetemp]) {
+    datatemp[datetemp] = 0;
+  }
+  datatemp[datetemp]++;
+
 
 
 var data = [];
@@ -323,6 +330,11 @@ data.push(
 data.push(
     [
         "2022-11-11",
+    ],
+);
+data.push(
+    [
+        "2022-08-20",
     ],
 );if(window.matchMedia('(max-width: 320px)').matches){
     var rangeArr = heatmap_width(3);

@@ -12,6 +12,7 @@
 <meta property="og:description" content="这是我的全新Hugo_FixIt网站" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://example.org/categories/draft/" />
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="draft"/>
 <meta name="twitter:description" content="这是我的全新Hugo_FixIt网站"/>
@@ -164,9 +165,12 @@
   <div class="search-dropdown mobile">
     <div id="search-dropdown-mobile"></div>
   </div><main class="container" data-page-style="noraml"><div class="page archive"><h2 class="single-title animate__animated animate__pulse animate__faster"><i class="111" aria-hidden="true"></i>
-        📂 draft&nbsp;<sup>1</sup></h2><h3 class="group-title">🎯 2023</h3><article class="archive-item">
+        📂 draft&nbsp;<sup>2</sup></h2><h3 class="group-title">🎯 2023</h3><article class="archive-item">
             <a href="/posts/2023-0920-01/" class="archive-item-link">自动化工具</a>
             <span class="archive-item-date" title=2023-09-20&#32;18:48:31>09-20</span>
+          </article><h3 class="group-title">🎯 2022</h3><article class="archive-item">
+            <a href="/posts/2022-0820-01/" class="archive-item-link">8086汇编</a>
+            <span class="archive-item-date" title=2022-08-20&#32;10:49:12>08-20</span>
           </article></div></main><footer class="footer">
     <div class="footer-container"><script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="c4d6143e-e2df-4ed2-b9e1-cd69306c8691";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">
@@ -265,6 +269,12 @@ var datatemp = {};
   }
   datatemp[datetemp]++;
 
+  var datetemp = "2022-08-20";
+  if (!datatemp[datetemp]) {
+    datatemp[datetemp] = 0;
+  }
+  datatemp[datetemp]++;
+
 
 
 var data = [];
@@ -320,6 +330,11 @@ data.push(
 data.push(
     [
         "2022-11-11",
+    ],
+);
+data.push(
+    [
+        "2022-08-20",
     ],
 );if(window.matchMedia('(max-width: 320px)').matches){
     var rangeArr = heatmap_width(3);
