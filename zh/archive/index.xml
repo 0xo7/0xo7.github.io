@@ -7,7 +7,7 @@
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>Archive on Hugo Zzo Theme</title>
-    <link>http://ayuxy.github.io/zh/archive/</link>
+    <link>https://ayuxy.github.io/zh/zh/archive/</link>
     <description>Recent content in Archive on Hugo Zzo Theme</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
@@ -16,7 +16,7 @@
     <copyright>©2023, All Rights Reserved</copyright>
     <lastBuildDate>Sat, 19 Oct 2019 11:44:14 +0900</lastBuildDate>
     
-        <atom:link href="http://ayuxy.github.io/zh/archive/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://ayuxy.github.io/zh/zh/archive/index.xml" rel="self" type="application/rss+xml" />
     
 
       

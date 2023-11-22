@@ -7,7 +7,7 @@
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>Posts on Hugo Zzo Theme</title>
-    <link>http://ayuxy.github.io/zh/posts/</link>
+    <link>https://ayuxy.github.io/zh/zh/posts/</link>
     <description>Recent content in Posts on Hugo Zzo Theme</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
@@ -16,17 +16,17 @@
     <copyright>©2023, All Rights Reserved</copyright>
     <lastBuildDate>Tue, 21 Nov 2023 08:29:13 +0800</lastBuildDate>
     
-        <atom:link href="http://ayuxy.github.io/zh/posts/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://ayuxy.github.io/zh/zh/posts/index.xml" rel="self" type="application/rss+xml" />
     
 
       
       <item>
         <title>测试时</title>
-        <link>http://ayuxy.github.io/zh/posts/2023-1121-01/</link>
+        <link>https://ayuxy.github.io/zh/zh/posts/2023-1121-01/</link>
         <pubDate>Tue, 21 Nov 2023 08:29:13 +0800</pubDate>
         <author>1714132614@qq.com (ayuxy)</author>
         <atom:modified>Tue, 21 Nov 2023 08:29:13 +0800</atom:modified>
-        <guid>http://ayuxy.github.io/zh/posts/2023-1121-01/</guid>
+        <guid>https://ayuxy.github.io/zh/zh/posts/2023-1121-01/</guid>
         <description></description>
         
         <dc:creator>ayuxy</dc:creator>
