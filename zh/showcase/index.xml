@@ -7,7 +7,7 @@
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>Showcase overview on Hugo Zzo Theme</title>
-    <link>http://example.org/zh/showcase/</link>
+    <link>http://ayuxy.github.io/zh/showcase/</link>
     <description>Recent content in Showcase overview on Hugo Zzo Theme</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
@@ -16,17 +16,17 @@
     <copyright>©2023, All Rights Reserved</copyright>
     <lastBuildDate>Sun, 19 Jan 2020 15:43:38 +0900</lastBuildDate>
     
-        <atom:link href="http://example.org/zh/showcase/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://ayuxy.github.io/zh/showcase/index.xml" rel="self" type="application/rss+xml" />
     
 
       
       <item>
         <title>hack tools</title>
-        <link>http://example.org/zh/showcase/hugo/</link>
+        <link>http://ayuxy.github.io/zh/showcase/hugo/</link>
         <pubDate>Sun, 19 Jan 2020 21:04:11 +0900</pubDate>
         <author>1714132614@qq.com (ayuxy)</author>
         <atom:modified>Sun, 19 Jan 2020 21:04:11 +0900</atom:modified>
-        <guid>http://example.org/zh/showcase/hugo/</guid>
+        <guid>http://ayuxy.github.io/zh/showcase/hugo/</guid>
         <description></description>
         
         <dc:creator>ayuxy</dc:creator>

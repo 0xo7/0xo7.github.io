@@ -7,7 +7,7 @@
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>Hugo Zzo Theme</title>
-    <link>http://example.org/zh/</link>
+    <link>http://ayuxy.github.io/zh/</link>
     <description>Recent content on Hugo Zzo Theme</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
@@ -16,7 +16,7 @@
     <copyright>©2023, All Rights Reserved</copyright>
     <lastBuildDate>Tue, 21 Nov 2023 08:29:13 +0800</lastBuildDate>
     
-        <atom:link href="http://example.org/zh/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://ayuxy.github.io/zh/index.xml" rel="self" type="application/rss+xml" />
     
       
       
@@ -43,11 +43,11 @@
       
       <item>
         <title>测试时</title>
-        <link>http://example.org/zh/posts/2023-1121-01/</link>
+        <link>http://ayuxy.github.io/zh/posts/2023-1121-01/</link>
         <pubDate>Tue, 21 Nov 2023 08:29:13 +0800</pubDate>
         <author>1714132614@qq.com (ayuxy)</author>
         <atom:modified>Tue, 21 Nov 2023 08:29:13 +0800</atom:modified>
-        <guid>http://example.org/zh/posts/2023-1121-01/</guid>
+        <guid>http://ayuxy.github.io/zh/posts/2023-1121-01/</guid>
         <description></description>
         
         <dc:creator>ayuxy</dc:creator>
@@ -73,11 +73,11 @@
       
       <item>
         <title>kill2文章</title>
-        <link>http://example.org/zh/kill1/kill2/2023-1121-06/</link>
+        <link>http://ayuxy.github.io/zh/kill1/kill2/2023-1121-06/</link>
         <pubDate>Mon, 20 Nov 2023 21:54:24 +0800</pubDate>
         <author>1714132614@qq.com (ayuxy)</author>
         <atom:modified>Tue, 28 Nov 2023 00:00:00 +0000</atom:modified>
-        <guid>http://example.org/zh/kill1/kill2/2023-1121-06/</guid>
+        <guid>http://ayuxy.github.io/zh/kill1/kill2/2023-1121-06/</guid>
         <description></description>
         
         <dc:creator>ayuxy</dc:creator>
@@ -105,15 +105,15 @@
       
       <item>
         <title>kill3文章</title>
-        <link>http://example.org/zh/kill1/kill2/kill3/2023-1121-05/</link>
+        <link>http://ayuxy.github.io/zh/kill1/kill2/kill3/2023-1121-05/</link>
         <pubDate>Mon, 20 Nov 2023 21:54:24 +0800</pubDate>
         <author>1714132614@qq.com (ayuxy)</author>
         <atom:modified>Mon, 20 Nov 2023 21:54:24 +0800</atom:modified>
-        <guid>http://example.org/zh/kill1/kill2/kill3/2023-1121-05/</guid>
+        <guid>http://ayuxy.github.io/zh/kill1/kill2/kill3/2023-1121-05/</guid>
         <description></description>
         
         <dc:creator>ayuxy</dc:creator>
-        <media:content url="http://example.orgimages/feature3/css3.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        <media:content url="http://ayuxy.github.ioimages/feature3/css3.png" medium="image"><media:title type="html">featured image</media:title></media:content>
         
         
         
@@ -137,15 +137,15 @@
       
       <item>
         <title>博客优化</title>
-        <link>http://example.org/zh/hugo/2023-1120-01/</link>
+        <link>http://ayuxy.github.io/zh/hugo/2023-1120-01/</link>
         <pubDate>Mon, 20 Nov 2023 17:47:22 +0800</pubDate>
         <author>1714132614@qq.com (ayuxy)</author>
         <atom:modified>Mon, 20 Nov 2023 17:47:22 +0800</atom:modified>
-        <guid>http://example.org/zh/hugo/2023-1120-01/</guid>
+        <guid>http://ayuxy.github.io/zh/hugo/2023-1120-01/</guid>
         <description>因 zzo 主题的原作者已停止更新，所以本文主要记录 zzo 主题的修复以及一些优化。由于不擅长前端，所以部分修复和优化代码可能存在一些问题 添加自定义CSS</description>
         
         <dc:creator>ayuxy</dc:creator>
-        <media:content url="http://example.orgimages/settings.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        <media:content url="http://ayuxy.github.ioimages/settings.png" medium="image"><media:title type="html">featured image</media:title></media:content>
         
         
         

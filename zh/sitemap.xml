@@ -2,64 +2,64 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://example.org/zh/showcase/hugo/siusiu-plus/</loc>
+    <loc>http://ayuxy.github.io/zh/showcase/hugo/siusiu-plus/</loc>
     <lastmod>2020-01-19T21:13:42+09:00</lastmod>
   </url><url>
-    <loc>http://example.org/zh/showcase/hugo/hugo-theme-zdoc/</loc>
+    <loc>http://ayuxy.github.io/zh/showcase/hugo/hugo-theme-zdoc/</loc>
     <lastmod>2020-01-19T21:13:42+09:00</lastmod>
   </url><url>
-    <loc>http://example.org/zh/</loc>
+    <loc>http://ayuxy.github.io/zh/</loc>
     <lastmod>2023-11-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/zh/posts/</loc>
+    <loc>http://ayuxy.github.io/zh/posts/</loc>
     <lastmod>2023-11-21T08:29:13+08:00</lastmod>
   </url><url>
-    <loc>http://example.org/zh/posts/2023-1121-01/</loc>
+    <loc>http://ayuxy.github.io/zh/posts/2023-1121-01/</loc>
     <lastmod>2023-11-21T08:29:13+08:00</lastmod>
   </url><url>
-    <loc>http://example.org/zh/kill1/</loc>
+    <loc>http://ayuxy.github.io/zh/kill1/</loc>
     <lastmod>2023-11-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/zh/kill1/kill2/</loc>
+    <loc>http://ayuxy.github.io/zh/kill1/kill2/</loc>
     <lastmod>2023-11-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/zh/kill1/kill2/2023-1121-06/</loc>
+    <loc>http://ayuxy.github.io/zh/kill1/kill2/2023-1121-06/</loc>
     <lastmod>2023-11-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/zh/kill1/kill2/kill3/</loc>
+    <loc>http://ayuxy.github.io/zh/kill1/kill2/kill3/</loc>
     <lastmod>2023-11-20T21:54:24+08:00</lastmod>
   </url><url>
-    <loc>http://example.org/zh/kill1/kill2/kill3/2023-1121-05/</loc>
+    <loc>http://ayuxy.github.io/zh/kill1/kill2/kill3/2023-1121-05/</loc>
     <lastmod>2023-11-20T21:54:24+08:00</lastmod>
   </url><url>
-    <loc>http://example.org/zh/series/</loc>
+    <loc>http://ayuxy.github.io/zh/series/</loc>
     <lastmod>2023-11-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/zh/series/%E6%B5%8B%E8%AF%95/</loc>
+    <loc>http://ayuxy.github.io/zh/series/%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2023-11-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/zh/series/zzo-%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96%E5%90%88%E9%9B%86/</loc>
+    <loc>http://ayuxy.github.io/zh/series/zzo-%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96%E5%90%88%E9%9B%86/</loc>
     <lastmod>2023-11-20T17:47:22+08:00</lastmod>
   </url><url>
-    <loc>http://example.org/zh/hugo/</loc>
+    <loc>http://ayuxy.github.io/zh/hugo/</loc>
     <lastmod>2023-11-20T17:47:22+08:00</lastmod>
   </url><url>
-    <loc>http://example.org/zh/hugo/2023-1120-01/</loc>
+    <loc>http://ayuxy.github.io/zh/hugo/2023-1120-01/</loc>
     <lastmod>2023-11-20T17:47:22+08:00</lastmod>
   </url><url>
-    <loc>http://example.org/zh/showcase/hugo/</loc>
+    <loc>http://ayuxy.github.io/zh/showcase/hugo/</loc>
     <lastmod>2020-01-19T21:04:11+09:00</lastmod>
   </url><url>
-    <loc>http://example.org/zh/showcase/</loc>
+    <loc>http://ayuxy.github.io/zh/showcase/</loc>
     <lastmod>2020-01-19T15:43:38+09:00</lastmod>
   </url><url>
-    <loc>http://example.org/zh/archive/</loc>
+    <loc>http://ayuxy.github.io/zh/archive/</loc>
     <lastmod>2019-10-19T11:44:14+09:00</lastmod>
   </url><url>
-    <loc>http://example.org/zh/categories/</loc>
+    <loc>http://ayuxy.github.io/zh/categories/</loc>
   </url><url>
-    <loc>http://example.org/zh/tags/index/</loc>
+    <loc>http://ayuxy.github.io/zh/tags/index/</loc>
   </url><url>
-    <loc>http://example.org/zh/tags/</loc>
+    <loc>http://ayuxy.github.io/zh/tags/</loc>
   </url>
 </urlset>

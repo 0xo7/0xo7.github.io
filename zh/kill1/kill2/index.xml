@@ -7,7 +7,7 @@
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>kill2层级 on Hugo Zzo Theme</title>
-    <link>http://example.org/zh/kill1/kill2/</link>
+    <link>http://ayuxy.github.io/zh/kill1/kill2/</link>
     <description>Recent content in kill2层级 on Hugo Zzo Theme</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
@@ -16,17 +16,17 @@
     <copyright>©2023, All Rights Reserved</copyright>
     <lastBuildDate>Mon, 20 Nov 2023 21:54:24 +0800</lastBuildDate>
     
-        <atom:link href="http://example.org/zh/kill1/kill2/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://ayuxy.github.io/zh/kill1/kill2/index.xml" rel="self" type="application/rss+xml" />
     
 
       
       <item>
         <title>kill2文章</title>
-        <link>http://example.org/zh/kill1/kill2/2023-1121-06/</link>
+        <link>http://ayuxy.github.io/zh/kill1/kill2/2023-1121-06/</link>
         <pubDate>Mon, 20 Nov 2023 21:54:24 +0800</pubDate>
         <author>1714132614@qq.com (ayuxy)</author>
         <atom:modified>Tue, 28 Nov 2023 00:00:00 +0000</atom:modified>
-        <guid>http://example.org/zh/kill1/kill2/2023-1121-06/</guid>
+        <guid>http://ayuxy.github.io/zh/kill1/kill2/2023-1121-06/</guid>
         <description></description>
         
         <dc:creator>ayuxy</dc:creator>
@@ -54,11 +54,11 @@
       
       <item>
         <title>kill3层级</title>
-        <link>http://example.org/zh/kill1/kill2/kill3/</link>
+        <link>http://ayuxy.github.io/zh/kill1/kill2/kill3/</link>
         <pubDate>Mon, 20 Nov 2023 21:54:24 +0800</pubDate>
         <author>1714132614@qq.com (ayuxy)</author>
         
-        <guid>http://example.org/zh/kill1/kill2/kill3/</guid>
+        <guid>http://ayuxy.github.io/zh/kill1/kill2/kill3/</guid>
         <description></description>
         
         <dc:creator>Hugo111 Authors</dc:creator>

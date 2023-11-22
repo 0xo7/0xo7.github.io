@@ -7,7 +7,7 @@
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>kill3层级 on Hugo Zzo Theme</title>
-    <link>http://example.org/zh/kill1/kill2/kill3/</link>
+    <link>http://ayuxy.github.io/zh/kill1/kill2/kill3/</link>
     <description>Recent content in kill3层级 on Hugo Zzo Theme</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
@@ -16,21 +16,21 @@
     <copyright>©2023, All Rights Reserved</copyright>
     <lastBuildDate>Mon, 20 Nov 2023 21:54:24 +0800</lastBuildDate>
     
-        <atom:link href="http://example.org/zh/kill1/kill2/kill3/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://ayuxy.github.io/zh/kill1/kill2/kill3/index.xml" rel="self" type="application/rss+xml" />
     
 
       
       <item>
         <title>kill3文章</title>
-        <link>http://example.org/zh/kill1/kill2/kill3/2023-1121-05/</link>
+        <link>http://ayuxy.github.io/zh/kill1/kill2/kill3/2023-1121-05/</link>
         <pubDate>Mon, 20 Nov 2023 21:54:24 +0800</pubDate>
         <author>1714132614@qq.com (ayuxy)</author>
         <atom:modified>Mon, 20 Nov 2023 21:54:24 +0800</atom:modified>
-        <guid>http://example.org/zh/kill1/kill2/kill3/2023-1121-05/</guid>
+        <guid>http://ayuxy.github.io/zh/kill1/kill2/kill3/2023-1121-05/</guid>
         <description></description>
         
         <dc:creator>ayuxy</dc:creator>
-        <media:content url="http://example.orgimages/feature3/css3.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        <media:content url="http://ayuxy.github.ioimages/feature3/css3.png" medium="image"><media:title type="html">featured image</media:title></media:content>
         
         
         
