@@ -7,7 +7,7 @@
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>kill1层级 on Hugo Zzo Theme</title>
-    <link>https://ayuxy.github.io/zh/zh/kill1/</link>
+    <link>https://ayuxy.github.io/zh/kill1/</link>
     <description>Recent content in kill1层级 on Hugo Zzo Theme</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
@@ -16,21 +16,21 @@
     <copyright>©2023, All Rights Reserved</copyright>
     <lastBuildDate>Mon, 20 Nov 2023 21:54:24 +0800</lastBuildDate>
     
-        <atom:link href="https://ayuxy.github.io/zh/zh/kill1/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://ayuxy.github.io/zh/kill1/index.xml" rel="self" type="application/rss+xml" />
     
 
       
       <item>
         <title>kill2层级</title>
-        <link>https://ayuxy.github.io/zh/zh/kill1/kill2/</link>
+        <link>https://ayuxy.github.io/zh/kill1/kill2/</link>
         <pubDate>Mon, 20 Nov 2023 21:54:24 +0800</pubDate>
         <author>1714132614@qq.com (ayuxy)</author>
         
-        <guid>https://ayuxy.github.io/zh/zh/kill1/kill2/</guid>
+        <guid>https://ayuxy.github.io/zh/kill1/kill2/</guid>
         <description></description>
         
         <dc:creator>Hugo111 Authors</dc:creator>
-        <media:content url="https://ayuxy.github.io/zh/images/feature2/1.svg" medium="image"><media:title type="html">featured image</media:title></media:content>
+        <media:content url="https://ayuxy.github.io/images/feature2/1.svg" medium="image"><media:title type="html">featured image</media:title></media:content>
         
         
         
