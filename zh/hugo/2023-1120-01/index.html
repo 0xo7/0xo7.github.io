@@ -1778,7 +1778,7 @@
   
   &nbsp;&middot;&nbsp; <time class="single__info" title="更新日期"> 📝&nbsp;2023年11月28日 </time>
   
-  &nbsp;&middot;&nbsp; <span class="single__info" title="阅读时长"> ☕&nbsp;3&nbsp;分钟 </span>
+  &nbsp;&middot;&nbsp; <span class="single__info" title="阅读时长"> ☕&nbsp;4&nbsp;分钟 </span>
   
   <span class="single__info">
     
@@ -1832,6 +1832,10 @@
     <li><a href="#修改摘要">修改摘要</a></li>
     <li><a href="#修改侧边栏-tags-和-series-显示的最小数量">修改侧边栏 tags 和 series 显示的最小数量</a></li>
     <li><a href="#修改间距-1">修改间距</a></li>
+    <li><a href="#修改首页图片显示效果">修改首页图片显示效果</a></li>
+    <li><a href="#修改文章中图片清晰度">修改文章中图片清晰度</a></li>
+    <li><a href="#修改面包屑溢出">修改面包屑溢出</a></li>
+    <li><a href="#hugo-server-警告">hugo server 警告</a></li>
   </ul>
 </nav>
   </div>
@@ -2568,6 +2572,144 @@
 </span></span><span class="line"><span class="cl"><span class="nc">.list__header--desc</span><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="na">padding</span><span class="o">:</span> <span class="mi">0</span><span class="kt">rem</span> <span class="k">!important</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="修改首页图片显示效果">修改首页图片显示效果</h2>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231123170003238.png"
+    alt="image-20231123170003238"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231123170003238.png 1.25x"
+  />
+
+</div>
+</p>
+<p>当屏幕宽度小于 769 的时候，不显示图片，在  _custom.js 中添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">screenWidth</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span> <span class="o">||</span> <span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">clientWidth</span> <span class="o">||</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">clientWidth</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 如果屏幕宽度小于769，则删除元素
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="nx">screenWidth</span> <span class="o">&lt;</span> <span class="mi">769</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 获取所有.summary-classic__image-container元素
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">var</span> <span class="nx">elementsToRemove</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;.summary-classic__image-container&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 遍历所有元素并删除它们
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">elementsToRemove</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">element</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="修改文章中图片清晰度">修改文章中图片清晰度</h2>
+<p>参考：https://gohugo.io/templates/render-hooks/</p>
+<p>在 themes\zzo\layouts\_default\ 里面新建 _markup\render-image.html 文件，在里面添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;custom-image-container&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">img</span>
+</span></span><span class="line"><span class="cl">    <span class="na">src</span><span class="o">=</span><span class="s">&#34;{{ .Destination | safeURL }}&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">alt</span><span class="o">=</span><span class="s">&#34;{{ .Text }}&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="err">{{</span> <span class="na">with</span> <span class="err">.</span><span class="na">Title</span> <span class="err">}}</span><span class="na">title</span><span class="o">=</span><span class="s">&#34;{{ . }}&#34;</span><span class="err">{{</span> <span class="na">end</span> <span class="err">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="na">class</span><span class="o">=</span><span class="s">&#34;custom-image-class lazyload&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">data-srcset</span><span class="o">=</span><span class="s">&#34;{{ .Destination | safeURL }} 1.25x&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>修改前：</p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231123171538794.png"
+    alt="image-20231123171538794"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231123171538794.png 1.25x"
+  />
+
+</div>
+</p>
+<p>修改后：</p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231123171514829.png"
+    alt="image-20231123171514829"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231123171514829.png 1.25x"
+  />
+
+</div>
+</p>
+<h2 id="修改面包屑溢出">修改面包屑溢出</h2>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231123171852669.png"
+    alt="image-20231123171852669"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231123171852669.png 1.25x"
+  />
+
+</div>
+</p>
+<p>添加滑动条，在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="nc">.breadcrumb</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">overflow-x</span><span class="o">:</span><span class="ni">auto</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="hugo-server-警告">hugo server 警告</h2>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231123212332689.png"
+    alt="image-20231123212332689"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231123212332689.png 1.25x"
+  />
+
+</div>
+</p>
+<p>处理第一个告警，打开 _default/config.toml 文件，删除 [outputs] 下的：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl">  <span class="nx">taxonomyTerm</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;HTML&#34;</span><span class="p">,</span> <span class="s2">&#34;RSS&#34;</span><span class="p">,</span> <span class="s2">&#34;SearchIndex&#34;</span><span class="p">]</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div>
@@ -3933,6 +4075,10 @@ document.addEventListener('DOMContentLoaded', function () {
     <li><a href="#修改摘要">修改摘要</a></li>
     <li><a href="#修改侧边栏-tags-和-series-显示的最小数量">修改侧边栏 tags 和 series 显示的最小数量</a></li>
     <li><a href="#修改间距-1">修改间距</a></li>
+    <li><a href="#修改首页图片显示效果">修改首页图片显示效果</a></li>
+    <li><a href="#修改文章中图片清晰度">修改文章中图片清晰度</a></li>
+    <li><a href="#修改面包屑溢出">修改面包屑溢出</a></li>
+    <li><a href="#hugo-server-警告">hugo server 警告</a></li>
   </ul>
 </nav>
         </div>
