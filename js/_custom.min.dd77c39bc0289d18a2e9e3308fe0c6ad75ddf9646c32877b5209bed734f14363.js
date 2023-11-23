@@ -1,1 +1,0 @@
-document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll(".summary-classic__text.p2");window.matchMedia("(max-width: 769px)").matches?e.forEach(function(e){$clamp(e,{clamp:1,useNativeClamp:!1,animate:!1})}):e.forEach(function(e){$clamp(e,{clamp:2,useNativeClamp:!1,animate:!1})})})

@@ -11,7 +11,7 @@
   
   
     
-    <script defer src="/js/_custom.min.dd77c39bc0289d18a2e9e3308fe0c6ad75ddf9646c32877b5209bed734f14363.js"></script>
+    <script defer src="/js/_custom.min.521f8bb1aaaf73ccf86f287a8c50e9785243530f52a4d4c155c6cf72ea69f1f4.js"></script>
   
 
   
@@ -1361,7 +1361,6 @@
 <meta property="article:published_time" content="2023-11-20T17:47:22&#43;0800">
 
 <meta name="author" content="ayuxy">
-<meta property="article:author" content="https://ayuxy.github.io/zh/hugo/2023-1120-01/@ayuxy">
 
 
 <meta property="og:site_name" content="Ayuxy&#39;s Blog">
@@ -1420,10 +1419,6 @@
     "url" : "https://ayuxy.github.io/zh/hugo/2023-1120-01/",
     "description": "因 zzo 主题的原作者已停止更新，所以本文主要记录 zzo 主题的修复以及一些优化。由于不擅长前端，所以部分修复和优化代码可能存在一些问题 添加自定义CSS",
     "image" : "https://ayuxy.github.io/images/settings.png",
-    "author": {
-      "@type": "Person",
-      "name": "ayuxy"
-    },
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://ayuxy.github.io/"
@@ -1600,6 +1595,32 @@
       
       
     
+      
+      
+      
+      
+
+      
+        <li class="navbarm__menu--item ">
+          <a href="/zh/gallery">
+            Gallery
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M8.12 9.29L12 13.17l3.88-3.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-4.59 4.59c-.39.39-1.02.39-1.41 0L6.7 10.7c-.39-.39-.39-1.02 0-1.41.39-.38 1.03-.39 1.42 0z"/></svg>
+          </a>
+        </li>
+
+        
+          <li class="navbarm__menu--item navbarm__menu--subitem">
+            <a href="/zh/gallery/cartoon">Cartoon</a>
+          </li>
+        
+          <li class="navbarm__menu--item navbarm__menu--subitem">
+            <a href="/zh/gallery/photo">Photo</a>
+          </li>
+        
+
+      
+      
+    
 
     
   </ul>
@@ -1683,6 +1704,27 @@
   <a href="/zh/showcase" class="navbar__menu-item navbar__slide-down " dir="ltr" data-ani="true">Showcase</a>
   
   
+  
+  
+  
+  
+  
+  <div class="navbar__dropdown navbar__slide-down" data-ani="true">
+    <a href="/zh/gallery" class="navbar__menu-item "
+      dir="ltr">
+      Gallery
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M8.12 9.29L12 13.17l3.88-3.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-4.59 4.59c-.39.39-1.02.39-1.41 0L6.7 10.7c-.39-.39-.39-1.02 0-1.41.39-.38 1.03-.39 1.42 0z"/></svg>
+    </a>
+    <div class="navbar__dropdown--content">
+      
+      <a href="/zh/gallery/cartoon" class="navbar__dropdown--item" dir="ltr">Cartoon</a>
+      
+      <a href="/zh/gallery/photo" class="navbar__dropdown--item" dir="ltr">Photo</a>
+      
+    </div>
+  </div>
+  
+  
 </div>
 </nav>
             
@@ -1738,8 +1780,6 @@
   
   &nbsp;&middot;&nbsp; <span class="single__info" title="阅读时长"> ☕&nbsp;3&nbsp;分钟 </span>
   
-  &nbsp;&middot;&nbsp; <span class="single__info" title="作者">✍️&nbsp;ayuxy</span>
-  
   <span class="single__info">
     
   </span>
@@ -1791,6 +1831,7 @@
     <li><a href="#为文章里图片添加边框">为文章里图片添加边框</a></li>
     <li><a href="#修改摘要">修改摘要</a></li>
     <li><a href="#修改侧边栏-tags-和-series-显示的最小数量">修改侧边栏 tags 和 series 显示的最小数量</a></li>
+    <li><a href="#修改间距-1">修改间距</a></li>
   </ul>
 </nav>
   </div>
@@ -1811,7 +1852,17 @@
 </div><p>在 assets/scss 下新建 _custom.scss 文件</p>
 <h2 id="优化toc">优化TOC</h2>
 <p>当 tocPosition = &ldquo;outer&rdquo; 时，如下，对 TOC 位置进行调整</p>
-<p><img src="image-20231119121701559.png" alt="image-20231119121701559" /></p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231119121701559.png"
+    alt="image-20231119121701559"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231119121701559.png 1.25x"
+  />
+
+</div>
+</p>
 <p>在  _custom.scss 文件中添加如下内容</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1853,7 +1904,17 @@
 </div>
 </div><h2 id="优化文章内容样式">优化文章内容样式</h2>
 <h3 id="修改标签">修改标签</h3>
-<p><img src="image-20231119140637602.png" alt="image-20231119140637602" /></p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231119140637602.png"
+    alt="image-20231119140637602"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231119140637602.png 1.25x"
+  />
+
+</div>
+</p>
 <p>在 _custom.scss 添加如下内容：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1903,7 +1964,17 @@
 </div>
 </div><h2 id="修改主页样式">修改主页样式</h2>
 <h3 id="修改间距">修改间距</h3>
-<p><img src="image-20231119140812400.png" alt="image-20231119140812400" /></p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231119140812400.png"
+    alt="image-20231119140812400"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231119140812400.png 1.25x"
+  />
+
+</div>
+</p>
 <p>在 _custom.scss 添加如下内容：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1923,7 +1994,17 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><img src="image-20231119141946106.png" alt="image-20231119141946106" /></p>
+</div><p><div class="custom-image-container">
+  <img
+    src="image-20231119141946106.png"
+    alt="image-20231119141946106"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231119141946106.png 1.25x"
+  />
+
+</div>
+</p>
 <p>在 _custom.scss 添加如下内容：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1989,7 +2070,17 @@
 </div>
 </div><h2 id="修复英文溢出问题">修复英文溢出问题</h2>
 <p><a href="https://www.runoob.com/w3cnote/css-nowrap-break-word.html">https://www.runoob.com/w3cnote/css-nowrap-break-word.html</a></p>
-<p><img src="image-20231119180450709.png" alt="image-20231119180450709" /></p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231119180450709.png"
+    alt="image-20231119180450709"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231119180450709.png 1.25x"
+  />
+
+</div>
+</p>
 <p>在 _custom.scss 添加如下内容：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -2003,7 +2094,17 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><img src="image-20231119204939141.png" alt="image-20231119204939141" /></p>
+</div><p><div class="custom-image-container">
+  <img
+    src="image-20231119204939141.png"
+    alt="image-20231119204939141"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231119204939141.png 1.25x"
+  />
+
+</div>
+</p>
 <p>在 _custom.scss 添加如下内容：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -2017,7 +2118,17 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><img src="image-20231119203626340.png" alt="image-20231119203626340" /></p>
+</div><p><div class="custom-image-container">
+  <img
+    src="image-20231119203626340.png"
+    alt="image-20231119203626340"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231119203626340.png 1.25x"
+  />
+
+</div>
+</p>
 <p>在 _custom.scss 添加如下内容：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -2031,7 +2142,17 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><img src="image-20231119222935597.png" alt="image-20231119222935597" /></p>
+</div><p><div class="custom-image-container">
+  <img
+    src="image-20231119222935597.png"
+    alt="image-20231119222935597"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231119222935597.png 1.25x"
+  />
+
+</div>
+</p>
 <p>在 _custom.scss 添加如下内容：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -2045,7 +2166,17 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><img src="image-20231120092259118.png" alt="image-20231120092259118" /></p>
+</div><p><div class="custom-image-container">
+  <img
+    src="image-20231120092259118.png"
+    alt="image-20231120092259118"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231120092259118.png 1.25x"
+  />
+
+</div>
+</p>
 <p>在 _custom.scss 添加如下内容：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -2059,7 +2190,17 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><img src="image-20231120094908404.png" alt="image-20231120094908404" /></p>
+</div><p><div class="custom-image-container">
+  <img
+    src="image-20231120094908404.png"
+    alt="image-20231120094908404"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231120094908404.png 1.25x"
+  />
+
+</div>
+</p>
 <p>在 _custom.scss 添加如下内容：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -2073,7 +2214,17 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><img src="image-20231120095018955.png" alt="image-20231120095018955" /></p>
+</div><p><div class="custom-image-container">
+  <img
+    src="image-20231120095018955.png"
+    alt="image-20231120095018955"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231120095018955.png 1.25x"
+  />
+
+</div>
+</p>
 <p>在 _custom.scss 添加如下内容：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -2089,8 +2240,28 @@
 </div>
 </div><h2 id="处理图片问题">处理图片问题</h2>
 <p>a 标签嵌套图片导致整体容器高度变大</p>
-<p><img src="image-20231120171915476.png" alt="image-20231120171915476" /></p>
-<p><img src="image-20231120172112981.png" alt="image-20231120172112981" /></p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231120171915476.png"
+    alt="image-20231120171915476"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231120171915476.png 1.25x"
+  />
+
+</div>
+</p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231120172112981.png"
+    alt="image-20231120172112981"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231120172112981.png 1.25x"
+  />
+
+</div>
+</p>
 <p>修复上面的问题，在 _custom.scss 添加如下内容：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -2105,10 +2276,40 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>修复后如下：</p>
-<p><img src="image-20231120172003195.png" alt="image-20231120172003195" /></p>
-<p><img src="image-20231120172244279.png" alt="image-20231120172244279" /></p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231120172003195.png"
+    alt="image-20231120172003195"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231120172003195.png 1.25x"
+  />
+
+</div>
+</p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231120172244279.png"
+    alt="image-20231120172244279"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231120172244279.png 1.25x"
+  />
+
+</div>
+</p>
 <p>如果使用 svg 图片，且 svg 图片比较小，那么显示如下：</p>
-<p><img src="image-20231120173322830.png" alt="image-20231120173322830" /></p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231120173322830.png"
+    alt="image-20231120173322830"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231120173322830.png 1.25x"
+  />
+
+</div>
+</p>
 <p>为了让 svg 图片铺满容器，可以在 _custom.scss 添加如下内容：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -2126,7 +2327,17 @@
 </div>
 </div><h2 id="侧边栏修改">侧边栏修改</h2>
 <h3 id="修改最近发布文章">修改最近发布文章</h3>
-<p><img src="image-20231121163936995.png" alt="image-20231121163936995" /></p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231121163936995.png"
+    alt="image-20231121163936995"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231121163936995.png 1.25x"
+  />
+
+</div>
+</p>
 <p>修改 posts-by-order.html 文件，修改后如下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -2193,7 +2404,17 @@
 </div><p>除此之外，还要修改 archetypes/default.md 文件为每篇文章添加上 order : true 参数</p>
 <p>通过 params.toml 文件里的 itemsPerCategory = 5 参数来控制最近更新文章的篇数</p>
 <h2 id="修改recently-update间距"><strong>修改Recently update间距</strong></h2>
-<p><img src="image-20231121202338271.png" alt="image-20231121202338271" /></p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231121202338271.png"
+    alt="image-20231121202338271"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231121202338271.png 1.25x"
+  />
+
+</div>
+</p>
 <p>在 _custom.scss 添加如下内容：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -2223,7 +2444,17 @@
 </div>
 </div><h2 id="修改摘要">修改摘要</h2>
 <p>当摘要长度超过2行的时候用省略号表示</p>
-<p><img src="image-20231122173202863.png" alt="image-20231122173202863" /></p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231122173202863.png"
+    alt="image-20231122173202863"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231122173202863.png 1.25x"
+  />
+
+</div>
+</p>
 <p>而当屏幕宽度小于 769 时，摘要超过1行的时候用省略号表示</p>
 <p>首先在 _custom.scss 添加如下内容：</p>
 <div class="highlight"><div class="chroma">
@@ -2286,8 +2517,60 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="修改侧边栏-tags-和-series-显示的最小数量">修改侧边栏 tags 和 series 显示的最小数量</h2>
-<p><img src="image-20231122175828706.png" alt="image-20231122175828706" /></p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231122175828706.png"
+    alt="image-20231122175828706"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231122175828706.png 1.25x"
+  />
 
+</div>
+</p>
+<h2 id="修改间距-1">修改间距</h2>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231122205830454.png"
+    alt="image-20231122205830454"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231122205830454.png 1.25x"
+  />
+
+</div>
+</p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231122205857022.png"
+    alt="image-20231122205857022"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231122205857022.png 1.25x"
+  />
+
+</div>
+</p>
+<p>在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="nc">.list__main</span><span class="o">&gt;</span> <span class="nc">.summary__container</span> <span class="o">&gt;</span> <span class="nc">.summary-classic</span><span class="nd">:first-child</span> <span class="o">&gt;</span> <span class="nc">.summary-classic__flex-box</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">margin-top</span><span class="o">:</span> <span class="mi">1</span><span class="mf">.75</span><span class="kt">rem</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nc">.list__header--desc</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">padding</span><span class="o">:</span> <span class="mi">0</span><span class="kt">rem</span> <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
     </article>
     
     
@@ -2492,7 +2775,7 @@
       
     
       
-        <a href="https://twitter.com/intent/tweet?text=%e5%8d%9a%e5%ae%a2%e4%bc%98%e5%8c%96&url=https%3a%2f%2fayuxy.github.io%2fzh%2fhugo%2f2023-1120-01%2f&via=ayuxy" title="Twitter" aria-label="Twitter Share Button" class="donation__item" target="_blank" rel="noreferrer" data-type="share">
+        <a href="https://twitter.com/intent/tweet?text=%e5%8d%9a%e5%ae%a2%e4%bc%98%e5%8c%96&url=https%3a%2f%2fayuxy.github.io%2fzh%2fhugo%2f2023-1120-01%2f&via=" title="Twitter" aria-label="Twitter Share Button" class="donation__item" target="_blank" rel="noreferrer" data-type="share">
           <svg data-name="twitter" enable-background="new 0 0 24 24" viewBox="0 0 24 24" width="35" height="35" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="m21.534 7.113c.976-.693 1.797-1.558 2.466-2.554v-.001c-.893.391-1.843.651-2.835.777 1.02-.609 1.799-1.566 2.165-2.719-.951.567-2.001.967-3.12 1.191-.903-.962-2.19-1.557-3.594-1.557-2.724 0-4.917 2.211-4.917 4.921 0 .39.033.765.114 1.122-4.09-.2-7.71-2.16-10.142-5.147-.424.737-.674 1.58-.674 2.487 0 1.704.877 3.214 2.186 4.089-.791-.015-1.566-.245-2.223-.606v.054c0 2.391 1.705 4.377 3.942 4.835-.401.11-.837.162-1.29.162-.315 0-.633-.018-.931-.084.637 1.948 2.447 3.381 4.597 3.428-1.674 1.309-3.8 2.098-6.101 2.098-.403 0-.79-.018-1.177-.067 2.18 1.405 4.762 2.208 7.548 2.208 8.683 0 14.342-7.244 13.986-14.637z"/></svg>
         </a>
       
@@ -3649,6 +3932,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <li><a href="#为文章里图片添加边框">为文章里图片添加边框</a></li>
     <li><a href="#修改摘要">修改摘要</a></li>
     <li><a href="#修改侧边栏-tags-和-series-显示的最小数量">修改侧边栏 tags 和 series 显示的最小数量</a></li>
+    <li><a href="#修改间距-1">修改间距</a></li>
   </ul>
 </nav>
         </div>
