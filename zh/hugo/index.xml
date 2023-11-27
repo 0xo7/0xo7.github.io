@@ -6,9 +6,9 @@
   xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
-    <title>ZZO 主题优化合集 on Ayuxy&#39;s Blog</title>
+    <title>📂 ZZO 主题优化 on Ayuxy&#39;s Blog</title>
     <link>https://ayuxy.github.io/zh/hugo/</link>
-    <description>Recent content in ZZO 主题优化合集 on Ayuxy&#39;s Blog</description>
+    <description>Recent content in 📂 ZZO 主题优化 on Ayuxy&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <managingEditor>1714132614@qq.com (ayuxy)</managingEditor>
@@ -25,7 +25,7 @@
         <link>https://ayuxy.github.io/zh/hugo/2023-1120-01/</link>
         <pubDate>Mon, 20 Nov 2023 17:47:22 +0800</pubDate>
         <author>1714132614@qq.com (ayuxy)</author>
-        <atom:modified>Tue, 28 Nov 2023 00:00:00 +0000</atom:modified>
+        <atom:modified>Wed, 29 Nov 2023 00:00:00 +0000</atom:modified>
         <guid>https://ayuxy.github.io/zh/hugo/2023-1120-01/</guid>
         <description>因 zzo 主题的原作者已停止更新，所以本文主要记录 zzo 主题的修复以及一些优化。由于不擅长前端，所以部分修复和优化代码可能存在一些问题 添加自定义CSS</description>
         
@@ -34,15 +34,23 @@
         
         
         
-        
           
+            
+              <category>hugo</category>
             
           
         
         
           
             
-              <category>ZZO 主题优化合集</category>
+              <category>hugo</category>
+            
+          
+        
+        
+          
+            
+              <category>ZZO 主题优化</category>
             
           
         

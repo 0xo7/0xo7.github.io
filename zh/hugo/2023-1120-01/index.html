@@ -1351,13 +1351,21 @@
     <link rel="stylesheet" href="/scss/_custom.min.css">
   
 
+  
+  
+    
+    <link rel="stylesheet" href="/scss/font.min.css">
+  
+
 
     
 <meta name="description" content="" />
 
 
+<meta name="keywords" content="hugo">
+
 <meta name="created" content="2023-11-20T17:47:22&#43;0800">
-<meta name="modified" content="2023-11-28T00:00:00&#43;0000">
+<meta name="modified" content="2023-11-29T00:00:00&#43;0000">
 <meta property="article:published_time" content="2023-11-20T17:47:22&#43;0800">
 
 <meta name="author" content="ayuxy">
@@ -1415,9 +1423,10 @@
     "@type": "WebPage",
     "headline": "博客优化",
     "datePublished": "2023-11-20T17:47:22+08:00",
-    "dateModified": "2023-11-28T00:00:00Z",
+    "dateModified": "2023-11-29T00:00:00Z",
     "url" : "https://ayuxy.github.io/zh/hugo/2023-1120-01/",
     "description": "因 zzo 主题的原作者已停止更新，所以本文主要记录 zzo 主题的修复以及一些优化。由于不擅长前端，所以部分修复和优化代码可能存在一些问题 添加自定义CSS",
+    "keywords": ["hugo"],
     "image" : "https://ayuxy.github.io/images/settings.png",
     "mainEntityOfPage": {
       "@type": "WebPage",
@@ -1595,32 +1604,6 @@
       
       
     
-      
-      
-      
-      
-
-      
-        <li class="navbarm__menu--item ">
-          <a href="/zh/gallery">
-            Gallery
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M8.12 9.29L12 13.17l3.88-3.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-4.59 4.59c-.39.39-1.02.39-1.41 0L6.7 10.7c-.39-.39-.39-1.02 0-1.41.39-.38 1.03-.39 1.42 0z"/></svg>
-          </a>
-        </li>
-
-        
-          <li class="navbarm__menu--item navbarm__menu--subitem">
-            <a href="/zh/gallery/cartoon">Cartoon</a>
-          </li>
-        
-          <li class="navbarm__menu--item navbarm__menu--subitem">
-            <a href="/zh/gallery/photo">Photo</a>
-          </li>
-        
-
-      
-      
-    
 
     
   </ul>
@@ -1704,27 +1687,6 @@
   <a href="/zh/showcase" class="navbar__menu-item navbar__slide-down " dir="ltr" data-ani="true">Showcase</a>
   
   
-  
-  
-  
-  
-  
-  <div class="navbar__dropdown navbar__slide-down" data-ani="true">
-    <a href="/zh/gallery" class="navbar__menu-item "
-      dir="ltr">
-      Gallery
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M8.12 9.29L12 13.17l3.88-3.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-4.59 4.59c-.39.39-1.02.39-1.41 0L6.7 10.7c-.39-.39-.39-1.02 0-1.41.39-.38 1.03-.39 1.42 0z"/></svg>
-    </a>
-    <div class="navbar__dropdown--content">
-      
-      <a href="/zh/gallery/cartoon" class="navbar__dropdown--item" dir="ltr">Cartoon</a>
-      
-      <a href="/zh/gallery/photo" class="navbar__dropdown--item" dir="ltr">Photo</a>
-      
-    </div>
-  </div>
-  
-  
 </div>
 </nav>
             
@@ -1750,7 +1712,7 @@
   
   <li >
     
-      <a href="https://ayuxy.github.io/zh/hugo/" class="capitalize">ZZO 主题优化合集</a>
+      <a href="https://ayuxy.github.io/zh/hugo/" class="capitalize">📂 ZZO 主题优化</a>
     
   </li>
   
@@ -1776,9 +1738,9 @@
 <div class="single__infos">
   <time class="single__info" title="创建日期">📅&nbsp;2023年11月20日 </time>
   
-  &nbsp;&middot;&nbsp; <time class="single__info" title="更新日期"> 📝&nbsp;2023年11月28日 </time>
+  &nbsp;&middot;&nbsp; <time class="single__info" title="更新日期"> 📝&nbsp;2023年11月29日 </time>
   
-  &nbsp;&middot;&nbsp; <span class="single__info" title="阅读时长"> ☕&nbsp;4&nbsp;分钟 </span>
+  &nbsp;&middot;&nbsp; <span class="single__info" title="阅读时长"> ☕&nbsp;5&nbsp;分钟 </span>
   
   <span class="single__info">
     
@@ -1788,6 +1750,10 @@
       
 <ul class="single__tags caption">
   
+  🏷️
+  
+
+  <li><a href="https://ayuxy.github.io/zh/tags/hugo/" class="single__tag" title="hugo">#hugo</a></li>
 
 </ul>
 
@@ -1835,7 +1801,10 @@
     <li><a href="#修改首页图片显示效果">修改首页图片显示效果</a></li>
     <li><a href="#修改文章中图片清晰度">修改文章中图片清晰度</a></li>
     <li><a href="#修改面包屑溢出">修改面包屑溢出</a></li>
-    <li><a href="#hugo-server-警告">hugo server 警告</a></li>
+    <li><a href="#处理-hugo-server-警告">处理 hugo server 警告</a></li>
+    <li><a href="#处理-minitemstoshowintagcloud-参数">处理 minItemsToShowInTagCloud 参数</a></li>
+    <li><a href="#修改文章标题间距">修改文章标题间距</a></li>
+    <li><a href="#修改字体">修改字体</a></li>
   </ul>
 </nav>
   </div>
@@ -2691,7 +2660,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="hugo-server-警告">hugo server 警告</h2>
+</div><h2 id="处理-hugo-server-警告">处理 hugo server 警告</h2>
 <p><div class="custom-image-container">
   <img
     src="image-20231123212332689.png"
@@ -2712,7 +2681,129 @@
 <pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl">  <span class="nx">taxonomyTerm</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;HTML&#34;</span><span class="p">,</span> <span class="s2">&#34;RSS&#34;</span><span class="p">,</span> <span class="s2">&#34;SearchIndex&#34;</span><span class="p">]</span>
 </span></span></code></pre></td></tr></table>
 </div>
+</div><p>处理第二个告警，修改 _default/languages.toml，修改后文件如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">zh</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">title</span> <span class="p">=</span> <span class="s2">&#34;Ayuxy&#39;s Blog&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">languageName</span> <span class="p">=</span> <span class="s2">&#34;中文&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">weight</span> <span class="p">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">contentdir</span> <span class="p">=</span> <span class="s2">&#34;content&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nx">zh</span><span class="p">.</span><span class="nx">params</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">languagedir</span> <span class="p">=</span> <span class="s2">&#34;ltr&#34;</span>
+</span></span></code></pre></td></tr></table>
 </div>
+</div><h2 id="处理-minitemstoshowintagcloud-参数">处理 minItemsToShowInTagCloud 参数</h2>
+<p>minItemsToShowInTagCloud 同时控制了侧边栏中系列、标签、分类中文章的最少数量，如果minItemsToShowInTagCloud=2，那么只有当系列、标签、分类中的文章数量至少为 2 的时候才会显示在侧边栏</p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231124152211998.png"
+    alt="image-20231124152211998"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231124152211998.png 1.25x"
+  />
+
+</div>
+</p>
+<p>进行修改，让 minItemsToShowInTagCloud 控制标签，新增 minItemsToShowInCategoriesCloud 控制分类，新增 minItemsToShowInSeriesCloud 控制分类，</p>
+<p>修改 layouts/partials/taxonomy/taxonomy-categories.html 里面的 minItemsToShowInTagCloud 为 minItemsToShowInCategoriesCloud</p>
+<p>修改 layouts/partials/taxonomy/taxonomy-series.html 里面的 minItemsToShowInTagCloud 为 minItemsToShowInSeriesCloud</p>
+<p>同时在 param.toml 添加</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">minItemsToShowInSeriesCloud</span> <span class="p">=</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl"><span class="nx">minItemsToShowInCategoriesCloud</span> <span class="p">=</span> <span class="mi">3</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在系列、标签、分类后面添加上相关的值，也就是配置文件里面 minItemsToShowInSeriesCloud 、 minItemsToShowInTagCloud 、minItemsToShowInCategoriesCloud 的值</p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231124160836736.png"
+    alt="image-20231124160836736"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231124160836736.png 1.25x"
+  />
+
+</div>
+</p>
+<p>修改 layouts/partials/taxonomy/taxonomy-series.html  文件，在  {{ i18n &ldquo;series&rdquo; }}  后面添加上如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ with .Site.Params.minItemsToShowInSeriesCloud }}  ({{ . }}) {{ end }}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其它的 taxonomy-categories.html 、taxonomy-tags.html 文件同理</p>
+<h2 id="修改文章标题间距">修改文章标题间距</h2>
+<p>在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="nc">.single__contents</span> <span class="nt">h2</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">margin</span><span class="o">:</span> <span class="mi">3</span><span class="kt">rem</span> <span class="mi">0</span> <span class="mi">1</span><span class="mf">.5</span><span class="kt">rem</span>  <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nc">.single__contents</span> <span class="nt">h3</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">margin</span><span class="o">:</span> <span class="mi">2</span><span class="kt">rem</span> <span class="mi">0</span> <span class="mi">1</span><span class="mf">.25</span><span class="kt">rem</span>  <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="修改字体">修改字体</h2>
+<p>添加 data/font.toml，内容如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">title_font</span> <span class="p">=</span> <span class="s2">&#34;\&#34;LXGWWenKaiScreen\&#34;, sans-serif&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">content_font</span> <span class="p">=</span> <span class="s2">&#34;\&#34;LXGWWenKaiScreen\&#34;, sans-serif&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>添加 assets\scss\font.css 文件，内容如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">@</span><span class="k">font-face</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">font-family</span><span class="o">:</span> <span class="s1">&#39;LXGWWenKaiScreen&#39;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s1">&#39;../fonts/LXGWWenKaiScreen.ttf&#39;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">font-style</span><span class="o">:</span> <span class="nt">normal</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>最后在 params.toml 文件中引入 font.css</p>
+
     </article>
     
     
@@ -2917,7 +3008,7 @@
       
     
       
-        <a href="https://twitter.com/intent/tweet?text=%e5%8d%9a%e5%ae%a2%e4%bc%98%e5%8c%96&url=https%3a%2f%2fayuxy.github.io%2fzh%2fhugo%2f2023-1120-01%2f&via=" title="Twitter" aria-label="Twitter Share Button" class="donation__item" target="_blank" rel="noreferrer" data-type="share">
+        <a href="https://twitter.com/intent/tweet?text=%e5%8d%9a%e5%ae%a2%e4%bc%98%e5%8c%96&url=https%3a%2f%2fayuxy.github.io%2fzh%2fhugo%2f2023-1120-01%2f&hashtags=hugo&via=" title="Twitter" aria-label="Twitter Share Button" class="donation__item" target="_blank" rel="noreferrer" data-type="share">
           <svg data-name="twitter" enable-background="new 0 0 24 24" viewBox="0 0 24 24" width="35" height="35" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="m21.534 7.113c.976-.693 1.797-1.558 2.466-2.554v-.001c-.893.391-1.843.651-2.835.777 1.02-.609 1.799-1.566 2.165-2.719-.951.567-2.001.967-3.12 1.191-.903-.962-2.19-1.557-3.594-1.557-2.724 0-4.917 2.211-4.917 4.921 0 .39.033.765.114 1.122-4.09-.2-7.71-2.16-10.142-5.147-.424.737-.674 1.58-.674 2.487 0 1.704.877 3.214 2.186 4.089-.791-.015-1.566-.245-2.223-.606v.054c0 2.391 1.705 4.377 3.942 4.835-.401.11-.837.162-1.29.162-.315 0-.633-.018-.931-.084.637 1.948 2.447 3.381 4.597 3.428-1.674 1.309-3.8 2.098-6.101 2.098-.403 0-.79-.018-1.177-.067 2.18 1.405 4.762 2.208 7.548 2.208 8.683 0 14.342-7.244 13.986-14.637z"/></svg>
         </a>
       
@@ -2970,6 +3061,24 @@
   
 </nav>
     
+  
+    <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+<script>
+  var gitalk = new Gitalk({
+    id: '2023-11-20 17:47:22 \u002b0800 \u002b0800',
+    title: '博客优化',
+    clientID: '6f922dd87de2aa0ad176',
+    clientSecret: 'ec2ded8eb9812b11f22ff38b06655a83aeed9495',
+    repo: 'ZzoBlogComment',
+    owner: 'ayuxy',
+    admin: ['ayuxy'],
+    body: decodeURI(location.href)
+  });
+  gitalk.render('gitalk-container');
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
   
 
     <div class="modal micromodal-slide" id="modal" aria-hidden="true">
@@ -4078,7 +4187,10 @@ document.addEventListener('DOMContentLoaded', function () {
     <li><a href="#修改首页图片显示效果">修改首页图片显示效果</a></li>
     <li><a href="#修改文章中图片清晰度">修改文章中图片清晰度</a></li>
     <li><a href="#修改面包屑溢出">修改面包屑溢出</a></li>
-    <li><a href="#hugo-server-警告">hugo server 警告</a></li>
+    <li><a href="#处理-hugo-server-警告">处理 hugo server 警告</a></li>
+    <li><a href="#处理-minitemstoshowintagcloud-参数">处理 minItemsToShowInTagCloud 参数</a></li>
+    <li><a href="#修改文章标题间距">修改文章标题间距</a></li>
+    <li><a href="#修改字体">修改字体</a></li>
   </ul>
 </nav>
         </div>

@@ -1351,6 +1351,12 @@
     <link rel="stylesheet" href="/scss/_custom.min.css">
   
 
+  
+  
+    
+    <link rel="stylesheet" href="/scss/font.min.css">
+  
+
 
     
 <meta name="description" content="siusiu-plus 渗透测试工具箱！" />
@@ -1585,32 +1591,6 @@
       
       
     
-      
-      
-      
-      
-
-      
-        <li class="navbarm__menu--item ">
-          <a href="/zh/gallery">
-            Gallery
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M8.12 9.29L12 13.17l3.88-3.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-4.59 4.59c-.39.39-1.02.39-1.41 0L6.7 10.7c-.39-.39-.39-1.02 0-1.41.39-.38 1.03-.39 1.42 0z"/></svg>
-          </a>
-        </li>
-
-        
-          <li class="navbarm__menu--item navbarm__menu--subitem">
-            <a href="/zh/gallery/cartoon">Cartoon</a>
-          </li>
-        
-          <li class="navbarm__menu--item navbarm__menu--subitem">
-            <a href="/zh/gallery/photo">Photo</a>
-          </li>
-        
-
-      
-      
-    
 
     
   </ul>
@@ -1692,27 +1672,6 @@
   
   
   <a href="/zh/showcase" class="navbar__menu-item navbar__slide-down active" dir="ltr" data-ani="true">Showcase</a>
-  
-  
-  
-  
-  
-  
-  
-  <div class="navbar__dropdown navbar__slide-down" data-ani="true">
-    <a href="/zh/gallery" class="navbar__menu-item "
-      dir="ltr">
-      Gallery
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M8.12 9.29L12 13.17l3.88-3.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-4.59 4.59c-.39.39-1.02.39-1.41 0L6.7 10.7c-.39-.39-.39-1.02 0-1.41.39-.38 1.03-.39 1.42 0z"/></svg>
-    </a>
-    <div class="navbar__dropdown--content">
-      
-      <a href="/zh/gallery/cartoon" class="navbar__dropdown--item" dir="ltr">Cartoon</a>
-      
-      <a href="/zh/gallery/photo" class="navbar__dropdown--item" dir="ltr">Photo</a>
-      
-    </div>
-  </div>
   
   
 </div>
@@ -2056,6 +2015,24 @@
   
 </nav>
     
+  
+    <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+<script>
+  var gitalk = new Gitalk({
+    id: '2020-01-19 21:13:42 \u002b0900 \u002b0900',
+    title: 'siusiu-plus',
+    clientID: '6f922dd87de2aa0ad176',
+    clientSecret: 'ec2ded8eb9812b11f22ff38b06655a83aeed9495',
+    repo: 'ZzoBlogComment',
+    owner: 'ayuxy',
+    admin: ['ayuxy'],
+    body: decodeURI(location.href)
+  });
+  gitalk.render('gitalk-container');
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
   
 
     <div class="modal micromodal-slide" id="modal" aria-hidden="true">
