@@ -11,7 +11,7 @@
   
   
     
-    <script defer src="/js/_custom.min.521f8bb1aaaf73ccf86f287a8c50e9785243530f52a4d4c155c6cf72ea69f1f4.js"></script>
+    <script defer src="/js/_custom.min.dd77c39bc0289d18a2e9e3308fe0c6ad75ddf9646c32877b5209bed734f14363.js"></script>
   
 
   
@@ -1359,7 +1359,7 @@
 
 
     
-<meta name="description" content="" />
+<meta name="description" content="本文主要记录 zzo 主题的修复以及一些优化" />
 
 
 <meta name="keywords" content="hugo">
@@ -1375,7 +1375,7 @@
 <meta property="og:title" content="博客优化">
 <meta property="og:url" content="https://ayuxy.github.io/zh/hugo/2023-1120-01/">
 <meta property="og:type" content="article">
-<meta property="og:description" content="">
+<meta property="og:description" content="本文主要记录 zzo 主题的修复以及一些优化">
 
   
     <meta property="og:image" content="https://ayuxy.github.io/images/settings.png">
@@ -1383,7 +1383,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:app:name:iphone" content="Ayuxy&#39;s Blog">
     <meta property="twitter:title" content="博客优化">
-    <meta property="twitter:description" content="">
+    <meta property="twitter:description" content="本文主要记录 zzo 主题的修复以及一些优化">
   
 
 <meta name="generator" content="Hugo 0.120.4">
@@ -1425,7 +1425,7 @@
     "datePublished": "2023-11-20T17:47:22+08:00",
     "dateModified": "2023-11-29T00:00:00Z",
     "url" : "https://ayuxy.github.io/zh/hugo/2023-1120-01/",
-    "description": "因 zzo 主题的原作者已停止更新，所以本文主要记录 zzo 主题的修复以及一些优化。由于不擅长前端，所以部分修复和优化代码可能存在一些问题 添加自定义CSS",
+    "description": "本文主要记录 zzo 主题的修复以及一些优化",
     "keywords": ["hugo"],
     "image" : "https://ayuxy.github.io/images/settings.png",
     "mainEntityOfPage": {
@@ -1793,10 +1793,9 @@
         <li><a href="#修改最近发布文章">修改最近发布文章</a></li>
       </ul>
     </li>
-    <li><a href="#修改recently-update间距"><strong>修改Recently update间距</strong></a></li>
+    <li><a href="#修改recently-update间距">修改Recently update间距</a></li>
     <li><a href="#为文章里图片添加边框">为文章里图片添加边框</a></li>
     <li><a href="#修改摘要">修改摘要</a></li>
-    <li><a href="#修改侧边栏-tags-和-series-显示的最小数量">修改侧边栏 tags 和 series 显示的最小数量</a></li>
     <li><a href="#修改间距-1">修改间距</a></li>
     <li><a href="#修改首页图片显示效果">修改首页图片显示效果</a></li>
     <li><a href="#修改文章中图片清晰度">修改文章中图片清晰度</a></li>
@@ -2376,7 +2375,7 @@
 </div>
 </div><p>除此之外，还要修改 archetypes/default.md 文件为每篇文章添加上 order : true 参数</p>
 <p>通过 params.toml 文件里的 itemsPerCategory = 5 参数来控制最近更新文章的篇数</p>
-<h2 id="修改recently-update间距"><strong>修改Recently update间距</strong></h2>
+<h2 id="修改recently-update间距">修改Recently update间距</h2>
 <p><div class="custom-image-container">
   <img
     src="image-20231121202338271.png"
@@ -2401,7 +2400,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="为文章里图片添加边框">为文章里图片添加边框</h2>
+</div><h2 id="为文章里图片添加边框"><del>为文章里图片添加边框</del></h2>
 <p>在 _custom.scss 添加如下内容：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -2489,19 +2488,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">});</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="修改侧边栏-tags-和-series-显示的最小数量">修改侧边栏 tags 和 series 显示的最小数量</h2>
-<p><div class="custom-image-container">
-  <img
-    src="image-20231122175828706.png"
-    alt="image-20231122175828706"
-    
-    class="custom-image-class lazyload"
-    data-srcset="image-20231122175828706.png 1.25x"
-  />
-
-</div>
-</p>
-<h2 id="修改间距-1">修改间距</h2>
+</div><h2 id="修改间距-1">修改间距</h2>
 <p><div class="custom-image-container">
   <img
     src="image-20231122205830454.png"
@@ -4179,10 +4166,9 @@ document.addEventListener('DOMContentLoaded', function () {
         <li><a href="#修改最近发布文章">修改最近发布文章</a></li>
       </ul>
     </li>
-    <li><a href="#修改recently-update间距"><strong>修改Recently update间距</strong></a></li>
+    <li><a href="#修改recently-update间距">修改Recently update间距</a></li>
     <li><a href="#为文章里图片添加边框">为文章里图片添加边框</a></li>
     <li><a href="#修改摘要">修改摘要</a></li>
-    <li><a href="#修改侧边栏-tags-和-series-显示的最小数量">修改侧边栏 tags 和 series 显示的最小数量</a></li>
     <li><a href="#修改间距-1">修改间距</a></li>
     <li><a href="#修改首页图片显示效果">修改首页图片显示效果</a></li>
     <li><a href="#修改文章中图片清晰度">修改文章中图片清晰度</a></li>
