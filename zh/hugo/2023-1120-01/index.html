@@ -1797,13 +1797,16 @@
     <li><a href="#为文章里图片添加边框">为文章里图片添加边框</a></li>
     <li><a href="#修改摘要">修改摘要</a></li>
     <li><a href="#修改间距-1">修改间距</a></li>
-    <li><a href="#修改首页图片显示效果">修改首页图片显示效果</a></li>
+    <li><a href="#修改手机下首页图片显示效果">修改手机下首页图片显示效果</a></li>
     <li><a href="#修改文章中图片清晰度">修改文章中图片清晰度</a></li>
     <li><a href="#修改面包屑溢出">修改面包屑溢出</a></li>
     <li><a href="#处理-hugo-server-警告">处理 hugo server 警告</a></li>
     <li><a href="#处理-minitemstoshowintagcloud-参数">处理 minItemsToShowInTagCloud 参数</a></li>
     <li><a href="#修改文章标题间距">修改文章标题间距</a></li>
     <li><a href="#修改字体">修改字体</a></li>
+    <li><a href="#修改手机下间距">修改手机下间距</a></li>
+    <li><a href="#手机下允许在单词内换行">手机下允许在单词内换行</a></li>
+    <li><a href="#修改-archive-页细节">修改 archive 页细节</a></li>
   </ul>
 </nav>
   </div>
@@ -2530,7 +2533,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="修改首页图片显示效果">修改首页图片显示效果</h2>
+</div><h2 id="修改手机下首页图片显示效果"><del>修改手机下首页图片显示效果</del></h2>
 <p><div class="custom-image-container">
   <img
     src="image-20231123170003238.png"
@@ -2790,7 +2793,121 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>最后在 params.toml 文件中引入 font.css</p>
+<h2 id="修改手机下间距">修改手机下间距</h2>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231128072748010.png"
+    alt="image-20231128072748010"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231128072748010.png 1.25x"
+  />
 
+</div>
+</p>
+<p>在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="k">@media</span> <span class="n">only</span> <span class="ni">screen</span> <span class="ow">and</span> <span class="p">(</span><span class="na">max-width</span><span class="o">:</span> <span class="mi">769</span><span class="kt">px</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nc">.caption</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="na">margin-top</span><span class="o">:</span> <span class="mi">0</span><span class="mf">.5</span><span class="kt">rem</span> <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nc">.summary-classic__text</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="na">margin-top</span><span class="o">:</span> <span class="mi">0</span><span class="mf">.5</span><span class="kt">rem</span> <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="手机下允许在单词内换行">手机下允许在单词内换行</h2>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231128081857088.png"
+    alt="image-20231128081857088"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231128081857088.png 1.25x"
+  />
+
+</div>
+</p>
+<p>在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="k">@media</span> <span class="n">only</span> <span class="ni">screen</span> <span class="ow">and</span> <span class="p">(</span><span class="na">max-width</span><span class="o">:</span> <span class="mi">769</span><span class="kt">px</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nc">.single__contents</span> <span class="nt">p</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="na">word-break</span><span class="o">:</span> <span class="ni">break-all</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>    
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="修改-archive-页细节">修改 archive 页细节</h2>
+<p>在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="nc">.archive__type</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">padding-left</span><span class="o">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">padding-right</span><span class="o">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>	
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">@media</span> <span class="n">only</span> <span class="ni">screen</span> <span class="ow">and</span> <span class="p">(</span><span class="na">min-width</span><span class="o">:</span> <span class="mi">769</span><span class="kt">px</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nc">.archive__meta</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="na">margin-top</span><span class="o">:</span> <span class="mi">2</span><span class="mf">.5</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nc">.archive__key</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="na">width</span><span class="o">:</span> <span class="mi">120</span><span class="kt">px</span> <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nc">.archive__meta</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">min-width</span><span class="o">:</span> <span class="mi">120</span><span class="kt">px</span> <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">max-width</span><span class="o">:</span> <span class="mi">120</span><span class="kt">px</span> <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nc">.archive__type</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">max-width</span><span class="o">:</span> <span class="mi">70</span><span class="kt">px</span> <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">min-width</span><span class="o">:</span> <span class="mi">70</span><span class="kt">px</span> <span class="k">!important</span><span class="p">;</span>	
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
     </article>
     
     
@@ -4170,13 +4287,16 @@ document.addEventListener('DOMContentLoaded', function () {
     <li><a href="#为文章里图片添加边框">为文章里图片添加边框</a></li>
     <li><a href="#修改摘要">修改摘要</a></li>
     <li><a href="#修改间距-1">修改间距</a></li>
-    <li><a href="#修改首页图片显示效果">修改首页图片显示效果</a></li>
+    <li><a href="#修改手机下首页图片显示效果">修改手机下首页图片显示效果</a></li>
     <li><a href="#修改文章中图片清晰度">修改文章中图片清晰度</a></li>
     <li><a href="#修改面包屑溢出">修改面包屑溢出</a></li>
     <li><a href="#处理-hugo-server-警告">处理 hugo server 警告</a></li>
     <li><a href="#处理-minitemstoshowintagcloud-参数">处理 minItemsToShowInTagCloud 参数</a></li>
     <li><a href="#修改文章标题间距">修改文章标题间距</a></li>
     <li><a href="#修改字体">修改字体</a></li>
+    <li><a href="#修改手机下间距">修改手机下间距</a></li>
+    <li><a href="#手机下允许在单词内换行">手机下允许在单词内换行</a></li>
+    <li><a href="#修改-archive-页细节">修改 archive 页细节</a></li>
   </ul>
 </nav>
         </div>
