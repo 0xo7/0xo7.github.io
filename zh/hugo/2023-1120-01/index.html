@@ -1774,620 +1774,1167 @@
     目录
   </button>
   <div class="expand__content expand__content--toc">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#添加自定义css文件">添加自定义CSS文件</a></li>
+    <li><a href="#优化toc">优化TOC</a></li>
+    <li><a href="#优化文章内容样式">优化文章内容样式</a>
+      <ul>
+        <li><a href="#修改标签">修改标签</a></li>
+        <li><a href="#修改-blockquote">修改 blockquote</a></li>
+        <li><a href="#修改段落间距">修改段落间距</a></li>
+      </ul>
+    </li>
+    <li><a href="#修改主页样式">修改主页样式</a>
+      <ul>
+        <li><a href="#修改间距">修改间距</a></li>
+        <li><a href="#修改位置">修改📌位置</a></li>
+      </ul>
+    </li>
+    <li><a href="#修改archive页">修改archive页</a></li>
+    <li><a href="#修复英文溢出问题">修复英文溢出问题</a></li>
+    <li><a href="#处理图片问题">处理图片问题</a></li>
+    <li><a href="#侧边栏修改">侧边栏修改</a>
+      <ul>
+        <li><a href="#修改最近发布文章">修改最近发布文章</a></li>
+      </ul>
+    </li>
+    <li><a href="#修改recently-update间距">修改Recently update间距</a></li>
+    <li><a href="#为文章里图片添加边框">为文章里图片添加边框</a></li>
+    <li><a href="#修改摘要">修改摘要</a></li>
+    <li><a href="#修改间距-1">修改间距</a></li>
+    <li><a href="#修改手机下首页图片显示效果">修改手机下首页图片显示效果</a></li>
+    <li><a href="#修改文章中图片清晰度">修改文章中图片清晰度</a></li>
+    <li><a href="#修改面包屑溢出">修改面包屑溢出</a></li>
+    <li><a href="#处理-hugo-server-警告">处理 hugo server 警告</a></li>
+    <li><a href="#处理-minitemstoshowintagcloud-参数">处理 minItemsToShowInTagCloud 参数</a></li>
+    <li><a href="#修改文章标题间距">修改文章标题间距</a></li>
+    <li><a href="#修改字体">修改字体</a></li>
+    <li><a href="#修改手机下间距">修改手机下间距</a></li>
+    <li><a href="#手机下允许在单词内换行">手机下允许在单词内换行</a></li>
+    <li><a href="#修改-archive-页细节">修改 archive 页细节</a></li>
+  </ul>
+</nav>
   </div>
 </div>
 
       <p>因 zzo 主题的原作者已停止更新，所以本文主要记录 zzo 主题的修复以及一些优化。由于不擅长前端，所以部分修复和优化代码可能存在一些问题</p>
 <!-- *more* -->
-<div id="verification" style=" display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20vh;">
-    <div id="entry-box">
-        
-        <div id="secret-word" style="  font-size: 1.5rem;
-    margin-bottom: 1rem;">Unlock to view this content.</div>
-        <form id="password-form" onsubmit="checkPassword(); return false;" style=" display: flex;
-    flex-direction: column;
-    width: auto;">
-            <input type="password" name="password" id="password" placeholder="Please enter password" required style="margin-bottom: 1.5rem;
-      padding: 10px 20px;">
-            <input type="hidden" name="encryptedPassword" id="encrypted-password">
-            <input type="submit" value="Submit" name="submit" id="secret-submit" style=" padding: 10px 20px;
-      cursor: pointer;" onmouseover="this.style.backgroundColor='#FAB005';"
-                   onmouseout="this.style.backgroundColor='';">
-        </form>
-    </div>
-    <div id="secret" style="display: none" password="123456">
-
-## 添加自定义CSS文件
-
-修改 params.toml 文件，如下：
-
-```toml
-custom_css = ["scss/_custom.scss"]
-```
-
-在 assets/scss 下新建 _custom.scss 文件
-
-## 优化TOC
-
-当 tocPosition = "outer" 时，如下，对 TOC 位置进行调整
-
-![image-20231119121701559](image-20231119121701559.png)
-
-在  _custom.scss 文件中添加如下内容
-```SCSS
-.toc[data-dir=ltr] {
-    padding-left: 1.5rem  !important;
-}
-```
-
-注：如果不想在  _custom.scss 修改，也可以修改 themes\zzo\assets\sass\components\\\_toc.scss 文件的如下内容
-
-```scss
-&[data-dir="rtl"] {
-    padding-right: 0.5rem;
-}
-```
-
-修改为
-
-```SCSS
-&[data-dir="rtl"] {
-    padding-right: 1.5rem;
-}
-```
-
-## 优化文章内容样式
-
-### 修改标签
-
-![image-20231119140637602](image-20231119140637602.png)
-
-在 _custom.scss 添加如下内容：
-
-```SCSS
-.single__meta{
-	flex-direction: column !important;
-	align-items: flex-start  !important;
-}
-```
-
-### 修改 blockquote
-
-在 _custom.scss 添加如下内容：
-
-```scss
-.single__contents[data-dir=ltr] blockquote {
-    margin: 0 0.5rem 1rem 0.5rem !important;
-    padding: 0 0 0 1rem !important;
-}
-```
-
-### 修改段落间距
-
-在 _custom.scss 添加如下内容：
-
-```scss
-.single__contents p {
-    margin: 0 0 1rem !important;
-    padding: 0;
-}
-```
-
-## 修改主页样式
-
-### 修改间距
-
-![image-20231119140812400](image-20231119140812400.png)
-
-在 _custom.scss 添加如下内容：
-
-```scss
-.caption{
-    margin-top: 0.75rem !important;
-}
-.summary-classic__text {
-    margin-top: 0.75rem !important;
-}
-```
-
-![image-20231119141946106](image-20231119141946106.png)
-
-在 _custom.scss 添加如下内容：
-
-```SCSS
-.summary-classic:not(:last-child) hr{
-    margin-bottom: 0.75rem !important;    
-}
-```
-
-### 修改📌位置
-
-修改 layouts/partials/summary/classic.html 里面的如下内容
-
-```html
-        <h5 class="title h5"><a href='{{ .Permalink }}'>{{- with .Params.pinned -}}{{ ($.Site.Params.pinIcon | safeHTML) | default "📌" }}&nbsp;{{- end -}}{{ .Title }}</a> </h5>
-```
-
-修改为如下
-```html
-        <h5 class="title h5"><a href='{{ .Permalink }}'>{{ .Title }}{{- with .Params.pinned -}}&nbsp;{{ ($.Site.Params.pinIcon | safeHTML) | default "📌" }}{{- end -}}</a> </h5>
-```
-
-
-
-## 修改archive页
-
-修改 layouts/archive/list.html 里面的如下内容：
-
-```html
-  <div class="px py p2 single__contents">
-    {{ .Content }}
-  </div>
-```
-
-修改为如下
-
-```html
-{{ with .Content }}
-  <div class="px py p2 single__contents">
-    {{ . }}
-  </div>
-{{ end }}
-```
-
-## 修复英文溢出问题
-
-https://www.runoob.com/w3cnote/css-nowrap-break-word.html
-
-![image-20231119180450709](image-20231119180450709.png)
-
-在 _custom.scss 添加如下内容：
-
-```scss
-.single__tags{
-    word-break:break-all !important;
-}
-```
-
-![image-20231119204939141](image-20231119204939141.png)
-
-在 _custom.scss 添加如下内容：
-
-```scss
-.list__sidebar[data-dir=ltr]{
-    word-break:break-all !important;
-}
-```
-
-![image-20231119203626340](image-20231119203626340.png)
-
-在 _custom.scss 添加如下内容：
-
-```scss
-.summary-classic__content{
-    word-break:break-all !important;
-}
-```
-
-![image-20231119222935597](image-20231119222935597.png)
-
-在 _custom.scss 添加如下内容：
-
-```scss
-.toc{
-    word-break:break-all !important;
-}
-```
-
-![image-20231120092259118](image-20231120092259118.png)
-
-在 _custom.scss 添加如下内容：
-
-```scss
-.terms__list{
-    word-break:break-all !important;
-}
-```
-
-![image-20231120094908404](image-20231120094908404.png)
-
-在 _custom.scss 添加如下内容：
-
-```SCSS
-.archive__li{
-    word-break:break-all !important;
-}
-```
-
-![image-20231120095018955](image-20231120095018955.png)
-
-在 _custom.scss 添加如下内容：
-
-```SCSS
-.basicflex-column{
-    word-break:break-all !important;
-}
-```
-
-## 处理图片问题
-
-a 标签嵌套图片导致整体容器高度变大
-
-![image-20231120171915476](image-20231120171915476.png)
-
-![image-20231120172112981](image-20231120172112981.png)
-
-修复上面的问题，在 _custom.scss 添加如下内容：
-
-```scss
-.summary-classic__image[data-ani=true]{
-    vertical-align: middle;
-}	
-```
-
-修复后如下：
-
-![image-20231120172003195](image-20231120172003195.png)
-
-![image-20231120172244279](image-20231120172244279.png)
-
-如果使用 svg 图片，且 svg 图片比较小，那么显示如下：
-
-![image-20231120173322830](image-20231120173322830.png)
-
-为了让 svg 图片铺满容器，可以在 _custom.scss 添加如下内容：
-
-```scss
-.summary-classic__image[data-ani=true]{
-    width: 100%;
-    height: 100%;	
-}	
-```
-
-
-
-## 侧边栏修改
-
-### 修改最近发布文章
-
-![image-20231121163936995](image-20231121163936995.png)
-
-修改 posts-by-order.html 文件，修改后如下
-
-```html
-{{ if ($.Param "enableSidebarPostsByOrder" | default false) }}
-  {{ $filteredSections := .Site.Pages }}
-  {{ range $.Param "notAllowedTypesInHomeSidebar" }}
-    {{ $filteredSections = (where $filteredSections "Type" "!=" (lower .)) }}
-  {{ end }}
-
-  {{ $hasOrder := false }}
-  {{ range first ($.Param "itemsPerCategory") ($filteredSections.ByParam "order") }}
-    {{ if .Params.order }}
-      {{ $hasOrder = true }}
-    {{ end }}
-  {{ end }}
-
-  {{ if $hasOrder }}
-    <div class="sidebar-recent__title p2">{{ i18n "posts-by-order" | default "TOP POSTS" }}</div>
-    <ul class="sidebar-recent__ul">
-    {{ $orderedSections := (first ($.Param "itemsPerCategory") ($filteredSections.ByParam "order")) }}
-    {{ range first ($.Param "itemsPerCategory") $orderedSections.ByLastmod.Reverse }}
-        {{ if .Params.order }}
-          <li>
-            <a href="{{ .RelPermalink }}" class="sidebar-recent__a p2">{{ .Title }}</a>
-          </li>
-        {{ end }}
-  {{ end }}	  
-    </ul>
-    <hr class="hr-fade sidebar-hr" />
-  {{ end }}
-{{ end }}
-```
-
-除此之外，还要修改 archetypes/default.md 文件为每篇文章添加上 order : true 参数
-
-通过 params.toml 文件里的 itemsPerCategory = 5 参数来控制最近更新文章的篇数
-
-## 修改Recently update间距
-
-![image-20231121202338271](image-20231121202338271.png)
-
-在 _custom.scss 添加如下内容：
-
-```scss
-.sidebar-recent__title:nth-child(2).p2 {
-  margin-top: 1.5rem;
-}
-```
-
-## ~~为文章里图片添加边框~~
-
-在 _custom.scss 添加如下内容：
-
-```scss
-.single__contents img {
-   border: 1px solid #dfdfdf;
-}
-```
-
-## 修改摘要
-
-当摘要长度超过2行的时候用省略号表示
-
-![image-20231122173202863](image-20231122173202863.png)
-
-而当屏幕宽度小于 769 时，摘要超过1行的时候用省略号表示
-
-首先在 _custom.scss 添加如下内容：
-
-```scss
-.summary-classic__text {
-	overflow:hidden;
-	text-overflow:ellipsis;
-	display:-webkit-box;
-	-webkit-line-clamp:2; 
-	-webkit-box-orient:vertical;
-}
-```
-
-但是上面的 css 在 Webkit 浏览器内核下有作用，所以为了兼容其它浏览器内核，使用 clamp.js 实现，引入 clamp.js 后，在 _custom.js 下添加如下内容：
-
-```js
-document.addEventListener('DOMContentLoaded', function() {
-    var paragraphs = document.querySelectorAll('.summary-classic__text.p2');
-
-    // 判断屏幕宽度是否小于或等于 769 像素
-    if (window.matchMedia('(max-width: 769px)').matches) {
-        // 屏幕宽度小于或等于 769px，设置 clamp 为 1
-        paragraphs.forEach(function(paragraph) {
-            $clamp(paragraph, { clamp: 1, useNativeClamp: false, animate: false });
-        });
-    } else {
-        // 屏幕宽度大于 769px，设置 clamp 为 2
-        paragraphs.forEach(function(paragraph) {
-            $clamp(paragraph, { clamp: 2, useNativeClamp: false, animate: false });
-        });
-    }
-});
-```
-
-## 修改间距
-
-![image-20231122205830454](image-20231122205830454.png)
-
-![image-20231122205857022](image-20231122205857022.png)
-
-在 _custom.scss 添加如下内容：
-
-```scss
-.list__main> .summary__container > .summary-classic:first-child > .summary-classic__flex-box {
-    margin-top: 1.75rem; 
-}
-.list__header--desc{
-    padding: 0rem !important;
-}
-```
-
- ## ~~修改手机下首页图片显示效果~~
-
-![image-20231123170003238](image-20231123170003238.png)
-
-当屏幕宽度小于 769 的时候，不显示图片，在  _custom.js 中添加如下内容：
-
-```js
-var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-// 如果屏幕宽度小于769，则删除元素
-if (screenWidth < 769) {
-    // 获取所有.summary-classic__image-container元素
-    var elementsToRemove = document.querySelectorAll('.summary-classic__image-container');
-
-    // 遍历所有元素并删除它们
-    elementsToRemove.forEach(function (element) {
-        element.parentNode.removeChild(element);
-    });
-```
-
-## 修改文章中图片清晰度
-
-参考：https://gohugo.io/templates/render-hooks/
-
-在 themes\zzo\layouts\\\_default\ 里面新建 _markup\render-image.html 文件，在里面添加如下内容：
-
-```html
-<div class="custom-image-container">
+<h2 id="添加自定义css文件">添加自定义CSS文件</h2>
+<p>修改 params.toml 文件，如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">custom_css</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;scss/_custom.scss&#34;</span><span class="p">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在 assets/scss 下新建 _custom.scss 文件</p>
+<h2 id="优化toc">优化TOC</h2>
+<p>当 tocPosition = &ldquo;outer&rdquo; 时，如下，对 TOC 位置进行调整</p>
+<p><div class="custom-image-container">
   <img
-    src="{{ .Destination | safeURL }}"
-    alt="{{ .Text }}"
-    {{ with .Title }}title="{{ . }}"{{ end }}
+    src="image-20231119121701559.png"
+    alt="image-20231119121701559"
+    
     class="custom-image-class lazyload"
-    data-srcset="{{ .Destination | safeURL }} 1.25x"
+    data-srcset="image-20231119121701559.png 1.25x"
   />
 
 </div>
-```
-
-修改前：
-
-![image-20231123171538794](image-20231123171538794.png)
-
-修改后：
-
-![image-20231123171514829](image-20231123171514829.png)
-
-## 修改面包屑溢出
-
-![image-20231123171852669](image-20231123171852669.png)
-
-添加滑动条，在 _custom.scss 添加如下内容：
-
-```scss
-.breadcrumb{
-    overflow-x:auto;
-}
-```
-
-## 处理 hugo server 警告
-
-![image-20231123212332689](image-20231123212332689.png)
-
-处理第一个告警，打开 _default/config.toml 文件，删除 [outputs] 下的：
-
-```toml
-  taxonomyTerm = ["HTML", "RSS", "SearchIndex"]
-```
-
-处理第二个告警，修改 _default/languages.toml，修改后文件如下：
-
-```toml
-[zh]
-  title = "Ayuxy's Blog"
-  languageName = "中文"
-  weight = 1
-  contentdir = "content"
-  [zh.params]
-    languagedir = "ltr"
-```
-
-## 处理 minItemsToShowInTagCloud 参数
-
-minItemsToShowInTagCloud 同时控制了侧边栏中系列、标签、分类中文章的最少数量，如果minItemsToShowInTagCloud=2，那么只有当系列、标签、分类中的文章数量至少为 2 的时候才会显示在侧边栏
-
-![image-20231124152211998](image-20231124152211998.png)
-
-进行修改，让 minItemsToShowInTagCloud 控制标签，新增 minItemsToShowInCategoriesCloud 控制分类，新增 minItemsToShowInSeriesCloud 控制分类，
-
-修改 layouts/partials/taxonomy/taxonomy-categories.html 里面的 minItemsToShowInTagCloud 为 minItemsToShowInCategoriesCloud 
-
-修改 layouts/partials/taxonomy/taxonomy-series.html 里面的 minItemsToShowInTagCloud 为 minItemsToShowInSeriesCloud 
-
-同时在 param.toml 添加
-
-```toml
-minItemsToShowInSeriesCloud = 5
-minItemsToShowInCategoriesCloud = 3
-```
-
-在系列、标签、分类后面添加上相关的值，也就是配置文件里面 minItemsToShowInSeriesCloud 、 minItemsToShowInTagCloud 、minItemsToShowInCategoriesCloud 的值
-
-![image-20231124160836736](image-20231124160836736.png)
-
- 修改 layouts/partials/taxonomy/taxonomy-series.html  文件，在  {{ i18n "series" }}  后面添加上如下：
-
-```html
-{{ with .Site.Params.minItemsToShowInSeriesCloud }}  ({{ . }}) {{ end }}
-```
-
-其它的 taxonomy-categories.html 、taxonomy-tags.html 文件同理
-
-## 修改文章标题间距
-
-在 _custom.scss 添加如下内容：
-
-```scss
-.single__contents h2{
-    margin: 3rem 0 1.5rem  !important;
-}
-
-.single__contents h3 {
-    margin: 2rem 0 1.25rem  !important;
-}
-```
-
-## 修改字体
-
-添加 data/font.toml，内容如下：
-
-```toml
-title_font = "\"LXGWWenKaiScreen\", sans-serif"
-content_font = "\"LXGWWenKaiScreen\", sans-serif"
-```
-
-添加 assets\scss\font.css 文件，内容如下：
-
-```css
-@font-face {
-    font-family: 'LXGWWenKaiScreen';
-    src: url('../fonts/LXGWWenKaiScreen.ttf');
-    font-style: normal;
-}
-```
-
-最后在 params.toml 文件中引入 font.css 
-
-## 修改手机下间距
-
-![image-20231128072748010](image-20231128072748010.png)
-
-在 _custom.scss 添加如下内容：
-
-```scss
-@media only screen and (max-width: 769px) {
-    .caption {
-        margin-top: 0.5rem !important;
-    }
-
-    .summary-classic__text {
-        margin-top: 0.5rem !important;
-    }
-}
-```
-
-## 手机下允许在单词内换行
-
-![image-20231128081857088](image-20231128081857088.png)
-
-在 _custom.scss 添加如下内容：
-
-```scss
-@media only screen and (max-width: 769px) {
-	.single__contents p {
-		word-break: break-all;
-	}    
-}
-```
-
-## 修改 archive 页细节
-
-在 _custom.scss 添加如下内容：
-
-```scss
-.archive__type {
-    padding-left: 5px;
-    padding-right: 5px;	
-}
-@media only screen and (min-width: 769px) {
-	.archive__meta{
-		margin-top: 2.5px;
-	}
-}
-.archive__key {
-	width: 120px !important;
-}
-.archive__meta {
-    min-width: 120px !important;
-    max-width: 120px !important;
-}
-.archive__type {
-    max-width: 70px !important;
-    min-width: 70px !important;	
-}
-```
-
-
-
-![image-20231129202107295](.\2023-1120-01\image-20231129202107295.png)
-
-![image-20231129211520293](2023-1120-01/image-20231129211520293.png)
+</p>
+<p>在  _custom.scss 文件中添加如下内容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SCSS" data-lang="SCSS"><span class="line"><span class="cl"><span class="nc">.toc</span><span class="o">[</span><span class="nt">data-dir</span><span class="o">=</span><span class="nt">ltr</span><span class="o">]</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">padding-left</span><span class="o">:</span> <span class="mi">1</span><span class="mf">.5</span><span class="kt">rem</span>  <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>注：如果不想在  _custom.scss 修改，也可以修改 themes\zzo\assets\sass\components\_toc.scss 文件的如下内容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="k">&amp;</span><span class="o">[</span><span class="nt">data-dir</span><span class="o">=</span><span class="s2">&#34;rtl&#34;</span><span class="o">]</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">padding-right</span><span class="o">:</span> <span class="mi">0</span><span class="mf">.5</span><span class="kt">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>修改为</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SCSS" data-lang="SCSS"><span class="line"><span class="cl"><span class="k">&amp;</span><span class="o">[</span><span class="nt">data-dir</span><span class="o">=</span><span class="s2">&#34;rtl&#34;</span><span class="o">]</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">padding-right</span><span class="o">:</span> <span class="mi">1</span><span class="mf">.5</span><span class="kt">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="优化文章内容样式">优化文章内容样式</h2>
+<h3 id="修改标签">修改标签</h3>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231119140637602.png"
+    alt="image-20231119140637602"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231119140637602.png 1.25x"
+  />
 
 </div>
+</p>
+<p>在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SCSS" data-lang="SCSS"><span class="line"><span class="cl"><span class="nc">.single__meta</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="na">flex-direction</span><span class="o">:</span> <span class="ni">column</span> <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="na">align-items</span><span class="o">:</span> <span class="ni">flex-start</span>  <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
+</div><h3 id="修改-blockquote">修改 blockquote</h3>
+<p>在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="nc">.single__contents</span><span class="o">[</span><span class="nt">data-dir</span><span class="o">=</span><span class="nt">ltr</span><span class="o">]</span> <span class="nt">blockquote</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">margin</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">0</span><span class="mf">.5</span><span class="kt">rem</span> <span class="mi">1</span><span class="kt">rem</span> <span class="mi">0</span><span class="mf">.5</span><span class="kt">rem</span> <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">padding</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span><span class="kt">rem</span> <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="修改段落间距">修改段落间距</h3>
+<p>在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="nc">.single__contents</span> <span class="nt">p</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">margin</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span><span class="kt">rem</span> <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">padding</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="修改主页样式">修改主页样式</h2>
+<h3 id="修改间距">修改间距</h3>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231119140812400.png"
+    alt="image-20231119140812400"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231119140812400.png 1.25x"
+  />
 
+</div>
+</p>
+<p>在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="nc">.caption</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">margin-top</span><span class="o">:</span> <span class="mi">0</span><span class="mf">.75</span><span class="kt">rem</span> <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nc">.summary-classic__text</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">margin-top</span><span class="o">:</span> <span class="mi">0</span><span class="mf">.75</span><span class="kt">rem</span> <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><div class="custom-image-container">
+  <img
+    src="image-20231119141946106.png"
+    alt="image-20231119141946106"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231119141946106.png 1.25x"
+  />
 
+</div>
+</p>
+<p>在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SCSS" data-lang="SCSS"><span class="line"><span class="cl"><span class="nc">.summary-classic</span><span class="nd">:not</span><span class="o">(</span><span class="nd">:last-child</span><span class="o">)</span> <span class="nt">hr</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">margin-bottom</span><span class="o">:</span> <span class="mi">0</span><span class="mf">.75</span><span class="kt">rem</span> <span class="k">!important</span><span class="p">;</span>    
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="修改位置">修改📌位置</h3>
+<p>修改 layouts/partials/summary/classic.html 里面的如下内容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">h5</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;title h5&#34;</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#39;{{ .Permalink }}&#39;</span><span class="p">&gt;</span>{{- with .Params.pinned -}}{{ ($.Site.Params.pinIcon | safeHTML) | default &#34;📌&#34; }}<span class="ni">&amp;nbsp;</span>{{- end -}}{{ .Title }}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> <span class="p">&lt;/</span><span class="nt">h5</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>修改为如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">h5</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;title h5&#34;</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#39;{{ .Permalink }}&#39;</span><span class="p">&gt;</span>{{ .Title }}{{- with .Params.pinned -}}<span class="ni">&amp;nbsp;</span>{{ ($.Site.Params.pinIcon | safeHTML) | default &#34;📌&#34; }}{{- end -}}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> <span class="p">&lt;/</span><span class="nt">h5</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="修改archive页">修改archive页</h2>
+<p>修改 layouts/archive/list.html 里面的如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;px py p2 single__contents&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    {{ .Content }}
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>修改为如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ with .Content }}
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;px py p2 single__contents&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    {{ . }}
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">{{ end }}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="修复英文溢出问题">修复英文溢出问题</h2>
+<p><a href="https://www.runoob.com/w3cnote/css-nowrap-break-word.html">https://www.runoob.com/w3cnote/css-nowrap-break-word.html</a></p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231119180450709.png"
+    alt="image-20231119180450709"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231119180450709.png 1.25x"
+  />
+
+</div>
+</p>
+<p>在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="nc">.single__tags</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">word-break</span><span class="o">:</span><span class="ni">break-all</span> <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><div class="custom-image-container">
+  <img
+    src="image-20231119204939141.png"
+    alt="image-20231119204939141"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231119204939141.png 1.25x"
+  />
+
+</div>
+</p>
+<p>在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="nc">.list__sidebar</span><span class="o">[</span><span class="nt">data-dir</span><span class="o">=</span><span class="nt">ltr</span><span class="o">]</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">word-break</span><span class="o">:</span><span class="ni">break-all</span> <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><div class="custom-image-container">
+  <img
+    src="image-20231119203626340.png"
+    alt="image-20231119203626340"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231119203626340.png 1.25x"
+  />
+
+</div>
+</p>
+<p>在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="nc">.summary-classic__content</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">word-break</span><span class="o">:</span><span class="ni">break-all</span> <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><div class="custom-image-container">
+  <img
+    src="image-20231119222935597.png"
+    alt="image-20231119222935597"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231119222935597.png 1.25x"
+  />
+
+</div>
+</p>
+<p>在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="nc">.toc</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">word-break</span><span class="o">:</span><span class="ni">break-all</span> <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><div class="custom-image-container">
+  <img
+    src="image-20231120092259118.png"
+    alt="image-20231120092259118"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231120092259118.png 1.25x"
+  />
+
+</div>
+</p>
+<p>在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="nc">.terms__list</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">word-break</span><span class="o">:</span><span class="ni">break-all</span> <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><div class="custom-image-container">
+  <img
+    src="image-20231120094908404.png"
+    alt="image-20231120094908404"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231120094908404.png 1.25x"
+  />
+
+</div>
+</p>
+<p>在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SCSS" data-lang="SCSS"><span class="line"><span class="cl"><span class="nc">.archive__li</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">word-break</span><span class="o">:</span><span class="ni">break-all</span> <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><div class="custom-image-container">
+  <img
+    src="image-20231120095018955.png"
+    alt="image-20231120095018955"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231120095018955.png 1.25x"
+  />
+
+</div>
+</p>
+<p>在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SCSS" data-lang="SCSS"><span class="line"><span class="cl"><span class="nc">.basicflex-column</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">word-break</span><span class="o">:</span><span class="ni">break-all</span> <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="处理图片问题">处理图片问题</h2>
+<p>a 标签嵌套图片导致整体容器高度变大</p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231120171915476.png"
+    alt="image-20231120171915476"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231120171915476.png 1.25x"
+  />
+
+</div>
+</p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231120172112981.png"
+    alt="image-20231120172112981"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231120172112981.png 1.25x"
+  />
+
+</div>
+</p>
+<p>修复上面的问题，在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="nc">.summary-classic__image</span><span class="o">[</span><span class="nt">data-ani</span><span class="o">=</span><span class="nt">true</span><span class="o">]</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">vertical-align</span><span class="o">:</span> <span class="ni">middle</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>	
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>修复后如下：</p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231120172003195.png"
+    alt="image-20231120172003195"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231120172003195.png 1.25x"
+  />
+
+</div>
+</p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231120172244279.png"
+    alt="image-20231120172244279"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231120172244279.png 1.25x"
+  />
+
+</div>
+</p>
+<p>如果使用 svg 图片，且 svg 图片比较小，那么显示如下：</p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231120173322830.png"
+    alt="image-20231120173322830"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231120173322830.png 1.25x"
+  />
+
+</div>
+</p>
+<p>为了让 svg 图片铺满容器，可以在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="nc">.summary-classic__image</span><span class="o">[</span><span class="nt">data-ani</span><span class="o">=</span><span class="nt">true</span><span class="o">]</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">width</span><span class="o">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">height</span><span class="o">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>	
+</span></span><span class="line"><span class="cl"><span class="p">}</span>	
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="侧边栏修改">侧边栏修改</h2>
+<h3 id="修改最近发布文章">修改最近发布文章</h3>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231121163936995.png"
+    alt="image-20231121163936995"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231121163936995.png 1.25x"
+  />
+
+</div>
+</p>
+<p>修改 posts-by-order.html 文件，修改后如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ if ($.Param &#34;enableSidebarPostsByOrder&#34; | default false) }}
+</span></span><span class="line"><span class="cl">  {{ $filteredSections := .Site.Pages }}
+</span></span><span class="line"><span class="cl">  {{ range $.Param &#34;notAllowedTypesInHomeSidebar&#34; }}
+</span></span><span class="line"><span class="cl">    {{ $filteredSections = (where $filteredSections &#34;Type&#34; &#34;!=&#34; (lower .)) }}
+</span></span><span class="line"><span class="cl">  {{ end }}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  {{ $hasOrder := false }}
+</span></span><span class="line"><span class="cl">  {{ range first ($.Param &#34;itemsPerCategory&#34;) ($filteredSections.ByParam &#34;order&#34;) }}
+</span></span><span class="line"><span class="cl">    {{ if .Params.order }}
+</span></span><span class="line"><span class="cl">      {{ $hasOrder = true }}
+</span></span><span class="line"><span class="cl">    {{ end }}
+</span></span><span class="line"><span class="cl">  {{ end }}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  {{ if $hasOrder }}
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sidebar-recent__title p2&#34;</span><span class="p">&gt;</span>{{ i18n &#34;posts-by-order&#34; | default &#34;TOP POSTS&#34; }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sidebar-recent__ul&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    {{ $orderedSections := (first ($.Param &#34;itemsPerCategory&#34;) ($filteredSections.ByParam &#34;order&#34;)) }}
+</span></span><span class="line"><span class="cl">    {{ range first ($.Param &#34;itemsPerCategory&#34;) $orderedSections.ByLastmod.Reverse }}
+</span></span><span class="line"><span class="cl">        {{ if .Params.order }}
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;{{ .RelPermalink }}&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sidebar-recent__a p2&#34;</span><span class="p">&gt;</span>{{ .Title }}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        {{ end }}
+</span></span><span class="line"><span class="cl">  {{ end }}	  
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">hr</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;hr-fade sidebar-hr&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">  {{ end }}
+</span></span><span class="line"><span class="cl">{{ end }}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>除此之外，还要修改 archetypes/default.md 文件为每篇文章添加上 order : true 参数</p>
+<p>通过 params.toml 文件里的 itemsPerCategory = 5 参数来控制最近更新文章的篇数</p>
+<h2 id="修改recently-update间距">修改Recently update间距</h2>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231121202338271.png"
+    alt="image-20231121202338271"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231121202338271.png 1.25x"
+  />
+
+</div>
+</p>
+<p>在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="nc">.sidebar-recent__title</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">2</span><span class="o">)</span><span class="nc">.p2</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="na">margin-top</span><span class="o">:</span> <span class="mi">1</span><span class="mf">.5</span><span class="kt">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="为文章里图片添加边框"><del>为文章里图片添加边框</del></h2>
+<p>在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="nc">.single__contents</span> <span class="nt">img</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="na">border</span><span class="o">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="ni">solid</span> <span class="mh">#dfdfdf</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="修改摘要">修改摘要</h2>
+<p>当摘要长度超过2行的时候用省略号表示</p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231122173202863.png"
+    alt="image-20231122173202863"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231122173202863.png 1.25x"
+  />
+
+</div>
+</p>
+<p>而当屏幕宽度小于 769 时，摘要超过1行的时候用省略号表示</p>
+<p>首先在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="nc">.summary-classic__text</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="na">overflow</span><span class="o">:</span><span class="ni">hidden</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="na">text-overflow</span><span class="o">:</span><span class="ni">ellipsis</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="na">display</span><span class="o">:-</span><span class="n">webkit-box</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="na">-webkit-line-clamp</span><span class="o">:</span><span class="mi">2</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">	<span class="na">-webkit-box-orient</span><span class="o">:</span><span class="ni">vertical</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>但是上面的 css 在 Webkit 浏览器内核下有作用，所以为了兼容其它浏览器内核，使用 clamp.js 实现，引入 clamp.js 后，在 _custom.js 下添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">paragraphs</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;.summary-classic__text.p2&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 判断屏幕宽度是否小于或等于 769 像素
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">matchMedia</span><span class="p">(</span><span class="s1">&#39;(max-width: 769px)&#39;</span><span class="p">).</span><span class="nx">matches</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 屏幕宽度小于或等于 769px，设置 clamp 为 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">paragraphs</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">paragraph</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">$clamp</span><span class="p">(</span><span class="nx">paragraph</span><span class="p">,</span> <span class="p">{</span> <span class="nx">clamp</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">useNativeClamp</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nx">animate</span><span class="o">:</span> <span class="kc">false</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">        <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 屏幕宽度大于 769px，设置 clamp 为 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">paragraphs</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">paragraph</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">$clamp</span><span class="p">(</span><span class="nx">paragraph</span><span class="p">,</span> <span class="p">{</span> <span class="nx">clamp</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">useNativeClamp</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nx">animate</span><span class="o">:</span> <span class="kc">false</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">        <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="修改间距-1">修改间距</h2>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231122205830454.png"
+    alt="image-20231122205830454"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231122205830454.png 1.25x"
+  />
+
+</div>
+</p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231122205857022.png"
+    alt="image-20231122205857022"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231122205857022.png 1.25x"
+  />
+
+</div>
+</p>
+<p>在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="nc">.list__main</span><span class="o">&gt;</span> <span class="nc">.summary__container</span> <span class="o">&gt;</span> <span class="nc">.summary-classic</span><span class="nd">:first-child</span> <span class="o">&gt;</span> <span class="nc">.summary-classic__flex-box</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">margin-top</span><span class="o">:</span> <span class="mi">1</span><span class="mf">.75</span><span class="kt">rem</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nc">.list__header--desc</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">padding</span><span class="o">:</span> <span class="mi">0</span><span class="kt">rem</span> <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="修改手机下首页图片显示效果"><del>修改手机下首页图片显示效果</del></h2>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231123170003238.png"
+    alt="image-20231123170003238"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231123170003238.png 1.25x"
+  />
+
+</div>
+</p>
+<p>当屏幕宽度小于 769 的时候，不显示图片，在  _custom.js 中添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">screenWidth</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span> <span class="o">||</span> <span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">clientWidth</span> <span class="o">||</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">clientWidth</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 如果屏幕宽度小于769，则删除元素
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="nx">screenWidth</span> <span class="o">&lt;</span> <span class="mi">769</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 获取所有.summary-classic__image-container元素
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">var</span> <span class="nx">elementsToRemove</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;.summary-classic__image-container&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 遍历所有元素并删除它们
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">elementsToRemove</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">element</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="修改文章中图片清晰度">修改文章中图片清晰度</h2>
+<p>参考：https://gohugo.io/templates/render-hooks/</p>
+<p>在 themes\zzo\layouts\_default\ 里面新建 _markup\render-image.html 文件，在里面添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;custom-image-container&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">img</span>
+</span></span><span class="line"><span class="cl">    <span class="na">src</span><span class="o">=</span><span class="s">&#34;{{ .Destination | safeURL }}&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">alt</span><span class="o">=</span><span class="s">&#34;{{ .Text }}&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="err">{{</span> <span class="na">with</span> <span class="err">.</span><span class="na">Title</span> <span class="err">}}</span><span class="na">title</span><span class="o">=</span><span class="s">&#34;{{ . }}&#34;</span><span class="err">{{</span> <span class="na">end</span> <span class="err">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="na">class</span><span class="o">=</span><span class="s">&#34;custom-image-class lazyload&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">data-srcset</span><span class="o">=</span><span class="s">&#34;{{ .Destination | safeURL }} 1.25x&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>修改前：</p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231123171538794.png"
+    alt="image-20231123171538794"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231123171538794.png 1.25x"
+  />
+
+</div>
+</p>
+<p>修改后：</p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231123171514829.png"
+    alt="image-20231123171514829"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231123171514829.png 1.25x"
+  />
+
+</div>
+</p>
+<h2 id="修改面包屑溢出">修改面包屑溢出</h2>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231123171852669.png"
+    alt="image-20231123171852669"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231123171852669.png 1.25x"
+  />
+
+</div>
+</p>
+<p>添加滑动条，在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="nc">.breadcrumb</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">overflow-x</span><span class="o">:</span><span class="ni">auto</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="处理-hugo-server-警告">处理 hugo server 警告</h2>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231123212332689.png"
+    alt="image-20231123212332689"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231123212332689.png 1.25x"
+  />
+
+</div>
+</p>
+<p>处理第一个告警，打开 _default/config.toml 文件，删除 [outputs] 下的：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl">  <span class="nx">taxonomyTerm</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;HTML&#34;</span><span class="p">,</span> <span class="s2">&#34;RSS&#34;</span><span class="p">,</span> <span class="s2">&#34;SearchIndex&#34;</span><span class="p">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>处理第二个告警，修改 _default/languages.toml，修改后文件如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">zh</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">title</span> <span class="p">=</span> <span class="s2">&#34;Ayuxy&#39;s Blog&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">languageName</span> <span class="p">=</span> <span class="s2">&#34;中文&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">weight</span> <span class="p">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">contentdir</span> <span class="p">=</span> <span class="s2">&#34;content&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nx">zh</span><span class="p">.</span><span class="nx">params</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">languagedir</span> <span class="p">=</span> <span class="s2">&#34;ltr&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="处理-minitemstoshowintagcloud-参数">处理 minItemsToShowInTagCloud 参数</h2>
+<p>minItemsToShowInTagCloud 同时控制了侧边栏中系列、标签、分类中文章的最少数量，如果minItemsToShowInTagCloud=2，那么只有当系列、标签、分类中的文章数量至少为 2 的时候才会显示在侧边栏</p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231124152211998.png"
+    alt="image-20231124152211998"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231124152211998.png 1.25x"
+  />
+
+</div>
+</p>
+<p>进行修改，让 minItemsToShowInTagCloud 控制标签，新增 minItemsToShowInCategoriesCloud 控制分类，新增 minItemsToShowInSeriesCloud 控制分类，</p>
+<p>修改 layouts/partials/taxonomy/taxonomy-categories.html 里面的 minItemsToShowInTagCloud 为 minItemsToShowInCategoriesCloud</p>
+<p>修改 layouts/partials/taxonomy/taxonomy-series.html 里面的 minItemsToShowInTagCloud 为 minItemsToShowInSeriesCloud</p>
+<p>同时在 param.toml 添加</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">minItemsToShowInSeriesCloud</span> <span class="p">=</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl"><span class="nx">minItemsToShowInCategoriesCloud</span> <span class="p">=</span> <span class="mi">3</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在系列、标签、分类后面添加上相关的值，也就是配置文件里面 minItemsToShowInSeriesCloud 、 minItemsToShowInTagCloud 、minItemsToShowInCategoriesCloud 的值</p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231124160836736.png"
+    alt="image-20231124160836736"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231124160836736.png 1.25x"
+  />
+
+</div>
+</p>
+<p>修改 layouts/partials/taxonomy/taxonomy-series.html  文件，在  {{ i18n &ldquo;series&rdquo; }}  后面添加上如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ with .Site.Params.minItemsToShowInSeriesCloud }}  ({{ . }}) {{ end }}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其它的 taxonomy-categories.html 、taxonomy-tags.html 文件同理</p>
+<h2 id="修改文章标题间距">修改文章标题间距</h2>
+<p>在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="nc">.single__contents</span> <span class="nt">h2</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">margin</span><span class="o">:</span> <span class="mi">3</span><span class="kt">rem</span> <span class="mi">0</span> <span class="mi">1</span><span class="mf">.5</span><span class="kt">rem</span>  <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nc">.single__contents</span> <span class="nt">h3</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">margin</span><span class="o">:</span> <span class="mi">2</span><span class="kt">rem</span> <span class="mi">0</span> <span class="mi">1</span><span class="mf">.25</span><span class="kt">rem</span>  <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="修改字体">修改字体</h2>
+<p>添加 data/font.toml，内容如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">title_font</span> <span class="p">=</span> <span class="s2">&#34;\&#34;LXGWWenKaiScreen\&#34;, sans-serif&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">content_font</span> <span class="p">=</span> <span class="s2">&#34;\&#34;LXGWWenKaiScreen\&#34;, sans-serif&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>添加 assets\scss\font.css 文件，内容如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">@</span><span class="k">font-face</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">font-family</span><span class="o">:</span> <span class="s1">&#39;LXGWWenKaiScreen&#39;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s1">&#39;../fonts/LXGWWenKaiScreen.ttf&#39;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">font-style</span><span class="o">:</span> <span class="nt">normal</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>最后在 params.toml 文件中引入 font.css</p>
+<h2 id="修改手机下间距">修改手机下间距</h2>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231128072748010.png"
+    alt="image-20231128072748010"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231128072748010.png 1.25x"
+  />
+
+</div>
+</p>
+<p>在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="k">@media</span> <span class="n">only</span> <span class="ni">screen</span> <span class="ow">and</span> <span class="p">(</span><span class="na">max-width</span><span class="o">:</span> <span class="mi">769</span><span class="kt">px</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nc">.caption</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="na">margin-top</span><span class="o">:</span> <span class="mi">0</span><span class="mf">.5</span><span class="kt">rem</span> <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nc">.summary-classic__text</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="na">margin-top</span><span class="o">:</span> <span class="mi">0</span><span class="mf">.5</span><span class="kt">rem</span> <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="手机下允许在单词内换行">手机下允许在单词内换行</h2>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231128081857088.png"
+    alt="image-20231128081857088"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231128081857088.png 1.25x"
+  />
+
+</div>
+</p>
+<p>在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="k">@media</span> <span class="n">only</span> <span class="ni">screen</span> <span class="ow">and</span> <span class="p">(</span><span class="na">max-width</span><span class="o">:</span> <span class="mi">769</span><span class="kt">px</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nc">.single__contents</span> <span class="nt">p</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="na">word-break</span><span class="o">:</span> <span class="ni">break-all</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>    
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="修改-archive-页细节">修改 archive 页细节</h2>
+<p>在 _custom.scss 添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="nc">.archive__type</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">padding-left</span><span class="o">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">padding-right</span><span class="o">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>	
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">@media</span> <span class="n">only</span> <span class="ni">screen</span> <span class="ow">and</span> <span class="p">(</span><span class="na">min-width</span><span class="o">:</span> <span class="mi">769</span><span class="kt">px</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nc">.archive__meta</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="na">margin-top</span><span class="o">:</span> <span class="mi">2</span><span class="mf">.5</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nc">.archive__key</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="na">width</span><span class="o">:</span> <span class="mi">120</span><span class="kt">px</span> <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nc">.archive__meta</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">min-width</span><span class="o">:</span> <span class="mi">120</span><span class="kt">px</span> <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">max-width</span><span class="o">:</span> <span class="mi">120</span><span class="kt">px</span> <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nc">.archive__type</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">max-width</span><span class="o">:</span> <span class="mi">70</span><span class="kt">px</span> <span class="k">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">min-width</span><span class="o">:</span> <span class="mi">70</span><span class="kt">px</span> <span class="k">!important</span><span class="p">;</span>	
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><div class="custom-image-container">
+  <img
+    src=".%5c2023-1120-01%5cimage-20231129202107295.png"
+    alt="image-20231129202107295"
+    
+    class="custom-image-class lazyload"
+    data-srcset=".%5c2023-1120-01%5cimage-20231129202107295.png 1.25x"
+  />
+
+</div>
+</p>
+<p><div class="custom-image-container">
+  <img
+    src="2023-1120-01/image-20231129211520293.png"
+    alt="image-20231129211520293"
+    
+    class="custom-image-class lazyload"
+    data-srcset="2023-1120-01/image-20231129211520293.png 1.25x"
+  />
+
+</div>
+</p>
 
     </article>
     
@@ -3739,7 +4286,47 @@ document.addEventListener('DOMContentLoaded', function () {
           
         </div>
         <div class="toc toc__outer hide" data-dir="ltr" data-folding="true" data-ani="true">
-          <nav id="TableOfContents"></nav>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#添加自定义css文件">添加自定义CSS文件</a></li>
+    <li><a href="#优化toc">优化TOC</a></li>
+    <li><a href="#优化文章内容样式">优化文章内容样式</a>
+      <ul>
+        <li><a href="#修改标签">修改标签</a></li>
+        <li><a href="#修改-blockquote">修改 blockquote</a></li>
+        <li><a href="#修改段落间距">修改段落间距</a></li>
+      </ul>
+    </li>
+    <li><a href="#修改主页样式">修改主页样式</a>
+      <ul>
+        <li><a href="#修改间距">修改间距</a></li>
+        <li><a href="#修改位置">修改📌位置</a></li>
+      </ul>
+    </li>
+    <li><a href="#修改archive页">修改archive页</a></li>
+    <li><a href="#修复英文溢出问题">修复英文溢出问题</a></li>
+    <li><a href="#处理图片问题">处理图片问题</a></li>
+    <li><a href="#侧边栏修改">侧边栏修改</a>
+      <ul>
+        <li><a href="#修改最近发布文章">修改最近发布文章</a></li>
+      </ul>
+    </li>
+    <li><a href="#修改recently-update间距">修改Recently update间距</a></li>
+    <li><a href="#为文章里图片添加边框">为文章里图片添加边框</a></li>
+    <li><a href="#修改摘要">修改摘要</a></li>
+    <li><a href="#修改间距-1">修改间距</a></li>
+    <li><a href="#修改手机下首页图片显示效果">修改手机下首页图片显示效果</a></li>
+    <li><a href="#修改文章中图片清晰度">修改文章中图片清晰度</a></li>
+    <li><a href="#修改面包屑溢出">修改面包屑溢出</a></li>
+    <li><a href="#处理-hugo-server-警告">处理 hugo server 警告</a></li>
+    <li><a href="#处理-minitemstoshowintagcloud-参数">处理 minItemsToShowInTagCloud 参数</a></li>
+    <li><a href="#修改文章标题间距">修改文章标题间距</a></li>
+    <li><a href="#修改字体">修改字体</a></li>
+    <li><a href="#修改手机下间距">修改手机下间距</a></li>
+    <li><a href="#手机下允许在单词内换行">手机下允许在单词内换行</a></li>
+    <li><a href="#修改-archive-页细节">修改 archive 页细节</a></li>
+  </ul>
+</nav>
         </div>
       
     
