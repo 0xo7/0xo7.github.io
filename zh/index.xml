@@ -42,12 +42,44 @@
 
       
       <item>
-        <title>rayder-dev</title>
-        <link>https://ayuxy.github.io/zh/hacktools/2023-1121-05/</link>
+        <title>C语言</title>
+        <link>https://ayuxy.github.io/zh/c/2023-1128-01/</link>
         <pubDate>Mon, 20 Nov 2023 21:53:24 +0800</pubDate>
         <author>1714132614@qq.com (ayuxy)</author>
         <atom:modified>Mon, 20 Nov 2023 21:53:24 +0800</atom:modified>
-        <guid>https://ayuxy.github.io/zh/hacktools/2023-1121-05/</guid>
+        <guid>https://ayuxy.github.io/zh/c/2023-1128-01/</guid>
+        <description></description>
+        
+        <dc:creator>ayuxy</dc:creator>
+        <media:content url="https://ayuxy.github.io/images/c.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>C</category>
+            
+          
+        
+        
+          
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>rayder-dev</title>
+        <link>https://ayuxy.github.io/zh/tools/2023-1121-05/</link>
+        <pubDate>Mon, 20 Nov 2023 21:53:24 +0800</pubDate>
+        <author>1714132614@qq.com (ayuxy)</author>
+        <atom:modified>Mon, 20 Nov 2023 21:53:24 +0800</atom:modified>
+        <guid>https://ayuxy.github.io/zh/tools/2023-1121-05/</guid>
         <description></description>
         
         <dc:creator>ayuxy</dc:creator>
@@ -78,13 +110,13 @@
       </item>
       
       <item>
-        <title>8086汇编基础指令</title>
+        <title>8086汇编</title>
         <link>https://ayuxy.github.io/zh/asm/8086/2023-1121-05/</link>
         <pubDate>Mon, 20 Nov 2023 18:54:24 +0800</pubDate>
         <author>1714132614@qq.com (ayuxy)</author>
         <atom:modified>Mon, 20 Nov 2023 18:54:24 +0800</atom:modified>
         <guid>https://ayuxy.github.io/zh/asm/8086/2023-1121-05/</guid>
-        <description></description>
+        <description>Unlock to view this content. ## hi ### hugoArticleEncryptor is a hugo article encryption tool! Let&#39;s try it. &gt; hugoArticleEncryptor was inspired by the hugo_encryptor project</description>
         
         <dc:creator>ayuxy</dc:creator>
         <media:content url="https://ayuxy.github.io/images/asm.png" medium="image"><media:title type="html">featured image</media:title></media:content>
@@ -92,6 +124,8 @@
         
         
           
+            
+              <category>8086汇编</category>
             
           
         

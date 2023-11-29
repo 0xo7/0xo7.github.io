@@ -11,10 +11,16 @@
     <loc>https://ayuxy.github.io/zh/</loc>
     <lastmod>2023-11-29T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://ayuxy.github.io/zh/tags/c/</loc>
+    <lastmod>2023-11-20T21:53:24+08:00</lastmod>
+  </url><url>
     <loc>https://ayuxy.github.io/zh/categories/</loc>
     <lastmod>2023-11-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ayuxy.github.io/zh/hacktools/2023-1121-05/</loc>
+    <loc>https://ayuxy.github.io/zh/c/2023-1128-01/</loc>
+    <lastmod>2023-11-20T21:53:24+08:00</lastmod>
+  </url><url>
+    <loc>https://ayuxy.github.io/zh/tools/2023-1121-05/</loc>
     <lastmod>2023-11-20T21:53:24+08:00</lastmod>
   </url><url>
     <loc>https://ayuxy.github.io/zh/series/</loc>
@@ -26,7 +32,10 @@
     <loc>https://ayuxy.github.io/zh/tags/tools/</loc>
     <lastmod>2023-11-20T21:53:24+08:00</lastmod>
   </url><url>
-    <loc>https://ayuxy.github.io/zh/hacktools/</loc>
+    <loc>https://ayuxy.github.io/zh/c/</loc>
+    <lastmod>2023-11-20T21:53:24+08:00</lastmod>
+  </url><url>
+    <loc>https://ayuxy.github.io/zh/tools/</loc>
     <lastmod>2023-11-20T21:53:24+08:00</lastmod>
   </url><url>
     <loc>https://ayuxy.github.io/zh/series/%E6%B5%8B%E8%AF%95/</loc>
@@ -34,6 +43,9 @@
   </url><url>
     <loc>https://ayuxy.github.io/zh/categories/%E6%B5%8B%E8%AF%951/</loc>
     <lastmod>2023-11-20T21:53:24+08:00</lastmod>
+  </url><url>
+    <loc>https://ayuxy.github.io/zh/tags/8086%E6%B1%87%E7%BC%96/</loc>
+    <lastmod>2023-11-20T18:54:24+08:00</lastmod>
   </url><url>
     <loc>https://ayuxy.github.io/zh/asm/8086/2023-1121-05/</loc>
     <lastmod>2023-11-20T18:54:24+08:00</lastmod>
@@ -44,9 +56,6 @@
     <loc>https://ayuxy.github.io/zh/asm/</loc>
     <lastmod>2023-11-20T18:54:24+08:00</lastmod>
   </url><url>
-    <loc>https://ayuxy.github.io/zh/hugo/</loc>
-    <lastmod>2023-11-29T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://ayuxy.github.io/zh/tags/hugo/</loc>
     <lastmod>2023-11-29T00:00:00+00:00</lastmod>
   </url><url>
@@ -54,6 +63,9 @@
     <lastmod>2023-11-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ayuxy.github.io/zh/series/zzo-%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/</loc>
+    <lastmod>2023-11-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ayuxy.github.io/zh/hugo/</loc>
     <lastmod>2023-11-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ayuxy.github.io/zh/hugo/2023-1120-01/</loc>
