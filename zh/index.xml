@@ -42,38 +42,6 @@
 
       
       <item>
-        <title>C语言</title>
-        <link>https://ayuxy.github.io/zh/c/2023-1128-01/</link>
-        <pubDate>Mon, 20 Nov 2023 21:53:24 +0800</pubDate>
-        <author>1714132614@qq.com (ayuxy)</author>
-        <atom:modified>Mon, 20 Nov 2023 21:53:24 +0800</atom:modified>
-        <guid>https://ayuxy.github.io/zh/c/2023-1128-01/</guid>
-        <description></description>
-        
-        <dc:creator>ayuxy</dc:creator>
-        <media:content url="https://ayuxy.github.io/images/c.png" medium="image"><media:title type="html">featured image</media:title></media:content>
-        
-        
-        
-          
-            
-              <category>C</category>
-            
-          
-        
-        
-          
-            
-          
-        
-        
-          
-            
-          
-        
-      </item>
-      
-      <item>
         <title>rayder-dev</title>
         <link>https://ayuxy.github.io/zh/tools/2023-1121-05/</link>
         <pubDate>Mon, 20 Nov 2023 21:53:24 +0800</pubDate>
@@ -110,7 +78,39 @@
       </item>
       
       <item>
-        <title>8086汇编</title>
+        <title>进程遍历读写 | 内存补丁 | win32 api调试</title>
+        <link>https://ayuxy.github.io/zh/c/2023-1128-01/</link>
+        <pubDate>Mon, 20 Nov 2023 21:53:24 +0800</pubDate>
+        <author>1714132614@qq.com (ayuxy)</author>
+        <atom:modified>Mon, 20 Nov 2023 21:53:24 +0800</atom:modified>
+        <guid>https://ayuxy.github.io/zh/c/2023-1128-01/</guid>
+        <description></description>
+        
+        <dc:creator>ayuxy</dc:creator>
+        <media:content url="https://ayuxy.github.io/images/c.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>C</category>
+            
+          
+        
+        
+          
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>8086汇编基础</title>
         <link>https://ayuxy.github.io/zh/asm/8086/2023-1121-05/</link>
         <pubDate>Mon, 20 Nov 2023 18:54:24 +0800</pubDate>
         <author>1714132614@qq.com (ayuxy)</author>
@@ -148,7 +148,7 @@
         <author>1714132614@qq.com (ayuxy)</author>
         <atom:modified>Wed, 29 Nov 2023 00:00:00 +0000</atom:modified>
         <guid>https://ayuxy.github.io/zh/hugo/2023-1120-01/</guid>
-        <description>因 zzo 主题的原作者已停止更新，所以本文主要记录 zzo 主题的修复以及一些优化。由于不擅长前端，所以部分修复和</description>
+        <description></description>
         
         <dc:creator>ayuxy</dc:creator>
         <media:content url="https://ayuxy.github.io/images/settings.png" medium="image"><media:title type="html">featured image</media:title></media:content>
