@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>进程遍历读写 | 内存补丁 | win32 api调试 – Ayuxy&#39;s Blog</title>
+    <title>进程遍历 | 内存补丁 | win32 api调试 – Ayuxy&#39;s Blog</title>
     
 
   
@@ -1372,17 +1372,17 @@
 
 
 <meta property="og:site_name" content="Ayuxy&#39;s Blog">
-<meta property="og:title" content="进程遍历读写 | 内存补丁 | win32 api调试">
+<meta property="og:title" content="进程遍历 | 内存补丁 | win32 api调试">
 <meta property="og:url" content="https://ayuxy.github.io/zh/c/2023-1128-01/">
 <meta property="og:type" content="article">
 <meta property="og:description" content="">
 
   
-    <meta property="og:image" content="https://ayuxy.github.io/images/c.png">
-    <meta property="og:image:url" content="https://ayuxy.github.io/images/c.png">
+    <meta property="og:image" content="https://ayuxy.github.io/images/coding.png">
+    <meta property="og:image:url" content="https://ayuxy.github.io/images/coding.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:app:name:iphone" content="Ayuxy&#39;s Blog">
-    <meta property="twitter:title" content="进程遍历读写 | 内存补丁 | win32 api调试">
+    <meta property="twitter:title" content="进程遍历 | 内存补丁 | win32 api调试">
     <meta property="twitter:description" content="">
   
 
@@ -1421,13 +1421,13 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "headline": "进程遍历读写 | 内存补丁 | win32 api调试",
+    "headline": "进程遍历 | 内存补丁 | win32 api调试",
     "datePublished": "2023-11-20T21:53:24+08:00",
     "dateModified": "2023-11-20T21:53:24+08:00",
     "url" : "https://ayuxy.github.io/zh/c/2023-1128-01/",
     "description": "",
     "keywords": ["C"],
-    "image" : "https://ayuxy.github.io/images/c.png",
+    "image" : "https://ayuxy.github.io/images/coding.png",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://ayuxy.github.io/"
@@ -1719,7 +1719,7 @@
   
   <li  class="is-active" >
     
-      <span>进程遍历读写 | 内存补丁 | win32 api调试</span>
+      <span>进程遍历 | 内存补丁 | win32 api调试</span>
     
   </li>
   
@@ -1731,14 +1731,14 @@
   <div class="single ">
     <div class="single__nojs">Please enable Javascript to view the contents</div>
     <script>document.querySelector('.single').classList.remove('hide'); document.querySelector('.single__nojs').classList.add('hide');</script>
-    <h2 class="single__title" data-ani="true">进程遍历读写 | 内存补丁 | win32 api调试</h2>
+    <h2 class="single__title" data-ani="true">进程遍历 | 内存补丁 | win32 api调试</h2>
     <h3 class="single__subtitle"></h3>
     <div class="single__meta">
       
 <div class="single__infos">
   <time class="single__info" title="创建日期">📅&nbsp;2023年11月20日 </time>
   
-  &nbsp;&middot;&nbsp; <span class="single__info" title="阅读时长"> ☕&nbsp;4&nbsp;分钟 </span>
+  &nbsp;&middot;&nbsp; <span class="single__info" title="阅读时长"> ☕&nbsp;5&nbsp;分钟 </span>
   
   <span class="single__info">
     
@@ -2095,7 +2095,6 @@
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
-</span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
@@ -2107,16 +2106,26 @@
 </span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="n">HANDLE</span> <span class="n">hd</span> <span class="o">=</span> <span class="nf">CreateToolhelp32Snapshot</span><span class="p">(</span><span class="n">TH32CS_SNAPPROCESS</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="n">PROCESSENTRY32</span> <span class="n">pe</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">	<span class="n">pe</span><span class="p">.</span><span class="n">dwSize</span> <span class="o">=</span><span class="k">sizeof</span><span class="p">(</span><span class="n">pe</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">pe</span><span class="p">.</span><span class="n">dwSize</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">pe</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="nf">Process32First</span><span class="p">(</span><span class="n">hd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">pe</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="k">while</span> <span class="p">(</span><span class="nf">Process32Next</span><span class="p">(</span><span class="n">hd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">pe</span><span class="p">))</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%s	%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">pe</span><span class="p">.</span><span class="n">szExeFile</span><span class="p">,</span> <span class="n">pe</span><span class="p">.</span><span class="n">th32ProcessID</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="nf">wprintf</span><span class="p">(</span><span class="sa">L</span><span class="s">&#34;%s	%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">pe</span><span class="p">.</span><span class="n">szExeFile</span><span class="p">,</span> <span class="n">pe</span><span class="p">.</span><span class="n">th32ProcessID</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>关闭计算器进程</p>
+</div><p><div class="custom-image-container">
+  <img
+    src="image-20231204211546729.png"
+    alt="image-20231204211546729"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231204211546729.png 1.25x"
+  />
+
+</div>
+</p>
+<p>关闭计算器进程</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -2139,6 +2148,20 @@
 </span><span class="lnt">18
 </span><span class="lnt">19
 </span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
@@ -2146,24 +2169,50 @@
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;Windows.h&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;TlHelp32.h&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span><span class="o">*</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&#34;CalculatorApp.exe&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">HANDLE</span> <span class="n">hd</span> <span class="o">=</span> <span class="nf">CreateToolhelp32Snapshot</span><span class="p">(</span><span class="n">TH32CS_SNAPPROCESS</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">PROCESSENTRY32</span> <span class="n">pe</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pe</span><span class="p">.</span><span class="n">dwSize</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">pe</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Process32First</span><span class="p">(</span><span class="n">hd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">pe</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="nf">Process32Next</span><span class="p">(</span><span class="n">hd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">pe</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">HANDLE</span> <span class="err">进程</span> <span class="o">=</span> <span class="nf">OpenProcess</span><span class="p">(</span><span class="n">PROCESS_ALL_ACCESS</span><span class="p">,</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">pe</span><span class="p">.</span><span class="n">th32ProcessID</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="err">进程</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="nf">strcmp</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">pe</span><span class="p">.</span><span class="n">szExeFile</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="nf">TerminateProcess</span><span class="p">(</span><span class="err">进程</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Terminated process: %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">pe</span><span class="p">.</span><span class="n">szExeFile</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">DWORD</span> <span class="n">error</span> <span class="o">=</span> <span class="nf">GetLastError</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">                    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Failed to terminate process: %lu</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">error</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="nf">CloseHandle</span><span class="p">(</span><span class="err">进程</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">DWORD</span> <span class="n">error</span> <span class="o">=</span> <span class="nf">GetLastError</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="nf">wprintf</span><span class="p">(</span><span class="sa">L</span><span class="s">&#34;Failed to open process: %lu, %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> <span class="n">pe</span><span class="p">.</span><span class="n">szExeFile</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="kt">char</span><span class="o">*</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&#34;CalculatorApp.exe&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">	<span class="n">HANDLE</span> <span class="n">hd</span> <span class="o">=</span> <span class="nf">CreateToolhelp32Snapshot</span><span class="p">(</span><span class="n">TH32CS_SNAPPROCESS</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">	<span class="n">PROCESSENTRY32</span> <span class="n">pe</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">	<span class="n">pe</span><span class="p">.</span><span class="n">dwSize</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">pe</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">	<span class="nf">Process32First</span><span class="p">(</span><span class="n">hd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">pe</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">	<span class="k">while</span> <span class="p">(</span><span class="nf">Process32Next</span><span class="p">(</span><span class="n">hd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">pe</span><span class="p">))</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="n">HANDLE</span> <span class="err">进程</span> <span class="o">=</span> <span class="nf">OpenProcess</span><span class="p">(</span><span class="n">PROCESS_ALL_ACCESS</span><span class="p">,</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">pe</span><span class="p">.</span><span class="n">th32ProcessID</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="nf">strcmp</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">pe</span><span class="p">.</span><span class="n">szExeFile</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="nf">TerminateProcess</span><span class="p">(</span><span class="err">进程</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">		<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">CloseHandle</span><span class="p">(</span><span class="n">hd</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>打印计算器进程的模块</p>
+</div><p>这里关闭失败了，结果如下，5 表示权限不够，可能要提权才能够关闭（不是很清楚）<br />
+<div class="custom-image-container">
+  <img
+    src="image-20231204211735445.png"
+    alt="image-20231204211735445"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231204211735445.png 1.25x"
+  />
+
+</div>
+</p>
+<p>打印计算器进程的模块</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -2197,12 +2246,22 @@
 </span></span><span class="line"><span class="cl">	<span class="n">module</span><span class="p">.</span><span class="n">dwSize</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">module</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="nf">Module32First</span><span class="p">(</span><span class="n">hd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">module</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="k">while</span> <span class="p">(</span><span class="nf">Module32Next</span><span class="p">(</span><span class="n">hd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">module</span><span class="p">))</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">module</span><span class="p">.</span><span class="n">szExePath</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">wprintf</span><span class="p">(</span><span class="sa">L</span><span class="s">&#34;%s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">module</span><span class="p">.</span><span class="n">szExePath</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>编译如下汇编代码</p>
+</div><p><div class="custom-image-container">
+  <img
+    src="image-20231204211806533.png"
+    alt="image-20231204211806533"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231204211806533.png 1.25x"
+  />
+
+</div>
+编译如下汇编代码</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -2277,22 +2336,11 @@
 <p>然后用ollylce调试</p>
 <p><div class="custom-image-container">
   <img
-    src="image-20231130204928510.png"
-    alt="image-20231130204928510"
+    src="image-20231204215008953.png"
+    alt="image-20231204215008953"
     
     class="custom-image-class lazyload"
-    data-srcset="image-20231130204928510.png 1.25x"
-  />
-
-</div>
-</p>
-<p><div class="custom-image-container">
-  <img
-    src="image-20231130205026944.png"
-    alt="image-20231130205026944"
-    
-    class="custom-image-class lazyload"
-    data-srcset="image-20231130205026944.png 1.25x"
+    data-srcset="image-20231204215008953.png 1.25x"
   />
 
 </div>
@@ -2300,18 +2348,7 @@
 <p>注意：</p>
 <p>多次重复用ollylce加载发现je跳转的地址始终不发现变化，pe的exe文件反汇编后开始的地址短时间内不会发生改变。</p>
 <p>但对于dll文件，dll在物理内存中只有一份，dll文件是通过分页机制映射到虚拟内存中的，虚拟地址空间是隔离的，但是如果虚拟内存空间被占用了，那么就需要重定位，所以dll文件反汇编的开始地址并不一定是相同的，可能发生变化，这样我们就需要遍历整个模块的空间来找到起始地址</p>
-<p>但是由于这里是 exe 文件，所以短时间内程序开始地址不会变化，即0095202c不会变化，所以00952030肯定也不会变化，那么如果我们能够读取 009522030的地址对应的值1574（小端存储，7415也就是1574），并且修改成 9090 （也就是nop），那么就能够模仿上面在ce 中调试修改的操作，也就相当于补丁</p>
-<p><div class="custom-image-container">
-  <img
-    src="image-20231130205539175.png"
-    alt="image-20231130205539175"
-    
-    class="custom-image-class lazyload"
-    data-srcset="image-20231130205539175.png 1.25x"
-  />
-
-</div>
-</p>
+<p>但是由于这里是 exe 文件，所以<code>短时间内</code>程序入口地址不会变化，即 0x0059206B 不会变化，所以0x00592040肯定也不会变化，那么如果我们能够读取 0x00592040的地址对应的值1574（小端存储，7415也就是1574），并且修改成 9090 （也就是nop），那么就能够模仿上面在ce 中调试修改的操作，也就相当于补丁</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -2342,22 +2379,36 @@
 </span><span class="lnt">26
 </span><span class="lnt">27
 </span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#define _CRT_SECURE_NO_WARNINGS
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;Windows.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;tchar.h&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="n">STARTUPINFO</span> <span class="n">info</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="nf">GetStartupInfo</span><span class="p">(</span><span class="o">&amp;</span><span class="n">info</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="n">PROCESS_INFORMATION</span> <span class="n">pinfo</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">	<span class="nf">CreateProcess</span><span class="p">(</span><span class="s">&#34;./MASM32.exe&#34;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">info</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">pinfo</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="nf">CreateProcess</span><span class="p">(</span><span class="nf">_T</span><span class="p">(</span><span class="s">&#34;C:</span><span class="se">\\</span><span class="s">MASM.exe&#34;</span><span class="p">),</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">info</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">pinfo</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;进程创建成功</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">DWORD</span> <span class="n">error</span> <span class="o">=</span> <span class="nf">GetLastError</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;进程创建失败，错误码: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">error</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="kt">void</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="mh">0x00952030</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">void</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="mh">0x00592040</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="kt">short</span> <span class="n">oldbyte</span> <span class="o">=</span> <span class="mh">0x1574</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="kt">short</span><span class="o">*</span> <span class="n">newbyte</span> <span class="o">=</span> <span class="nf">malloc</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
@@ -2370,11 +2421,31 @@
 </span></span><span class="line"><span class="cl">	<span class="k">else</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">		<span class="o">*</span><span class="n">newbyte</span> <span class="o">=</span> <span class="mh">0x9090</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">		<span class="nf">WriteProcessMemory</span><span class="p">(</span><span class="n">hd</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">newbyte</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>	
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
+</div><p>执行结果如下：<br />
+<div class="custom-image-container">
+  <img
+    src="image-20231204214828974.png"
+    alt="image-20231204214828974"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231204214828974.png 1.25x"
+  />
+
 </div>
+</p>
+<p>对 exe 进行upx加壳后，再用OllyICE进行F8单步调试，则发现一直在来回跳，无法继续往下执行（加壳就是防止反调试）</p>
+<p>以前的壳分为两种：</p>
+<ul>
+<li>一种是专门用于把代码压缩，降低可执行文件体积，比如压缩后是 123.exe，那么 123.exe 中当然还有一个解压缩代码</li>
+<li>第二种就是对代码进行加密</li>
+</ul>
+<p>现在的壳一般同时具备压缩和加密两种特性</p>
+<p>如何对加壳的程序进行打补丁 ？？</p>
+
     </article>
     
     
@@ -2579,7 +2650,7 @@
       
     
       
-        <a href="https://twitter.com/intent/tweet?text=%e8%bf%9b%e7%a8%8b%e9%81%8d%e5%8e%86%e8%af%bb%e5%86%99%20%7c%20%e5%86%85%e5%ad%98%e8%a1%a5%e4%b8%81%20%7c%20win32%20api%e8%b0%83%e8%af%95&url=https%3a%2f%2fayuxy.github.io%2fzh%2fc%2f2023-1128-01%2f&hashtags=C&via=" title="Twitter" aria-label="Twitter Share Button" class="donation__item" target="_blank" rel="noreferrer" data-type="share">
+        <a href="https://twitter.com/intent/tweet?text=%e8%bf%9b%e7%a8%8b%e9%81%8d%e5%8e%86%20%7c%20%e5%86%85%e5%ad%98%e8%a1%a5%e4%b8%81%20%7c%20win32%20api%e8%b0%83%e8%af%95&url=https%3a%2f%2fayuxy.github.io%2fzh%2fc%2f2023-1128-01%2f&hashtags=C&via=" title="Twitter" aria-label="Twitter Share Button" class="donation__item" target="_blank" rel="noreferrer" data-type="share">
           <svg data-name="twitter" enable-background="new 0 0 24 24" viewBox="0 0 24 24" width="35" height="35" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="m21.534 7.113c.976-.693 1.797-1.558 2.466-2.554v-.001c-.893.391-1.843.651-2.835.777 1.02-.609 1.799-1.566 2.165-2.719-.951.567-2.001.967-3.12 1.191-.903-.962-2.19-1.557-3.594-1.557-2.724 0-4.917 2.211-4.917 4.921 0 .39.033.765.114 1.122-4.09-.2-7.71-2.16-10.142-5.147-.424.737-.674 1.58-.674 2.487 0 1.704.877 3.214 2.186 4.089-.791-.015-1.566-.245-2.223-.606v.054c0 2.391 1.705 4.377 3.942 4.835-.401.11-.837.162-1.29.162-.315 0-.633-.018-.931-.084.637 1.948 2.447 3.381 4.597 3.428-1.674 1.309-3.8 2.098-6.101 2.098-.403 0-.79-.018-1.177-.067 2.18 1.405 4.762 2.208 7.548 2.208 8.683 0 14.342-7.244 13.986-14.637z"/></svg>
         </a>
       
@@ -2639,7 +2710,7 @@
 <script>
   var gitalk = new Gitalk({
     id: '2023-11-20 21:53:24 \u002b0800 \u002b0800',
-    title: '进程遍历读写 | 内存补丁 | win32 api调试',
+    title: '进程遍历 | 内存补丁 | win32 api调试',
     clientID: '6f922dd87de2aa0ad176',
     clientSecret: 'ec2ded8eb9812b11f22ff38b06655a83aeed9495',
     repo: 'ZzoBlogComment',

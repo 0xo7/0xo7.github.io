@@ -78,7 +78,7 @@
       </item>
       
       <item>
-        <title>进程遍历读写 | 内存补丁 | win32 api调试</title>
+        <title>进程遍历 | 内存补丁 | win32 api调试</title>
         <link>https://ayuxy.github.io/zh/c/2023-1128-01/</link>
         <pubDate>Mon, 20 Nov 2023 21:53:24 +0800</pubDate>
         <author>1714132614@qq.com (ayuxy)</author>
@@ -87,7 +87,7 @@
         <description></description>
         
         <dc:creator>ayuxy</dc:creator>
-        <media:content url="https://ayuxy.github.io/images/c.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        <media:content url="https://ayuxy.github.io/images/coding.png" medium="image"><media:title type="html">featured image</media:title></media:content>
         
         
         
