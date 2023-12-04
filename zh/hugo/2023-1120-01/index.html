@@ -2962,14 +2962,27 @@
 </div>
 </p>
 <p>这是因为我们之前在_custom.scss 添加了如下内容：`</p>
-<pre tabindex="0"><code class="language-scsss" data-lang="scsss">.summary-classic__text {
-	overflow:hidden;
-	text-overflow:ellipsis;
-	display:-webkit-box;
-	-webkit-line-clamp:2; 
-	-webkit-box-orient:vertical;
-}
-</code></pre><p>将其修改为如下即可</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="nc">.summary-classic__text</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="na">overflow</span><span class="o">:</span><span class="ni">hidden</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="na">text-overflow</span><span class="o">:</span><span class="ni">ellipsis</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="na">display</span><span class="o">:-</span><span class="n">webkit-box</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="na">-webkit-line-clamp</span><span class="o">:</span><span class="mi">2</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">	<span class="na">-webkit-box-orient</span><span class="o">:</span><span class="ni">vertical</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>将其修改为如下即可</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
