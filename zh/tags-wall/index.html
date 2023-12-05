@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Archive – Ayuxy&#39;s Blog</title>
+    <title>Tags墙 – Ayuxy&#39;s Blog</title>
     
 
   
@@ -667,7 +667,7 @@
     
     var baseurl = JSON.parse("\"https://ayuxy.github.io/\"");
     
-    var permalink = JSON.parse("\"https://ayuxy.github.io/zh/archive/\"");
+    var permalink = JSON.parse("\"https://ayuxy.github.io/zh/tags-wall/\"");
     
     var langprefix = JSON.parse("\"/zh\"");
     var searchResults = null;
@@ -687,9 +687,9 @@
     
     var searchResultPosition = JSON.parse("\"main\"");
     
-    var sectionType = JSON.parse("\"archive\"");
+    var sectionType = JSON.parse("\"page\"");
     
-    var kind = JSON.parse("\"section\"");
+    var kind = JSON.parse("\"page\"");
     
     var fuse = null;
 
@@ -1359,23 +1359,21 @@
 
 
     
-<link rel="alternate" type="application/rss&#43;xml" title="rss" href="https://ayuxy.github.io/zh/archive/index.xml">
-
-<meta name="description" content="Archive Page" />
+<meta name="description" content="The Zzo theme for Hugo example site." />
 
 
-<meta name="created" content="2019-10-19T11:44:14&#43;0900">
-<meta name="modified" content="2019-10-19T11:44:14&#43;0900">
-<meta property="article:published_time" content="2019-10-19T11:44:14&#43;0900">
+<meta name="created" content="0001-01-01T00:00:00&#43;0000">
+<meta name="modified" content="0001-01-01T00:00:00&#43;0000">
+<meta property="article:published_time" content="0001-01-01T00:00:00&#43;0000">
 
 <meta name="author" content="ayuxy">
 
 
 <meta property="og:site_name" content="Ayuxy&#39;s Blog">
-<meta property="og:title" content="Archive">
-<meta property="og:url" content="https://ayuxy.github.io/zh/archive/">
-<meta property="og:type" content="website">
-<meta property="og:description" content="Archive Page">
+<meta property="og:title" content="Tags墙">
+<meta property="og:url" content="https://ayuxy.github.io/zh/tags-wall/">
+<meta property="og:type" content="article">
+<meta property="og:description" content="The Zzo theme for Hugo example site.">
 
 <meta name="generator" content="Hugo 0.120.4">
 <meta name="msapplication-TileColor" content="#fff">
@@ -1386,7 +1384,7 @@
 
 <meta name="apple-mobile-web-app-status-bar-style" content="#fff">
 
-<link rel="canonical" href="https://ayuxy.github.io/zh/archive/">
+<link rel="canonical" href="https://ayuxy.github.io/zh/tags-wall/">
 
 <link rel="manifest" href="/manifest.json">
 
@@ -1412,9 +1410,11 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "url" : "https://ayuxy.github.io/zh/archive/",
-    "name": "Archive",
-    "description": "Archive Page",
+    "headline": "Tags墙",
+    "datePublished": "0001-01-01T00:00:00Z",
+    "dateModified": "0001-01-01T00:00:00Z",
+    "url" : "https://ayuxy.github.io/zh/tags-wall/",
+    "description": "",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://ayuxy.github.io/"
@@ -1454,7 +1454,7 @@
 
 
 
-        <div class="wrapper" data-type="archive" data-kind="section">
+        <div class="wrapper" data-type="page" data-kind="page">
             <nav class="navbar scrolling" role="navigation" aria-label="main navigation" data-dir="ltr">
   <div class="navbar__brand">
     
@@ -1537,7 +1537,7 @@
       
 
       
-        <li class="navbarm__menu--item active">
+        <li class="navbarm__menu--item ">
           <a href="/zh/archive">Archive</a>
         </li>
       
@@ -1639,7 +1639,7 @@
   
   
   
-  <a href="/zh/archive" class="navbar__menu-item navbar__slide-down active" dir="ltr" data-ani="true">Archive</a>
+  <a href="/zh/archive" class="navbar__menu-item navbar__slide-down " dir="ltr" data-ani="true">Archive</a>
   
   
   
@@ -1678,119 +1678,47 @@
 </nav>
             
             
+    <style>
+    #test {
+        width: auto;
+        height: auto;
+        overflow: hidden !important; 
+		grid-area: 2/1/span 2/span 2;
+      }
+    #my-tags mark {
+    position: initial!important;
+    }
+    </style>
+      <div id="test"></div>
+      <script src="/js/tags-wall.js"></script>
+      <script>
+        Tags({
+          style: {
+            fn: Style1,
+            title: '你的名字',
+            animation: 0,
+            scale: 0.48,
+            randomScoreIfNoSetting: 1 
+          },
+          text: `
+          偶尔读书/10/关于我/https:&#47;&#47;cactus-mod.mantyke.icu&#47;books
+          有时电影/8/关于我/https:&#47;&#47;cactus-mod.mantyke.icu/movies
+          抽空游戏/7/关于我/https:&#47;&#47;cactus-mod.mantyke.icu/games
+          拜访朋友们/10/关于我/https:&#47;&#47;cactus-mod.mantyke.icu&#47;friends
+          Nintendo Switch/8/是玩家
+          买书如山倒/&#47;/是读者
+          读书如抽丝/&#47;/是读者
+          `,
+          rootDOM: document.getElementById('test')
+        })
+
+       
+
+    </script>
+      </script>
 
 
-<header class="header basicflex-column">
-  <h3 class="h3 terms__title">
-    Archive
-  </h3>
 
-</header>
-<main class="main archive">
-  <div class="archive__container">
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-
-  
-    
-    
-      <span class="archive__key" data-ani="true">2023</span>
-      <ul class="archive__ul" data-dir="ltr">
-        
-        <li class="archive__li" data-dir="ltr">
-          <span class="archive__meta" data-ani="true">
-            
-              <span class="archive__type">c</span>
-              <span class="archive__date">11-20</span>
-            
-          </span>
-          <a href="https://ayuxy.github.io/zh/c/2023-1128-01/" class="archive__title" data-title-wrap="wrap" data-dir="ltr">进程遍历 | 内存补丁 | win32 api调试</a>        
-        </li>
-        
-        <li class="archive__li" data-dir="ltr">
-          <span class="archive__meta" data-ani="true">
-            
-              <span class="archive__type">tools</span>
-              <span class="archive__date">11-20</span>
-            
-          </span>
-          <a href="https://ayuxy.github.io/zh/tools/2023-1121-05/" class="archive__title" data-title-wrap="wrap" data-dir="ltr">rayder-dev</a>        
-        </li>
-        
-        <li class="archive__li" data-dir="ltr">
-          <span class="archive__meta" data-ani="true">
-            
-              <span class="archive__type">asm</span>
-              <span class="archive__date">11-20</span>
-            
-          </span>
-          <a href="https://ayuxy.github.io/zh/asm/8086/2023-1121-05/" class="archive__title" data-title-wrap="wrap" data-dir="ltr">8086汇编基础</a>        
-        </li>
-        
-        <li class="archive__li" data-dir="ltr">
-          <span class="archive__meta" data-ani="true">
-            
-              <span class="archive__type">hugo</span>
-              <span class="archive__date">11-20</span>
-            
-          </span>
-          <a href="https://ayuxy.github.io/zh/hugo/2023-1120-01/" class="archive__title" data-title-wrap="wrap" data-dir="ltr">博客优化</a>        
-        </li>
-        
-      </ul>
-    
-      <span class="archive__key" data-ani="true">0001</span>
-      <ul class="archive__ul" data-dir="ltr">
-        
-        <li class="archive__li" data-dir="ltr">
-          <span class="archive__meta" data-ani="true">
-            
-              <span class="archive__type">page</span>
-              <span class="archive__date">01-01</span>
-            
-          </span>
-          <a href="https://ayuxy.github.io/zh/tags-wall/" class="archive__title" data-title-wrap="wrap" data-dir="ltr">Tags墙</a>        
-        </li>
-        
-      </ul>
-    
-  
-
-  </div>
-  <div class="grow"></div>
-  
-
-
-  <div class="hide">
-    
-
-<div class="search">
-  <span class="icon">
-    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M15.5 14h-.79l-.28-.27c1.2-1.4 1.82-3.31 1.48-5.34-.47-2.78-2.79-5-5.59-5.34-4.23-.52-7.79 3.04-7.27 7.27.34 2.8 2.56 5.12 5.34 5.59 2.03.34 3.94-.28 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-  </span>
-  <input id="search" aria-label="Site Search" class="input" type="text" placeholder="搜索" autocomplete="off">
-  <div id="search-results" class="dropdown">
-    <div id="search-menu" class="dropdown-menu" role="menu">
-    </div>
-  </div>
-</div>
-
-
-  </div>
-  
-</main>
 
             
             <footer class="footer">
@@ -1885,6 +1813,13 @@
     
     
   
+  
+    
+      <a href="https://ayuxy.github.io/zh/index.xml" type="application/rss+xml" title="RSS" aria-label="RSS Feed Link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><circle fill="currentColor" cx="6.18" cy="17.82" r="2.18"/><path fill="currentColor" d="M5.59 10.23c-.84-.14-1.59.55-1.59 1.4 0 .71.53 1.28 1.23 1.4 2.92.51 5.22 2.82 5.74 5.74.12.7.69 1.23 1.4 1.23.85 0 1.54-.75 1.41-1.59-.68-4.2-3.99-7.51-8.19-8.18zm-.03-5.71C4.73 4.43 4 5.1 4 5.93c0 .73.55 1.33 1.27 1.4 6.01.6 10.79 5.38 11.39 11.39.07.73.67 1.28 1.4 1.28.84 0 1.5-.73 1.42-1.56-.73-7.34-6.57-13.19-13.92-13.92z"/></svg>
+      </a>
+    
+  
 
 
   </div>
@@ -1932,6 +1867,23 @@
 
 <div class="wrapper__right hide" data-pad="true" dir="ltr">
   <script>document.querySelector('.wrapper__right').classList.remove('hide')</script>
+  
+    
+      
+        <div class="toc__flexbox--outer" data-position="fixed" data-dir="ltr" data-ani="true">
+          <h6 class="toc__title toc__title--outer" data-ani="true">目录</h6>
+          
+          <label class="switch" data-ani="true">
+            <input id="visible-toc" aria-label="Visible TOC" type="checkbox" >
+            <span class="slider round"></span>
+          </label>
+          
+        </div>
+        <div class="toc toc__outer hide" data-dir="ltr" data-folding="true" data-ani="true">
+          <nav id="TableOfContents"></nav>
+        </div>
+      
+    
   
 </div>
 

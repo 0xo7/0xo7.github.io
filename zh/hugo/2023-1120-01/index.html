@@ -1740,7 +1740,7 @@
   
   &nbsp;&middot;&nbsp; <time class="single__info" title="更新日期"> 📝&nbsp;2023年11月29日 </time>
   
-  &nbsp;&middot;&nbsp; <span class="single__info" title="阅读时长"> ☕&nbsp;5&nbsp;分钟 </span>
+  &nbsp;&middot;&nbsp; <span class="single__info" title="阅读时长"> ☕&nbsp;9&nbsp;分钟 </span>
   
   <span class="single__info">
     
@@ -1808,6 +1808,8 @@
     <li><a href="#手机下允许在单词内换行">手机下允许在单词内换行</a></li>
     <li><a href="#修改-archive-页细节">修改 archive 页细节</a></li>
     <li><a href="#修改手机下的显示问题">修改手机下的显示问题</a></li>
+    <li><a href="#一些可能用到的-css">一些可能用到的 css</a></li>
+    <li><a href="#添加about页面标签墙">添加about页面（标签墙）</a></li>
   </ul>
 </nav>
   </div>
@@ -3019,7 +3021,652 @@
 
 </div>
 </p>
-
+<h2 id="一些可能用到的-css">一些可能用到的 css</h2>
+<p>调整整体页面大小</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">body</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">zoom</span><span class="p">:</span><span class="mf">1.15</span> <span class="cp">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="添加about页面标签墙">添加about页面（标签墙）</h2>
+<p>添加 layouts\_default\tags-wall.html</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ define &#34;main&#34; }}
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">#</span><span class="nn">test</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">width</span><span class="p">:</span> <span class="kc">auto</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">height</span><span class="p">:</span> <span class="kc">auto</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">overflow</span><span class="p">:</span> <span class="kc">hidden</span> <span class="cp">!important</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">		<span class="k">grid-area</span><span class="p">:</span> <span class="mi">2</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="n">span</span> <span class="mi">2</span><span class="o">/</span><span class="n">span</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">#</span><span class="nn">my-tags</span> <span class="nt">mark</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">position</span><span class="p">:</span> <span class="kc">initial</span><span class="cp">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;test&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;/js/tags-wall.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Tags</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">style</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">fn</span><span class="o">:</span> <span class="nx">Style1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;你的名字&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">animation</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">scale</span><span class="o">:</span> <span class="mf">0.48</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">randomScoreIfNoSetting</span><span class="o">:</span> <span class="mi">1</span> <span class="c1">// 如果是1，则如果未设置标签大小那么随机设置一个大小；否则使用默认大小5
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="p">},</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">text</span><span class="o">:</span> <span class="sb">`
+</span></span></span><span class="line"><span class="cl"><span class="sb">          偶尔读书/10/关于我/https:&amp;#47;&amp;#47;cactus-mod.mantyke.icu&amp;#47;books
+</span></span></span><span class="line"><span class="cl"><span class="sb">          有时电影/8/关于我/https:&amp;#47;&amp;#47;cactus-mod.mantyke.icu/movies
+</span></span></span><span class="line"><span class="cl"><span class="sb">          抽空游戏/7/关于我/https:&amp;#47;&amp;#47;cactus-mod.mantyke.icu/games
+</span></span></span><span class="line"><span class="cl"><span class="sb">          拜访朋友们/10/关于我/https:&amp;#47;&amp;#47;cactus-mod.mantyke.icu&amp;#47;friends
+</span></span></span><span class="line"><span class="cl"><span class="sb">          Nintendo Switch/8/是玩家
+</span></span></span><span class="line"><span class="cl"><span class="sb">          买书如山倒/&amp;#47;/是读者
+</span></span></span><span class="line"><span class="cl"><span class="sb">          读书如抽丝/&amp;#47;/是读者
+</span></span></span><span class="line"><span class="cl"><span class="sb">          `</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">rootDOM</span><span class="o">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       <span class="cm">/** 使用说明
+</span></span></span><span class="line"><span class="cl"><span class="cm">  * 1. 将 index.js 引入自己的页面
+</span></span></span><span class="line"><span class="cl"><span class="cm">  * 2. 在引入上述脚本的下方插入代码：
+</span></span></span><span class="line"><span class="cl"><span class="cm">      Tags({
+</span></span></span><span class="line"><span class="cl"><span class="cm">        style: {
+</span></span></span><span class="line"><span class="cl"><span class="cm">          fn: Style1,
+</span></span></span><span class="line"><span class="cl"><span class="cm">          title: &#39;你的名字&#39;,
+</span></span></span><span class="line"><span class="cl"><span class="cm">          animation: 1 // 如果是1，则开启动画，否则不开启动画
+</span></span></span><span class="line"><span class="cl"><span class="cm">          scale: 1 // 放缩比例，即可调节标签和背景字的整体大小
+</span></span></span><span class="line"><span class="cl"><span class="cm">        },
+</span></span></span><span class="line"><span class="cl"><span class="cm">        text: `
+</span></span></span><span class="line"><span class="cl"><span class="cm">        &lt;标签名&gt;/&lt;分数（0-10，决定标签大小）&gt;/&lt;标签类型&gt;/&lt;链接（点击标签会跳转到这个链接）&gt;
+</span></span></span><span class="line"><span class="cl"><span class="cm">        ...
+</span></span></span><span class="line"><span class="cl"><span class="cm">        `, // 可以写在单独的文件中，如果写在的文件中，需要像上方那样使用fetch请求文件
+</span></span></span><span class="line"><span class="cl"><span class="cm">        rootDOM: document.getElementById(&#39;目标载入dom的id&#39;)
+</span></span></span><span class="line"><span class="cl"><span class="cm">      })
+</span></span></span><span class="line"><span class="cl"><span class="cm">  */</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">{{ end }}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>引入 static/js/tags-wall.js</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span><span class="lnt">182
+</span><span class="lnt">183
+</span><span class="lnt">184
+</span><span class="lnt">185
+</span><span class="lnt">186
+</span><span class="lnt">187
+</span><span class="lnt">188
+</span><span class="lnt">189
+</span><span class="lnt">190
+</span><span class="lnt">191
+</span><span class="lnt">192
+</span><span class="lnt">193
+</span><span class="lnt">194
+</span><span class="lnt">195
+</span><span class="lnt">196
+</span><span class="lnt">197
+</span><span class="lnt">198
+</span><span class="lnt">199
+</span><span class="lnt">200
+</span><span class="lnt">201
+</span><span class="lnt">202
+</span><span class="lnt">203
+</span><span class="lnt">204
+</span><span class="lnt">205
+</span><span class="lnt">206
+</span><span class="lnt">207
+</span><span class="lnt">208
+</span><span class="lnt">209
+</span><span class="lnt">210
+</span><span class="lnt">211
+</span><span class="lnt">212
+</span><span class="lnt">213
+</span><span class="lnt">214
+</span><span class="lnt">215
+</span><span class="lnt">216
+</span><span class="lnt">217
+</span><span class="lnt">218
+</span><span class="lnt">219
+</span><span class="lnt">220
+</span><span class="lnt">221
+</span><span class="lnt">222
+</span><span class="lnt">223
+</span><span class="lnt">224
+</span><span class="lnt">225
+</span><span class="lnt">226
+</span><span class="lnt">227
+</span><span class="lnt">228
+</span><span class="lnt">229
+</span><span class="lnt">230
+</span><span class="lnt">231
+</span><span class="lnt">232
+</span><span class="lnt">233
+</span><span class="lnt">234
+</span><span class="lnt">235
+</span><span class="lnt">236
+</span><span class="lnt">237
+</span><span class="lnt">238
+</span><span class="lnt">239
+</span><span class="lnt">240
+</span><span class="lnt">241
+</span><span class="lnt">242
+</span><span class="lnt">243
+</span><span class="lnt">244
+</span><span class="lnt">245
+</span><span class="lnt">246
+</span><span class="lnt">247
+</span><span class="lnt">248
+</span><span class="lnt">249
+</span><span class="lnt">250
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="p">;(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">Color</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">format</span> <span class="p">(</span><span class="nx">color</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="nx">color</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;#&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">Utils</span><span class="p">.</span><span class="nx">Color</span><span class="p">.</span><span class="nx">switch16toRGB</span><span class="p">(</span><span class="nx">color</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">color</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;rgb&#39;</span><span class="p">)</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">color</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">Utils</span><span class="p">.</span><span class="nx">Color</span><span class="p">.</span><span class="nx">switch16toRGB</span><span class="p">(</span><span class="s1">&#39;#&#39;</span> <span class="o">+</span> <span class="nx">color</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">switch16toRGB</span> <span class="p">(</span><span class="nx">color</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">r</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">color</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="mi">16</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">g</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">color</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="mi">16</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">color</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="mi">16</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="sb">`rgb(</span><span class="si">${</span><span class="nx">r</span><span class="si">}</span><span class="sb">,</span><span class="si">${</span><span class="nx">g</span><span class="si">}</span><span class="sb">,</span><span class="si">${</span><span class="nx">b</span><span class="si">}</span><span class="sb">)`</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">getRGB</span> <span class="p">(</span><span class="nx">rgbColor</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="nx">rgbColor</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/rgb\((\d+),(\d+),(\d+)\)/</span><span class="p">).</span><span class="nx">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">getGeryLevel</span> <span class="p">(</span><span class="nx">rgbColor</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">const</span> <span class="p">[</span><span class="nx">R</span><span class="p">,</span> <span class="nx">G</span><span class="p">,</span> <span class="nx">B</span><span class="p">]</span> <span class="o">=</span> <span class="nx">Utils</span><span class="p">.</span><span class="nx">Color</span><span class="p">.</span><span class="nx">getRGB</span><span class="p">(</span><span class="nx">rgbColor</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="nx">R</span> <span class="o">*</span> <span class="mf">0.299</span> <span class="o">+</span> <span class="nx">G</span> <span class="o">*</span> <span class="mf">0.587</span> <span class="o">+</span> <span class="nx">B</span> <span class="o">*</span> <span class="mf">0.114</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">isDeep</span> <span class="p">(</span><span class="nx">rgbColor</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="nx">Utils</span><span class="p">.</span><span class="nx">Color</span><span class="p">.</span><span class="nx">getGeryLevel</span><span class="p">(</span><span class="nx">rgbColor</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">192</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">DOM</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">setStyle</span> <span class="p">(</span><span class="nx">dom</span><span class="p">,</span> <span class="nx">styles</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">dom</span><span class="p">)</span> <span class="k">return</span>
+</span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">sKey</span> <span class="k">in</span> <span class="nx">styles</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">dom</span><span class="p">.</span><span class="nx">style</span><span class="p">[</span><span class="nx">sKey</span><span class="p">]</span> <span class="o">=</span> <span class="nx">styles</span><span class="p">[</span><span class="nx">sKey</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">create</span> <span class="p">(</span><span class="nx">tagName</span><span class="p">,</span> <span class="nx">properties</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">const</span> <span class="nx">$</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">tagName</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="nx">properties</span><span class="p">.</span><span class="nx">style</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">DOM</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">(</span><span class="nx">$</span><span class="p">,</span> <span class="nx">properties</span><span class="p">.</span><span class="nx">style</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="nx">key</span> <span class="k">in</span> <span class="nx">properties</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">$</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">properties</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="nx">$</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">Debounce</span> <span class="o">=</span> <span class="p">(</span><span class="nx">time</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">timer</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">exec</span> <span class="p">(</span><span class="nx">fn</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">timer</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">timer</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="nx">time</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">cancel</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">timer</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> 
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">Shuffle</span> <span class="o">=</span> <span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">=&gt;</span> 
+</span></span><span class="line"><span class="cl">    <span class="nx">arr</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">v</span> <span class="p">=&gt;</span> <span class="p">({</span> <span class="nx">v</span><span class="p">,</span> <span class="nx">sort</span><span class="o">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()})).</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">a</span><span class="p">.</span><span class="nx">sort</span> <span class="o">-</span> <span class="nx">b</span><span class="p">.</span><span class="nx">sort</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">v</span> <span class="p">=&gt;</span> <span class="nx">v</span><span class="p">.</span><span class="nx">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nb">window</span><span class="p">.</span><span class="nx">Utils</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Color</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">DOM</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Debounce</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Shuffle</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">})()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">Tags</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">style</span><span class="p">,</span> <span class="nx">text</span><span class="p">,</span> <span class="nx">rootDOM</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">style</span> <span class="o">=</span> <span class="nx">style</span> <span class="o">||</span> <span class="p">{</span> <span class="nx">fn</span><span class="o">:</span> <span class="nx">Style1</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">rootDOM</span> <span class="o">=</span> <span class="nx">rootDOM</span> <span class="o">||</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;need text&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="cm">/* Basic */</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">$tags</span> <span class="o">=</span> <span class="nx">Utils</span><span class="p">.</span><span class="nx">DOM</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;my-tags&#39;</span> <span class="p">})</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">$style</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;style&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">rootDOM</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">$style</span><span class="p">,</span> <span class="nx">$tags</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">preprocess</span> <span class="o">=</span> <span class="p">(</span><span class="nx">txt</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">txt</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">).</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">item</span> <span class="p">=&gt;</span> <span class="nx">item</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;//&#39;</span><span class="p">)</span> <span class="o">!==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">item</span> <span class="o">!==</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">item</span> <span class="p">=&gt;</span> <span class="nx">item</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">).</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">).</span><span class="nx">concat</span><span class="p">([</span><span class="nx">item</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">).</span><span class="nx">slice</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)]))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">render</span> <span class="o">=</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">data</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">item</span> <span class="p">=&gt;</span> <span class="nx">$tags</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">+=</span> <span class="nx">genMarkHTML</span><span class="p">(</span><span class="nx">item</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">genMarkHTML</span> <span class="o">=</span> <span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="p">[</span><span class="nx">tag</span><span class="p">,</span> <span class="nx">score</span><span class="p">,</span> <span class="nx">type</span><span class="p">,</span> <span class="nx">link</span><span class="p">]</span> <span class="o">=</span> <span class="nx">item</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">(</span><span class="nx">text</span><span class="p">,</span> <span class="nx">link</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="sb">`&lt;a href=&#34;</span><span class="si">${</span><span class="nx">link</span><span class="si">}</span><span class="sb">&#34; target=&#34;_blank&#34;&gt;</span><span class="si">${</span><span class="nx">text</span><span class="si">}</span><span class="sb">&lt;/a&gt;`</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">randNum</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">computedScore</span> <span class="o">=</span> <span class="nx">score</span> <span class="o">||</span> <span class="p">(</span><span class="nx">style</span><span class="p">.</span><span class="nx">randomScoreIfNoSetting</span> <span class="o">?</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ceil</span><span class="p">(</span><span class="nx">randNum</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span> <span class="o">:</span> <span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="sb">`
+</span></span></span><span class="line"><span class="cl"><span class="sb">      &lt;mark data-rand=&#34;</span><span class="si">${</span><span class="nx">randNum</span><span class="si">}</span><span class="sb">&#34; data-score=&#34;</span><span class="si">${</span><span class="nx">computedScore</span><span class="si">}</span><span class="sb">&#34; class=&#34;score-</span><span class="si">${</span><span class="nx">computedScore</span><span class="si">}</span><span class="sb">&#34; data-type=&#34;</span><span class="si">${</span><span class="nx">type</span> <span class="o">||</span> <span class="s1">&#39;&#39;</span><span class="si">}</span><span class="sb">&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">      </span><span class="si">${</span><span class="nx">link</span> <span class="o">?</span> <span class="nx">a</span><span class="p">(</span><span class="nx">tag</span><span class="p">,</span> <span class="nx">link</span><span class="p">)</span> <span class="o">:</span> <span class="nx">tag</span><span class="si">}</span><span class="sb">
+</span></span></span><span class="line"><span class="cl"><span class="sb">      &lt;/mark&gt;
+</span></span></span><span class="line"><span class="cl"><span class="sb">    `</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">filter</span> <span class="o">=</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">type</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">item</span> <span class="p">=&gt;</span> <span class="nx">item</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">===</span> <span class="nx">type</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">Data</span> <span class="o">=</span> <span class="nx">Utils</span><span class="p">.</span><span class="nx">Shuffle</span><span class="p">(</span><span class="nx">preprocess</span><span class="p">(</span><span class="nx">text</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">render</span><span class="p">(</span><span class="nx">Data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">style</span><span class="p">.</span><span class="nx">rootDOM</span> <span class="o">=</span> <span class="nx">rootDOM</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">style</span><span class="p">.</span><span class="nx">fn</span><span class="p">(</span><span class="nx">Data</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;mark&#39;</span><span class="p">),</span> <span class="nx">$tags</span><span class="p">,</span> <span class="nx">$style</span><span class="p">,</span> <span class="nx">style</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">Style1</span> <span class="o">=</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">marks</span><span class="p">,</span> <span class="nx">$tags</span><span class="p">,</span> <span class="nx">$style</span><span class="p">,</span> <span class="nx">Config</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">marks</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">marks</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">Config</span><span class="p">.</span><span class="nx">scale</span> <span class="o">=</span> <span class="nx">Config</span><span class="p">.</span><span class="nx">scale</span> <span class="o">||</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Utils</span><span class="p">.</span><span class="nx">DOM</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">(</span><span class="nx">Config</span><span class="p">.</span><span class="nx">rootDOM</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">position</span><span class="o">:</span> <span class="s1">&#39;relative&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">overflowX</span><span class="o">:</span> <span class="s1">&#39;hidden&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// const Size = [2.5, 3.5, 4.3, 5.1, 5.8, 6.5, 7, 7.5, 8, 8.4, 8.8]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kr">const</span> <span class="nx">Size</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">,</span> <span class="mf">3.9</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">,</span> <span class="mf">5.6</span><span class="p">,</span> <span class="mf">6.1</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">,</span> <span class="mf">6.9</span><span class="p">,</span> <span class="mf">7.3</span><span class="p">,</span> <span class="mf">7.7</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">Color</span> <span class="o">=</span> <span class="p">(</span><span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">(</span><span class="nx">Config</span><span class="p">.</span><span class="nx">color</span><span class="p">)</span> <span class="o">?</span> <span class="nx">Config</span><span class="p">.</span><span class="nx">color</span> <span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;#e5e6e9&#39;</span><span class="p">,</span>  <span class="s1">&#39;#e5e6e9&#39;</span><span class="p">,</span> <span class="s1">&#39;#e5e6e9&#39;</span><span class="p">,</span><span class="s1">&#39;#e5e6e9&#39;</span><span class="p">,</span><span class="s1">&#39;#e5e6e9&#39;</span><span class="p">,</span><span class="s1">&#39;#e5e6e9&#39;</span><span class="p">,</span><span class="s1">&#39;#e5e6e9&#39;</span><span class="p">,</span><span class="s1">&#39;#e5e6e9&#39;</span><span class="p">,</span><span class="s1">&#39;#e5e6e9&#39;</span><span class="p">,</span><span class="s1">&#39;#e5e6e9&#39;</span><span class="p">,</span><span class="s1">&#39;#e5e6e9&#39;</span><span class="p">,</span><span class="s1">&#39;#e5e6e9&#39;</span><span class="p">,</span><span class="s1">&#39;#e5e6e9&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]).</span><span class="nx">map</span><span class="p">(</span><span class="nx">color</span> <span class="p">=&gt;</span> <span class="nx">Utils</span><span class="p">.</span><span class="nx">Color</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="nx">color</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">FontSize</span> <span class="o">=</span> <span class="p">(</span><span class="nx">size</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">size</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">*</span> <span class="nx">Config</span><span class="p">.</span><span class="nx">scale</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">getIntFromRand</span> <span class="o">=</span> <span class="p">(</span><span class="nx">rand</span><span class="p">,</span> <span class="nx">end</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">parseFloat</span><span class="p">(</span><span class="nx">rand</span><span class="p">)</span> <span class="o">*</span> <span class="nx">end</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">genBgColor</span> <span class="o">=</span> <span class="p">(</span><span class="nx">randNum</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">Color</span><span class="p">[</span><span class="nx">getIntFromRand</span><span class="p">(</span><span class="nx">randNum</span><span class="p">,</span> <span class="nx">Color</span><span class="p">.</span><span class="nx">length</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">genCSS</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">genStyle</span> <span class="o">=</span> <span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="sb">`.score-</span><span class="si">${</span><span class="nx">index</span><span class="si">}</span><span class="sb"> { font-size: </span><span class="si">${</span><span class="nx">FontSize</span><span class="p">(</span><span class="nx">Size</span><span class="p">[</span><span class="nx">index</span><span class="p">])</span><span class="si">}</span><span class="sb">px }`</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nb">Array</span><span class="p">(</span><span class="mi">11</span><span class="p">)).</span><span class="nx">map</span><span class="p">((</span><span class="nx">_</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">genStyle</span><span class="p">(</span><span class="nx">i</span><span class="p">)).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">genFontColor</span> <span class="o">=</span> <span class="p">(</span><span class="nx">rgbBgColor</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">Utils</span><span class="p">.</span><span class="nx">Color</span><span class="p">.</span><span class="nx">isDeep</span><span class="p">(</span><span class="nx">rgbBgColor</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;#555&#39;</span> <span class="o">:</span> <span class="s1">&#39;#fff&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">$bg</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Utils</span><span class="p">.</span><span class="nx">DOM</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">(</span><span class="nx">$bg</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">position</span><span class="o">:</span> <span class="s1">&#39;absolute&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">zIndex</span><span class="o">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fontSize</span><span class="o">:</span> <span class="mi">11</span> <span class="o">*</span> <span class="nx">Config</span><span class="p">.</span><span class="nx">scale</span> <span class="o">+</span> <span class="s1">&#39;rem&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#26262e30&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">display</span><span class="o">:</span> <span class="s1">&#39;flex&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">justifyContent</span><span class="o">:</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">alignItems</span><span class="o">:</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">width</span><span class="o">:</span> <span class="s1">&#39;100%&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">height</span><span class="o">:</span> <span class="s1">&#39;100%&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">top</span><span class="o">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="nx">left</span><span class="o">:</span> <span class="s1">&#39;0&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">})</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">$bg</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="nx">Config</span><span class="p">.</span><span class="nx">title</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">Config</span><span class="p">.</span><span class="nx">rootDOM</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">$bg</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">debounce</span> <span class="o">=</span> <span class="nx">Utils</span><span class="p">.</span><span class="nx">Debounce</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">marks</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">$e</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">bgColor</span> <span class="o">=</span> <span class="nx">genBgColor</span><span class="p">(</span><span class="nb">parseFloat</span><span class="p">(</span><span class="nx">$e</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">rand</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Utils</span><span class="p">.</span><span class="nx">DOM</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">(</span><span class="nx">$e</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">backgroundColor</span><span class="o">:</span> <span class="nx">bgColor</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">color</span><span class="o">:</span> <span class="nx">genFontColor</span><span class="p">(</span><span class="nx">bgColor</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">top</span><span class="o">:</span> <span class="nx">getIntFromRand</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">(),</span> <span class="mi">90</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">())</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">left</span><span class="o">:</span> <span class="nx">getIntFromRand</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">(),</span> <span class="mi">85</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">zIndex</span><span class="o">:</span> <span class="p">(</span><span class="mi">11</span> <span class="o">-</span> <span class="nx">$e</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">score</span><span class="p">).</span><span class="nx">toString</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Utils</span><span class="p">.</span><span class="nx">DOM</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">(</span><span class="nx">$e</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">color</span><span class="o">:</span> <span class="nx">genFontColor</span><span class="p">(</span><span class="nx">bgColor</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">textDecoration</span><span class="o">:</span> <span class="s1">&#39;none&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">Config</span><span class="p">.</span><span class="nx">animation</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Utils</span><span class="p">.</span><span class="nx">DOM</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">(</span><span class="nx">$e</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">animation</span><span class="o">:</span> <span class="sb">`</span><span class="si">${</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mf">0.5</span> <span class="o">?</span> <span class="s1">&#39;float&#39;</span> <span class="o">:</span> <span class="s1">&#39;float-reverse&#39;</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">7</span><span class="si">}</span><span class="sb">s linear infinite`</span>
+</span></span><span class="line"><span class="cl">        <span class="p">})</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span> <span class="mi">5000</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">$e</span><span class="p">.</span><span class="nx">onmouseover</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">debounce</span><span class="p">.</span><span class="nx">exec</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">curType</span> <span class="o">=</span> <span class="nx">$e</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">type</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">marks</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">mark</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="k">if</span> <span class="p">(</span><span class="nx">curType</span> <span class="o">&amp;&amp;</span> <span class="nx">mark</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">type</span> <span class="o">===</span> <span class="nx">curType</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">mark</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">opacity</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">mark</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">zIndex</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">+</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">mark</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">zIndex</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">$bg</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="nx">curType</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">mark</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">opacity</span> <span class="o">=</span> <span class="p">.</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">})</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">$e</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">opacity</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">$e</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">zIndex</span> <span class="o">=</span> <span class="mi">21</span>
+</span></span><span class="line"><span class="cl">      <span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">$e</span><span class="p">.</span><span class="nx">onmouseout</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">debounce</span><span class="p">.</span><span class="nx">cancel</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">marks</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">mark</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">mark</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">opacity</span> <span class="o">=</span> <span class="p">.</span><span class="mi">8</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">mark</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">zIndex</span> <span class="o">=</span> <span class="mi">11</span> <span class="o">-</span> <span class="nx">mark</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">score</span>
+</span></span><span class="line"><span class="cl">      <span class="p">})</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">$bg</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="nx">Config</span><span class="p">.</span><span class="nx">title</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">$style</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">genCSS</span><span class="p">()</span> <span class="o">+</span> <span class="sb">`
+</span></span></span><span class="line"><span class="cl"><span class="sb">    #my-tags { overflow-x: hidden; padding: 7%; text-align: center; width: 100%; height: 100%; position: relative; box-sizing: border-box; z-index: 2;}
+</span></span></span><span class="line"><span class="cl"><span class="sb">    #my-tags a::after { content: &#34;🎐&#34;; }
+</span></span></span><span class="line"><span class="cl"><span class="sb">    #my-tags a:hover::after { animation: move .3s linear infinite; position: relative; }
+</span></span></span><span class="line"><span class="cl"><span class="sb">    #my-tags mark { position: absolute; padding: .3em .4em; display: inline-block; border-radius: em; margin: .2em .3em .5em .5em; opacity: .8; transition: opacity .2s; box-shadow: 0.3px 0.5px 5px #111;border-style: double;}
+</span></span></span><span class="line"><span class="cl"><span class="sb">    @media (max-width: 1000px) {
+</span></span></span><span class="line"><span class="cl"><span class="sb">      #my-tags mark { animation: none !important; }
+</span></span></span><span class="line"><span class="cl"><span class="sb">    }
+</span></span></span><span class="line"><span class="cl"><span class="sb">    @media (max-width: 600px) {
+</span></span></span><span class="line"><span class="cl"><span class="sb">      #my-tags mark { position: unset; }
+</span></span></span><span class="line"><span class="cl"><span class="sb">      html { overflow-x: hidden; font-size: 10px; }
+</span></span></span><span class="line"><span class="cl"><span class="sb">    }
+</span></span></span><span class="line"><span class="cl"><span class="sb">    @keyframes move {
+</span></span></span><span class="line"><span class="cl"><span class="sb">      0% { left: 0px }
+</span></span></span><span class="line"><span class="cl"><span class="sb">      50% { left: 1% }
+</span></span></span><span class="line"><span class="cl"><span class="sb">      100 { left: 0px }
+</span></span></span><span class="line"><span class="cl"><span class="sb">    }
+</span></span></span><span class="line"><span class="cl"><span class="sb">    @keyframes float {
+</span></span></span><span class="line"><span class="cl"><span class="sb">      0% { transform: translatey(0px) rotate(0deg); }
+</span></span></span><span class="line"><span class="cl"><span class="sb">      15% { transform: translatey(-3%) rotate(4deg); }
+</span></span></span><span class="line"><span class="cl"><span class="sb">      30% { transform: translatey(-5%) rotate(7deg); }
+</span></span></span><span class="line"><span class="cl"><span class="sb">      45% { transform: translatey(-2%) rotate(4deg); }
+</span></span></span><span class="line"><span class="cl"><span class="sb">      60% { transform: translatey(2%) rotate(-2deg); }
+</span></span></span><span class="line"><span class="cl"><span class="sb">      75% { transform: translatey(5%) rotate(-6deg); }
+</span></span></span><span class="line"><span class="cl"><span class="sb">      90% { transform: translatey(3%) rotate(-3deg); }
+</span></span></span><span class="line"><span class="cl"><span class="sb">      100% { transform: translatey(0px) rotate(0deg); }
+</span></span></span><span class="line"><span class="cl"><span class="sb">    }
+</span></span></span><span class="line"><span class="cl"><span class="sb">    @keyframes float-reverse {
+</span></span></span><span class="line"><span class="cl"><span class="sb">      0% { transform: translatey(0px) rotate(0deg); }
+</span></span></span><span class="line"><span class="cl"><span class="sb">      15% { transform: translatey(3%) rotate(-4deg); }
+</span></span></span><span class="line"><span class="cl"><span class="sb">      30% { transform: translatey(5%) rotate(-7deg); }
+</span></span></span><span class="line"><span class="cl"><span class="sb">      45% { transform: translatey(2%) rotate(-4deg); }
+</span></span></span><span class="line"><span class="cl"><span class="sb">      60% { transform: translatey(-2%) rotate(2deg); }
+</span></span></span><span class="line"><span class="cl"><span class="sb">      75% { transform: translatey(-5%) rotate(6deg); }
+</span></span></span><span class="line"><span class="cl"><span class="sb">      90% { transform: translatey(-3%) rotate(3deg); }
+</span></span></span><span class="line"><span class="cl"><span class="sb">      100% { transform: translatey(0px) rotate(0deg); }
+</span></span></span><span class="line"><span class="cl"><span class="sb">    }
+</span></span></span><span class="line"><span class="cl"><span class="sb">  `</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
     </article>
     
     
@@ -4410,6 +5057,8 @@ document.addEventListener('DOMContentLoaded', function () {
     <li><a href="#手机下允许在单词内换行">手机下允许在单词内换行</a></li>
     <li><a href="#修改-archive-页细节">修改 archive 页细节</a></li>
     <li><a href="#修改手机下的显示问题">修改手机下的显示问题</a></li>
+    <li><a href="#一些可能用到的-css">一些可能用到的 css</a></li>
+    <li><a href="#添加about页面标签墙">添加about页面（标签墙）</a></li>
   </ul>
 </nav>
         </div>

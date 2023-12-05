@@ -1369,6 +1369,7 @@
 <meta property="article:published_time" content="2023-11-20T21:53:24&#43;0800">
 
 <meta name="author" content="ayuxy">
+<meta property="article:author" content="https://ayuxy.github.io/zh/c/2023-1128-01/@ayuxy">
 
 
 <meta property="og:site_name" content="Ayuxy&#39;s Blog">
@@ -1428,6 +1429,10 @@
     "description": "",
     "keywords": ["C"],
     "image" : "https://ayuxy.github.io/images/coding.png",
+    "author": {
+      "@type": "Person",
+      "name": "ayuxy"
+    },
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://ayuxy.github.io/"
@@ -1739,6 +1744,8 @@
   <time class="single__info" title="创建日期">📅&nbsp;2023年11月20日 </time>
   
   &nbsp;&middot;&nbsp; <span class="single__info" title="阅读时长"> ☕&nbsp;5&nbsp;分钟 </span>
+  
+  &nbsp;&middot;&nbsp; <span class="single__info" title="作者">✍️&nbsp;ayuxy</span>
   
   <span class="single__info">
     
@@ -2445,7 +2452,87 @@
 </ul>
 <p>现在的壳一般同时具备压缩和加密两种特性</p>
 <p>如何对加壳的程序进行打补丁 ？？</p>
+<p>把加壳后的程序拖入调试器，显示如下：<br />
+<div class="custom-image-container">
+  <img
+    src="image-20231205174530604.png"
+    alt="image-20231205174530604"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231205174530604.png 1.25x"
+  />
 
+</div>
+</p>
+<p>解压缩代码的最后有一个跳转</p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231205174619645.png"
+    alt="image-20231205174619645"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231205174619645.png 1.25x"
+  />
+
+</div>
+</p>
+<p>执行完解压缩代码后，进行跳转，再执行原本的程序</p>
+<p>如果直接跳过运行这段解压缩代码，直接从最后 jmp 开始执行</p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231205175410251.png"
+    alt="image-20231205175410251"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231205175410251.png 1.25x"
+  />
+
+</div>
+</p>
+<p>最后结果如下，发现无法跳转到原来的程序中，所以解压缩代码无法跳过</p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231205175504315.png"
+    alt="image-20231205175504315"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231205175504315.png 1.25x"
+  />
+
+</div>
+</p>
+<p>但是如果我们运行完解压缩代码后，再执行 jmp 跳转，那么就可以跳转到原来的程序中</p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231205175316075.png"
+    alt="image-20231205175316075"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231205175316075.png 1.25x"
+  />
+
+</div>
+</p>
+<p><div class="custom-image-container">
+  <img
+    src="image-20231205175712219.png"
+    alt="image-20231205175712219"
+    
+    class="custom-image-class lazyload"
+    data-srcset="image-20231205175712219.png 1.25x"
+  />
+
+</div>
+</p>
+<p>可以利用上面的思路，编写代码模拟上面调试器的过程，当解压缩代码执行完，然后跳转到原来的程序中后，再进行打补丁</p>
+<p>具体代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"></code></pre></td></tr></table>
+</div>
+</div>
     </article>
     
     
@@ -2650,7 +2737,7 @@
       
     
       
-        <a href="https://twitter.com/intent/tweet?text=%e8%bf%9b%e7%a8%8b%e9%81%8d%e5%8e%86%20%7c%20%e5%86%85%e5%ad%98%e8%a1%a5%e4%b8%81%20%7c%20win32%20api%e8%b0%83%e8%af%95&url=https%3a%2f%2fayuxy.github.io%2fzh%2fc%2f2023-1128-01%2f&hashtags=C&via=" title="Twitter" aria-label="Twitter Share Button" class="donation__item" target="_blank" rel="noreferrer" data-type="share">
+        <a href="https://twitter.com/intent/tweet?text=%e8%bf%9b%e7%a8%8b%e9%81%8d%e5%8e%86%20%7c%20%e5%86%85%e5%ad%98%e8%a1%a5%e4%b8%81%20%7c%20win32%20api%e8%b0%83%e8%af%95&url=https%3a%2f%2fayuxy.github.io%2fzh%2fc%2f2023-1128-01%2f&hashtags=C&via=ayuxy" title="Twitter" aria-label="Twitter Share Button" class="donation__item" target="_blank" rel="noreferrer" data-type="share">
           <svg data-name="twitter" enable-background="new 0 0 24 24" viewBox="0 0 24 24" width="35" height="35" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="m21.534 7.113c.976-.693 1.797-1.558 2.466-2.554v-.001c-.893.391-1.843.651-2.835.777 1.02-.609 1.799-1.566 2.165-2.719-.951.567-2.001.967-3.12 1.191-.903-.962-2.19-1.557-3.594-1.557-2.724 0-4.917 2.211-4.917 4.921 0 .39.033.765.114 1.122-4.09-.2-7.71-2.16-10.142-5.147-.424.737-.674 1.58-.674 2.487 0 1.704.877 3.214 2.186 4.089-.791-.015-1.566-.245-2.223-.606v.054c0 2.391 1.705 4.377 3.942 4.835-.401.11-.837.162-1.29.162-.315 0-.633-.018-.931-.084.637 1.948 2.447 3.381 4.597 3.428-1.674 1.309-3.8 2.098-6.101 2.098-.403 0-.79-.018-1.177-.067 2.18 1.405 4.762 2.208 7.548 2.208 8.683 0 14.342-7.244 13.986-14.637z"/></svg>
         </a>
       
