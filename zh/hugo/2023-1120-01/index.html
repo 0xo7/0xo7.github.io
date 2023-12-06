@@ -11,7 +11,7 @@
   
   
     
-    <script defer src="/js/_custom.min.dd77c39bc0289d18a2e9e3308fe0c6ad75ddf9646c32877b5209bed734f14363.js"></script>
+    <script defer src="/js/_custom.min.62f028687da178a68dd5e96ac23cb5b0eb4acb160e076ef186096e3c749e6fee.js"></script>
   
 
   
@@ -1386,7 +1386,7 @@
     <meta property="twitter:description" content="本文主要记录 zzo 主题的修复以及一些优化">
   
 
-<meta name="generator" content="Hugo 0.120.4">
+<meta name="generator" content="Hugo 0.121.0">
 <meta name="msapplication-TileColor" content="#fff">
 
 <meta name="theme-color" content="#fff">
@@ -1563,32 +1563,26 @@
 
       
         <li class="navbarm__menu--item ">
-          <a href="/zh/categories">Categories</a>
+          <a href="/zh/#">
+            Taxonomies
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M8.12 9.29L12 13.17l3.88-3.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-4.59 4.59c-.39.39-1.02.39-1.41 0L6.7 10.7c-.39-.39-.39-1.02 0-1.41.39-.38 1.03-.39 1.42 0z"/></svg>
+          </a>
         </li>
-      
-      
-    
-      
-      
-      
-      
 
-      
-        <li class="navbarm__menu--item ">
-          <a href="/zh/tags">Tags</a>
-        </li>
-      
-      
-    
-      
-      
-      
-      
+        
+          <li class="navbarm__menu--item navbarm__menu--subitem">
+            <a href="/zh/categories">Categories</a>
+          </li>
+        
+          <li class="navbarm__menu--item navbarm__menu--subitem">
+            <a href="/zh/series">series</a>
+          </li>
+        
+          <li class="navbarm__menu--item navbarm__menu--subitem">
+            <a href="/zh/tags">tags</a>
+          </li>
+        
 
-      
-        <li class="navbarm__menu--item ">
-          <a href="/zh/series">Series</a>
-        </li>
       
       
     
@@ -1600,6 +1594,18 @@
       
         <li class="navbarm__menu--item ">
           <a href="/zh/showcase">Showcase</a>
+        </li>
+      
+      
+    
+      
+      
+      
+      
+
+      
+        <li class="navbarm__menu--item ">
+          <a href="/zh/tags-wall">About</a>
         </li>
       
       
@@ -1660,23 +1666,22 @@
   
   
   
-  <a href="/zh/categories" class="navbar__menu-item navbar__slide-down " dir="ltr" data-ani="true">Categories</a>
-  
-  
-  
-  
-  
-  
-  
-  <a href="/zh/tags" class="navbar__menu-item navbar__slide-down " dir="ltr" data-ani="true">Tags</a>
-  
-  
-  
-  
-  
-  
-  
-  <a href="/zh/series" class="navbar__menu-item navbar__slide-down " dir="ltr" data-ani="true">Series</a>
+  <div class="navbar__dropdown navbar__slide-down" data-ani="true">
+    <a href="/zh/#" class="navbar__menu-item "
+      dir="ltr">
+      Taxonomies
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M8.12 9.29L12 13.17l3.88-3.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-4.59 4.59c-.39.39-1.02.39-1.41 0L6.7 10.7c-.39-.39-.39-1.02 0-1.41.39-.38 1.03-.39 1.42 0z"/></svg>
+    </a>
+    <div class="navbar__dropdown--content">
+      
+      <a href="/zh/categories" class="navbar__dropdown--item" dir="ltr">Categories</a>
+      
+      <a href="/zh/series" class="navbar__dropdown--item" dir="ltr">series</a>
+      
+      <a href="/zh/tags" class="navbar__dropdown--item" dir="ltr">tags</a>
+      
+    </div>
+  </div>
   
   
   
@@ -1685,6 +1690,14 @@
   
   
   <a href="/zh/showcase" class="navbar__menu-item navbar__slide-down " dir="ltr" data-ani="true">Showcase</a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/zh/tags-wall" class="navbar__menu-item navbar__slide-down " dir="ltr" data-ani="true">About</a>
   
   
 </div>
@@ -1740,7 +1753,7 @@
   
   &nbsp;&middot;&nbsp; <time class="single__info" title="更新日期"> 📝&nbsp;2023年11月29日 </time>
   
-  &nbsp;&middot;&nbsp; <span class="single__info" title="阅读时长"> ☕&nbsp;9&nbsp;分钟 </span>
+  &nbsp;&middot;&nbsp; <span class="single__info" title="阅读时长"> ☕&nbsp;12&nbsp;分钟 </span>
   
   <span class="single__info">
     
@@ -1810,6 +1823,10 @@
     <li><a href="#修改手机下的显示问题">修改手机下的显示问题</a></li>
     <li><a href="#一些可能用到的-css">一些可能用到的 css</a></li>
     <li><a href="#添加about页面标签墙">添加about页面（标签墙）</a></li>
+    <li><a href="#添加强调-shortcode">添加强调 shortcode</a></li>
+    <li><a href="#插入豆瓣电影页">插入豆瓣电影页</a></li>
+    <li><a href="#markdown语法增强">markdown语法增强</a></li>
+    <li><a href="#添加notice表情包">添加notice表情包</a></li>
   </ul>
 </nav>
   </div>
@@ -3666,7 +3683,598 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
+</div><h2 id="添加强调-shortcode">添加强调 shortcode</h2>
+<p>在 layouts\shortcodes 添加 mark.html 如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ $color := .Get &#34;color&#34; }}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;mark_{{ $color }}&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    {{ .Inner }}
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">mark_</span><span class="p">{</span><span class="err">{</span> <span class="err">$color</span> <span class="p">}</span><span class="err">}</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">background</span><span class="p">:</span> <span class="nb">repeating-linear-gradient</span><span class="p">(</span><span class="mi">-45</span><span class="kt">deg</span><span class="p">,</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">color_mark_</span><span class="err">{{</span> <span class="err">$</span><span class="kc">color</span> <span class="err">}}</span><span class="p">),</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">color_mark_</span><span class="err">{{</span> <span class="err">$</span><span class="kc">color</span> <span class="err">}}</span><span class="p">)</span> <span class="mi">2</span><span class="kt">px</span><span class="p">,</span> <span class="kc">transparent</span> <span class="mi">2</span><span class="kt">px</span><span class="p">,</span> <span class="kc">transparent</span> <span class="mi">4</span><span class="kt">px</span><span class="p">)</span> <span class="kc">no-repeat</span> <span class="mi">0</span> <span class="mf">0.95</span><span class="kt">em</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">display</span><span class="p">:</span> <span class="kc">inline</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">padding</span><span class="p">:</span> <span class="mi">2</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-weight</span><span class="p">:</span> <span class="kc">bold</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">:</span><span class="nd">root</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">--color_mark_blue</span><span class="p">:</span> <span class="mh">#b7e3ff</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">--color_mark_green</span><span class="p">:</span> <span class="mh">#bdf9c3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">--color_mark_yellow</span><span class="p">:</span> <span class="mh">#fcf69f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">--color_mark_orange</span><span class="p">:</span> <span class="mh">#ffddbc</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
+</div><p>示例如下：</p>
+
+
+<span class="mark_blue">
+    示例文字1
+</span>
+
+<style>
+.mark_blue {
+    background: repeating-linear-gradient(-45deg, var(--color_mark_blue), var(--color_mark_blue) 2px, transparent 2px, transparent 4px) no-repeat 0 0.95em;
+    display: inline;
+    padding: 2px;
+    font-weight: bold;
+}
+
+:root {
+    --color_mark_blue: #b7e3ff;
+    --color_mark_green: #bdf9c3;
+    --color_mark_yellow: #fcf69f;
+    --color_mark_orange: #ffddbc;
+}
+</style>
+
+
+
+<span class="mark_green">
+    示例文字1
+</span>
+
+<style>
+.mark_green {
+    background: repeating-linear-gradient(-45deg, var(--color_mark_green), var(--color_mark_green) 2px, transparent 2px, transparent 4px) no-repeat 0 0.95em;
+    display: inline;
+    padding: 2px;
+    font-weight: bold;
+}
+
+:root {
+    --color_mark_blue: #b7e3ff;
+    --color_mark_green: #bdf9c3;
+    --color_mark_yellow: #fcf69f;
+    --color_mark_orange: #ffddbc;
+}
+</style>
+
+
+
+<span class="mark_yellow">
+    示例文字1
+</span>
+
+<style>
+.mark_yellow {
+    background: repeating-linear-gradient(-45deg, var(--color_mark_yellow), var(--color_mark_yellow) 2px, transparent 2px, transparent 4px) no-repeat 0 0.95em;
+    display: inline;
+    padding: 2px;
+    font-weight: bold;
+}
+
+:root {
+    --color_mark_blue: #b7e3ff;
+    --color_mark_green: #bdf9c3;
+    --color_mark_yellow: #fcf69f;
+    --color_mark_orange: #ffddbc;
+}
+</style>
+
+
+
+<span class="mark_orange">
+    示例文字1
+</span>
+
+<style>
+.mark_orange {
+    background: repeating-linear-gradient(-45deg, var(--color_mark_orange), var(--color_mark_orange) 2px, transparent 2px, transparent 4px) no-repeat 0 0.95em;
+    display: inline;
+    padding: 2px;
+    font-weight: bold;
+}
+
+:root {
+    --color_mark_blue: #b7e3ff;
+    --color_mark_green: #bdf9c3;
+    --color_mark_yellow: #fcf69f;
+    --color_mark_orange: #ffddbc;
+}
+</style>
+
+<h2 id="插入豆瓣电影页">插入豆瓣电影页</h2>
+<p>添加 layouts\_default\movies.html ，内容如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ define &#34;main&#34; }}
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;referrer&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;no-referrer&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">post-film</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">grid-area</span><span class="p">:</span> <span class="mi">2</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="n">span</span> <span class="mi">2</span><span class="o">/</span><span class="n">span</span> <span class="mi">2</span><span class="p">;</span>	
+</span></span><span class="line"><span class="cl">	<span class="k">padding</span><span class="p">:</span> <span class="mi">7</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;post-film&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">gFnzgG</span><span class="o">,</span><span class="p">.</span><span class="nc">gFnzgG</span> <span class="o">*</span><span class="p">{</span><span class="k">box-sizing</span><span class="p">:</span><span class="kc">border-box</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">fIuTG</span><span class="p">{</span><span class="k">display</span><span class="p">:</span><span class="kc">flex</span><span class="p">;</span><span class="k">flex-wrap</span><span class="p">:</span><span class="kc">wrap</span><span class="p">;</span><span class="k">margin</span><span class="p">:</span><span class="mi">0</span> <span class="mi">-2</span><span class="kt">%</span><span class="p">;</span><span class="k">background</span><span class="p">:</span><span class="mi">0</span> <span class="mi">0</span><span class="p">;</span><span class="k">line-height</span><span class="p">:</span><span class="mi">100</span><span class="kt">%</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">dfdORB</span><span class="p">{</span><span class="k">width</span><span class="p">:</span><span class="mi">16</span><span class="kt">%</span><span class="p">;</span><span class="k">margin</span><span class="p">:</span><span class="mi">0</span> <span class="mi">2</span><span class="kt">%</span> <span class="mi">30</span><span class="kt">px</span><span class="p">;</span><span class="k">padding</span><span class="p">:</span><span class="mi">0</span><span class="p">;</span><span class="k">font-size</span><span class="p">:</span><span class="mi">15</span><span class="kt">px</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">dfdORB</span> <span class="nt">a</span><span class="p">{</span><span class="k">text-decoration</span><span class="p">:</span><span class="kc">none</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">kMthTr</span><span class="p">{</span><span class="k">margin-top</span><span class="p">:</span><span class="mi">12</span><span class="kt">px</span><span class="p">;</span><span class="k">line-height</span><span class="p">:</span><span class="mf">1.3</span><span class="p">;</span><span class="k">max-height</span><span class="p">:</span><span class="mi">3</span><span class="kt">rem</span><span class="p">;</span><span class="k">overflow</span><span class="p">:</span><span class="kc">hidden</span><span class="p">;</span><span class="k">font-size</span><span class="p">:</span> <span class="mi">12</span><span class="kt">px</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">eysHZq</span><span class="p">{</span><span class="k">display</span><span class="p">:</span><span class="kc">flex</span><span class="p">;</span><span class="kp">-webkit-</span><span class="n">box-align</span><span class="p">:</span><span class="kc">center</span><span class="p">;</span><span class="k">align-items</span><span class="p">:</span><span class="kc">center</span><span class="p">;</span><span class="k">margin-top</span><span class="p">:</span><span class="mi">5</span><span class="kt">px</span><span class="p">;</span><span class="k">min-height</span><span class="p">:</span><span class="mi">16</span><span class="kt">px</span><span class="p">;</span><span class="k">line-height</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">HPRth</span><span class="p">{</span><span class="k">position</span><span class="p">:</span><span class="kc">relative</span><span class="p">;</span><span class="k">min-height</span><span class="p">:</span><span class="mi">87</span><span class="kt">px</span><span class="p">;</span><span class="k">overflow</span><span class="p">:</span><span class="kc">hidden</span><span class="p">;</span><span class="k">color</span><span class="p">:</span><span class="kc">transparent</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">HPRth</span><span class="p">:</span><span class="nd">hover</span><span class="p">{</span><span class="k">box-shadow</span><span class="p">:</span><span class="nb">rgb</span><span class="p">(</span><span class="mi">48</span> <span class="mi">55</span> <span class="mi">66</span> <span class="o">/</span> <span class="mi">30</span><span class="kt">%</span><span class="p">)</span> <span class="mi">0</span> <span class="mi">1</span><span class="kt">rem</span> <span class="mf">2.1</span><span class="kt">rem</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">jcTaHb</span><span class="p">{</span><span class="k">display</span><span class="p">:</span><span class="kc">flex</span><span class="p">;</span><span class="kp">-webkit-</span><span class="n">box-align</span><span class="p">:</span><span class="kc">center</span><span class="p">;</span><span class="k">align-items</span><span class="p">:</span><span class="kc">center</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">lhtmRw</span><span class="p">{</span><span class="k">margin-right</span><span class="p">:</span><span class="mi">1</span><span class="kt">px</span><span class="p">;</span><span class="k">width</span><span class="p">:</span><span class="mi">12</span><span class="kt">px</span><span class="p">;</span><span class="k">height</span><span class="p">:</span><span class="mi">12</span><span class="kt">px</span><span class="p">;</span><span class="k">color</span><span class="p">:</span><span class="mh">#fccd59</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">gaztka</span><span class="p">{</span><span class="k">margin-right</span><span class="p">:</span><span class="mi">1</span><span class="kt">px</span><span class="p">;</span><span class="k">width</span><span class="p">:</span><span class="mi">12</span><span class="kt">px</span><span class="p">;</span><span class="k">height</span><span class="p">:</span><span class="mi">12</span><span class="kt">px</span><span class="p">;</span><span class="k">color</span><span class="p">:</span><span class="mh">#eee</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">iibjPt</span><span class="p">{</span><span class="k">margin-left</span><span class="p">:</span><span class="mi">5</span><span class="kt">px</span><span class="p">;</span><span class="k">color</span><span class="p">:</span><span class="mh">#555</span><span class="p">;</span><span class="k">font-size</span><span class="p">:</span><span class="mi">14</span><span class="kt">px</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">jvCTkj</span><span class="p">{</span><span class="k">margin-bottom</span><span class="p">:</span><span class="mi">10</span><span class="kt">px</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">kEoOHR</span><span class="p">{</span><span class="k">display</span><span class="p">:</span><span class="kc">inline-block</span><span class="p">;</span><span class="k">margin-right</span><span class="p">:</span><span class="mi">15</span><span class="kt">px</span><span class="p">;</span><span class="k">text-decoration</span><span class="p">:</span><span class="kc">none</span><span class="p">;</span><span class="k">color</span><span class="p">:</span><span class="mh">#157efb</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">dvtjjf</span><span class="p">{</span><span class="k">display</span><span class="p">:</span><span class="kc">inline-block</span><span class="p">;</span><span class="k">color</span><span class="p">:</span><span class="mh">#555</span><span class="p">;</span><span class="k">text-decoration</span><span class="p">:</span><span class="kc">none</span><span class="p">;</span><span class="k">padding</span><span class="p">:</span><span class="mi">0</span> <span class="mi">5</span><span class="kt">px</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">dvtjjf</span><span class="p">.</span><span class="nc">active</span><span class="p">{</span><span class="k">background</span><span class="p">:</span><span class="nb">rgba</span><span class="p">(</span><span class="mi">85</span><span class="p">,</span><span class="mi">85</span><span class="p">,</span><span class="mi">85</span><span class="p">,</span><span class="mf">.1</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">hide</span><span class="p">{</span><span class="k">display</span><span class="p">:</span><span class="kc">none</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">sort-by</span><span class="p">{</span><span class="k">text-align</span><span class="p">:</span><span class="kc">right</span><span class="p">;</span><span class="k">margin-top</span><span class="p">:</span><span class="mi">-15</span><span class="kt">px</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">sort-by-item</span><span class="p">{</span><span class="k">margin-left</span><span class="p">:</span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span><span class="k">padding</span><span class="p">:</span><span class="mi">0</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span><span class="k">line-height</span><span class="p">:</span><span class="mi">20</span><span class="kt">px</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">sort-by-item</span><span class="p">.</span><span class="nc">active</span><span class="p">{</span><span class="k">background</span><span class="p">:</span><span class="nb">rgba</span><span class="p">(</span><span class="mi">85</span><span class="p">,</span><span class="mi">85</span><span class="p">,</span><span class="mi">85</span><span class="p">,</span><span class="mf">.1</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">sort-by-item</span> <span class="nt">svg</span><span class="p">{</span><span class="k">margin-right</span><span class="p">:</span><span class="mi">5</span><span class="kt">px</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">sc-hKFxyN</span> <span class="nt">img</span><span class="p">{</span><span class="k">max-width</span><span class="p">:</span><span class="mi">100</span><span class="kt">%</span><span class="cp">!important</span><span class="p">;</span><span class="k">height</span><span class="p">:</span><span class="kc">auto</span><span class="cp">!important</span><span class="p">;</span><span class="k">display</span><span class="p">:</span><span class="kc">block</span><span class="cp">!important</span><span class="p">;</span><span class="k">vertical-align</span><span class="p">:</span><span class="kc">middle</span><span class="cp">!important</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="k">media</span><span class="o">(</span><span class="nt">min-width</span><span class="p">:</span><span class="nd">1024px</span><span class="o">)</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nc">lg</span><span class="err">\</span><span class="p">:</span><span class="nd">col-span-6</span><span class="p">{</span><span class="k">grid-column</span><span class="p">:</span><span class="n">span</span> <span class="mi">6</span><span class="o">/</span><span class="n">span</span> <span class="mi">6</span><span class="cp">!important</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nc">lg</span><span class="err">\</span><span class="p">:</span><span class="nd">col-start-2</span><span class="p">{</span><span class="k">grid-column-start</span><span class="p">:</span><span class="mi">2</span><span class="cp">!important</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="k">media</span> <span class="o">(</span><span class="nt">max-width</span><span class="p">:</span><span class="nd">769px</span><span class="o">)</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nc">jcTaHb</span><span class="o">,</span><span class="p">.</span><span class="nc">sc-bdnxRM</span><span class="p">{</span><span class="k">display</span><span class="p">:</span><span class="kc">none</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">	  <span class="p">.</span><span class="nc">rating</span> <span class="p">.</span><span class="nc">allstardark</span><span class="p">{</span><span class="k">display</span><span class="p">:</span><span class="kc">none</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">	  <span class="p">.</span><span class="nc">kMthTr</span><span class="p">{</span><span class="k">margin-top</span><span class="p">:</span><span class="mi">5</span><span class="kt">px</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">	  <span class="p">.</span><span class="nc">dfdORB</span><span class="p">{</span><span class="k">width</span><span class="p">:</span><span class="mi">21</span><span class="kt">%</span><span class="cp">!important</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">rating</span> <span class="p">.</span><span class="nc">allstardark</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">position</span><span class="p">:</span> <span class="kc">relative</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">color</span><span class="p">:</span> <span class="mh">#f99b01</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">height</span><span class="p">:</span> <span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">width</span><span class="p">:</span> <span class="mi">80</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">background-size</span><span class="p">:</span> <span class="kc">auto</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">margin-right</span><span class="p">:</span> <span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">background-repeat</span><span class="p">:</span> <span class="kc">repeat</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">background-image</span><span class="p">:</span> <span class="nb">url</span><span class="p">(</span><span class="sx">data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMzIiIGhlaWdodD0iMzIiPjxwYXRoIGQ9Ik05MDguMSAzNTMuMWwtMjUzLjktMzYuOUw1NDAuNyA4Ni4xYy0zLjEtNi4zLTguMi0xMS40LTE0LjUtMTQuNS0xNS44LTcuOC0zNS0xLjMtNDIuOSAxNC41TDM2OS44IDMxNi4ybC0yNTMuOSAzNi45Yy03IDEtMTMuNCA0LjMtMTguMyA5LjMtMTIuMyAxMi43LTEyLjEgMzIuOS42IDQ1LjNsMTgzLjcgMTc5LjEtNDMuNCAyNTIuOWMtMS4yIDYuOS0uMSAxNC4xIDMuMiAyMC4zIDguMiAxNS42IDI3LjYgMjEuNyA0My4yIDEzLjRMNTEyIDc1NGwyMjcuMSAxMTkuNGM2LjIgMy4zIDEzLjQgNC40IDIwLjMgMy4yIDE3LjQtMyAyOS4xLTE5LjUgMjYuMS0zNi45bC00My40LTI1Mi45IDE4My43LTE3OS4xYzUtNC45IDguMy0xMS4zIDkuMy0xOC4zIDIuNy0xNy41LTkuNS0zMy43LTI3LTM2LjN6TTY2NC44IDU2MS42bDM2LjEgMjEwLjNMNTEyIDY3Mi43IDMyMy4xIDc3MmwzNi4xLTIxMC4zLTE1Mi44LTE0OUw0MTcuNiAzODIgNTEyIDE5MC43IDYwNi40IDM4MmwyMTEuMiAzMC43LTE1Mi44IDE0OC45eiIgZmlsbD0iI2Y5OWIwMSIvPjwvc3ZnPg==</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">rating</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-size</span><span class="p">:</span> <span class="mi">13</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">line-height</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">align-items</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>	
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">post-title</span><span class="p">{</span><span class="k">margin-bottom</span><span class="p">:</span><span class="mi">10</span><span class="kt">px</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">sc-bdnxRM</span><span class="p">{</span><span class="k">margin-bottom</span><span class="p">:</span><span class="mi">5</span><span class="kt">px</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;post-title&#34;</span><span class="p">&gt;</span>{{.Title}}<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nx">search</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;.dfdORB&#39;</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">item</span> <span class="p">=&gt;</span> <span class="nx">item</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;hide&#39;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="sb">`.dvtjjf.active[data-search=&#34;</span><span class="si">${</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">search</span><span class="si">}</span><span class="sb">&#34;]`</span><span class="p">)</span><span class="o">?</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">const</span> <span class="nx">searchItems</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;.dvtjjf.active&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">const</span> <span class="nx">attributes</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">searchItems</span><span class="p">,</span> <span class="nx">searchItem</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">property</span> <span class="o">=</span> <span class="sb">`data-</span><span class="si">${</span><span class="nx">searchItem</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">search</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">logic</span> <span class="o">=</span> <span class="nx">searchItem</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">method</span> <span class="o">===</span> <span class="s1">&#39;contain&#39;</span> <span class="o">?</span> <span class="s1">&#39;*&#39;</span> <span class="o">:</span> <span class="s1">&#39;^&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">searchItem</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">method</span> <span class="o">===</span> <span class="s1">&#39;contain&#39;</span> <span class="o">?</span> <span class="sb">`</span><span class="si">${</span><span class="nx">searchItem</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">value</span><span class="si">}</span><span class="sb">`</span> <span class="o">:</span> <span class="nx">searchItem</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="sb">`[</span><span class="si">${</span><span class="nx">property</span><span class="si">}${</span><span class="nx">logic</span><span class="si">}</span><span class="sb">=&#39;</span><span class="si">${</span><span class="nx">value</span><span class="si">}</span><span class="sb">&#39;]`</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">});</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">const</span> <span class="nx">selector</span> <span class="o">=</span> <span class="sb">`.dfdORB</span><span class="si">${</span><span class="nx">attributes</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="nx">selector</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">item</span> <span class="p">=&gt;</span> <span class="nx">item</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s1">&#39;hide&#39;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="s1">&#39;sc-gtsrHT&#39;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">search</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nx">sort</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">const</span> <span class="nx">sortBy</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">order</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">const</span> <span class="nx">style</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;style&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">style</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;sort-order-style&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;style.sort-order-style&#39;</span><span class="p">)</span><span class="o">?</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;.sort-by-item.active&#39;</span><span class="p">)</span><span class="o">?</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span><span class="p">(</span><span class="nx">sortBy</span> <span class="o">===</span> <span class="s1">&#39;rating&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">items</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;.dfdORB&#39;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">items</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">itemA</span><span class="p">,</span> <span class="nx">itemB</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="kr">const</span> <span class="nx">ratingA</span> <span class="o">=</span> <span class="nb">parseFloat</span><span class="p">(</span><span class="nx">itemA</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">rating</span><span class="p">)</span> <span class="o">||</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="kr">const</span> <span class="nx">ratingB</span> <span class="o">=</span> <span class="nb">parseFloat</span><span class="p">(</span><span class="nx">itemB</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">rating</span><span class="p">)</span> <span class="o">||</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="k">if</span><span class="p">(</span><span class="nx">ratingA</span> <span class="o">===</span> <span class="nx">ratingB</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">          <span class="k">return</span> <span class="nx">ratingA</span> <span class="o">&gt;</span> <span class="nx">ratingB</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">});</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">stylesheet</span> <span class="o">=</span> <span class="nx">items</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">item</span><span class="p">,</span> <span class="nx">idx</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="sb">`.dfdORB[data-rating=&#34;</span><span class="si">${</span><span class="nx">item</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">rating</span><span class="si">}</span><span class="sb">&#34;] { order: </span><span class="si">${</span><span class="nx">idx</span><span class="si">}</span><span class="sb">; }`</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\r\n&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">style</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">stylesheet</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">style</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="s1">&#39;sort-by-item&#39;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">sort</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;lg:col-start-2 lg:col-span-6&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  {{$items := getCSV &#34;,&#34; &#34;static/movie.csv&#34; }}
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sc-ksluID gFnzgG&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sc-bdnxRM&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;javascript:void 0;&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sc-gtsrHT kEoOHR&#34;</span> <span class="na">data-search</span><span class="o">=</span><span class="s">&#34;year&#34;</span> <span class="na">data-method</span><span class="o">=</span><span class="s">&#34;equal&#34;</span> <span class="na">data-value</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">&gt;</span>全部<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      {{range $year := (seq now.Year -1 2012)}}
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;javascript:void 0;&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sc-gtsrHT dvtjjf&#34;</span> <span class="na">data-search</span><span class="o">=</span><span class="s">&#34;year&#34;</span> <span class="na">data-method</span><span class="o">=</span><span class="s">&#34;equal&#34;</span> <span class="na">data-value</span><span class="o">=</span><span class="s">&#34;{{$year}}&#34;</span><span class="p">&gt;</span>{{$year}}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      {{end}}
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sc-bdnxRM&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;javascript:void 0;&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sc-gtsrHT kEoOHR&#34;</span> <span class="na">data-search</span><span class="o">=</span><span class="s">&#34;star&#34;</span> <span class="na">data-method</span><span class="o">=</span><span class="s">&#34;equal&#34;</span> <span class="na">data-value</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">&gt;</span>全部<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;javascript:void 0;&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sc-gtsrHT dvtjjf&#34;</span> <span class="na">data-search</span><span class="o">=</span><span class="s">&#34;star&#34;</span> <span class="na">data-method</span><span class="o">=</span><span class="s">&#34;equal&#34;</span> <span class="na">data-value</span><span class="o">=</span><span class="s">&#34;5&#34;</span><span class="p">&gt;</span>五星<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;javascript:void 0;&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sc-gtsrHT dvtjjf&#34;</span> <span class="na">data-search</span><span class="o">=</span><span class="s">&#34;star&#34;</span> <span class="na">data-method</span><span class="o">=</span><span class="s">&#34;equal&#34;</span> <span class="na">data-value</span><span class="o">=</span><span class="s">&#34;4&#34;</span><span class="p">&gt;</span>四星<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;javascript:void 0;&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sc-gtsrHT dvtjjf&#34;</span> <span class="na">data-search</span><span class="o">=</span><span class="s">&#34;star&#34;</span> <span class="na">data-method</span><span class="o">=</span><span class="s">&#34;equal&#34;</span> <span class="na">data-value</span><span class="o">=</span><span class="s">&#34;3&#34;</span><span class="p">&gt;</span>三星<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;javascript:void 0;&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sc-gtsrHT dvtjjf&#34;</span> <span class="na">data-search</span><span class="o">=</span><span class="s">&#34;star&#34;</span> <span class="na">data-method</span><span class="o">=</span><span class="s">&#34;equal&#34;</span> <span class="na">data-value</span><span class="o">=</span><span class="s">&#34;2&#34;</span><span class="p">&gt;</span>二星<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;javascript:void 0;&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sc-gtsrHT dvtjjf&#34;</span> <span class="na">data-search</span><span class="o">=</span><span class="s">&#34;star&#34;</span> <span class="na">data-method</span><span class="o">=</span><span class="s">&#34;equal&#34;</span> <span class="na">data-value</span><span class="o">=</span><span class="s">&#34;1&#34;</span><span class="p">&gt;</span>一星<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;javascript:void 0;&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sc-gtsrHT dvtjjf&#34;</span> <span class="na">data-search</span><span class="o">=</span><span class="s">&#34;star&#34;</span> <span class="na">data-method</span><span class="o">=</span><span class="s">&#34;equal&#34;</span> <span class="na">data-value</span><span class="o">=</span><span class="s">&#34;0&#34;</span><span class="p">&gt;</span>零星<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;jvCTkj sort-by&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;javascript:void 0;&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sort-by-item active&#34;</span> <span class="na">data-order</span><span class="o">=</span><span class="s">&#34;time&#34;</span><span class="p">&gt;</span>时间排序<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;javascript:void 0;&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sort-by-item&#34;</span> <span class="na">data-order</span><span class="o">=</span><span class="s">&#34;rating&#34;</span><span class="p">&gt;</span>评分排序<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sc-dIsUp fIuTG&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      {{range $idx,$item := $items}}
+</span></span><span class="line"><span class="cl">      {{if ne $idx 0}}
+</span></span><span class="line"><span class="cl">        {{ $rating := float (index $item 6)}}
+</span></span><span class="line"><span class="cl">        {{ $coverSrc := index $item 5 }}
+</span></span><span class="line"><span class="cl">        {{ $douURL := replaceRE &#34;https://movie.douban.com/subject/([0-9]+)/&#34; &#34;https://dou.img.lithub.cc/movie/$1.jpg&#34; $coverSrc}}
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">div</span> 
+</span></span><span class="line"><span class="cl">          <span class="na">class</span><span class="o">=</span><span class="s">&#34;sc-gKAaRy dfdORB&#34;</span> 
+</span></span><span class="line"><span class="cl">          <span class="na">data-year</span><span class="o">=</span><span class="s">&#34;{{index $item 11}}&#34;</span> 
+</span></span><span class="line"><span class="cl">          <span class="na">data-star</span><span class="o">=</span><span class="s">&#34;{{index $item 8}}&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="na">data-rating</span><span class="o">=</span><span class="s">&#34;{{$rating}}&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="na">data-genres</span><span class="o">=</span><span class="s">&#34;{{index $item 7}}&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sc-hKFxyN HPRth&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;lazyload-wrapper&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">              <span class="p">&lt;</span><span class="nt">img</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;avatar&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;{{ $douURL }}&#34;</span> <span class="na">referrer-policy</span><span class="o">=</span><span class="s">&#34;no-referrer&#34;</span> <span class="na">decoding</span><span class="o">=</span><span class="s">&#34;async&#34;</span> <span class="na">loading</span><span class="o">=</span><span class="s">&#34;lazy&#34;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&#34;{{ index $item 9 }}&#34;</span>  <span class="na">title</span><span class="o">=</span><span class="s">&#34;{{ index $item 1 }}&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;150&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;220&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sc-fujyAs eysHZq&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;rating&#34;</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;allstardark&#34;</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;allstarlight&#34;</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;width:{{mul  10 $rating }}%&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;rating_nums&#34;</span><span class="p">&gt;</span>{{$rating}}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sc-iCoGMd kMthTr&#34;</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;link&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;{{ index $item 5 }}&#34;</span> <span class="na">target</span><span class="o">=</span><span class="s">&#34;_blank&#34;</span><span class="p">&gt;</span>{{ index $item 1 }}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      {{end}}
+</span></span><span class="line"><span class="cl">      {{end}}
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">{{ end }}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后添加 content\movies.md</p>
+<h2 id="markdown语法增强">markdown语法增强</h2>
+<p>在 _custom.js 中添加如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl">	<span class="c1">// 获取所有 &lt;blockquote&gt; 元素下的 &lt;p&gt; 元素
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kr">const</span> <span class="nx">blockquotePs</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;blockquote p&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 遍历每个 &lt;p&gt; 元素
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">blockquotePs</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">item</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="kd">let</span> <span class="nx">_innerHtml</span> <span class="o">=</span> <span class="nx">item</span><span class="p">.</span><span class="nx">innerHTML</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 检查是否以 &#39;::&#39; 开头
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">if</span> <span class="p">(</span><span class="nx">_innerHtml</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;::&#39;</span><span class="p">)</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">// 设置父节点的 class 为 &#39;oh-essay&#39;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nx">item</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="s1">&#39;oh-essay&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="c1">// 将当前 &lt;p&gt; 元素替换为包含在 &lt;div&gt; 中的内容
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nx">item</span><span class="p">.</span><span class="nx">outerHTML</span> <span class="o">=</span> <span class="sb">`&lt;div&gt;</span><span class="si">${</span><span class="nx">_innerHtml</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="sb">&lt;/div&gt;`</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在  _custom.scss 中添加如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="nc">.oh-essay</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">&amp;</span><span class="nd">:before</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="na">content</span><span class="o">:</span> <span class="s1">&#39;💭&#39;</span><span class="p">;</span> 		<span class="c1">//&#39;💭&#39;; //&#39;💬&#39;; //&#39;🗨️&#39;;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="na">float</span><span class="o">:</span> <span class="ni">left</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">padding-right</span><span class="o">:</span> <span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="na">background</span><span class="o">:</span> <span class="mh">#cccfd4</span><span class="mi">65</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这样当输入 <code>&gt;::</code> 的时候显示如下：</p>
+<blockquote>
+<p>::注意</p>
+</blockquote>
+<h2 id="添加notice表情包">添加notice表情包</h2>
+<p>在 shortcodes 文件夹下添加 notice.html ，内容如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">image-emoji</span> <span class="nt">img</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">display</span><span class="p">:</span> <span class="kc">inline</span> <span class="cp">!important</span><span class="p">;</span>	
+</span></span><span class="line"><span class="cl">  <span class="err">//</span><span class="k">vertical-align</span><span class="p">:</span> <span class="kc">middle</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">-5</span><span class="kt">px</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;image-emoji&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;/emoji/notice.gif&#34;</span> <span class="na">title</span><span class="o">=</span><span class="s">&#34;ablobcouncil&#34;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&#34;ablobcouncil&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;28px&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;auto&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  {{.Inner}}
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>效果：<style>
+.image-emoji img {
+  display: inline !important;	
+  
+  margin: 0 0 -5px 0;
+}
+</style>
+<span class="image-emoji">
+  <img src="/emoji/notice.gif" title="ablobcouncil" alt="ablobcouncil" width="28px" height="auto">
+  
+</span>
+ 注意事项</p>
+
     </article>
     
     
@@ -5059,6 +5667,10 @@ document.addEventListener('DOMContentLoaded', function () {
     <li><a href="#修改手机下的显示问题">修改手机下的显示问题</a></li>
     <li><a href="#一些可能用到的-css">一些可能用到的 css</a></li>
     <li><a href="#添加about页面标签墙">添加about页面（标签墙）</a></li>
+    <li><a href="#添加强调-shortcode">添加强调 shortcode</a></li>
+    <li><a href="#插入豆瓣电影页">插入豆瓣电影页</a></li>
+    <li><a href="#markdown语法增强">markdown语法增强</a></li>
+    <li><a href="#添加notice表情包">添加notice表情包</a></li>
   </ul>
 </nav>
         </div>

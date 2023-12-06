@@ -11,7 +11,7 @@
   
   
     
-    <script defer src="/js/_custom.min.dd77c39bc0289d18a2e9e3308fe0c6ad75ddf9646c32877b5209bed734f14363.js"></script>
+    <script defer src="/js/_custom.min.62f028687da178a68dd5e96ac23cb5b0eb4acb160e076ef186096e3c749e6fee.js"></script>
   
 
   
@@ -687,7 +687,7 @@
     
     var searchResultPosition = JSON.parse("\"main\"");
     
-    var sectionType = JSON.parse("\"page\"");
+    var sectionType = JSON.parse("\"tags-wall\"");
     
     var kind = JSON.parse("\"page\"");
     
@@ -1375,7 +1375,7 @@
 <meta property="og:type" content="article">
 <meta property="og:description" content="The Zzo theme for Hugo example site.">
 
-<meta name="generator" content="Hugo 0.120.4">
+<meta name="generator" content="Hugo 0.121.0">
 <meta name="msapplication-TileColor" content="#fff">
 
 <meta name="theme-color" content="#fff">
@@ -1454,7 +1454,7 @@
 
 
 
-        <div class="wrapper" data-type="page" data-kind="page">
+        <div class="wrapper" data-type="tags-wall" data-kind="page">
             <nav class="navbar scrolling" role="navigation" aria-label="main navigation" data-dir="ltr">
   <div class="navbar__brand">
     
@@ -1550,32 +1550,26 @@
 
       
         <li class="navbarm__menu--item ">
-          <a href="/zh/categories">Categories</a>
+          <a href="/zh/#">
+            Taxonomies
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M8.12 9.29L12 13.17l3.88-3.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-4.59 4.59c-.39.39-1.02.39-1.41 0L6.7 10.7c-.39-.39-.39-1.02 0-1.41.39-.38 1.03-.39 1.42 0z"/></svg>
+          </a>
         </li>
-      
-      
-    
-      
-      
-      
-      
 
-      
-        <li class="navbarm__menu--item ">
-          <a href="/zh/tags">Tags</a>
-        </li>
-      
-      
-    
-      
-      
-      
-      
+        
+          <li class="navbarm__menu--item navbarm__menu--subitem">
+            <a href="/zh/categories">Categories</a>
+          </li>
+        
+          <li class="navbarm__menu--item navbarm__menu--subitem">
+            <a href="/zh/series">series</a>
+          </li>
+        
+          <li class="navbarm__menu--item navbarm__menu--subitem">
+            <a href="/zh/tags">tags</a>
+          </li>
+        
 
-      
-        <li class="navbarm__menu--item ">
-          <a href="/zh/series">Series</a>
-        </li>
       
       
     
@@ -1587,6 +1581,18 @@
       
         <li class="navbarm__menu--item ">
           <a href="/zh/showcase">Showcase</a>
+        </li>
+      
+      
+    
+      
+      
+      
+      
+
+      
+        <li class="navbarm__menu--item active">
+          <a href="/zh/tags-wall">About</a>
         </li>
       
       
@@ -1647,23 +1653,22 @@
   
   
   
-  <a href="/zh/categories" class="navbar__menu-item navbar__slide-down " dir="ltr" data-ani="true">Categories</a>
-  
-  
-  
-  
-  
-  
-  
-  <a href="/zh/tags" class="navbar__menu-item navbar__slide-down " dir="ltr" data-ani="true">Tags</a>
-  
-  
-  
-  
-  
-  
-  
-  <a href="/zh/series" class="navbar__menu-item navbar__slide-down " dir="ltr" data-ani="true">Series</a>
+  <div class="navbar__dropdown navbar__slide-down" data-ani="true">
+    <a href="/zh/#" class="navbar__menu-item "
+      dir="ltr">
+      Taxonomies
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M8.12 9.29L12 13.17l3.88-3.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-4.59 4.59c-.39.39-1.02.39-1.41 0L6.7 10.7c-.39-.39-.39-1.02 0-1.41.39-.38 1.03-.39 1.42 0z"/></svg>
+    </a>
+    <div class="navbar__dropdown--content">
+      
+      <a href="/zh/categories" class="navbar__dropdown--item" dir="ltr">Categories</a>
+      
+      <a href="/zh/series" class="navbar__dropdown--item" dir="ltr">series</a>
+      
+      <a href="/zh/tags" class="navbar__dropdown--item" dir="ltr">tags</a>
+      
+    </div>
+  </div>
   
   
   
@@ -1672,6 +1677,14 @@
   
   
   <a href="/zh/showcase" class="navbar__menu-item navbar__slide-down " dir="ltr" data-ani="true">Showcase</a>
+  
+  
+  
+  
+  
+  
+  
+  <a href="/zh/tags-wall" class="navbar__menu-item navbar__slide-down active" dir="ltr" data-ani="true">About</a>
   
   
 </div>
@@ -1869,19 +1882,6 @@
   <script>document.querySelector('.wrapper__right').classList.remove('hide')</script>
   
     
-      
-        <div class="toc__flexbox--outer" data-position="fixed" data-dir="ltr" data-ani="true">
-          <h6 class="toc__title toc__title--outer" data-ani="true">目录</h6>
-          
-          <label class="switch" data-ani="true">
-            <input id="visible-toc" aria-label="Visible TOC" type="checkbox" >
-            <span class="slider round"></span>
-          </label>
-          
-        </div>
-        <div class="toc toc__outer hide" data-dir="ltr" data-folding="true" data-ani="true">
-          <nav id="TableOfContents"></nav>
-        </div>
       
     
   
