@@ -74,7 +74,8 @@ function decryption(password) {
         let htmlText =  marked.parse(plaintext);
         verificationElement.insertAdjacentHTML('afterend', htmlText);
         if (localStorage.getItem(title) !==password)localStorage.setItem(title, password);
-    }).catch(error => {
+        location.reload();    
+	}).catch(error => {
         alert("Incorrect password. Please try again.");
         console.error("Failed to decrypt",error);
     });
