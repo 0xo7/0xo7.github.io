@@ -78,6 +78,8 @@ function decryption(password) {
 
         // 手动执行插入的 JavaScript 代码
         executeInsertedScripts(verificationElement);
+		    location.reload(true); // 参数为 true 表示强制从服务器重新加载页面
+
         
         if (localStorage.getItem(title) !== password) localStorage.setItem(title, password);
     }).catch(error => {
