@@ -1,4 +1,3 @@
-let decryptionSuccess = false; // 新增的标志
 
 async function AESDecrypt(cipher, password) {
     let parts = cipher.split("|");
@@ -66,39 +65,47 @@ function checkPassword() {
     const password = passwordInput.value;
     decryption(password)
 }
-// 解密函数
-async function decryption(password) {
+function decryption(password) {
     let secretElement = document.getElementById('secret');
     let ciphertext = secretElement.innerText;
 
-    try {
-        const plaintext = await AESDecrypt(ciphertext, password);
-
+    AESDecrypt(ciphertext, password).then(plaintext => {
         document.getElementById("verification").style.display = "none";
         let verificationElement = document.getElementById('verification');
         let htmlText = marked.parse(plaintext);
         verificationElement.insertAdjacentHTML('afterend', htmlText);
 
+        if (localStorage.getItem(title) !== password) {
+            localStorage.setItem(title, password);
+        }
+
         // 手动执行插入的 JavaScript 代码
         executeInsertedScripts(verificationElement);
 
-        // 设置解密成功的标志
-        decryptionSuccess = true;
-
-        if (localStorage.getItem(title) !== password) localStorage.setItem(title, password);
-
-        // 在所有解密成功后进行一次页面重载
-        reloadPageIfNeeded();
-
-    } catch (error) {
+        // 在所有解密成功后执行页面重载
+        reloadPage();
+    }).catch(error => {
         alert("Incorrect password. Please try again.");
         console.error("Failed to decrypt", error);
-    }
+    });
 }
 
-// 新增的检查是否重载页面的函数
-function reloadPageIfNeeded() {
-    if (decryptionSuccess) {
-        location.reload(true); // 参数为 true 表示强制从服务器重新加载页面
+function reloadPage() {
+    // 参数为 true 表示强制从服务器重新加载页面
+    location.reload(true);
+}
+
+function executeInsertedScripts(parentElement) {
+    // 获取所有插入的 <script> 标签
+    const scriptElements = parentElement.getElementsByTagName('script');
+
+    // 遍历执行每个 <script> 标签中的代码
+    for (let script of scriptElements) {
+        const scriptContent = script.textContent || script.innerText;
+        if (scriptContent) {
+            // 使用 Function 构造函数执行代码
+            const scriptFunction = new Function(scriptContent);
+            scriptFunction();
+        }
     }
 }
