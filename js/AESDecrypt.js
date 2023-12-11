@@ -72,36 +72,12 @@ function decryption(password) {
     AESDecrypt(ciphertext, password).then(plaintext => {
         document.getElementById("verification").style.display = "none";
         let verificationElement = document.getElementById('verification');
-        let htmlText = marked.parse(plaintext);
-        verificationElement.insertAdjacentHTML('afterend', htmlText);
-
-        // 手动执行插入的脚本
-        executeScriptsInHTML(verificationElement);
-
-        if (localStorage.getItem(title) !== password) localStorage.setItem(title, password);
+        let htmlText =  marked.parse(plaintext);
+        verificationElement.innerHTML = htmlText;
+        if (localStorage.getItem(title) !==password)localStorage.setItem(title, password);
     }).catch(error => {
         alert("Incorrect password. Please try again.");
-        console.error("Failed to decrypt", error);
+        console.error("Failed to decrypt",error);
     });
 }
 
-function executeScriptsInHTML(element) {
-    // 获取所有在插入的HTML中的script标签
-    const scripts = element.getElementsByTagName('script');
-    
-    // 遍历执行每个script标签的内容
-    for (let i = 0; i < scripts.length; i++) {
-        const script = scripts[i];
-        const scriptContent = script.textContent || script.innerText;
-        const newScript = document.createElement('script');
-        
-        // 将script标签的内容复制到新创建的script标签中
-        newScript.text = scriptContent;
-        
-        // 将新script标签插入到页面中
-        document.head.appendChild(newScript);
-        
-        // 移除原script标签，避免重复执行
-        script.parentNode.removeChild(script);
-    }
-}
