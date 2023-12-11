@@ -83,12 +83,9 @@ function decryption(password) {
 
         // 遍历script元素，将其内容插入到页面并执行
         scriptElements.forEach(script => {
-            try {
-                // 使用eval执行JavaScript代码
-                eval(script.textContent);
-            } catch (e) {
-                console.error("Failed to execute script:", e);
-            }
+            let newScript = document.createElement('script');
+            newScript.textContent = script.textContent;
+            document.head.appendChild(newScript).parentNode.removeChild(newScript);
         });
 
         // 将包裹的HTML内容插入到页面中
