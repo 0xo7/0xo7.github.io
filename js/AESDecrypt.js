@@ -65,36 +65,32 @@ function checkPassword() {
     const password = passwordInput.value;
     decryption(password)
 }
+// 解密函数
 function decryption(password) {
     let secretElement = document.getElementById('secret');
     let ciphertext = secretElement.innerText;
 
+    // 调用解密函数，解密后将结果渲染到页面
     AESDecrypt(ciphertext, password).then(plaintext => {
         document.getElementById("verification").style.display = "none";
         let verificationElement = document.getElementById('verification');
         let htmlText = marked.parse(plaintext);
 
-        // 创建一个div元素，用于包裹解密后的HTML内容
-        let wrapperDiv = document.createElement('div');
-        wrapperDiv.innerHTML = htmlText;
+        // 创建一个div元素，并将HTML文本插入其中
+        let tempDiv = document.createElement('div');
+        tempDiv.innerHTML = htmlText;
 
-        // 获取包裹的script元素
-        let scriptElements = wrapperDiv.querySelectorAll('script');
-
-        // 遍历script元素，将其内容插入到页面并执行
-        scriptElements.forEach(script => {
-            let newScript = document.createElement('script');
-            newScript.textContent = script.textContent;
-            document.head.appendChild(newScript).parentNode.removeChild(newScript);
-        });
-
-        // 将包裹的HTML内容插入到页面中
-        verificationElement.insertAdjacentElement('afterend', wrapperDiv);
+        // 将div中的所有子元素（包括可能存在的<script>元素）追加到verificationElement中
+        while (tempDiv.firstChild) {
+            verificationElement.appendChild(tempDiv.firstChild);
+        }
 
         // 如果密码正确，将密码存储到本地存储中
         if (localStorage.getItem(title) !== password) localStorage.setItem(title, password);
     }).catch(error => {
+        // 如果解密失败，弹出错误提示
         alert("Incorrect password. Please try again.");
         console.error("Failed to decrypt", error);
     });
 }
+
