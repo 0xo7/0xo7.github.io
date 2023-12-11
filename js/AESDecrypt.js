@@ -69,28 +69,39 @@ function checkPassword() {
 function decryption(password) {
     let secretElement = document.getElementById('secret');
     let ciphertext = secretElement.innerText;
-
-    // 调用解密函数，解密后将结果渲染到页面
     AESDecrypt(ciphertext, password).then(plaintext => {
         document.getElementById("verification").style.display = "none";
         let verificationElement = document.getElementById('verification');
         let htmlText = marked.parse(plaintext);
+        verificationElement.insertAdjacentHTML('afterend', htmlText);
 
-        // 创建一个div元素，并将HTML文本插入其中
-        let tempDiv = document.createElement('div');
-        tempDiv.innerHTML = htmlText;
+        // 手动执行插入的脚本
+        executeScriptsInHTML(verificationElement);
 
-        // 将div中的所有子元素（包括可能存在的<script>元素）追加到verificationElement中
-        while (tempDiv.firstChild) {
-            verificationElement.appendChild(tempDiv.firstChild);
-        }
-
-        // 如果密码正确，将密码存储到本地存储中
         if (localStorage.getItem(title) !== password) localStorage.setItem(title, password);
     }).catch(error => {
-        // 如果解密失败，弹出错误提示
         alert("Incorrect password. Please try again.");
         console.error("Failed to decrypt", error);
     });
 }
 
+function executeScriptsInHTML(element) {
+    // 获取所有在插入的HTML中的script标签
+    const scripts = element.getElementsByTagName('script');
+    
+    // 遍历执行每个script标签的内容
+    for (let i = 0; i < scripts.length; i++) {
+        const script = scripts[i];
+        const scriptContent = script.textContent || script.innerText;
+        const newScript = document.createElement('script');
+        
+        // 将script标签的内容复制到新创建的script标签中
+        newScript.text = scriptContent;
+        
+        // 将新script标签插入到页面中
+        document.head.appendChild(newScript);
+        
+        // 移除原script标签，避免重复执行
+        script.parentNode.removeChild(script);
+    }
+}
