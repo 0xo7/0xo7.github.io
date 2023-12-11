@@ -69,15 +69,34 @@ function checkPassword() {
 function decryption(password) {
     let secretElement = document.getElementById('secret');
     let ciphertext = secretElement.innerText;
+
     AESDecrypt(ciphertext, password).then(plaintext => {
         document.getElementById("verification").style.display = "none";
         let verificationElement = document.getElementById('verification');
-        let htmlText =  marked.parse(plaintext);
-        verificationElement.innerHTML = htmlText;
-        if (localStorage.getItem(title) !==password)localStorage.setItem(title, password);
+        let htmlText = marked.parse(plaintext);
+        verificationElement.insertAdjacentHTML('afterend', htmlText);
+
+        // 手动执行插入的 JavaScript 代码
+        executeInsertedScripts(verificationElement);
+        
+        if (localStorage.getItem(title) !== password) localStorage.setItem(title, password);
     }).catch(error => {
         alert("Incorrect password. Please try again.");
-        console.error("Failed to decrypt",error);
+        console.error("Failed to decrypt", error);
     });
 }
 
+function executeInsertedScripts(parentElement) {
+    // 获取所有插入的 <script> 标签
+    const scriptElements = parentElement.getElementsByTagName('script');
+
+    // 遍历执行每个 <script> 标签中的代码
+    for (let script of scriptElements) {
+        const scriptContent = script.textContent || script.innerText;
+        if (scriptContent) {
+            // 使用 Function 构造函数执行代码
+            const scriptFunction = new Function(scriptContent);
+            scriptFunction();
+        }
+    }
+}
