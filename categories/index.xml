@@ -1,0 +1,47 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Categories - 分类 - nUllo&#39;s Blog</title>
+    <link>http://example.org/categories/</link>
+    <description>Categories - 分类 - nUllo&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 20 Sep 2023 18:48:31 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/" rel="self" type="application/rss+xml" /><item>
+  <title>draft</title>
+  <link>http://example.org/categories/draft/</link>
+  <pubDate>Wed, 20 Sep 2023 18:48:31 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>http://example.org/categories/draft/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>基础配置</title>
+  <link>http://example.org/categories/%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/</link>
+  <pubDate>Fri, 10 Mar 2023 12:46:17 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>http://example.org/categories/%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>内网安全</title>
+  <link>http://example.org/categories/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/</link>
+  <pubDate>Mon, 12 Dec 2022 15:34:07 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>http://example.org/categories/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>权限提升</title>
+  <link>http://example.org/categories/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/</link>
+  <pubDate>Tue, 22 Nov 2022 19:45:23 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>http://example.org/categories/%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>Hugo</title>
+  <link>http://example.org/categories/hugo/</link>
+  <pubDate>Sat, 12 Nov 2022 12:01:03 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>http://example.org/categories/hugo/</guid>
+  <description><![CDATA[]]></description>
+</item>
+</channel>
+</rss>
