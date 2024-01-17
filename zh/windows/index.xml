@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" 
+  xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/" 
+  xmlns:atom="http://www.w3.org/2005/Atom" 
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Windows on ayuxy&#39;s blog</title>
+    <link>https://ayuxy.github.io/zh/windows/</link>
+    <description>Recent content in Windows on ayuxy&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <managingEditor>1714132614@qq.com (ayuxy)</managingEditor>
+    <webMaster>1714132614@qq.com (ayuxy)</webMaster>
+    <copyright>©2024, All Rights Reserved</copyright>
+    <lastBuildDate>Wed, 27 Dec 2023 11:32:00 +0800</lastBuildDate>
+    
+        <atom:link href="https://ayuxy.github.io/zh/windows/index.xml" rel="self" type="application/rss+xml" />
+    
+
+      
+      <item>
+        <title>Windows钩子</title>
+        <link>https://ayuxy.github.io/zh/windows/2023-1227-01/</link>
+        <pubDate>Wed, 27 Dec 2023 11:32:00 +0800</pubDate>
+        <author>1714132614@qq.com (ayuxy)</author>
+        <atom:modified>Wed, 27 Dec 2023 11:32:00 +0800</atom:modified>
+        <guid>https://ayuxy.github.io/zh/windows/2023-1227-01/</guid>
+        <description></description>
+        
+        <dc:creator>ayuxy</dc:creator>
+        <media:content url="https://ayuxy.github.io/images/feature/gouzi.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>HOOK</category>
+            
+          
+        
+        
+          
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>一些API函数</title>
+        <link>https://ayuxy.github.io/zh/windows/2023-1226-01/</link>
+        <pubDate>Tue, 26 Dec 2023 10:25:38 +0800</pubDate>
+        <author>1714132614@qq.com (ayuxy)</author>
+        <atom:modified>Tue, 26 Dec 2023 10:25:38 +0800</atom:modified>
+        <guid>https://ayuxy.github.io/zh/windows/2023-1226-01/</guid>
+        <description></description>
+        
+        <dc:creator>ayuxy</dc:creator>
+        <media:content url="https://ayuxy.github.io/images/feature/api.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>windows_api</category>
+            
+          
+        
+        
+          
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+
+    
+  </channel>
+</rss>

@@ -13,7 +13,8 @@
     <language>zh</language>
     <managingEditor>1714132614@qq.com (ayuxy)</managingEditor>
     <webMaster>1714132614@qq.com (ayuxy)</webMaster>
-    <copyright>©2023, All Rights Reserved</copyright>
+    <copyright>©2024, All Rights Reserved</copyright>
+    <lastBuildDate>Mon, 20 Nov 2023 18:54:24 +0800</lastBuildDate>
     
         <atom:link href="https://ayuxy.github.io/zh/asm/index.xml" rel="self" type="application/rss+xml" />
     
@@ -22,14 +23,14 @@
       <item>
         <title>🗂️  8086 汇编</title>
         <link>https://ayuxy.github.io/zh/asm/8086/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        <pubDate>Mon, 20 Nov 2023 18:54:24 +0800</pubDate>
         <author>1714132614@qq.com (ayuxy)</author>
         
         <guid>https://ayuxy.github.io/zh/asm/8086/</guid>
         <description></description>
         
         <dc:creator>ayuxy</dc:creator>
-        <media:content url="https://ayuxy.github.io/images/folder.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        <media:content url="https://ayuxy.github.io/images/feature/folder.png" medium="image"><media:title type="html">featured image</media:title></media:content>
         
         
         

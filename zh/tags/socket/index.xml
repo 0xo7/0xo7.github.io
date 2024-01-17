@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" 
+  xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/" 
+  xmlns:atom="http://www.w3.org/2005/Atom" 
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>socket on ayuxy&#39;s blog</title>
+    <link>https://ayuxy.github.io/zh/tags/socket/</link>
+    <description>Recent content in socket on ayuxy&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <managingEditor>1714132614@qq.com (ayuxy)</managingEditor>
+    <webMaster>1714132614@qq.com (ayuxy)</webMaster>
+    <copyright>©2024, All Rights Reserved</copyright>
+    <lastBuildDate>Tue, 26 Dec 2023 10:38:03 +0800</lastBuildDate>
+    
+        <atom:link href="https://ayuxy.github.io/zh/tags/socket/index.xml" rel="self" type="application/rss+xml" />
+    
+
+      
+      <item>
+        <title>socket编程</title>
+        <link>https://ayuxy.github.io/zh/c/2023-1226-01/</link>
+        <pubDate>Tue, 26 Dec 2023 10:38:03 +0800</pubDate>
+        <author>1714132614@qq.com (ayuxy)</author>
+        <atom:modified>Tue, 26 Dec 2023 10:38:03 +0800</atom:modified>
+        <guid>https://ayuxy.github.io/zh/c/2023-1226-01/</guid>
+        <description></description>
+        
+        <dc:creator>ayuxy</dc:creator>
+        <media:content url="https://ayuxy.github.io/images/feature/socket.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>socket</category>
+            
+          
+        
+        
+          
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+
+    
+  </channel>
+</rss>

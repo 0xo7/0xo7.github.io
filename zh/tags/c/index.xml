@@ -13,24 +13,24 @@
     <language>zh</language>
     <managingEditor>1714132614@qq.com (ayuxy)</managingEditor>
     <webMaster>1714132614@qq.com (ayuxy)</webMaster>
-    <copyright>©2023, All Rights Reserved</copyright>
-    <lastBuildDate>Mon, 20 Nov 2023 21:53:24 +0800</lastBuildDate>
+    <copyright>©2024, All Rights Reserved</copyright>
+    <lastBuildDate>Thu, 26 Jan 2023 09:49:40 +0800</lastBuildDate>
     
         <atom:link href="https://ayuxy.github.io/zh/tags/c/index.xml" rel="self" type="application/rss+xml" />
     
 
       
       <item>
-        <title>进程遍历 | 内存补丁 | win32 api调试</title>
-        <link>https://ayuxy.github.io/zh/c/2023-1128-01/</link>
-        <pubDate>Mon, 20 Nov 2023 21:53:24 +0800</pubDate>
+        <title>C语言基础</title>
+        <link>https://ayuxy.github.io/zh/c/2023-0126-01/</link>
+        <pubDate>Thu, 26 Jan 2023 09:49:40 +0800</pubDate>
         <author>1714132614@qq.com (ayuxy)</author>
-        <atom:modified>Mon, 20 Nov 2023 21:53:24 +0800</atom:modified>
-        <guid>https://ayuxy.github.io/zh/c/2023-1128-01/</guid>
+        <atom:modified>Thu, 26 Jan 2023 09:49:40 +0800</atom:modified>
+        <guid>https://ayuxy.github.io/zh/c/2023-0126-01/</guid>
         <description></description>
         
         <dc:creator>ayuxy</dc:creator>
-        <media:content url="https://ayuxy.github.io/images/coding.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        <media:content url="https://ayuxy.github.io/images/feature/c.png" medium="image"><media:title type="html">featured image</media:title></media:content>
         
         
         
