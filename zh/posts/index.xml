@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" 
+  xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/" 
+  xmlns:atom="http://www.w3.org/2005/Atom" 
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Posts on 0xo7&#39;s blog</title>
+    <link>https://0xo7.github.io/zh/posts/</link>
+    <description>Recent content in Posts on 0xo7&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <managingEditor>1714132614@qq.com (0xo7)</managingEditor>
+    <webMaster>1714132614@qq.com (0xo7)</webMaster>
+    <copyright>©2024, All Rights Reserved</copyright>
+    <lastBuildDate>Sat, 27 Apr 2024 20:52:09 +0800</lastBuildDate>
+    
+        <atom:link href="https://0xo7.github.io/zh/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+
+      
+      <item>
+        <title>PE文件结构</title>
+        <link>https://0xo7.github.io/zh/posts/2024-0427-01/</link>
+        <pubDate>Sat, 27 Apr 2024 20:52:09 +0800</pubDate>
+        <author>1714132614@qq.com (0xo7)</author>
+        <atom:modified>Sat, 27 Apr 2024 20:52:09 +0800</atom:modified>
+        <guid>https://0xo7.github.io/zh/posts/2024-0427-01/</guid>
+        <description></description>
+        
+        <dc:creator>0xo7</dc:creator>
+        <media:content url="https://0xo7.github.io/images/feature/pe.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+          
+        
+        
+          
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>指针从1到0</title>
+        <link>https://0xo7.github.io/zh/posts/2024-0418-01/</link>
+        <pubDate>Thu, 18 Apr 2024 21:32:56 +0800</pubDate>
+        <author>1714132614@qq.com (0xo7)</author>
+        <atom:modified>Thu, 18 Apr 2024 21:32:56 +0800</atom:modified>
+        <guid>https://0xo7.github.io/zh/posts/2024-0418-01/</guid>
+        <description></description>
+        
+        <dc:creator>0xo7</dc:creator>
+        <media:content url="https://0xo7.github.io/images/feature/c.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>指针</category>
+            
+          
+        
+        
+          
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Rayder 代码重构</title>
+        <link>https://0xo7.github.io/zh/posts/2024-0416-01/</link>
+        <pubDate>Tue, 16 Apr 2024 20:47:07 +0800</pubDate>
+        <author>1714132614@qq.com (0xo7)</author>
+        <atom:modified>Tue, 16 Apr 2024 20:47:07 +0800</atom:modified>
+        <guid>https://0xo7.github.io/zh/posts/2024-0416-01/</guid>
+        <description></description>
+        
+        <dc:creator>0xo7</dc:creator>
+        <media:content url="https://0xo7.github.io/images/feature/rayder.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+          
+        
+        
+          
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>WireGuard VPN</title>
+        <link>https://0xo7.github.io/zh/posts/2024-0414-01/</link>
+        <pubDate>Sun, 14 Apr 2024 13:32:02 +0800</pubDate>
+        <author>1714132614@qq.com (0xo7)</author>
+        <atom:modified>Sun, 14 Apr 2024 13:32:02 +0800</atom:modified>
+        <guid>https://0xo7.github.io/zh/posts/2024-0414-01/</guid>
+        <description></description>
+        
+        <dc:creator>0xo7</dc:creator>
+        <media:content url="https://0xo7.github.io/images/feature/vpn.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+          
+        
+        
+          
+            
+          
+        
+        
+          
+            
+              <category>企业建设</category>
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>水坑攻击</title>
+        <link>https://0xo7.github.io/zh/posts/2024-0407-01/</link>
+        <pubDate>Sun, 07 Apr 2024 19:07:57 +0800</pubDate>
+        <author>1714132614@qq.com (0xo7)</author>
+        <atom:modified>Sun, 07 Apr 2024 19:07:57 +0800</atom:modified>
+        <guid>https://0xo7.github.io/zh/posts/2024-0407-01/</guid>
+        <description></description>
+        
+        <dc:creator>0xo7</dc:creator>
+        <media:content url="https://0xo7.github.io/images/feature/bait.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>phishing</category>
+            
+          
+            
+              <category>todo</category>
+            
+          
+        
+        
+          
+            
+          
+        
+        
+          
+            
+              <category>钓鱼研究</category>
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>邮件钓鱼</title>
+        <link>https://0xo7.github.io/zh/posts/2024-0208-01/</link>
+        <pubDate>Thu, 08 Feb 2024 09:36:17 +0800</pubDate>
+        <author>1714132614@qq.com (0xo7)</author>
+        <atom:modified>Thu, 08 Feb 2024 09:36:17 +0800</atom:modified>
+        <guid>https://0xo7.github.io/zh/posts/2024-0208-01/</guid>
+        <description></description>
+        
+        <dc:creator>0xo7</dc:creator>
+        <media:content url="https://0xo7.github.io/images/feature/phishing.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>phishing</category>
+            
+          
+        
+        
+          
+            
+          
+        
+        
+          
+            
+              <category>钓鱼研究</category>
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Windows钩子</title>
+        <link>https://0xo7.github.io/zh/posts/2023-1227-01/</link>
+        <pubDate>Wed, 27 Dec 2023 11:32:00 +0800</pubDate>
+        <author>1714132614@qq.com (0xo7)</author>
+        <atom:modified>Wed, 27 Dec 2023 11:32:00 +0800</atom:modified>
+        <guid>https://0xo7.github.io/zh/posts/2023-1227-01/</guid>
+        <description></description>
+        
+        <dc:creator>0xo7</dc:creator>
+        <media:content url="https://0xo7.github.io/images/feature/hook.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>HOOK</category>
+            
+          
+        
+        
+          
+            
+              <category>Hook合集</category>
+            
+          
+        
+        
+          
+            
+              <category>一期培训</category>
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>32位DLL注入</title>
+        <link>https://0xo7.github.io/zh/posts/2023-1223-02/</link>
+        <pubDate>Sat, 23 Dec 2023 22:17:02 +0800</pubDate>
+        <author>1714132614@qq.com (0xo7)</author>
+        <atom:modified>Sat, 23 Dec 2023 22:17:02 +0800</atom:modified>
+        <guid>https://0xo7.github.io/zh/posts/2023-1223-02/</guid>
+        <description></description>
+        
+        <dc:creator>0xo7</dc:creator>
+        <media:content url="https://0xo7.github.io/images/feature/dll.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>DLL注入</category>
+            
+          
+        
+        
+          
+            
+          
+        
+        
+          
+            
+              <category>一期培训</category>
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>VS2019 安装 VAX 插件</title>
+        <link>https://0xo7.github.io/zh/posts/2023-1223-01/</link>
+        <pubDate>Sat, 23 Dec 2023 13:55:46 +0800</pubDate>
+        <author>1714132614@qq.com (0xo7)</author>
+        <atom:modified>Sat, 23 Dec 2023 13:55:46 +0800</atom:modified>
+        <guid>https://0xo7.github.io/zh/posts/2023-1223-01/</guid>
+        <description></description>
+        
+        <dc:creator>0xo7</dc:creator>
+        <media:content url="https://0xo7.github.io/images/feature/visual-studio.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>vs2019</category>
+            
+          
+        
+        
+          
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>进程遍历 | 内存补丁 | win32 api调试</title>
+        <link>https://0xo7.github.io/zh/posts/2023-1120-02/</link>
+        <pubDate>Mon, 20 Nov 2023 21:53:24 +0800</pubDate>
+        <author>1714132614@qq.com (0xo7)</author>
+        <atom:modified>Mon, 20 Nov 2023 21:53:24 +0800</atom:modified>
+        <guid>https://0xo7.github.io/zh/posts/2023-1120-02/</guid>
+        <description></description>
+        
+        <dc:creator>ayuxy</dc:creator>
+        <media:content url="https://0xo7.github.io/images/feature/coding.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>补丁</category>
+            
+          
+            
+              <category>进程遍历</category>
+            
+          
+            
+              <category>win32api调试</category>
+            
+          
+        
+        
+          
+            
+          
+        
+        
+          
+            
+              <category>一期培训</category>
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>稿定设计去水印</title>
+        <link>https://0xo7.github.io/zh/posts/2023-1005-01/</link>
+        <pubDate>Thu, 05 Oct 2023 18:36:18 +0800</pubDate>
+        <author>1714132614@qq.com (0xo7)</author>
+        <atom:modified>Thu, 05 Oct 2023 18:36:18 +0800</atom:modified>
+        <guid>https://0xo7.github.io/zh/posts/2023-1005-01/</guid>
+        <description></description>
+        
+        <dc:creator>0xo7</dc:creator>
+        <media:content url="https://0xo7.github.io/images/feature/design.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>windows_api</category>
+            
+          
+        
+        
+          
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+
+    
+  </channel>
+</rss>

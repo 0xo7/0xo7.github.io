@@ -2,137 +2,123 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://ayuxy.github.io/zh/showcase/hugo/siusiu-plus/</loc>
+    <loc>https://0xo7.github.io/zh/showcase/hugo/siusiu-plus/</loc>
     <lastmod>2020-01-19T21:13:42+09:00</lastmod>
   </url><url>
-    <loc>https://ayuxy.github.io/zh/showcase/hugo/hugo-theme-zdoc/</loc>
+    <loc>https://0xo7.github.io/zh/showcase/hugo/hugo-theme-zdoc/</loc>
     <lastmod>2020-01-19T21:13:42+09:00</lastmod>
   </url><url>
-    <loc>https://ayuxy.github.io/zh/</loc>
+    <loc>https://0xo7.github.io/zh/</loc>
+    <lastmod>2024-04-27T20:52:09+08:00</lastmod>
+  </url><url>
+    <loc>https://0xo7.github.io/zh/posts/2024-0427-01/</loc>
+    <lastmod>2024-04-27T20:52:09+08:00</lastmod>
+  </url><url>
+    <loc>https://0xo7.github.io/zh/posts/</loc>
+    <lastmod>2024-04-27T20:52:09+08:00</lastmod>
+  </url><url>
+    <loc>https://0xo7.github.io/zh/tags/</loc>
+    <lastmod>2024-04-18T21:32:56+08:00</lastmod>
+  </url><url>
+    <loc>https://0xo7.github.io/zh/tags/%E6%8C%87%E9%92%88/</loc>
+    <lastmod>2024-04-18T21:32:56+08:00</lastmod>
+  </url><url>
+    <loc>https://0xo7.github.io/zh/posts/2024-0418-01/</loc>
+    <lastmod>2024-04-18T21:32:56+08:00</lastmod>
+  </url><url>
+    <loc>https://0xo7.github.io/zh/posts/2024-0416-01/</loc>
+    <lastmod>2024-04-16T20:47:07+08:00</lastmod>
+  </url><url>
+    <loc>https://0xo7.github.io/zh/series/</loc>
+    <lastmod>2024-04-14T13:32:02+08:00</lastmod>
+  </url><url>
+    <loc>https://0xo7.github.io/zh/posts/2024-0414-01/</loc>
+    <lastmod>2024-04-14T13:32:02+08:00</lastmod>
+  </url><url>
+    <loc>https://0xo7.github.io/zh/series/%E4%BC%81%E4%B8%9A%E5%BB%BA%E8%AE%BE/</loc>
+    <lastmod>2024-04-14T13:32:02+08:00</lastmod>
+  </url><url>
+    <loc>https://0xo7.github.io/zh/tags/phishing/</loc>
+    <lastmod>2024-04-07T19:07:57+08:00</lastmod>
+  </url><url>
+    <loc>https://0xo7.github.io/zh/tags/todo/</loc>
+    <lastmod>2024-04-07T19:07:57+08:00</lastmod>
+  </url><url>
+    <loc>https://0xo7.github.io/zh/series/%E9%92%93%E9%B1%BC%E7%A0%94%E7%A9%B6/</loc>
+    <lastmod>2024-04-07T19:07:57+08:00</lastmod>
+  </url><url>
+    <loc>https://0xo7.github.io/zh/posts/2024-0407-01/</loc>
+    <lastmod>2024-04-07T19:07:57+08:00</lastmod>
+  </url><url>
+    <loc>https://0xo7.github.io/zh/posts/2024-0208-01/</loc>
+    <lastmod>2024-02-08T09:36:17+08:00</lastmod>
+  </url><url>
+    <loc>https://0xo7.github.io/zh/categories/</loc>
     <lastmod>2023-12-27T11:32:00+08:00</lastmod>
   </url><url>
-    <loc>https://ayuxy.github.io/zh/tags/hook/</loc>
+    <loc>https://0xo7.github.io/zh/tags/hook/</loc>
     <lastmod>2023-12-27T11:32:00+08:00</lastmod>
   </url><url>
-    <loc>https://ayuxy.github.io/zh/tags/</loc>
+    <loc>https://0xo7.github.io/zh/categories/hook%E5%90%88%E9%9B%86/</loc>
     <lastmod>2023-12-27T11:32:00+08:00</lastmod>
   </url><url>
-    <loc>https://ayuxy.github.io/zh/windows/</loc>
+    <loc>https://0xo7.github.io/zh/posts/2023-1227-01/</loc>
     <lastmod>2023-12-27T11:32:00+08:00</lastmod>
   </url><url>
-    <loc>https://ayuxy.github.io/zh/windows/2023-1227-01/</loc>
+    <loc>https://0xo7.github.io/zh/series/%E4%B8%80%E6%9C%9F%E5%9F%B9%E8%AE%AD/</loc>
     <lastmod>2023-12-27T11:32:00+08:00</lastmod>
   </url><url>
-    <loc>https://ayuxy.github.io/zh/tags/socket/</loc>
-    <lastmod>2023-12-26T10:38:03+08:00</lastmod>
-  </url><url>
-    <loc>https://ayuxy.github.io/zh/c/2023-1226-01/</loc>
-    <lastmod>2023-12-26T10:38:03+08:00</lastmod>
-  </url><url>
-    <loc>https://ayuxy.github.io/zh/c/</loc>
-    <lastmod>2023-12-26T10:38:03+08:00</lastmod>
-  </url><url>
-    <loc>https://ayuxy.github.io/zh/tags/windows_api/</loc>
-    <lastmod>2023-12-26T10:25:38+08:00</lastmod>
-  </url><url>
-    <loc>https://ayuxy.github.io/zh/windows/2023-1226-01/</loc>
-    <lastmod>2023-12-26T10:25:38+08:00</lastmod>
-  </url><url>
-    <loc>https://ayuxy.github.io/zh/c/2023-1223-01/</loc>
+    <loc>https://0xo7.github.io/zh/posts/2023-1223-02/</loc>
     <lastmod>2023-12-23T22:17:02+08:00</lastmod>
   </url><url>
-    <loc>https://ayuxy.github.io/zh/tags/dll%E6%B3%A8%E5%85%A5/</loc>
+    <loc>https://0xo7.github.io/zh/tags/dll%E6%B3%A8%E5%85%A5/</loc>
     <lastmod>2023-12-23T22:17:02+08:00</lastmod>
   </url><url>
-    <loc>https://ayuxy.github.io/zh/tags/vs2019/</loc>
+    <loc>https://0xo7.github.io/zh/tags/vs2019/</loc>
     <lastmod>2023-12-23T13:55:46+08:00</lastmod>
   </url><url>
-    <loc>https://ayuxy.github.io/zh/vsconfig/2023-1223-01/</loc>
+    <loc>https://0xo7.github.io/zh/posts/2023-1223-01/</loc>
     <lastmod>2023-12-23T13:55:46+08:00</lastmod>
   </url><url>
-    <loc>https://ayuxy.github.io/zh/vsconfig/</loc>
-    <lastmod>2023-12-23T13:55:46+08:00</lastmod>
-  </url><url>
-    <loc>https://ayuxy.github.io/zh/friendslink/</loc>
+    <loc>https://0xo7.github.io/zh/friendslink/</loc>
     <lastmod>2023-12-17T17:51:42+00:00</lastmod>
   </url><url>
-    <loc>https://ayuxy.github.io/zh/friends/</loc>
+    <loc>https://0xo7.github.io/zh/friends/</loc>
     <lastmod>2023-11-23T17:51:42+00:00</lastmod>
   </url><url>
-    <loc>https://ayuxy.github.io/zh/categories/</loc>
+    <loc>https://0xo7.github.io/zh/tags/win32api%E8%B0%83%E8%AF%95/</loc>
     <lastmod>2023-11-20T21:53:24+08:00</lastmod>
   </url><url>
-    <loc>https://ayuxy.github.io/zh/tools/2023-1120-01/</loc>
+    <loc>https://0xo7.github.io/zh/tags/%E8%A1%A5%E4%B8%81/</loc>
     <lastmod>2023-11-20T21:53:24+08:00</lastmod>
   </url><url>
-    <loc>https://ayuxy.github.io/zh/series/</loc>
+    <loc>https://0xo7.github.io/zh/tags/%E8%BF%9B%E7%A8%8B%E9%81%8D%E5%8E%86/</loc>
     <lastmod>2023-11-20T21:53:24+08:00</lastmod>
   </url><url>
-    <loc>https://ayuxy.github.io/zh/tags/tools/</loc>
+    <loc>https://0xo7.github.io/zh/posts/2023-1120-02/</loc>
     <lastmod>2023-11-20T21:53:24+08:00</lastmod>
   </url><url>
-    <loc>https://ayuxy.github.io/zh/tags/win32api%E8%B0%83%E8%AF%95/</loc>
-    <lastmod>2023-11-20T21:53:24+08:00</lastmod>
-  </url><url>
-    <loc>https://ayuxy.github.io/zh/tools/</loc>
-    <lastmod>2023-11-20T21:53:24+08:00</lastmod>
-  </url><url>
-    <loc>https://ayuxy.github.io/zh/tags/%E8%A1%A5%E4%B8%81/</loc>
-    <lastmod>2023-11-20T21:53:24+08:00</lastmod>
-  </url><url>
-    <loc>https://ayuxy.github.io/zh/series/%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2023-11-20T21:53:24+08:00</lastmod>
-  </url><url>
-    <loc>https://ayuxy.github.io/zh/categories/%E6%B5%8B%E8%AF%951/</loc>
-    <lastmod>2023-11-20T21:53:24+08:00</lastmod>
-  </url><url>
-    <loc>https://ayuxy.github.io/zh/tags/%E8%BF%9B%E7%A8%8B%E9%81%8D%E5%8E%86/</loc>
-    <lastmod>2023-11-20T21:53:24+08:00</lastmod>
-  </url><url>
-    <loc>https://ayuxy.github.io/zh/c/2023-1120-01/</loc>
-    <lastmod>2023-11-20T21:53:24+08:00</lastmod>
-  </url><url>
-    <loc>https://ayuxy.github.io/zh/tags/8086%E6%B1%87%E7%BC%96/</loc>
-    <lastmod>2023-11-20T18:54:24+08:00</lastmod>
-  </url><url>
-    <loc>https://ayuxy.github.io/zh/asm/8086/2023-1120-01/</loc>
-    <lastmod>2023-11-20T18:54:24+08:00</lastmod>
-  </url><url>
-    <loc>https://ayuxy.github.io/zh/asm/8086/</loc>
-    <lastmod>2023-11-20T18:54:24+08:00</lastmod>
-  </url><url>
-    <loc>https://ayuxy.github.io/zh/asm/</loc>
-    <lastmod>2023-11-20T18:54:24+08:00</lastmod>
-  </url><url>
-    <loc>https://ayuxy.github.io/zh/other/</loc>
+    <loc>https://0xo7.github.io/zh/tags/windows_api/</loc>
     <lastmod>2023-10-05T18:36:18+08:00</lastmod>
   </url><url>
-    <loc>https://ayuxy.github.io/zh/other/2023-1005-01/</loc>
+    <loc>https://0xo7.github.io/zh/posts/2023-1005-01/</loc>
     <lastmod>2023-10-05T18:36:18+08:00</lastmod>
   </url><url>
-    <loc>https://ayuxy.github.io/zh/tags/c/</loc>
-    <lastmod>2023-01-26T09:49:40+08:00</lastmod>
-  </url><url>
-    <loc>https://ayuxy.github.io/zh/c/2023-0126-01/</loc>
-    <lastmod>2023-01-26T09:49:40+08:00</lastmod>
-  </url><url>
-    <loc>https://ayuxy.github.io/zh/showcase/hugo/</loc>
+    <loc>https://0xo7.github.io/zh/showcase/hugo/</loc>
     <lastmod>2020-01-19T21:04:11+09:00</lastmod>
   </url><url>
-    <loc>https://ayuxy.github.io/zh/showcase/</loc>
+    <loc>https://0xo7.github.io/zh/showcase/</loc>
     <lastmod>2020-01-19T15:43:38+09:00</lastmod>
   </url><url>
-    <loc>https://ayuxy.github.io/zh/archive/</loc>
+    <loc>https://0xo7.github.io/zh/archive/</loc>
     <lastmod>2019-10-19T11:44:14+09:00</lastmod>
   </url><url>
-    <loc>https://ayuxy.github.io/zh/bibi/</loc>
+    <loc>https://0xo7.github.io/zh/bibi/</loc>
   </url><url>
-    <loc>https://ayuxy.github.io/zh/tags-wall/</loc>
+    <loc>https://0xo7.github.io/zh/tags-wall/</loc>
   </url><url>
-    <loc>https://ayuxy.github.io/zh/hugo/</loc>
+    <loc>https://0xo7.github.io/zh/bibi/bibi_page/</loc>
   </url><url>
-    <loc>https://ayuxy.github.io/zh/bibi/bibi_page/</loc>
-  </url><url>
-    <loc>https://ayuxy.github.io/zh/movies/</loc>
+    <loc>https://0xo7.github.io/zh/movies/</loc>
   </url>
 </urlset>

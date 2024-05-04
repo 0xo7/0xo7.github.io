@@ -6,31 +6,31 @@
   xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
-    <title>HOOK on ayuxy&#39;s blog</title>
-    <link>https://ayuxy.github.io/zh/tags/hook/</link>
-    <description>Recent content in HOOK on ayuxy&#39;s blog</description>
+    <title>HOOK on 0xo7&#39;s blog</title>
+    <link>https://0xo7.github.io/zh/tags/hook/</link>
+    <description>Recent content in HOOK on 0xo7&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <managingEditor>1714132614@qq.com (ayuxy)</managingEditor>
-    <webMaster>1714132614@qq.com (ayuxy)</webMaster>
+    <managingEditor>1714132614@qq.com (0xo7)</managingEditor>
+    <webMaster>1714132614@qq.com (0xo7)</webMaster>
     <copyright>©2024, All Rights Reserved</copyright>
     <lastBuildDate>Wed, 27 Dec 2023 11:32:00 +0800</lastBuildDate>
     
-        <atom:link href="https://ayuxy.github.io/zh/tags/hook/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://0xo7.github.io/zh/tags/hook/index.xml" rel="self" type="application/rss+xml" />
     
 
       
       <item>
         <title>Windows钩子</title>
-        <link>https://ayuxy.github.io/zh/windows/2023-1227-01/</link>
+        <link>https://0xo7.github.io/zh/posts/2023-1227-01/</link>
         <pubDate>Wed, 27 Dec 2023 11:32:00 +0800</pubDate>
-        <author>1714132614@qq.com (ayuxy)</author>
+        <author>1714132614@qq.com (0xo7)</author>
         <atom:modified>Wed, 27 Dec 2023 11:32:00 +0800</atom:modified>
-        <guid>https://ayuxy.github.io/zh/windows/2023-1227-01/</guid>
+        <guid>https://0xo7.github.io/zh/posts/2023-1227-01/</guid>
         <description></description>
         
-        <dc:creator>ayuxy</dc:creator>
-        <media:content url="https://ayuxy.github.io/images/feature/gouzi.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        <dc:creator>0xo7</dc:creator>
+        <media:content url="https://0xo7.github.io/images/feature/hook.png" medium="image"><media:title type="html">featured image</media:title></media:content>
         
         
         
@@ -43,10 +43,14 @@
         
           
             
+              <category>Hook合集</category>
+            
           
         
         
           
+            
+              <category>一期培训</category>
             
           
         

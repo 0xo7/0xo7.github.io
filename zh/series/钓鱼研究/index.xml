@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" 
+  xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/" 
+  xmlns:atom="http://www.w3.org/2005/Atom" 
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>钓鱼研究 on 0xo7&#39;s blog</title>
+    <link>https://0xo7.github.io/zh/series/%E9%92%93%E9%B1%BC%E7%A0%94%E7%A9%B6/</link>
+    <description>Recent content in 钓鱼研究 on 0xo7&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <managingEditor>1714132614@qq.com (0xo7)</managingEditor>
+    <webMaster>1714132614@qq.com (0xo7)</webMaster>
+    <copyright>©2024, All Rights Reserved</copyright>
+    <lastBuildDate>Sun, 07 Apr 2024 19:07:57 +0800</lastBuildDate>
+    
+        <atom:link href="https://0xo7.github.io/zh/series/%E9%92%93%E9%B1%BC%E7%A0%94%E7%A9%B6/index.xml" rel="self" type="application/rss+xml" />
+    
+
+      
+      <item>
+        <title>水坑攻击</title>
+        <link>https://0xo7.github.io/zh/posts/2024-0407-01/</link>
+        <pubDate>Sun, 07 Apr 2024 19:07:57 +0800</pubDate>
+        <author>1714132614@qq.com (0xo7)</author>
+        <atom:modified>Sun, 07 Apr 2024 19:07:57 +0800</atom:modified>
+        <guid>https://0xo7.github.io/zh/posts/2024-0407-01/</guid>
+        <description></description>
+        
+        <dc:creator>0xo7</dc:creator>
+        <media:content url="https://0xo7.github.io/images/feature/bait.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>phishing</category>
+            
+          
+            
+              <category>todo</category>
+            
+          
+        
+        
+          
+            
+          
+        
+        
+          
+            
+              <category>钓鱼研究</category>
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>邮件钓鱼</title>
+        <link>https://0xo7.github.io/zh/posts/2024-0208-01/</link>
+        <pubDate>Thu, 08 Feb 2024 09:36:17 +0800</pubDate>
+        <author>1714132614@qq.com (0xo7)</author>
+        <atom:modified>Thu, 08 Feb 2024 09:36:17 +0800</atom:modified>
+        <guid>https://0xo7.github.io/zh/posts/2024-0208-01/</guid>
+        <description></description>
+        
+        <dc:creator>0xo7</dc:creator>
+        <media:content url="https://0xo7.github.io/images/feature/phishing.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>phishing</category>
+            
+          
+        
+        
+          
+            
+          
+        
+        
+          
+            
+              <category>钓鱼研究</category>
+            
+          
+        
+      </item>
+      
+
+    
+  </channel>
+</rss>

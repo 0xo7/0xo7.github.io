@@ -6,17 +6,17 @@
   xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
-    <title>ayuxy&#39;s blog</title>
-    <link>https://ayuxy.github.io/zh/</link>
-    <description>Recent content on ayuxy&#39;s blog</description>
+    <title>0xo7&#39;s blog</title>
+    <link>https://0xo7.github.io/zh/</link>
+    <description>Recent content on 0xo7&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <managingEditor>1714132614@qq.com (ayuxy)</managingEditor>
-    <webMaster>1714132614@qq.com (ayuxy)</webMaster>
+    <managingEditor>1714132614@qq.com (0xo7)</managingEditor>
+    <webMaster>1714132614@qq.com (0xo7)</webMaster>
     <copyright>©2024, All Rights Reserved</copyright>
-    <lastBuildDate>Wed, 27 Dec 2023 11:32:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 27 Apr 2024 20:52:09 +0800</lastBuildDate>
     
-        <atom:link href="https://ayuxy.github.io/zh/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://0xo7.github.io/zh/index.xml" rel="self" type="application/rss+xml" />
     
       
       
@@ -42,16 +42,212 @@
 
       
       <item>
-        <title>Windows钩子</title>
-        <link>https://ayuxy.github.io/zh/windows/2023-1227-01/</link>
-        <pubDate>Wed, 27 Dec 2023 11:32:00 +0800</pubDate>
-        <author>1714132614@qq.com (ayuxy)</author>
-        <atom:modified>Wed, 27 Dec 2023 11:32:00 +0800</atom:modified>
-        <guid>https://ayuxy.github.io/zh/windows/2023-1227-01/</guid>
+        <title>PE文件结构</title>
+        <link>https://0xo7.github.io/zh/posts/2024-0427-01/</link>
+        <pubDate>Sat, 27 Apr 2024 20:52:09 +0800</pubDate>
+        <author>1714132614@qq.com (0xo7)</author>
+        <atom:modified>Sat, 27 Apr 2024 20:52:09 +0800</atom:modified>
+        <guid>https://0xo7.github.io/zh/posts/2024-0427-01/</guid>
         <description></description>
         
-        <dc:creator>ayuxy</dc:creator>
-        <media:content url="https://ayuxy.github.io/images/feature/gouzi.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        <dc:creator>0xo7</dc:creator>
+        <media:content url="https://0xo7.github.io/images/feature/pe.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+          
+        
+        
+          
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>指针从1到0</title>
+        <link>https://0xo7.github.io/zh/posts/2024-0418-01/</link>
+        <pubDate>Thu, 18 Apr 2024 21:32:56 +0800</pubDate>
+        <author>1714132614@qq.com (0xo7)</author>
+        <atom:modified>Thu, 18 Apr 2024 21:32:56 +0800</atom:modified>
+        <guid>https://0xo7.github.io/zh/posts/2024-0418-01/</guid>
+        <description></description>
+        
+        <dc:creator>0xo7</dc:creator>
+        <media:content url="https://0xo7.github.io/images/feature/c.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>指针</category>
+            
+          
+        
+        
+          
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Rayder 代码重构</title>
+        <link>https://0xo7.github.io/zh/posts/2024-0416-01/</link>
+        <pubDate>Tue, 16 Apr 2024 20:47:07 +0800</pubDate>
+        <author>1714132614@qq.com (0xo7)</author>
+        <atom:modified>Tue, 16 Apr 2024 20:47:07 +0800</atom:modified>
+        <guid>https://0xo7.github.io/zh/posts/2024-0416-01/</guid>
+        <description></description>
+        
+        <dc:creator>0xo7</dc:creator>
+        <media:content url="https://0xo7.github.io/images/feature/rayder.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+          
+        
+        
+          
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>WireGuard VPN</title>
+        <link>https://0xo7.github.io/zh/posts/2024-0414-01/</link>
+        <pubDate>Sun, 14 Apr 2024 13:32:02 +0800</pubDate>
+        <author>1714132614@qq.com (0xo7)</author>
+        <atom:modified>Sun, 14 Apr 2024 13:32:02 +0800</atom:modified>
+        <guid>https://0xo7.github.io/zh/posts/2024-0414-01/</guid>
+        <description></description>
+        
+        <dc:creator>0xo7</dc:creator>
+        <media:content url="https://0xo7.github.io/images/feature/vpn.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+          
+        
+        
+          
+            
+          
+        
+        
+          
+            
+              <category>企业建设</category>
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>水坑攻击</title>
+        <link>https://0xo7.github.io/zh/posts/2024-0407-01/</link>
+        <pubDate>Sun, 07 Apr 2024 19:07:57 +0800</pubDate>
+        <author>1714132614@qq.com (0xo7)</author>
+        <atom:modified>Sun, 07 Apr 2024 19:07:57 +0800</atom:modified>
+        <guid>https://0xo7.github.io/zh/posts/2024-0407-01/</guid>
+        <description></description>
+        
+        <dc:creator>0xo7</dc:creator>
+        <media:content url="https://0xo7.github.io/images/feature/bait.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>phishing</category>
+            
+          
+            
+              <category>todo</category>
+            
+          
+        
+        
+          
+            
+          
+        
+        
+          
+            
+              <category>钓鱼研究</category>
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>邮件钓鱼</title>
+        <link>https://0xo7.github.io/zh/posts/2024-0208-01/</link>
+        <pubDate>Thu, 08 Feb 2024 09:36:17 +0800</pubDate>
+        <author>1714132614@qq.com (0xo7)</author>
+        <atom:modified>Thu, 08 Feb 2024 09:36:17 +0800</atom:modified>
+        <guid>https://0xo7.github.io/zh/posts/2024-0208-01/</guid>
+        <description></description>
+        
+        <dc:creator>0xo7</dc:creator>
+        <media:content url="https://0xo7.github.io/images/feature/phishing.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        
+        
+        
+          
+            
+              <category>phishing</category>
+            
+          
+        
+        
+          
+            
+          
+        
+        
+          
+            
+              <category>钓鱼研究</category>
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Windows钩子</title>
+        <link>https://0xo7.github.io/zh/posts/2023-1227-01/</link>
+        <pubDate>Wed, 27 Dec 2023 11:32:00 +0800</pubDate>
+        <author>1714132614@qq.com (0xo7)</author>
+        <atom:modified>Wed, 27 Dec 2023 11:32:00 +0800</atom:modified>
+        <guid>https://0xo7.github.io/zh/posts/2023-1227-01/</guid>
+        <description></description>
+        
+        <dc:creator>0xo7</dc:creator>
+        <media:content url="https://0xo7.github.io/images/feature/hook.png" medium="image"><media:title type="html">featured image</media:title></media:content>
         
         
         
@@ -64,74 +260,14 @@
         
           
             
-          
-        
-        
-          
-            
-          
-        
-      </item>
-      
-      <item>
-        <title>socket编程</title>
-        <link>https://ayuxy.github.io/zh/c/2023-1226-01/</link>
-        <pubDate>Tue, 26 Dec 2023 10:38:03 +0800</pubDate>
-        <author>1714132614@qq.com (ayuxy)</author>
-        <atom:modified>Tue, 26 Dec 2023 10:38:03 +0800</atom:modified>
-        <guid>https://ayuxy.github.io/zh/c/2023-1226-01/</guid>
-        <description></description>
-        
-        <dc:creator>ayuxy</dc:creator>
-        <media:content url="https://ayuxy.github.io/images/feature/socket.png" medium="image"><media:title type="html">featured image</media:title></media:content>
-        
-        
-        
-          
-            
-              <category>socket</category>
+              <category>Hook合集</category>
             
           
         
         
           
             
-          
-        
-        
-          
-            
-          
-        
-      </item>
-      
-      <item>
-        <title>一些API函数</title>
-        <link>https://ayuxy.github.io/zh/windows/2023-1226-01/</link>
-        <pubDate>Tue, 26 Dec 2023 10:25:38 +0800</pubDate>
-        <author>1714132614@qq.com (ayuxy)</author>
-        <atom:modified>Tue, 26 Dec 2023 10:25:38 +0800</atom:modified>
-        <guid>https://ayuxy.github.io/zh/windows/2023-1226-01/</guid>
-        <description></description>
-        
-        <dc:creator>ayuxy</dc:creator>
-        <media:content url="https://ayuxy.github.io/images/feature/api.png" medium="image"><media:title type="html">featured image</media:title></media:content>
-        
-        
-        
-          
-            
-              <category>windows_api</category>
-            
-          
-        
-        
-          
-            
-          
-        
-        
-          
+              <category>一期培训</category>
             
           
         
@@ -139,15 +275,15 @@
       
       <item>
         <title>32位DLL注入</title>
-        <link>https://ayuxy.github.io/zh/c/2023-1223-01/</link>
+        <link>https://0xo7.github.io/zh/posts/2023-1223-02/</link>
         <pubDate>Sat, 23 Dec 2023 22:17:02 +0800</pubDate>
-        <author>1714132614@qq.com (ayuxy)</author>
+        <author>1714132614@qq.com (0xo7)</author>
         <atom:modified>Sat, 23 Dec 2023 22:17:02 +0800</atom:modified>
-        <guid>https://ayuxy.github.io/zh/c/2023-1223-01/</guid>
+        <guid>https://0xo7.github.io/zh/posts/2023-1223-02/</guid>
         <description></description>
         
-        <dc:creator>ayuxy</dc:creator>
-        <media:content url="https://ayuxy.github.io/images/feature/dll.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        <dc:creator>0xo7</dc:creator>
+        <media:content url="https://0xo7.github.io/images/feature/dll.png" medium="image"><media:title type="html">featured image</media:title></media:content>
         
         
         
@@ -165,21 +301,23 @@
         
           
             
+              <category>一期培训</category>
+            
           
         
       </item>
       
       <item>
         <title>VS2019 安装 VAX 插件</title>
-        <link>https://ayuxy.github.io/zh/vsconfig/2023-1223-01/</link>
+        <link>https://0xo7.github.io/zh/posts/2023-1223-01/</link>
         <pubDate>Sat, 23 Dec 2023 13:55:46 +0800</pubDate>
-        <author>1714132614@qq.com (ayuxy)</author>
+        <author>1714132614@qq.com (0xo7)</author>
         <atom:modified>Sat, 23 Dec 2023 13:55:46 +0800</atom:modified>
-        <guid>https://ayuxy.github.io/zh/vsconfig/2023-1223-01/</guid>
+        <guid>https://0xo7.github.io/zh/posts/2023-1223-01/</guid>
         <description></description>
         
-        <dc:creator>ayuxy</dc:creator>
-        <media:content url="https://ayuxy.github.io/images/feature/visual-studio.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        <dc:creator>0xo7</dc:creator>
+        <media:content url="https://0xo7.github.io/images/feature/visual-studio.png" medium="image"><media:title type="html">featured image</media:title></media:content>
         
         
         
@@ -203,14 +341,14 @@
       
       <item>
         <title>全部友链</title>
-        <link>https://ayuxy.github.io/zh/friendslink/</link>
+        <link>https://0xo7.github.io/zh/friendslink/</link>
         <pubDate>Sun, 17 Dec 2023 17:51:42 +0000</pubDate>
-        <author>1714132614@qq.com (ayuxy)</author>
+        <author>1714132614@qq.com (0xo7)</author>
         <atom:modified>Sun, 17 Dec 2023 17:51:42 +0000</atom:modified>
-        <guid>https://ayuxy.github.io/zh/friendslink/</guid>
+        <guid>https://0xo7.github.io/zh/friendslink/</guid>
         <description></description>
         
-        <dc:creator>ayuxy</dc:creator>
+        <dc:creator>0xo7</dc:creator>
         
         
         
@@ -221,69 +359,33 @@
       
       <item>
         <title>冲浪时间</title>
-        <link>https://ayuxy.github.io/zh/friends/</link>
+        <link>https://0xo7.github.io/zh/friends/</link>
         <pubDate>Thu, 23 Nov 2023 17:51:42 +0000</pubDate>
-        <author>1714132614@qq.com (ayuxy)</author>
+        <author>1714132614@qq.com (0xo7)</author>
         <atom:modified>Thu, 23 Nov 2023 17:51:42 +0000</atom:modified>
-        <guid>https://ayuxy.github.io/zh/friends/</guid>
+        <guid>https://0xo7.github.io/zh/friends/</guid>
         <description></description>
         
-        <dc:creator>ayuxy</dc:creator>
+        <dc:creator>0xo7</dc:creator>
         
         
         
         
         
-        
-      </item>
-      
-      <item>
-        <title>rayder-dev</title>
-        <link>https://ayuxy.github.io/zh/tools/2023-1120-01/</link>
-        <pubDate>Mon, 20 Nov 2023 21:53:24 +0800</pubDate>
-        <author>1714132614@qq.com (ayuxy)</author>
-        <atom:modified>Mon, 20 Nov 2023 21:53:24 +0800</atom:modified>
-        <guid>https://ayuxy.github.io/zh/tools/2023-1120-01/</guid>
-        <description></description>
-        
-        <dc:creator>ayuxy</dc:creator>
-        <media:content url="https://ayuxy.github.io/images/feature/rayder.png" medium="image"><media:title type="html">featured image</media:title></media:content>
-        
-        
-        
-          
-            
-              <category>tools</category>
-            
-          
-        
-        
-          
-            
-              <category>测试1</category>
-            
-          
-        
-        
-          
-            
-              <category>测试</category>
-            
-          
         
       </item>
       
       <item>
         <title>进程遍历 | 内存补丁 | win32 api调试</title>
-        <link>https://ayuxy.github.io/zh/c/2023-1120-01/</link>
+        <link>https://0xo7.github.io/zh/posts/2023-1120-02/</link>
         <pubDate>Mon, 20 Nov 2023 21:53:24 +0800</pubDate>
-        <author>1714132614@qq.com (ayuxy)</author>
+        <author>1714132614@qq.com (0xo7)</author>
         <atom:modified>Mon, 20 Nov 2023 21:53:24 +0800</atom:modified>
-        <guid>https://ayuxy.github.io/zh/c/2023-1120-01/</guid>
+        <guid>https://0xo7.github.io/zh/posts/2023-1120-02/</guid>
         <description></description>
         
         <dc:creator>ayuxy</dc:creator>
-        <media:content url="https://ayuxy.github.io/images/feature/coding.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        <media:content url="https://0xo7.github.io/images/feature/coding.png" medium="image"><media:title type="html">featured image</media:title></media:content>
         
         
         
@@ -309,37 +411,7 @@
         
           
             
-          
-        
-      </item>
-      
-      <item>
-        <title>8086汇编</title>
-        <link>https://ayuxy.github.io/zh/asm/8086/2023-1120-01/</link>
-        <pubDate>Mon, 20 Nov 2023 18:54:24 +0800</pubDate>
-        <author>1714132614@qq.com (ayuxy)</author>
-        <atom:modified>Mon, 20 Nov 2023 18:54:24 +0800</atom:modified>
-        <guid>https://ayuxy.github.io/zh/asm/8086/2023-1120-01/</guid>
-        <description></description>
-        
-        <dc:creator>ayuxy</dc:creator>
-        <media:content url="https://ayuxy.github.io/images/feature/asm.png" medium="image"><media:title type="html">featured image</media:title></media:content>
-        
-        
-        
-          
-            
-              <category>8086汇编</category>
-            
-          
-        
-        
-          
-            
-          
-        
-        
-          
+              <category>一期培训</category>
             
           
         
@@ -347,51 +419,21 @@
       
       <item>
         <title>稿定设计去水印</title>
-        <link>https://ayuxy.github.io/zh/other/2023-1005-01/</link>
+        <link>https://0xo7.github.io/zh/posts/2023-1005-01/</link>
         <pubDate>Thu, 05 Oct 2023 18:36:18 +0800</pubDate>
-        <author>1714132614@qq.com (ayuxy)</author>
+        <author>1714132614@qq.com (0xo7)</author>
         <atom:modified>Thu, 05 Oct 2023 18:36:18 +0800</atom:modified>
-        <guid>https://ayuxy.github.io/zh/other/2023-1005-01/</guid>
+        <guid>https://0xo7.github.io/zh/posts/2023-1005-01/</guid>
         <description></description>
         
-        <dc:creator>ayuxy</dc:creator>
-        <media:content url="https://ayuxy.github.io/images/feature/design.png" medium="image"><media:title type="html">featured image</media:title></media:content>
+        <dc:creator>0xo7</dc:creator>
+        <media:content url="https://0xo7.github.io/images/feature/design.png" medium="image"><media:title type="html">featured image</media:title></media:content>
         
         
         
           
             
-          
-        
-        
-          
-            
-          
-        
-        
-          
-            
-          
-        
-      </item>
-      
-      <item>
-        <title>C语言基础</title>
-        <link>https://ayuxy.github.io/zh/c/2023-0126-01/</link>
-        <pubDate>Thu, 26 Jan 2023 09:49:40 +0800</pubDate>
-        <author>1714132614@qq.com (ayuxy)</author>
-        <atom:modified>Thu, 26 Jan 2023 09:49:40 +0800</atom:modified>
-        <guid>https://ayuxy.github.io/zh/c/2023-0126-01/</guid>
-        <description></description>
-        
-        <dc:creator>ayuxy</dc:creator>
-        <media:content url="https://ayuxy.github.io/images/feature/c.png" medium="image"><media:title type="html">featured image</media:title></media:content>
-        
-        
-        
-          
-            
-              <category>C</category>
+              <category>windows_api</category>
             
           
         
@@ -409,14 +451,14 @@
       
       <item>
         <title>Tags墙</title>
-        <link>https://ayuxy.github.io/zh/tags-wall/</link>
+        <link>https://0xo7.github.io/zh/tags-wall/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-        <author>1714132614@qq.com (ayuxy)</author>
+        <author>1714132614@qq.com (0xo7)</author>
         
-        <guid>https://ayuxy.github.io/zh/tags-wall/</guid>
+        <guid>https://0xo7.github.io/zh/tags-wall/</guid>
         <description></description>
         
-        <dc:creator>ayuxy</dc:creator>
+        <dc:creator>0xo7</dc:creator>
         
         
         
@@ -427,14 +469,14 @@
       
       <item>
         <title>哔哔</title>
-        <link>https://ayuxy.github.io/zh/bibi/bibi_page/</link>
+        <link>https://0xo7.github.io/zh/bibi/bibi_page/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-        <author>1714132614@qq.com (ayuxy)</author>
+        <author>1714132614@qq.com (0xo7)</author>
         
-        <guid>https://ayuxy.github.io/zh/bibi/bibi_page/</guid>
+        <guid>https://0xo7.github.io/zh/bibi/bibi_page/</guid>
         <description></description>
         
-        <dc:creator>ayuxy</dc:creator>
+        <dc:creator>0xo7</dc:creator>
         
         
         
@@ -445,14 +487,14 @@
       
       <item>
         <title>我的观影</title>
-        <link>https://ayuxy.github.io/zh/movies/</link>
+        <link>https://0xo7.github.io/zh/movies/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-        <author>1714132614@qq.com (ayuxy)</author>
+        <author>1714132614@qq.com (0xo7)</author>
         
-        <guid>https://ayuxy.github.io/zh/movies/</guid>
+        <guid>https://0xo7.github.io/zh/movies/</guid>
         <description></description>
         
-        <dc:creator>ayuxy</dc:creator>
+        <dc:creator>0xo7</dc:creator>
         
         
         
