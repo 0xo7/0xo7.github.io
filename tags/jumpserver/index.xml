@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>JumpServer on 0xo7&#39;s Blog</title>
-    <link>https://blog.kurtstories.com/tags/jumpserver/</link>
+    <link>https://0xo7.github.io/tags/jumpserver/</link>
     <description>Recent content in JumpServer on 0xo7&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 07 Aug 2024 18:50:31 +0800</lastBuildDate><atom:link href="https://blog.kurtstories.com/tags/jumpserver/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Aug 2024 18:50:31 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/tags/jumpserver/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JumpServer 的各种踩坑</title>
-      <link>https://blog.kurtstories.com/post/2024-0807-01/</link>
+      <link>https://0xo7.github.io/post/2024-0807-01/</link>
       <pubDate>Wed, 07 Aug 2024 18:50:31 +0800</pubDate>
       
-      <guid>https://blog.kurtstories.com/post/2024-0807-01/</guid>
+      <guid>https://0xo7.github.io/post/2024-0807-01/</guid>
       <description>JumpServer 的入门到入土笔记，包含各类搭建方法，升级的注意事项，如何处理常见的报错，以及日常使用中的各类注意事项，实现登录审计的可视化大屏等技巧&amp;hellip;&amp;hellip;</description>
     </item>
     
