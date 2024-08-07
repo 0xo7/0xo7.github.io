@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <script
+    type="application/javascript"
+    src='https://blog.kurtstories.com/js/theme-mode.js'
+  ></script>
+  <link rel="stylesheet" href='https://blog.kurtstories.com/css/frameworks.min.css' />
+  <link rel="stylesheet" href='https://blog.kurtstories.com/css/github.min.css' />
+  <link rel="stylesheet" href='https://blog.kurtstories.com/css/github-style.css' />
+  <link rel="stylesheet" href='https://blog.kurtstories.com/css/light.css' />
+  <link rel="stylesheet" href='https://blog.kurtstories.com/css/dark.css' />
+  <link rel="stylesheet" href='https://blog.kurtstories.com/css/syntax.css' />
+  
+  <link rel="stylesheet" href="/custom.css" />
+  
+  <title>
+    JumpServer 的各种踩坑 | 0xo7&#39;s Blog
+  </title>
+  
+  <link rel="icon" type="image/x-icon" href="/images/github-mark.png" />
+  
+  <meta name="theme-color" content="#1e2327" />
+
+  
+  <meta
+  name="description"
+  content="JumpServer 的入门到入土笔记，包含各类搭建方法，升级的注意事项，如何处理常见的报错，以及日常使用中的各类注意事项，实现登录审计的可视化大屏等技巧&amp;hellip;&amp;hellip;"
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://blog.kurtstories.com/post/2024-0807-01/" />
+
+
+<meta name="twitter:card" content="summary" />
+<meta
+  name="twitter:title"
+  content="JumpServer 的各种踩坑 - 0xo7&#39;s Blog"
+/>
+<meta
+  name="twitter:description"
+  content="JumpServer 的入门到入土笔记，包含各类搭建方法，升级的注意事项，如何处理常见的报错，以及日常使用中的各类注意事项，实现登录审计的可视化大屏等技巧&amp;hellip;&amp;hellip;"
+/>
+<meta name="twitter:site" content="https://blog.kurtstories.com" />
+<meta name="twitter:creator" content="" />
+<meta
+  name="twitter:image"
+  content="https://blog.kurtstories.com"
+/>
+
+
+<meta
+  property="og:type"
+  content="article"
+/>
+<meta
+  property="og:title"
+  content="JumpServer 的各种踩坑 - 0xo7&#39;s Blog"
+/>
+<meta
+  property="og:description"
+  content="JumpServer 的入门到入土笔记，包含各类搭建方法，升级的注意事项，如何处理常见的报错，以及日常使用中的各类注意事项，实现登录审计的可视化大屏等技巧&amp;hellip;&amp;hellip;"
+/>
+<meta property="og:url" content="https://blog.kurtstories.com/post/2024-0807-01/" />
+<meta property="og:site_name" content="JumpServer 的各种踩坑" />
+<meta
+  property="og:image"
+  content="https://blog.kurtstories.com"
+/>
+<meta property="og:image:width" content="2048" />
+<meta property="og:image:height" content="1024" />
+
+<meta property="article:published_time" content="2024-08-07 18:50:31 &#43;0800 &#43;0800" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body>
+  
+
+<style>
+  .height-limitation {
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+
+  .loader {
+    border: 4px solid #f3f3f3;
+    border-bottom: 4px solid var(--color-fg-muted);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
+<div style="position: relative">
+  <header
+    class="Header js-details-container Details px-3 px-md-4 px-lg-5 flex-wrap flex-md-nowrap open Details--on"
+  >
+    <div
+      class="Header-item mobile-none"
+      style="margin-top: -4px; margin-bottom: -4px"
+    >
+      <a class="Header-link" href="https://blog.kurtstories.com" aria-label="Home">
+        <svg
+          class="octicon"
+          height="32"
+          viewBox="0 0 16 16"
+          version="1.1"
+          width="32"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+          ></path>
+        </svg>
+      </a>
+    </div>
+    <div class="Header-item d-md-none">
+      <button
+        class="Header-link btn-link js-details-target"
+        type="button"
+        onclick="document.querySelector('#header-search').style.display = document.querySelector('#header-search').style.display == 'none'? 'block': 'none'"
+        aria-label="Search"
+      >
+        <svg
+          height="24"
+          class="octicon octicon-three-bars"
+          viewBox="0 0 16 16"
+          version="1.1"
+          width="24"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"
+          ></path>
+        </svg>
+      </button>
+    </div>
+    <div
+      style="display: none"
+      id="header-search"
+      class="Header-item Header-item--full flex-column flex-md-row width-full flex-order-2 flex-md-order-none mr-0 mr-md-3 mt-3 mt-md-0 Details-content--hidden-not-important d-md-flex"
+    >
+      <div
+        class="Header-search header-search flex-auto js-site-search position-relative flex-self-stretch flex-md-self-auto mb-3 mb-md-0 mr-0 mr-md-3 scoped-search site-scoped-search js-jump-to"
+      >
+        <div class="position-relative">
+          <form
+            target="_blank"
+            action="https://www.google.com/search"
+            accept-charset="UTF-8"
+            method="get"
+            autocomplete="off"
+          >
+            <label
+              class="Header-search-label form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center"
+            >
+              <input
+                type="text"
+                class="Header-search-input form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
+                name="q"
+                value=""
+                placeholder="Search"
+                autocomplete="off"
+              />
+              <input type="hidden" name="q" value="site:https://blog.kurtstories.com" />
+              <div
+                class="js-jump-to-suggestions-container jump-to-suggestions overflow-hidden position-absolute"
+              >
+                <div
+                  id="search-progress"
+                  class="d-none color-bg-primary no-underline p-2"
+                  role="progress"
+                  aria-selected="false"
+                >
+                  <div class="loader"></div>
+                </div>
+
+                <ul
+                  id="jump-to-results"
+                  role="listbox"
+                  class="Box border-0 p-0 m-0 js-navigation-container jump-to-suggestions-results-container js-jump-to-suggestions-results-container js-active-navigation-container height-limitation"
+                ></ul>
+              </div>
+            </label>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="Header-item Header-item--full flex-justify-center d-md-none position-relative"
+    >
+      <a class="Header-link" href="https://blog.kurtstories.com" aria-label="Home">
+        <svg
+          class="octicon octicon-mark-github v-align-middle"
+          height="32"
+          viewBox="0 0 16 16"
+          version="1.1"
+          width="32"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+          ></path>
+        </svg>
+      </a>
+    </div>
+    <div class="Theme-switcher Header-item" style="margin-right: 0">
+      <span
+        role="button"
+        class="Header-link no-select"
+        onclick="switchTheme()"
+        style="cursor: pointer"
+        aria-label="Switch theme"
+      >
+        <svg
+          style="fill: var(--color-profile-color-modes-toggle-moon)"
+          class="no-select"
+          viewBox="0 0 16 16"
+          version="1.1"
+          width="16"
+          height="16"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z"
+          ></path>
+        </svg>
+      </span>
+    </div>
+  </header>
+</div>
+
+  
+<script>
+    (function(){
+        var correctPassword = 'yxzg.\u002b50568792';
+        var storedPassword = localStorage.getItem('pagePassword');
+
+        function verifyPassword(password) {
+            return password === correctPassword;
+        }
+
+        function promptPassword() {
+            var userPassword = prompt('请输入文章密码');
+            if (verifyPassword(userPassword)) {
+                localStorage.setItem('pagePassword', userPassword);
+            } else {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    window.opener = null;
+                    window.open('', '_self');
+                    window.close();
+                } else {
+                    history.back();
+                }
+            }
+        }
+
+        if (!verifyPassword(storedPassword)) {
+            promptPassword();
+        }
+    })();
+</script><div>
+  <main>
+    <div class="gisthead pagehead bg-gray-light pb-0 pt-3 mb-4">
+      <div class="px-0">
+        <div class="mb-3 d-flex px-3 px-md-3 px-lg-5">
+          <div class="flex-auto min-width-0 width-fit mr-3">
+            <div class="d-flex">
+              <div class="d-none d-md-block">
+                <a class="avatar mr-2 flex-shrink-0" href="https://blog.kurtstories.com">
+                  <img class=" avatar-user"
+                    src="/images/avatar.png"
+                    width="32" height="32" alt="Thunnus"></a>
+              </div>
+              <div class="d-flex flex-column">
+                <h1 class="break-word f3 text-normal mb-md-0 mb-1">
+                  <span class="author">
+                    <a href="https://blog.kurtstories.com">Thunnus</a></span><span
+                    class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
+                      href="https://blog.kurtstories.com/post/2024-0807-01/">JumpServer 的各种踩坑</a></strong>
+                </h1>
+                <div class="note m-0">
+                  Created <relative-time datetime="Wed, 07 Aug 2024 18:50:31 &#43;0800"
+                    class="no-wrap">
+                    Wed, 07 Aug 2024 18:50:31 &#43;0800</relative-time>
+
+                  
+                  <span class="file-info-divider"></span>
+                  Modified <relative-time datetime="Wed, 07 Aug 2024 13:15:34 &#43;0000"
+                    class="no-wrap">
+                    Wed, 07 Aug 2024 13:15:34 &#43;0000</relative-time>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-lg px-3 new-discussion-timeline">
+      <div class="repository-content gist-content">
+        <div>
+          <div class="js-gist-file-update-container js-task-list-container file-box">
+            <div id="file-pytest" class="file my-2">
+              <div id="post-header" class="file-header d-flex flex-md-items-center flex-items-start sticky-header" style="z-index: 2">
+                <div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto">
+                  <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                    
+                    <summary id="toc-toggle" onclick="clickToc()" class="btn btn-octicon m-0 mr-2 p-2">
+                      <svg aria-hidden="true" viewBox="0 0 16 16" height="16" width="16" class="octicon octicon-list-unordered">
+                        <path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zM3 8a1 1 0 11-2 0 1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"></path>
+                      </svg>
+                    </summary>
+                    <details-menu class="SelectMenu" id="toc-details" style="display: none;">
+                      <div class="SelectMenu-modal rounded-3 mt-1" style="max-height: 340px;">
+                        <div class="SelectMenu-list SelectMenu-list--borderless p-2" style="overscroll-behavior: contain;" id="toc-list">
+                        </div>
+                      </div>
+                    </details-menu>
+                      3235 Words
+                    <span class="file-info-divider"></span>
+                                        15 min
+
+                  </div>
+                  <div class="file-actions flex-order-2 pt-0">
+                    
+                    
+                    <a class="muted-link mr-3" href="/tags/jumpserver">
+                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                        </path>
+                      </svg>
+                      JumpServer
+                    </a>
+                    
+                    
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="Box-body px-5 pb-5" style="z-index: 1">
+                <article class="markdown-body entry-content container-lg"><h1 id="部署方式">部署方式</h1>
+<p>jumpserver v3 版本官方有非常详细的集群部署，但是升级到 v4 版本后，官方文档中仅有 k8s 和单机部署两种方式，到 v4 版本后，官方更加推荐使用 Docker Swarm 来实现集群部署。很蛋疼，就会个 docker-compose，没搞过 Docker Swarm，同样对 k8s 的了解也有限。</p>
+<p>当然，v4 依然支持原来 v3 版本中集群部署的方式，只不过这种集群部署方式确实不是很好，HAProxy实现的负载均衡总感觉怪怪的，确实不如 Docker Swarm 和 k8s 来的好用。</p>
+<p>v3 版本用的数据库是 Mysql，而 v4 版本为了提高性能，默认采用了 pgsql，当然 v4 版本依然支持外连 Mysql 数据库。</p>
+<p>MySQL 导出的备份数据库文件是 .sql，而 pgsql 导出的备份文件是 .dump</p>
+<h2 id="haproxy-集群部署方案">HAProxy 集群部署方案</h2>
+<p>所有的服务器都采用 centos7 ，并且关闭防火墙和 Selinux。</p>
+<p>针对所有的 jumpserver 组件，只要关机前是运行的，直接关机再开机，全部会重新启动。</p>
+<h3 id="安装-nfs-mysql-106411381">安装 NFS+ Mysql （10.64.113.81）</h3>
+<h4 id="安装-nfs">安装 NFS</h4>
+<p>1.1 安装依赖</p>
+<pre tabindex="0"><code>yum -y install epel-release
+</code></pre><p>1.2 安装 NFS 依赖包</p>
+<pre tabindex="0"><code>yum -y install nfs-utils rpcbind
+</code></pre><p>1.3 启动 NFS</p>
+<pre tabindex="0"><code>systemctl enable rpcbind nfs-server nfs-lock nfs-idmap
+systemctl start rpcbind nfs-server nfs-lock nfs-idmap
+</code></pre><p>1.4 配置 NFS</p>
+<pre tabindex="0"><code>mkdir /data
+chmod 777 -R /data
+
+vi /etc/exports
+</code></pre><pre tabindex="0"><code># 设置 NFS 访问权限, /data 是刚才创建的将被共享的目录, 192.168.100.* 表示整个 192.168.100.* 的资产都有括号里面的权限
+# 也可以写具体的授权对象 /data 192.168.100.30(rw,sync,no_root_squash) 192.168.100.31(rw,sync,no_root_squash)
+/data 10.64.113.*(rw,sync,all_squash,anonuid=0,anongid=0)
+</code></pre><p>1.5 让 exports 配置生效</p>
+<pre tabindex="0"><code>exportfs -a
+</code></pre><h4 id="安装-mysql">安装 MySQL</h4>
+<p>1.1 设置 Repo</p>
+<pre tabindex="0"><code>yum -y localinstall http://mirrors.ustc.edu.cn/mysql-repo/mysql57-community-release-el7.rpm
+</code></pre><p>1.2 Yum 方式安装 MySQL</p>
+<pre tabindex="0"><code>yum install -y mysql-community-server
+</code></pre><blockquote>
+<p>注意：这里提示了报错</p>
+</blockquote>
+<p><img src="image-20240807200503695.png" alt="image-20240807200503695"></p>
+<p>解决方法如下：执行 rpm &ndash;import <a href="https://repo.mysql.com/RPM-GPG-KEY-mysql-2022">https://repo.mysql.com/RPM-GPG-KEY-mysql-2022</a></p>
+<p>然后再重新执行一次安装命令 <code>yum install -y mysql-community-server</code>即可</p>
+<p>1.3 配置 MySQL</p>
+<pre tabindex="0"><code>if [ ! &#34;$(cat /usr/bin/mysqld_pre_systemd | grep -v ^\# | grep initialize-insecure )&#34; ]; then
+    sed -i &#34;s@--initialize @--initialize-insecure @g&#34; /usr/bin/mysqld_pre_systemd
+fi
+</code></pre><p>1.4 启动 MySQL</p>
+<pre tabindex="0"><code>systemctl enable mysqld
+systemctl start mysqld
+</code></pre><p>1.5 配置数据库授权</p>
+<pre tabindex="0"><code>mysql -uroot
+</code></pre><pre tabindex="0"><code>Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 2
+Server version: 5.7.44 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.
+
+mysql&gt; create database jumpserver default charset &#39;utf8&#39;;
+Query OK, 1 row affected (0.00 sec)
+
+mysql&gt; set global validate_password_policy=LOW;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql&gt; create user &#39;jumpserver&#39;@&#39;%&#39; identified by &#39;yxzg.+5056&#39;;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql&gt; grant all on jumpserver.* to &#39;jumpserver&#39;@&#39;%&#39;;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql&gt; flush privileges;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql&gt; exit
+Bye
+</code></pre><blockquote>
+<p>注意：该数据库的账号是 jumpserver:yxzg.+5056、root:Yxzg.+5056</p>
+</blockquote>
+<h3 id="安装-redis-106411382">安装 Redis （10.64.113.82）</h3>
+<p>1.1 设置 Repo</p>
+<pre tabindex="0"><code>yum -y install epel-release https://repo.ius.io/ius-release-el7.rpm
+</code></pre><p>1.2 Yum 方式安装 Redis</p>
+<pre tabindex="0"><code>yum install -y redis6
+</code></pre><p>1.3 配置 Redis</p>
+<pre tabindex="0"><code>sed -i &#34;s/bind 127.0.0.1/bind 0.0.0.0/g&#34; /etc/redis/redis.conf
+sed -i &#34;561i maxmemory-policy allkeys-lru&#34; /etc/redis/redis.conf
+sed -i &#34;481i requirepass KXOeyNgDeTdpeu9q&#34; /etc/redis/redis.conf
+</code></pre><blockquote>
+<p>注意：这里 redis 还是用的 v3 教程中的默认密码 KXOeyNgDeTdpeu9q，只是上面搭建 mysql 数据库的时候，密码修改成了 yxzg.+5056。可以改也可以不改，这里并没有改 （懒得改了 。。。）</p>
+</blockquote>
+<p>1.4 启动 Redis</p>
+<pre tabindex="0"><code>systemctl enable redis
+systemctl start redis
+</code></pre><h3 id="安装-haproxy-服务106411383">安装 HAProxy 服务（10.64.113.83）</h3>
+<p>1.1 安装依赖</p>
+<pre tabindex="0"><code>yum -y install epel-release
+</code></pre><p>1.2  安装 HAProxy</p>
+<pre tabindex="0"><code>yum install -y haproxy
+</code></pre><p>1.3 配置 HAProxy</p>
+<pre tabindex="0"><code># 打开 HAProxy 的配置文件
+vi /etc/haproxy/haproxy.cfg
+</code></pre><p>直接把下面文件内容复制过去就行</p>
+<pre tabindex="0"><code>global
+    # to have these messages end up in /var/log/haproxy.log you will
+    # need to:
+    #
+    # 1) configure syslog to accept network log events.  This is done
+    #    by adding the &#39;-r&#39; option to the SYSLOGD_OPTIONS in
+    #    /etc/sysconfig/syslog
+    #
+    # 2) configure local2 events to go to the /var/log/haproxy.log
+    #   file. A line like the following can be added to
+    #   /etc/sysconfig/syslog
+    #
+    #    local2.*                       /var/log/haproxy.log
+    #
+    log         127.0.0.1 local3 info
+
+    chroot      /var/lib/haproxy
+    pidfile     /var/run/haproxy.pid
+    maxconn     4000
+    user        haproxy
+    group       haproxy
+    daemon
+
+    # turn on stats unix socket
+    stats socket /var/lib/haproxy/stats
+
+#---------------------------------------------------------------------
+# common defaults that all the &#39;listen&#39; and &#39;backend&#39; sections will
+# use if not designated in their block
+#---------------------------------------------------------------------
+defaults
+    log                     global
+    option                  dontlognull
+    option                  redispatch
+    retries                 3
+    timeout http-request    10s
+    timeout queue           1m
+    timeout connect         10s
+    timeout client          1m
+    timeout server          1m
+    timeout http-keep-alive 10s
+    timeout check           10s
+    maxconn                 3000
+
+listen stats
+    bind *:8080
+    mode http
+    stats enable
+    stats uri /haproxy              # 监控页面, 请自行修改. 访问地址为 http://192.168.100.100:8080/haproxy
+    stats refresh 5s
+    stats realm haproxy-status
+    stats auth admin:KXOeyNgDeTdpeu9q       # 账户密码, 请自行修改. 访问 http://192.168.100.100:8080/haproxy 会要求输入
+
+#---------------------------------------------------------------------
+# check  检活参数说明
+# inter  间隔时间, 单位: 毫秒
+# rise   连续成功的次数, 单位: 次
+# fall   连续失败的次数, 单位: 次
+# 例: inter 2s rise 2 fall 3
+# 表示 2 秒检查一次状态, 连续成功 2 次服务正常, 连续失败 3 次服务异常
+#
+# server 服务参数说明
+# server 192.168.100.21 192.168.100.21:80 weight 1 cookie web01
+# 第一个 192.168.100.21 做为页面展示的标识, 可以修改为其他任意字符串
+# 第二个 192.168.100.21:80 是实际的后端服务端口
+# weight 为权重, 多节点时安装权重进行负载均衡
+# cookie 用户侧的 cookie 会包含此标识, 便于区分当前访问的后端节点
+# 例: server db01 192.168.100.21:3306 weight 1 cookie db_01
+#---------------------------------------------------------------------
+
+listen jms-web
+    bind *:80                               # 监听 80 端口
+    mode http
+
+    # redirect scheme https if !{ ssl_fc }  # 重定向到 https
+    # bind *:443 ssl crt /opt/ssl.pem       # https 设置
+
+    # option httpchk GET /api/health/         # Core 检活接口
+
+      option httpchk GET /api/health/ HTTP/1.1\r\nHost:\ 10.64.113.87
+      option httpchk GET /api/health/ HTTP/1.1\r\nHost:\ 10.64.113.88
+
+    stick-table type ip size 200k expire 30m
+    stick on src
+
+    balance leastconn
+    server 10.64.113.87 10.64.113.87:80 weight 1 cookie web01 check inter 2s rise 2 fall 3  # JumpServer 服务器
+    server 10.64.113.88 10.64.113.88:80 weight 1 cookie web02 check inter 2s rise 2 fall 3
+
+listen jms-ssh
+    bind *:2222
+    mode tcp
+
+    option tcp-check
+
+    fullconn 500
+    balance source
+    server 10.64.113.87 10.64.113.87:2222 weight 1 check inter 2s rise 2 fall 3 send-proxy
+    server 10.64.113.88 10.64.113.88:2222 weight 1 check inter 2s rise 2 fall 3 send-proxy
+
+listen jms-koko
+    mode http
+
+    option httpclose
+    option forwardfor
+    option httpchk GET /koko/health/ HTTP/1.1\r\nHost:\ 10.64.113.83  # KoKo 检活接口, host 填写 HAProxy 的 ip 地址
+
+    cookie SERVERID insert indirect
+    hash-type consistent
+    fullconn 500
+    balance leastconn
+    server 10.64.113.87 10.64.113.87:80 weight 1 cookie web01 check inter 2s rise 2 fall 3
+    server 10.64.113.88 10.64.113.88:80 weight 1 cookie web02 check inter 2s rise 2 fall 3
+
+listen jms-lion
+    mode http
+
+    option httpclose
+    option forwardfor
+    option httpchk GET /lion/health/ HTTP/1.1\r\nHost:\ 10.64.113.83  # Lion 检活接口, host 填写 HAProxy 的 ip 地址
+
+    cookie SERVERID insert indirect
+    hash-type consistent
+    fullconn 500
+    balance leastconn
+    server 10.64.113.87 10.64.113.87:80 weight 1 cookie web01 check inter 2s rise 2 fall 3
+    server 10.64.113.88 10.64.113.88:80 weight 1 cookie web02 check inter 2s rise 2 fall 3
+
+
+listen jms-magnus
+    bind *:30000
+    mode tcp
+
+    option tcp-check
+
+    fullconn 500
+    balance source
+    server 10.64.113.87 10.64.113.87:33061  weight 1 check inter 2s rise 2 fall 3 send-proxy
+    server 10.64.113.87 10.64.113.87:63790  weight 1 check inter 2s rise 2 fall 3 send-proxy
+    server 10.64.113.88 10.64.113.88:33061  weight 1 check inter 2s rise 2 fall 3 send-proxy
+    server 10.64.113.88 10.64.113.88:63790  weight 1 check inter 2s rise 2 fall 3 send-proxy
+</code></pre><p>1.4 启动 HAProxy</p>
+<pre tabindex="0"><code>systemctl enable haproxy
+systemctl start haproxy
+</code></pre><h3 id="安装-minio-服务106411384">安装 MinIO 服务（10.64.113.84）</h3>
+<p>1.1  下载 MinIO 镜像</p>
+<pre tabindex="0"><code>docker pull minio/minio:latest
+</code></pre><pre tabindex="0"><code>latest: Pulling from minio/minio
+a591faa84ab0: Pull complete
+76b9354adec6: Pull complete
+f9d8746550a4: Pull complete
+890b1dd95baa: Pull complete
+3a8518c890dc: Pull complete
+8053f0501aed: Pull complete
+506c41cb8532: Pull complete
+Digest: sha256:e7a725edb521dd2af07879dad88ee1dfebd359e57ad8d98104359ccfbdb92024
+Status: Downloaded newer image for minio/minio:latest
+docker.io/minio/minio:latest
+</code></pre><p>1.2 MinIO 持久化数据目录创建</p>
+<pre tabindex="0"><code>mkdir -p /opt/jumpserver/minio/data /opt/jumpserver/minio/config
+</code></pre><p>1.3 启动 MinIO 服务</p>
+<pre tabindex="0"><code>## 请自行修改账号密码并牢记，丢失后可以删掉容器后重新用新密码创建，数据不会丢失
+# 9000                                  # api     访问端口
+# 9001                                  # console 访问端口
+# MINIO_ROOT_USER=minio                 # minio 账号
+# MINIO_ROOT_PASSWORD=KXOeyNgDeTdpeu9q  # minio 密码
+</code></pre><pre tabindex="0"><code>docker run --name jms_minio -d -p 9000:9000 -p 9001:9001 -e MINIO_ROOT_USER=minio -e MINIO_ROOT_PASSWORD=KXOeyNgDeTdpeu9q -v /opt/jumpserver/minio/data:/data -v /opt/jumpserver/minio/config:/root/.minio --restart=always minio/minio:latest server /data --console-address &#34;:9001&#34;
+</code></pre><p>1.4 在 MinIO 中创建 Buckets</p>
+<blockquote>
+<ul>
+<li>访问 http://10.64.113.84:9000，输入刚才设置的 MinIO 账号密码登录。</li>
+<li>点击左侧菜单的 Buckets，选择 Create Bucket 创建桶，Bucket Name 输入 jumpserver，然后点击 Save 保存。</li>
+</ul>
+</blockquote>
+<p>1.5  在 JumpServer 中配置 MinIO</p>
+<ul>
+<li>访问 JumpServer Web 页面并使用管理员账号进行登录。</li>
+<li>点击左侧菜单栏的 [终端管理]，在页面的上方选择 [存储配置]，在 [录像存储] 下方选择 [创建] 选择 [Ceph]</li>
+<li>根据下方的说明进行填写，保存后在 [终端管理] 页面对所有组件进行 [更新]，录像存储选择 [jms-mino]，提交。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>参考值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>名称 (Name)</td>
+<td>jms-minio</td>
+<td>标识, 不可重复</td>
+</tr>
+<tr>
+<td>类型 (Type)</td>
+<td>Ceph</td>
+<td>固定, 不可更改</td>
+</tr>
+<tr>
+<td>桶名称 (Bucket)</td>
+<td>jumpserver</td>
+<td>Bucket Name</td>
+</tr>
+<tr>
+<td>Access key</td>
+<td>minio</td>
+<td>MINIO_ROOT_USER</td>
+</tr>
+<tr>
+<td>Secret key</td>
+<td>KXOeyNgDeTdpeu9q</td>
+<td>MINIO_ROOT_PASSWORD</td>
+</tr>
+<tr>
+<td>端点 (Endpoint)</td>
+<td>http://10.64.113.84:9000</td>
+<td>minio 服务访问地址</td>
+</tr>
+<tr>
+<td>默认存储</td>
+<td></td>
+<td>新组件将自动使用该存储</td>
+</tr>
+</tbody>
+</table>
+<h3 id="安装-elasticsearch-服务">安装 Elasticsearch 服务</h3>
+<p>1.1 下载 Elasticsearch 镜像</p>
+<pre tabindex="0"><code>docker pull docker.elastic.co/elasticsearch/elasticsearch:7.17.6
+</code></pre><pre tabindex="0"><code>7a0437f04f83: Pull complete
+7718d2f58c47: Pull complete
+cc5c16bd8bb9: Pull complete
+e3d829b4b297: Pull complete
+1ad944c92c79: Pull complete
+373fb8fbaf74: Pull complete
+5908d3eb2989: Pull complete
+Digest: sha256:81c126e4eddbc5576285670cb3e23d7ef7892ee5e757d6d9ba870b6fe99f1219
+Status: Downloaded newer image for docker.elastic.co/elasticsearch/elasticsearch:7.17.6
+docker.elastic.co/elasticsearch/elasticsearch:7.17.6
+</code></pre><p>1.2 Elasticsearch 持久化数据目录创建</p>
+<pre tabindex="0"><code>mkdir -p /opt/jumpserver/elasticsearch/data /opt/jumpserver/elasticsearch/logs
+</code></pre><p>1.3 启动 Elasticsearch</p>
+<pre tabindex="0"><code>## 请自行修改账号密码并牢记，丢失后可以删掉容器后重新用新密码创建，数据不会丢失
+# 9200                                  # Web 访问端口
+# 9300                                  # 集群通信
+# discovery.type=single-node            # 单节点
+# bootstrap.memory_lock=&#34;true&#34;          # 锁定物理内存, 不使用 swap
+# xpack.security.enabled=&#34;true&#34;         # 开启安全模块
+# TAKE_FILE_OWNERSHIP=&#34;true&#34;            # 自动修改挂载文件夹的所属用户
+# ES_JAVA_OPTS=&#34;-Xms512m -Xmx512m&#34;      # JVM 内存大小, 推荐设置为主机内存的一半
+# elastic                               # Elasticsearch 账号
+# ELASTIC_PASSWORD=KXOeyNgDeTdpeu9q     # Elasticsearch 密码
+</code></pre><pre tabindex="0"><code>docker run --name jms_es -d -p 9200:9200 -p 9300:9300 -e cluster.name=docker-cluster -e discovery.type=single-node -e network.host=0.0.0.0 -e bootstrap.memory_lock=&#34;true&#34; -e xpack.security.enabled=&#34;true&#34; -e TAKE_FILE_OWNERSHIP=&#34;true&#34; -e ES_JAVA_OPTS=&#34;-Xms512m -Xmx512m&#34; -e ELASTIC_PASSWORD=KXOeyNgDeTdpeu9q -v /opt/jumpserver/elasticsearch/data:/usr/share/elasticsearch/data -v /opt/jumpserver/elasticsearch/logs:/usr/share/elasticsearch/logs --restart=always docker.elastic.co/elasticsearch/elasticsearch:7.17.6
+</code></pre><p>1.4 在 JumpServer 中配置 Elasticsearch</p>
+<ul>
+<li>访问 JumpServer Web 页面并使用管理员账号进行登录。</li>
+<li>点击左侧菜单栏的 [终端管理]，在页面的上方选择 [存储配置]，在 [命令存储] 下方选择 [创建] 选择 [Elasticsearch]</li>
+<li>根据下方的说明进行填写，保存后在 [终端管理] 页面对所有组件进行 [更新]，命令存储选择 [jms-es]，提交。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>参考值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>名称 (Name)</td>
+<td>jms-es</td>
+<td>标识, 不可重复</td>
+</tr>
+<tr>
+<td>类型 (Type)</td>
+<td>Elasticsearch</td>
+<td>固定, 不可更改</td>
+</tr>
+<tr>
+<td>主机 (Hosts)</td>
+<td>http://elastic:KXOeyNgDeTdpeu9q@10.64.113.85:9200</td>
+<td>http://es_host:es_port</td>
+</tr>
+<tr>
+<td>索引 (Index)</td>
+<td>jumpserver</td>
+<td>索引</td>
+</tr>
+<tr>
+<td>忽略证书认证</td>
+<td></td>
+<td>https 自签 ssl 需要勾选</td>
+</tr>
+<tr>
+<td>默认存储</td>
+<td></td>
+<td>新组件将自动使用该存储</td>
+</tr>
+</tbody>
+</table>
+<h3 id="安装-jumpserver-节点-106411387">安装 JumpServer 节点 （10.64.113.87）</h3>
+<blockquote>
+<p>所有 JumpServer 的节点安装方式都是一样的，所以直接在超融合上复制虚拟机就行</p>
+</blockquote>
+<p>1.1 安装 NFS 依赖包</p>
+<pre tabindex="0"><code>yum -y install nfs-utils
+showmount -e 10.64.113.81
+</code></pre><p>1.2 挂载 NFS 目录</p>
+<pre tabindex="0"><code># 将 Core 持久化目录挂载到 NFS, 默认 /opt/jumpserver/core/data, 请根据实际情况修改
+# JumpServer 持久化目录定义相关参数为 VOLUME_DIR, 在安装 JumpServer 过程中会提示
+mkdir -p /opt/jumpserver/core/data
+mount -t nfs 10.64.113.81:/data /opt/jumpserver/core/data
+</code></pre><p>1.3 配置 NFS 共享目录开机自动挂载</p>
+<pre tabindex="0"><code># 可以写入到 /etc/fstab, 重启自动挂载. 注意: 设置后如果 nfs 损坏或者无法连接该服务器将无法启动
+echo &#34;10.64.113.81:/data /opt/jumpserver/core/data nfs defaults 0 0&#34; &gt;&gt; /etc/fstab
+</code></pre><p>1.4 下载 jumpserver-install 软件包</p>
+<blockquote>
+<p>这里下载的是 v 4.0.2 版本</p>
+</blockquote>
+<pre tabindex="0"><code>cd /opt
+yum -y install wget
+wget https://resource.fit2cloud.com/jumpserver/installer/releases/download/v4.0.2/jumpserver-installer-v4.0.2.tar.gz
+tar -xvf jumpserver-installer-v4.0.2.tar.gz
+cd jumpserver-installer-v4.0.2
+</code></pre><p>1.5 修改临时配置文件</p>
+<pre tabindex="0"><code>vi config-example.txt
+</code></pre><pre tabindex="0"><code># 修改下面选项, 其他保持默认, 请勿直接复制此处内容
+
+# 安装配置
+### 注意持久化目录 VOLUME_DIR, 如果上面 NFS 挂载其他目录, 此处也要修改. 如: NFS 挂载到 /data/jumpserver/core/data, 则 VOLUME_DIR=/data/jumpserver
+VOLUME_DIR=/opt/jumpserver
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE=True                             # 关闭浏览器 session 过期
+
+# MySQL 配置
+DB_ENGINE=mysql
+DB_HOST=10.64.113.81
+DB_PORT=3306
+DB_USER=jumpserver
+DB_PASSWORD=yxzg.+5056
+DB_NAME=jumpserver
+
+# Redis 配置
+
+REDIS_HOST=10.64.113.82
+REDIS_PORT=6379
+REDIS_PASSWORD=KXOeyNgDeTdpeu9q
+
+# 最大文件上传限制
+CLIENT_MAX_BODY_SIZE=10240m
+</code></pre><h1 id="常见报错处理">常见报错处理</h1>
+<h2 id="备份数据库报错">备份数据库报错</h2>
+<p>在 jumpserver 节点中备份数据库的时候，会提示：</p>
+<p>mysqldump: Error: &lsquo;Access denied; you need (at least one of) the PROCESS privilege(s) for this operation&rsquo; when trying to dump tablespaces</p>
+<p>解决方法如下：</p>
+<p>用 root 用户登录 mysql 数据库，即执行 <code>mysql -u root -p </code>命令，然后提示输入密码，默认的 root 密码是空，所以直接回车就能登录，登录后修改 root 密码，执行 <code>ALTER USER 'root'@'localhost' IDENTIFIED BY 'Yxzg.+5056';</code> 把数据库密码修改成 Yxzg.+5056</p>
+<p>然后通过 <code>mysql -u root -pYxzg.+5056</code> 进行登录，执行 <code>GRANT PROCESS ON . TO 'jumpserver'@'*'; </code>和<code> flush privileges;</code> 命令即可</p>
+<p>最后重新备份数据库即可成功</p>
+<h2 id="执行-jmsctlsh-install-报错">执行 ./jmsctl.sh install 报错</h2>
+<p>报错提示：</p>
+<p><img src="image-20240807203731929.png" alt="image-20240807203731929"></p>
+<p>删除 /opt/jumpserver/config/，然后重新安装即可</p>
+</article>
+              </div>
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagination-nav">
+        <div class="pagination-button next-post">
+          
+        </div>
+        
+        <div class="pagination-button previous-post">
+          
+          <a class="pagination-link link-reverse" href="https://blog.kurtstories.com/readme/">Readme&nbsp;</a><div> »</div>
+          
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script type="application/javascript" src='https://blog.kurtstories.com/js/toc.js'></script>
+<link rel="stylesheet" href='https://blog.kurtstories.com/css/toc.css' />
+
+
+  <div class="footer container-xl width-full p-responsive">
+  <div
+    class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between flex-sm-items-center pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mr-lg-4" href="https://blog.kurtstories.com">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24">
+        <path fill-rule="evenodd"
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+        </path>
+      </svg>
+    </a>
+    <ul class="list-style-none d-flex flex-wrap col-12 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+      
+      <li class="mr-3 mr-lg-0">Theme by <a href='https://github.com/MeiK2333/github-style'>github-style</a></li>
+      
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+
+
+</div>
+</body>
+
+<script type="application/javascript" src="https://blog.kurtstories.com/js/github-style.js"></script>
+
+<script src="https://blog.kurtstories.com/js/mark.es6.min.js"></script>
+
+
+
+
+
+
+
+</html>

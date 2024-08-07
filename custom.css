@@ -1,0 +1,80 @@
+.heatmap-modify {
+  width: 100%; /* 设置容器宽度 */
+  overflow: auto; /* 显示滚动条，根据内容决定是否显示 */
+ 
+  /* 隐藏默认的滚动条样式 */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+.heatmap-modify::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+
+ /*
+pre code {
+    tab-size: 4; 
+}
+ */
+ 
+.markdown-body .highlight pre, .markdown-body pre{
+    tab-size: 4; /* 这里将Tab设置为4个空格 */	
+}
+
+
+
+.markdown-body img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+.markdown-body {
+    word-break: break-all !important;
+}
+
+
+
+
+@media (max-width: 768px){
+.pt-0 {
+    padding-top: 8px !important;
+}
+}
+
+
+
+
+
+.text-mono {
+    white-space: nowrap;
+}
+
+.file-actions{
+	white-space: nowrap;	
+}
+
+
+.file-header > *:not(#toc-toggle){
+  width: 100%; /* 设置容器宽度 */
+  overflow: auto; /* 显示滚动条，根据内容决定是否显示 */
+ 
+  /* 隐藏默认的滚动条样式 */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+.file-header > *:not(#toc-toggle)::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+
+
+
+@font-face {
+  font-family: 'MyFont';
+  src: url('/font/FuzzyBubbles-Regular.ttf') format('truetype');
+}
+
+#hihere-is-my-blog- {
+  font-family: 'MyFont', sans-serif; /* 使用MyFont字体，并提供后备字体 */
+}

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <script
+    type="application/javascript"
+    src='https://blog.kurtstories.com/js/theme-mode.js'
+  ></script>
+  <link rel="stylesheet" href='https://blog.kurtstories.com/css/frameworks.min.css' />
+  <link rel="stylesheet" href='https://blog.kurtstories.com/css/github.min.css' />
+  <link rel="stylesheet" href='https://blog.kurtstories.com/css/github-style.css' />
+  <link rel="stylesheet" href='https://blog.kurtstories.com/css/light.css' />
+  <link rel="stylesheet" href='https://blog.kurtstories.com/css/dark.css' />
+  <link rel="stylesheet" href='https://blog.kurtstories.com/css/syntax.css' />
+  
+  <link rel="stylesheet" href="/custom.css" />
+  
+  <title>
+    8086 汇编语言（上） | 0xo7&#39;s Blog
+  </title>
+  
+  <link rel="icon" type="image/x-icon" href="/images/github-mark.png" />
+  
+  <meta name="theme-color" content="#1e2327" />
+
+  
+  <meta
+  name="description"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://blog.kurtstories.com/post/2024-0728-01/" />
+
+
+<meta name="twitter:card" content="summary" />
+<meta
+  name="twitter:title"
+  content="8086 汇编语言（上） - 0xo7&#39;s Blog"
+/>
+<meta
+  name="twitter:description"
+  content=""
+/>
+<meta name="twitter:site" content="https://blog.kurtstories.com" />
+<meta name="twitter:creator" content="" />
+<meta
+  name="twitter:image"
+  content="https://blog.kurtstories.com"
+/>
+
+
+<meta
+  property="og:type"
+  content="article"
+/>
+<meta
+  property="og:title"
+  content="8086 汇编语言（上） - 0xo7&#39;s Blog"
+/>
+<meta
+  property="og:description"
+  content=""
+/>
+<meta property="og:url" content="https://blog.kurtstories.com/post/2024-0728-01/" />
+<meta property="og:site_name" content="8086 汇编语言（上）" />
+<meta
+  property="og:image"
+  content="https://blog.kurtstories.com"
+/>
+<meta property="og:image:width" content="2048" />
+<meta property="og:image:height" content="1024" />
+
+<meta property="article:published_time" content="2024-07-28 19:19:29 &#43;0800 &#43;0800" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body>
+  
+
+<style>
+  .height-limitation {
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+
+  .loader {
+    border: 4px solid #f3f3f3;
+    border-bottom: 4px solid var(--color-fg-muted);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
+<div style="position: relative">
+  <header
+    class="Header js-details-container Details px-3 px-md-4 px-lg-5 flex-wrap flex-md-nowrap open Details--on"
+  >
+    <div
+      class="Header-item mobile-none"
+      style="margin-top: -4px; margin-bottom: -4px"
+    >
+      <a class="Header-link" href="https://blog.kurtstories.com" aria-label="Home">
+        <svg
+          class="octicon"
+          height="32"
+          viewBox="0 0 16 16"
+          version="1.1"
+          width="32"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+          ></path>
+        </svg>
+      </a>
+    </div>
+    <div class="Header-item d-md-none">
+      <button
+        class="Header-link btn-link js-details-target"
+        type="button"
+        onclick="document.querySelector('#header-search').style.display = document.querySelector('#header-search').style.display == 'none'? 'block': 'none'"
+        aria-label="Search"
+      >
+        <svg
+          height="24"
+          class="octicon octicon-three-bars"
+          viewBox="0 0 16 16"
+          version="1.1"
+          width="24"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"
+          ></path>
+        </svg>
+      </button>
+    </div>
+    <div
+      style="display: none"
+      id="header-search"
+      class="Header-item Header-item--full flex-column flex-md-row width-full flex-order-2 flex-md-order-none mr-0 mr-md-3 mt-3 mt-md-0 Details-content--hidden-not-important d-md-flex"
+    >
+      <div
+        class="Header-search header-search flex-auto js-site-search position-relative flex-self-stretch flex-md-self-auto mb-3 mb-md-0 mr-0 mr-md-3 scoped-search site-scoped-search js-jump-to"
+      >
+        <div class="position-relative">
+          <form
+            target="_blank"
+            action="https://www.google.com/search"
+            accept-charset="UTF-8"
+            method="get"
+            autocomplete="off"
+          >
+            <label
+              class="Header-search-label form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center"
+            >
+              <input
+                type="text"
+                class="Header-search-input form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
+                name="q"
+                value=""
+                placeholder="Search"
+                autocomplete="off"
+              />
+              <input type="hidden" name="q" value="site:https://blog.kurtstories.com" />
+              <div
+                class="js-jump-to-suggestions-container jump-to-suggestions overflow-hidden position-absolute"
+              >
+                <div
+                  id="search-progress"
+                  class="d-none color-bg-primary no-underline p-2"
+                  role="progress"
+                  aria-selected="false"
+                >
+                  <div class="loader"></div>
+                </div>
+
+                <ul
+                  id="jump-to-results"
+                  role="listbox"
+                  class="Box border-0 p-0 m-0 js-navigation-container jump-to-suggestions-results-container js-jump-to-suggestions-results-container js-active-navigation-container height-limitation"
+                ></ul>
+              </div>
+            </label>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="Header-item Header-item--full flex-justify-center d-md-none position-relative"
+    >
+      <a class="Header-link" href="https://blog.kurtstories.com" aria-label="Home">
+        <svg
+          class="octicon octicon-mark-github v-align-middle"
+          height="32"
+          viewBox="0 0 16 16"
+          version="1.1"
+          width="32"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+          ></path>
+        </svg>
+      </a>
+    </div>
+    <div class="Theme-switcher Header-item" style="margin-right: 0">
+      <span
+        role="button"
+        class="Header-link no-select"
+        onclick="switchTheme()"
+        style="cursor: pointer"
+        aria-label="Switch theme"
+      >
+        <svg
+          style="fill: var(--color-profile-color-modes-toggle-moon)"
+          class="no-select"
+          viewBox="0 0 16 16"
+          version="1.1"
+          width="16"
+          height="16"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z"
+          ></path>
+        </svg>
+      </span>
+    </div>
+  </header>
+</div>
+
+  
+<div>
+  <main>
+    <div class="gisthead pagehead bg-gray-light pb-0 pt-3 mb-4">
+      <div class="px-0">
+        <div class="mb-3 d-flex px-3 px-md-3 px-lg-5">
+          <div class="flex-auto min-width-0 width-fit mr-3">
+            <div class="d-flex">
+              <div class="d-none d-md-block">
+                <a class="avatar mr-2 flex-shrink-0" href="https://blog.kurtstories.com">
+                  <img class=" avatar-user"
+                    src="/images/avatar.png"
+                    width="32" height="32" alt="Thunnus"></a>
+              </div>
+              <div class="d-flex flex-column">
+                <h1 class="break-word f3 text-normal mb-md-0 mb-1">
+                  <span class="author">
+                    <a href="https://blog.kurtstories.com">Thunnus</a></span><span
+                    class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
+                      href="https://blog.kurtstories.com/post/2024-0728-01/">8086 汇编语言（上）</a></strong>
+                </h1>
+                <div class="note m-0">
+                  Created <relative-time datetime="Sun, 28 Jul 2024 19:19:29 &#43;0800"
+                    class="no-wrap">
+                    Sun, 28 Jul 2024 19:19:29 &#43;0800</relative-time>
+
+                  
+                  <span class="file-info-divider"></span>
+                  Modified <relative-time datetime="Wed, 07 Aug 2024 13:15:34 &#43;0000"
+                    class="no-wrap">
+                    Wed, 07 Aug 2024 13:15:34 &#43;0000</relative-time>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-lg px-3 new-discussion-timeline">
+      <div class="repository-content gist-content">
+        <div>
+          <div class="js-gist-file-update-container js-task-list-container file-box">
+            <div id="file-pytest" class="file my-2">
+              <div id="post-header" class="file-header d-flex flex-md-items-center flex-items-start sticky-header" style="z-index: 2">
+                <div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto">
+                  <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                    
+                    <summary id="toc-toggle" onclick="clickToc()" class="btn btn-octicon m-0 mr-2 p-2">
+                      <svg aria-hidden="true" viewBox="0 0 16 16" height="16" width="16" class="octicon octicon-list-unordered">
+                        <path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zM3 8a1 1 0 11-2 0 1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"></path>
+                      </svg>
+                    </summary>
+                    <details-menu class="SelectMenu" id="toc-details" style="display: none;">
+                      <div class="SelectMenu-modal rounded-3 mt-1" style="max-height: 340px;">
+                        <div class="SelectMenu-list SelectMenu-list--borderless p-2" style="overscroll-behavior: contain;" id="toc-list">
+                        </div>
+                      </div>
+                    </details-menu>
+                      2982 Words
+                    <span class="file-info-divider"></span>
+                                        14 min
+
+                  </div>
+                  <div class="file-actions flex-order-2 pt-0">
+                    
+                    
+                    <a class="muted-link mr-3" href="/tags/8086%E6%B1%87%E7%BC%96">
+                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                        </path>
+                      </svg>
+                      8086汇编
+                    </a>
+                    
+                    <a class="muted-link mr-3" href="/tags/%E5%AF%84%E5%AD%98%E5%99%A8">
+                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                        </path>
+                      </svg>
+                      寄存器
+                    </a>
+                    
+                    <a class="muted-link mr-3" href="/tags/%E6%AE%B5%E5%9C%B0%E5%9D%80%E5%92%8C%E5%81%8F%E7%A7%BB">
+                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                        </path>
+                      </svg>
+                      段地址和偏移
+                    </a>
+                    
+                    
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="Box-body px-5 pb-5" style="z-index: 1">
+                <article class="markdown-body entry-content container-lg"><h1 id="cpu-组成">CPU 组成</h1>
+<p>一个典型的CPU大概由运算器、控制器、<code>寄存器</code>构成。外部总线实现CPU和主板上其他器件的联系，内部总线实现CPU内部各个部件的链接</p>
+<h1 id="汇编语言产生的原因">汇编语言产生的原因</h1>
+<p>对于绝大多数人来说，二进制程序是不可读的，当然有能人可以读，比如第一代程序员，但这类人快灭绝了，直接看二进制不容易看出来究竟做了什么事情，比如最简单的加法指令二进制表示为 00000011，如果它混在一大串01字符串中就很难把它找出来，所以汇编语言主要就是为了解决二进制编码的可读性问题。</p>
+<h1 id="汇编与二进制的关系">汇编与二进制的关系</h1>
+<p>换句话来说，汇编语言就是把给机器看的二进制编码翻译成人话，汇编指令是机器指令的助记符，与机器指令是一一对应的关系，是一种便于阅读和记忆的书写格式。有效地解决了机器指令编写程序难度大的问题，并且使用编译器，可以很方便的把汇编程序转译成机器指令程序，比如之前提到的 00000011 加法指令，对应的汇编指令是 ADD，在调用汇编器时就会把 ADD 翻译成 00000011。</p>
+<h1 id="寄存器">寄存器</h1>
+<p>说到汇编指令不得不提到寄存器，寄存器本身是用来存数据的，因为 <code>CPU</code> 本身只负责逻辑运算，数据需要单独储存在其他的地方，但是对于不熟悉寄存器的人来说会有疑惑，数据不是存在硬盘上吗？或者说数据不是存在内存中吗？这些想法都没错，那么寄存器是用来做什么的呢？</p>
+<h2 id="寄存器作用">寄存器作用</h2>
+<p>其实硬盘、内存都是用来存储数据的，但是 CPU 的运算速度远高于内存的读写速度，更不用说从硬盘上取数据了，所以为了避免被拖慢速度影响效率，CPU 都自带一级缓存和二级缓存，一些 CPU 甚至增加了三级缓存，从这些缓存中读写数据要比内存快很多，但是还是无法使用飞速运转的 CPU，所以才会有寄存器的存在。</p>
+<p>寄存器不是后来增加的，在最初的计算中就已经设计出来，相比而言，多级缓存出现的更晚一些，通常那些最频繁读写的数据都会被放在寄存器里面，CPU 优先读写寄存器，再通过寄存器、缓存跟内存来交换数据，达到缓冲的目的，因为可以通过名称访问寄存器，这样访问速度是最快的，因此也被称为零级缓存。</p>
+<h2 id="存取速度对比">存取速度对比</h2>
+<p>通过上面的叙述我们可以知道存取速度从高到低分别是: 寄存器 &gt; 1级缓存 &gt; 2级缓存 &gt; 3级缓存 &gt; 内存 &gt; 硬盘，关于它们的存取速度，举个例子很容易就能明白了，比如我们做菜（CPU工作）时，取手中（寄存器）正拿着的肉和蔬菜肯定是最快的，如果没有就需要把案板上（1级缓存）处理好的菜拿过来，如果案板上没有就在更远一点的洗菜池（2级缓存）中找一找，还没找到的话就要到冰箱（3级缓存）中看一看了，这时发现家里真没有，那去楼下的菜店（内存）去买点吧，转了一圈发现没有想要的，最后还是开车去农贸市场（硬盘）买吧。</p>
+<p>通过上面这个例子应该能明白它们的速度关系了，既然缓存这么快，为什么不用缓存代替内存，或者将2、3级缓存都换成1级缓存呢？这里边有一个成本问题，速度越快对应着价格越高，如果你买过机械硬盘和固态硬盘应该很容易就理解了。</p>
+<h1 id="寄存器存储器内存的区别">寄存器、存储器、内存的区别</h1>
+<ul>
+<li>寄存器：是cpu组成部分，作用是将寄存器内的数据执行算术及逻辑运算，是操作数据的地方（当然也可以存储数据和指令）</li>
+<li>存储器：在cpu外，一般指的是硬盘、U盘等可以在切断电源后保存资料的设备，是存放数据的地方。</li>
+<li>更通俗的解释如下：（参考自知乎）
+<ul>
+<li>解释一：
+<ul>
+<li>寄存器就是你的口袋。身上只有那么几个，只装最常用或者马上要用的东西。</li>
+<li>内存就是你的背包。有时候拿点什么放到口袋里，有时候从口袋里拿出点东西放在背包里。</li>
+<li>辅存（外存）就是你家里的抽屉。可以放很多东西，但存取不方便。</li>
+</ul>
+</li>
+<li>解释二：如果把被储存的东西比作能量
+<ul>
+<li>寄存器就是 ATP，可以随时拿来用，性能高，但数量有限；</li>
+<li>内存就是葡萄糖，性能一般，但是存量可以比较多；</li>
+<li>外存（比如硬盘）就是脂肪，容量可以非常大，性能很差，要先转化为葡萄糖（存进内存），然后转化为 ATP（放到寄存器）才能直接利用（存取）。</li>
+</ul>
+</li>
+<li>解释三：按最简单的数据的存储和操作距离来理解它们的区别：
+<ul>
+<li>CPU（数据的操作）&lt;- - - &gt;缓存（数据的存储）&lt;- - - &gt;寄存器（指令等存储）&lt;- - -&gt;内存（需要等待的所有数据的存储）&lt;- - -&gt;外部存储器（硬盘、光盘等）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="8086-cpu介绍">8086 CPU介绍</h1>
+<p>8086 CPU （Intel 8086 是一个由Intel于1978年所设计的16位微处理器芯片，是x86架构的鼻祖）有14个16位寄存器 AX、BX、CX、DX、SI、DI、SP、BP、IP、CS、SS、DS、ES、PSW，其中AX，BX，CX，DX 这4个通常用来存放一般性数据，被称为通用寄存器。</p>
+<p><img src="image-20240730104527789.png" alt="image-20240730104527789"></p>
+<p>8086 CPU具有16条数据线和20条地址总线，首先我们来了解数据线和地址线以及控制线的作用是啥 ？</p>
+<p>cpu在内存或硬盘里面寻找一个数据时，先通过地址线找到地址，然后再通过数据线将数据取出来</p>
+<p>更通俗的来讲 ：当CPU想要从内存或硬盘上拿数据时，先用地址线告诉它要去哪个 <code>“房间”</code> 找。找到 “房间” 后，用数据线把数据“搬”出来。控制线就像是操作员，会告诉什么时候开始找和什么时候搬。</p>
+<p>数据线的作用是取数据，而8086 CPU是16位的，由16个二进制位组成，一个二进制位对应1条数据线，也就是对应16条数据线。</p>
+<p>但 8086 的地址总线确有20条（也就代表了20个二进制位），cpu和内存之间通过20条地址总线相连接，可以传送20位地址，寻址能力也就是：</p>
+<p>从0000&mdash;-000（共20位）</p>
+<p>到1111&mdash;-111（共20位）</p>
+<p>即为：2^20=1048576 bit，即寻址能力为1M</p>
+<p>但是我们知道，寄存器是16位，，从地址寄存器发出的地址信号，所能访问的存储空间只有2^16 = 65536 = 64KB，达不到20位地址总线所提供的地址范围。</p>
+<p>针对这种情况，就把内存地址分为若干段，每段有一些存储单元构成。用段地址指出是哪一段，偏移地址标明是段中的哪一个单元</p>
+<h2 id="段地址和偏移地址">段地址和偏移地址</h2>
+<p>把内存地址分为若干段，每段有一些存储单元构成。用段地址指出是哪一段，偏移地址标明是段中的哪一个单元。</p>
+<blockquote>
+<p>段地址和偏移地址的理解</p>
+</blockquote>
+<p>如果让你去一个地方，这个地方叫野猪窝（哈哈，这是个地名），那你知道怎么走吗？如果你不知道地址，你是不是会把中国遍历一下。也挺好，你可能会找到若干个野猪窝。如果我告诉你，这个地方在陕西省西安市蓝田县汤峪镇。你是不是很快就能找到目标?</p>
+<p>先别急，让我们一步一步来，假设你的定位范围是整个地球，首先我告诉你在中国，那么你就可以过滤掉美国，日本，英国等一系列国家，从而在我们中国内部进行检索。这时我又告诉你在陕西省，那么你离目标是不是又近了一步？然后是西安市、蓝田县······一步一步的，你就找到了这个地方。</p>
+<p>在上面的介绍中，中国可以认为是一级段地址，通过他可以过滤掉一系列其他国家，进行下一级行政单位（省份）的确定，陕西省是中国的偏移地址，进入中国范围后，可以通过陕西省过滤掉我国的其他省份，同样陕西省也是他下一级行政单位（西安市）的段地址，依次递推。这是不是就明了许多了？</p>
+<p>我们将这个概念再带回计算机上，假设你现在有1024字节的内存，你将他们分为四个段，每个段有256个字节。把这四个段分别编号为A，B，C，D。当你想要唯一的定位一个字节时，你应当先找到他所在的段地址，然后就可以排除其他三个段地址了。这样你的检索范围就会大大缩小。比如说你要检索的数据在C段，那你就可以只检索C段内的256个字节，如果再告诉你偏移地址，比如说是第123个字节，那么就很容易定位了。</p>
+<h2 id="段地址和偏移地址的合成方式">段地址和偏移地址的合成方式</h2>
+<p><img src="image-20220829104830861.png" alt="image-20220829104830861"></p></article>
+              </div>
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagination-nav">
+        <div class="pagination-button next-post">
+          
+          <div>«&nbsp;</div><a class="pagination-link link-reverse" href="https://blog.kurtstories.com/readme/"> Readme</a>
+          
+        </div>
+        
+        <div class="pagination-button previous-post">
+          
+          <a class="pagination-link link-reverse" href="https://blog.kurtstories.com/post/2024-0726-01/">github-style 主题优化&nbsp;</a><div> »</div>
+          
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script type="application/javascript" src='https://blog.kurtstories.com/js/toc.js'></script>
+<link rel="stylesheet" href='https://blog.kurtstories.com/css/toc.css' />
+
+
+  <div class="footer container-xl width-full p-responsive">
+  <div
+    class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between flex-sm-items-center pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mr-lg-4" href="https://blog.kurtstories.com">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24">
+        <path fill-rule="evenodd"
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+        </path>
+      </svg>
+    </a>
+    <ul class="list-style-none d-flex flex-wrap col-12 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+      
+      <li class="mr-3 mr-lg-0">Theme by <a href='https://github.com/MeiK2333/github-style'>github-style</a></li>
+      
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+
+
+</div>
+</body>
+
+<script type="application/javascript" src="https://blog.kurtstories.com/js/github-style.js"></script>
+
+<script src="https://blog.kurtstories.com/js/mark.es6.min.js"></script>
+
+
+
+
+
+
+
+</html>
