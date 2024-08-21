@@ -27,7 +27,7 @@
   
   <meta
   name="description"
-  content=""
+  content="对于绝大多数人来说，二进制程序是不可读的，当然有能人可以读，比如第一代程序员，但这类人快灭绝了，直接看二进制不容易看出来究竟做了什么事情&amp;hellip;&amp;hellip;"
 />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://0xo7.github.io/post/2024-0728-01/" />
@@ -40,7 +40,7 @@
 />
 <meta
   name="twitter:description"
-  content=""
+  content="对于绝大多数人来说，二进制程序是不可读的，当然有能人可以读，比如第一代程序员，但这类人快灭绝了，直接看二进制不容易看出来究竟做了什么事情&amp;hellip;&amp;hellip;"
 />
 <meta name="twitter:site" content="https://0xo7.github.io/" />
 <meta name="twitter:creator" content="" />
@@ -60,7 +60,7 @@
 />
 <meta
   property="og:description"
-  content=""
+  content="对于绝大多数人来说，二进制程序是不可读的，当然有能人可以读，比如第一代程序员，但这类人快灭绝了，直接看二进制不容易看出来究竟做了什么事情&amp;hellip;&amp;hellip;"
 />
 <meta property="og:url" content="https://0xo7.github.io/post/2024-0728-01/" />
 <meta property="og:site_name" content="8086 汇编语言（上）" />
@@ -261,6 +261,10 @@
 </div>
 
   
+<script type="text/javascript" src="/js/initimage.js"></script>
+
+
+
 <div>
   <main>
     <div class="gisthead pagehead bg-gray-light pb-0 pt-3 mb-4">
@@ -288,9 +292,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Wed, 07 Aug 2024 14:05:00 &#43;0000"
+                  Modified <relative-time datetime="Wed, 21 Aug 2024 11:05:42 &#43;0000"
                     class="no-wrap">
-                    Wed, 07 Aug 2024 14:05:00 &#43;0000</relative-time>
+                    Wed, 21 Aug 2024 11:05:42 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -427,7 +431,8 @@
 <p>在上面的介绍中，中国可以认为是一级段地址，通过他可以过滤掉一系列其他国家，进行下一级行政单位（省份）的确定，陕西省是中国的偏移地址，进入中国范围后，可以通过陕西省过滤掉我国的其他省份，同样陕西省也是他下一级行政单位（西安市）的段地址，依次递推。这是不是就明了许多了？</p>
 <p>我们将这个概念再带回计算机上，假设你现在有1024字节的内存，你将他们分为四个段，每个段有256个字节。把这四个段分别编号为A，B，C，D。当你想要唯一的定位一个字节时，你应当先找到他所在的段地址，然后就可以排除其他三个段地址了。这样你的检索范围就会大大缩小。比如说你要检索的数据在C段，那你就可以只检索C段内的256个字节，如果再告诉你偏移地址，比如说是第123个字节，那么就很容易定位了。</p>
 <h2 id="段地址和偏移地址的合成方式">段地址和偏移地址的合成方式</h2>
-<p><img src="image-20220829104830861.png" alt="image-20220829104830861"></p></article>
+<p><img src="image-20220829104830861.png" alt="image-20220829104830861"></p>
+</article>
               </div>
 
               

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>zabbix可视化 on 0xo7&#39;s Blog</title>
+    <link>https://0xo7.github.io/tags/zabbix%E5%8F%AF%E8%A7%86%E5%8C%96/</link>
+    <description>Recent content in zabbix可视化 on 0xo7&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 11 Aug 2024 11:26:04 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/tags/zabbix%E5%8F%AF%E8%A7%86%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Grafana 面板笔记</title>
+      <link>https://0xo7.github.io/post/2024-0811-01/</link>
+      <pubDate>Sun, 11 Aug 2024 11:26:04 +0800</pubDate>
+      
+      <guid>https://0xo7.github.io/post/2024-0811-01/</guid>
+      <description>目前市面上Grafana的教程很少，大多数教程都不能够满足企业内数据的可视化展示，本文记录对Grafana面板的研究和学习 &amp;hellip;</description>
+    </item>
+    
+  </channel>
+</rss>

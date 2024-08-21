@@ -6,7 +6,25 @@
     <description>Recent content in Posts on 0xo7&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 07 Aug 2024 18:50:31 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Aug 2024 21:43:50 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>反代钓鱼技巧</title>
+      <link>https://0xo7.github.io/post/2024-0819-01/</link>
+      <pubDate>Mon, 19 Aug 2024 21:43:50 +0800</pubDate>
+      
+      <guid>https://0xo7.github.io/post/2024-0819-01/</guid>
+      <description>本文主要是利用反向代理伪造各种网站来钓鱼，同时通过注入js来解决反向代理后出现的一些问题，简单暴力，特别适用于企业内钓鱼演练 &amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Grafana 面板笔记</title>
+      <link>https://0xo7.github.io/post/2024-0811-01/</link>
+      <pubDate>Sun, 11 Aug 2024 11:26:04 +0800</pubDate>
+      
+      <guid>https://0xo7.github.io/post/2024-0811-01/</guid>
+      <description>目前市面上Grafana的教程很少，大多数教程都不能够满足企业内数据的可视化展示，本文记录对Grafana面板的研究和学习 &amp;hellip;</description>
+    </item>
+    
     <item>
       <title>JumpServer 的各种踩坑</title>
       <link>https://0xo7.github.io/post/2024-0807-01/</link>
@@ -22,7 +40,7 @@
       <pubDate>Sun, 28 Jul 2024 19:19:29 +0800</pubDate>
       
       <guid>https://0xo7.github.io/post/2024-0728-01/</guid>
-      <description></description>
+      <description>对于绝大多数人来说，二进制程序是不可读的，当然有能人可以读，比如第一代程序员，但这类人快灭绝了，直接看二进制不容易看出来究竟做了什么事情&amp;hellip;&amp;hellip;</description>
     </item>
     
     <item>
@@ -31,7 +49,7 @@
       <pubDate>Fri, 26 Jul 2024 21:41:05 +0800</pubDate>
       
       <guid>https://0xo7.github.io/post/2024-0726-01/</guid>
-      <description></description>
+      <description>文章主要记录对该hugo主题的一些优化等技巧</description>
     </item>
     
   </channel>

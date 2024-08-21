@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>网络钓鱼 on 0xo7&#39;s Blog</title>
+    <link>https://0xo7.github.io/tags/%E7%BD%91%E7%BB%9C%E9%92%93%E9%B1%BC/</link>
+    <description>Recent content in 网络钓鱼 on 0xo7&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 19 Aug 2024 21:43:50 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/tags/%E7%BD%91%E7%BB%9C%E9%92%93%E9%B1%BC/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>反代钓鱼技巧</title>
+      <link>https://0xo7.github.io/post/2024-0819-01/</link>
+      <pubDate>Mon, 19 Aug 2024 21:43:50 +0800</pubDate>
+      
+      <guid>https://0xo7.github.io/post/2024-0819-01/</guid>
+      <description>本文主要是利用反向代理伪造各种网站来钓鱼，同时通过注入js来解决反向代理后出现的一些问题，简单暴力，特别适用于企业内钓鱼演练 &amp;hellip;</description>
+    </item>
+    
+  </channel>
+</rss>

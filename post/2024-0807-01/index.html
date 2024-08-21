@@ -263,7 +263,7 @@
   
 <script>
     (function(){
-        var correctPassword = 'yxzg.\u002b50568792';
+        var correctPassword = '307576630';
         var storedPassword = localStorage.getItem('pagePassword');
 
         function verifyPassword(password) {
@@ -290,7 +290,11 @@
             promptPassword();
         }
     })();
-</script><div>
+</script><script type="text/javascript" src="/js/initimage.js"></script>
+
+
+
+<div>
   <main>
     <div class="gisthead pagehead bg-gray-light pb-0 pt-3 mb-4">
       <div class="px-0">
@@ -317,9 +321,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Wed, 07 Aug 2024 14:05:00 &#43;0000"
+                  Modified <relative-time datetime="Wed, 21 Aug 2024 11:05:42 &#43;0000"
                     class="no-wrap">
-                    Wed, 07 Aug 2024 14:05:00 &#43;0000</relative-time>
+                    Wed, 21 Aug 2024 11:05:42 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -349,7 +353,7 @@
                         </div>
                       </div>
                     </details-menu>
-                      3235 Words
+                      3395 Words
                     <span class="file-info-divider"></span>
                                         15 min
 
@@ -838,6 +842,14 @@ CLIENT_MAX_BODY_SIZE=10240m
 <p>报错提示：</p>
 <p><img src="image-20240807203731929.png" alt="image-20240807203731929"></p>
 <p>删除 /opt/jumpserver/config/，然后重新安装即可</p>
+<h2 id="无法连接-windows-机器">无法连接 Windows 机器</h2>
+<p>JumpServer 会无法连接普通的 Windows 机器，当然正常连接 Windows Server 版本应该没有问题，这里说的是指无法连接到 Windows 10、Windows 11专业版、企业版等</p>
+<p>首先我们可以修改平台，把 windows平台修改成windows tls平台</p>
+<p>如果还是不行，我们需要关闭 Windows 网络身份验证</p>
+<p><img src="image-20240809190919230.png" alt="image-20240809190919230"></p>
+<h1 id="优化">优化</h1>
+<h2 id="开启-https">开启 HTTPS</h2>
+<p>在 V4 版本以后，开启 https 访问之后，可以通过谷歌浏览器无缝复制粘贴</p>
 </article>
               </div>
 
@@ -849,6 +861,8 @@ CLIENT_MAX_BODY_SIZE=10240m
 
       <div class="pagination-nav">
         <div class="pagination-button next-post">
+          
+          <div>«&nbsp;</div><a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-0811-01/"> Grafana 面板笔记</a>
           
         </div>
         
