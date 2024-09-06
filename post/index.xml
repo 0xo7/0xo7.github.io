@@ -58,12 +58,7 @@
       <pubDate>Thu, 25 Aug 2022 08:41:24 +0800</pubDate>
       
       <guid>https://0xo7.github.io/post/2024-0825-01/</guid>
-      <description>[bx]、loop指令 [bx] 前面的学习中，我们了解到了[0]的用法，如下：
-mov bx,1000H mov ds,bx	mov al,[0]X86ASM 但这里中括号中的0是常量，我们还可放变量，比如：[bx]
-;如果ds已经是2000H mov bx,10 mov ax,[bx]	;这个指令就相当于mov ax,2000H:10,也就是把2000H:10这个字型数据给ax ;如果是mov dl,[0]，那么这个是把字节型数据给mov，因为dl只有8位X86ASM inx bx 指令的作用是让bx+1，相当于bx=bx+1或者是bx++
-loop指令 loop 指令，在汇编里面代表循环，类似于c语言的while、for循环。
-loop 指令的使用格式：loop 标号，CPU 执行 loop 指令时，首先执行 CX = CX-1，然后判断 CX 的值，CX的值如果不为0，就会跳到标号处执行程序，如果为0，就按顺序向下执行。
-;比如：如果要用指令实现2的三次方，可用如下方法 mov ax,2	;ax=2 add ax,ax	;ax=2+2=4 add ax,ax	;ax=4+4=8 ;但是这里如果要实现2的12次方呢？？？用上面的方法一直加下去就不太好，这里就用循环实现，用如下代码实现 assume cs:code code segment mov ax,2 mov cx,11 s: add ax,ax loop s mov ax,4c00h int 21h code ends endX86ASM 对上面2的12次方debug下，-u后我们发现ayu.exe会先执行mov ax,0002，然后再执行mov cx,000B，一直向下执行下去，然后到loop指令的时候，会再跳回到上面的add ax,ax指令</description>
+      <description>汇编</description>
     </item>
     
     <item>
