@@ -296,7 +296,7 @@
                 </path>
               </svg>
               Posts
-              <span class="Counter">5</span>
+              <span class="Counter">7</span>
             </a>
           </nav>
           <div class="profile-color-modes js-promo-color-modes-banner-profile isInitialToggle">
@@ -588,7 +588,7 @@
         </path>
       </svg>
       Posts
-      <span class="Counter ">5</span>
+      <span class="Counter ">7</span>
     </a>
   </nav>
 </div>
@@ -601,7 +601,7 @@
       
       <div class="TableObject border-bottom border-gray-light py-3">
         <div class="user-repo-search-results-summary TableObject-item TableObject-item--primary v-align-top">
-          <strong>1</strong>
+          <strong>2</strong>
           results
           for <strong>8086汇编</strong>
         </div>
@@ -619,6 +619,51 @@
       </div>
       
       <ul>
+        
+        <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
+          <div class="col-12 d-inline-block">
+            <div class="d-inline-block mb-1">
+              <h3 class="wb-break-all">
+                <a href="https://0xo7.github.io/post/2024-0825-01/">8086 汇编语言（二）</a>
+					
+						<span class="Label Label--secondary v-align-middle ml-1 mb-1">Public</span>
+									
+              </h3>
+            </div>
+
+            <div>
+              <div class="col-12 d-inline-block text-gray mb-2 pr-4">
+                [bx]、loop指令 [bx] 前面的学习中，我们了解到了[0]的用法，如下：
+mov bx,1000H mov ds,bx	mov al,[0]X86ASM 但这里中括号中的0是常量，我们还可放变量，比如：[bx]
+;如果ds已经是2000H mov bx,10 mov ax,[bx]	;这个指令就相当于mov ax,2000H:10,也就是把2000H:10这个字型数据给ax ;如果是mov dl,[0]，那么这个是把字节型数据给mov，因为dl只有8位X86ASM inx bx 指令的作用是让bx+1，相当于bx=bx+1或者是bx++
+loop指令 loop 指令，在汇编里面代表循环，类似于c语言的while、for循环。
+loop 指令的使用格式：loop 标号，CPU 执行 loop 指令时，首先执行 CX = CX-1，然后判断 CX 的值，CX的值如果不为0，就会跳到标号处执行程序，如果为0，就按顺序向下执行。
+;比如：如果要用指令实现2的三次方，可用如下方法 mov ax,2	;ax=2 add ax,ax	;ax=2+2=4 add ax,ax	;ax=4+4=8 ;但是这里如果要实现2的12次方呢？？？用上面的方法一直加下去就不太好，这里就用循环实现，用如下代码实现 assume cs:code code segment mov ax,2 mov cx,11 s: add ax,ax loop s mov ax,4c00h int 21h code ends endX86ASM 对上面2的12次方debug下，-u后我们发现ayu.exe会先执行mov ax,0002，然后再执行mov cx,000B，一直向下执行下去，然后到loop指令的时候，会再跳回到上面的add ax,ax指令
+              </div>
+            </div>
+
+            <div class="f6 text-gray mt-2">
+              
+              
+              <a class="muted-link mr-3" href="/tags/8086%E6%B1%87%E7%BC%96">
+                <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                  <path fill-rule="evenodd"
+                    d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                  </path>
+                </svg>
+                8086汇编
+              </a>
+              
+              
+
+              Created
+              <relative-time datetime=" Thu, 25 Aug 2022 08:41:24 &#43;0800" class="no-wrap"
+                title=" Thu, 25 Aug 2022 08:41:24 &#43;0800">
+                Thu, 25 Aug 2022 08:41:24 &#43;0800
+              </relative-time>
+            </div>
+          </div>
+        </li>
         
         <li class="col-12 d-flex width-full py-4 border-bottom color-border-secondary public source">
           <div class="col-12 d-inline-block">
@@ -679,9 +724,9 @@
               
 
               Created
-              <relative-time datetime=" Sun, 28 Jul 2024 19:19:29 &#43;0800" class="no-wrap"
-                title=" Sun, 28 Jul 2024 19:19:29 &#43;0800">
-                Sun, 28 Jul 2024 19:19:29 &#43;0800
+              <relative-time datetime=" Thu, 28 Jul 2022 19:19:29 &#43;0800" class="no-wrap"
+                title=" Thu, 28 Jul 2022 19:19:29 &#43;0800">
+                Thu, 28 Jul 2022 19:19:29 &#43;0800
               </relative-time>
             </div>
           </div>

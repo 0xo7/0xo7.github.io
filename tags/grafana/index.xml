@@ -6,7 +6,16 @@
     <description>Recent content in Grafana on 0xo7&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 11 Aug 2024 11:26:04 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/tags/grafana/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 Sep 2024 20:52:27 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/tags/grafana/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Zabbix 6.2 数据库分析</title>
+      <link>https://0xo7.github.io/post/2024-0905-01/</link>
+      <pubDate>Thu, 05 Sep 2024 20:52:27 +0800</pubDate>
+      
+      <guid>https://0xo7.github.io/post/2024-0905-01/</guid>
+      <description>通过grafana展示zabbix数据的时候，最好的方法就是直连zabbix数据库，本文记录对grafana直连zabbix数据库的一些语法 &amp;hellip;</description>
+    </item>
+    
     <item>
       <title>Grafana 面板笔记</title>
       <link>https://0xo7.github.io/post/2024-0811-01/</link>

@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <script
+    type="application/javascript"
+    src='https://0xo7.github.io/js/theme-mode.js'
+  ></script>
+  <link rel="stylesheet" href='https://0xo7.github.io/css/frameworks.min.css' />
+  <link rel="stylesheet" href='https://0xo7.github.io/css/github.min.css' />
+  <link rel="stylesheet" href='https://0xo7.github.io/css/github-style.css' />
+  <link rel="stylesheet" href='https://0xo7.github.io/css/light.css' />
+  <link rel="stylesheet" href='https://0xo7.github.io/css/dark.css' />
+  <link rel="stylesheet" href='https://0xo7.github.io/css/syntax.css' />
+  
+  <link rel="stylesheet" href="/custom.css" />
+  
+  <title>
+    Zabbix 6.2 数据库分析 | 0xo7&#39;s Blog
+  </title>
+  
+  <link rel="icon" type="image/x-icon" href="/images/github-mark.png" />
+  
+  <meta name="theme-color" content="#1e2327" />
+
+  
+  <meta
+  name="description"
+  content="通过grafana展示zabbix数据的时候，最好的方法就是直连zabbix数据库，本文记录对grafana直连zabbix数据库的一些语法 &amp;hellip;"
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://0xo7.github.io/post/2024-0905-01/" />
+
+
+<meta name="twitter:card" content="summary" />
+<meta
+  name="twitter:title"
+  content="Zabbix 6.2 数据库分析 - 0xo7&#39;s Blog"
+/>
+<meta
+  name="twitter:description"
+  content="通过grafana展示zabbix数据的时候，最好的方法就是直连zabbix数据库，本文记录对grafana直连zabbix数据库的一些语法 &amp;hellip;"
+/>
+<meta name="twitter:site" content="https://0xo7.github.io/" />
+<meta name="twitter:creator" content="" />
+<meta
+  name="twitter:image"
+  content="https://0xo7.github.io/"
+/>
+
+
+<meta
+  property="og:type"
+  content="article"
+/>
+<meta
+  property="og:title"
+  content="Zabbix 6.2 数据库分析 - 0xo7&#39;s Blog"
+/>
+<meta
+  property="og:description"
+  content="通过grafana展示zabbix数据的时候，最好的方法就是直连zabbix数据库，本文记录对grafana直连zabbix数据库的一些语法 &amp;hellip;"
+/>
+<meta property="og:url" content="https://0xo7.github.io/post/2024-0905-01/" />
+<meta property="og:site_name" content="Zabbix 6.2 数据库分析" />
+<meta
+  property="og:image"
+  content="https://0xo7.github.io/"
+/>
+<meta property="og:image:width" content="2048" />
+<meta property="og:image:height" content="1024" />
+
+<meta property="article:published_time" content="2024-09-05 20:52:27 &#43;0800 &#43;0800" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body>
+  
+
+<style>
+  .height-limitation {
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+
+  .loader {
+    border: 4px solid #f3f3f3;
+    border-bottom: 4px solid var(--color-fg-muted);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
+<div style="position: relative">
+  <header
+    class="Header js-details-container Details px-3 px-md-4 px-lg-5 flex-wrap flex-md-nowrap open Details--on"
+  >
+    <div
+      class="Header-item mobile-none"
+      style="margin-top: -4px; margin-bottom: -4px"
+    >
+      <a class="Header-link" href="https://0xo7.github.io/" aria-label="Home">
+        <svg
+          class="octicon"
+          height="32"
+          viewBox="0 0 16 16"
+          version="1.1"
+          width="32"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+          ></path>
+        </svg>
+      </a>
+    </div>
+    <div class="Header-item d-md-none">
+      <button
+        class="Header-link btn-link js-details-target"
+        type="button"
+        onclick="document.querySelector('#header-search').style.display = document.querySelector('#header-search').style.display == 'none'? 'block': 'none'"
+        aria-label="Search"
+      >
+        <svg
+          height="24"
+          class="octicon octicon-three-bars"
+          viewBox="0 0 16 16"
+          version="1.1"
+          width="24"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"
+          ></path>
+        </svg>
+      </button>
+    </div>
+    <div
+      style="display: none"
+      id="header-search"
+      class="Header-item Header-item--full flex-column flex-md-row width-full flex-order-2 flex-md-order-none mr-0 mr-md-3 mt-3 mt-md-0 Details-content--hidden-not-important d-md-flex"
+    >
+      <div
+        class="Header-search header-search flex-auto js-site-search position-relative flex-self-stretch flex-md-self-auto mb-3 mb-md-0 mr-0 mr-md-3 scoped-search site-scoped-search js-jump-to"
+      >
+        <div class="position-relative">
+          <form
+            target="_blank"
+            action="https://www.google.com/search"
+            accept-charset="UTF-8"
+            method="get"
+            autocomplete="off"
+          >
+            <label
+              class="Header-search-label form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center"
+            >
+              <input
+                type="text"
+                class="Header-search-input form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
+                name="q"
+                value=""
+                placeholder="Search"
+                autocomplete="off"
+              />
+              <input type="hidden" name="q" value="site:https://0xo7.github.io/" />
+              <div
+                class="js-jump-to-suggestions-container jump-to-suggestions overflow-hidden position-absolute"
+              >
+                <div
+                  id="search-progress"
+                  class="d-none color-bg-primary no-underline p-2"
+                  role="progress"
+                  aria-selected="false"
+                >
+                  <div class="loader"></div>
+                </div>
+
+                <ul
+                  id="jump-to-results"
+                  role="listbox"
+                  class="Box border-0 p-0 m-0 js-navigation-container jump-to-suggestions-results-container js-jump-to-suggestions-results-container js-active-navigation-container height-limitation"
+                ></ul>
+              </div>
+            </label>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="Header-item Header-item--full flex-justify-center d-md-none position-relative"
+    >
+      <a class="Header-link" href="https://0xo7.github.io/" aria-label="Home">
+        <svg
+          class="octicon octicon-mark-github v-align-middle"
+          height="32"
+          viewBox="0 0 16 16"
+          version="1.1"
+          width="32"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+          ></path>
+        </svg>
+      </a>
+    </div>
+    <div class="Theme-switcher Header-item" style="margin-right: 0">
+      <span
+        role="button"
+        class="Header-link no-select"
+        onclick="switchTheme()"
+        style="cursor: pointer"
+        aria-label="Switch theme"
+      >
+        <svg
+          style="fill: var(--color-profile-color-modes-toggle-moon)"
+          class="no-select"
+          viewBox="0 0 16 16"
+          version="1.1"
+          width="16"
+          height="16"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z"
+          ></path>
+        </svg>
+      </span>
+    </div>
+  </header>
+</div>
+
+  
+<script type="text/javascript" src="/js/initimage.js"></script>
+
+
+
+<div>
+  <main>
+    <div class="gisthead pagehead bg-gray-light pb-0 pt-3 mb-4">
+      <div class="px-0">
+        <div class="mb-3 d-flex px-3 px-md-3 px-lg-5">
+          <div class="flex-auto min-width-0 width-fit mr-3">
+            <div class="d-flex">
+              <div class="d-none d-md-block">
+                <a class="avatar mr-2 flex-shrink-0" href="https://0xo7.github.io/">
+                  <img class=" avatar-user"
+                    src="/images/avatar.png"
+                    width="32" height="32" alt="Thunnus"></a>
+              </div>
+              <div class="d-flex flex-column">
+                <h1 class="break-word f3 text-normal mb-md-0 mb-1">
+                  <span class="author">
+                    <a href="https://0xo7.github.io/">Thunnus</a></span><span
+                    class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
+                      href="https://0xo7.github.io/post/2024-0905-01/">Zabbix 6.2 数据库分析</a></strong>
+                </h1>
+                <div class="note m-0">
+                  Created <relative-time datetime="Thu, 05 Sep 2024 20:52:27 &#43;0800"
+                    class="no-wrap">
+                    Thu, 05 Sep 2024 20:52:27 &#43;0800</relative-time>
+
+                  
+                  <span class="file-info-divider"></span>
+                  Modified <relative-time datetime="Fri, 06 Sep 2024 13:36:22 &#43;0000"
+                    class="no-wrap">
+                    Fri, 06 Sep 2024 13:36:22 &#43;0000</relative-time>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-lg px-3 new-discussion-timeline">
+      <div class="repository-content gist-content">
+        <div>
+          <div class="js-gist-file-update-container js-task-list-container file-box">
+            <div id="file-pytest" class="file my-2">
+              <div id="post-header" class="file-header d-flex flex-md-items-center flex-items-start sticky-header" style="z-index: 2">
+                <div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto">
+                  <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                    
+                    <summary id="toc-toggle" onclick="clickToc()" class="btn btn-octicon m-0 mr-2 p-2">
+                      <svg aria-hidden="true" viewBox="0 0 16 16" height="16" width="16" class="octicon octicon-list-unordered">
+                        <path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zM3 8a1 1 0 11-2 0 1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"></path>
+                      </svg>
+                    </summary>
+                    <details-menu class="SelectMenu" id="toc-details" style="display: none;">
+                      <div class="SelectMenu-modal rounded-3 mt-1" style="max-height: 340px;">
+                        <div class="SelectMenu-list SelectMenu-list--borderless p-2" style="overscroll-behavior: contain;" id="toc-list">
+                        </div>
+                      </div>
+                    </details-menu>
+                      1628 Words
+                    <span class="file-info-divider"></span>
+                                        7 min
+
+                  </div>
+                  <div class="file-actions flex-order-2 pt-0">
+                    
+                    
+                    <a class="muted-link mr-3" href="/tags/grafana">
+                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                        </path>
+                      </svg>
+                      Grafana
+                    </a>
+                    
+                    <a class="muted-link mr-3" href="/tags/zabbix">
+                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                        </path>
+                      </svg>
+                      Zabbix
+                    </a>
+                    
+                    
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="Box-body px-5 pb-5" style="z-index: 1">
+                <article class="markdown-body entry-content container-lg"><p>在grafana对接zabbix的时候，如果不采用直连数据库的方式，虽然也能够展示相关数据，但终究是有限的，如下：</p>
+<p><img src="2024-0905-01%5Cimage-20240906200212967.png" alt="image-20240906200212967"></p>
+<p>但通过zabbix插件终究有限，如果我们要监控所有未关机的服务器或电脑，或者展示所有的CPU使用率情况，就无法使用插件来展示，必须通过直连数据库来获取数据，直连数据库就可以展示出类似如下的效果：</p>
+<p><img src="2024-0905-01%5Cimage-20240906200641092.png" alt="image-20240906200641092"></p>
+<p>通过 grafana 中的 zabbix 插件是无法展示出上面的效果的，本文就带大家来简单的了解一下 Zabbix 数据库</p>
+<p>本文主要分析 Grafana 直连 zabbix 数据库时的一些注意事项和 zabbix 数据库保存数据的一些基本表和字段等</p>
+<ul>
+<li>zabbix 的一些指标数据大多都保存在 history、history_str、history_text、history_uint 表中</li>
+<li>监控的 windows 电脑保存在 hosts 表中</li>
+<li>items 表中保存了一些监控项</li>
+<li>每一台电脑的hostid肯定是不同的，items表里面保存了所有电脑的监控项，很多电脑的监控项都相同，比如很多电脑都有 ”（D:）Space utilization“这个监控项，但是这些监控项的 itemid 都不一样。</li>
+</ul>
+<ul>
+<li>
+<p><strong>Zabbix</strong> 会根据监控项的值类型将数据存储在不同的表中：</p>
+</li>
+<li>
+<p><code>history</code>：用于存储浮点数值 (float) 的数据。</p>
+</li>
+<li>
+<p><code>history_uint</code>：用于存储无符号整数值的 (unsigned integer) 数据。</p>
+</li>
+<li>
+<p><code>history_text</code>：用于存储文本数据。</p>
+</li>
+<li>
+<p><code>history_log</code>：用于存储日志数据。</p>
+</li>
+<li>
+<p>如果我们要查询某个监控项到底大致存储在哪个表中，我们就可以查询某个监控项的类型，比如：</p>
+<p><img src="2024-0905-01%5Cimage-20240906194830086.png" alt="image-20240906194830086"></p>
+<ul>
+<li>
+<p><code>value_type</code> 的含义：</p>
+</li>
+<li>
+<p><code>0</code>：浮点数（数据在 <code>history</code> 表中）。</p>
+</li>
+<li>
+<p><code>1</code>：字符型（数据在 <code>history_str</code> 表中）。</p>
+</li>
+<li>
+<p><code>2</code>：日志（数据在 <code>history_log</code> 表中）。</p>
+</li>
+<li>
+<p><code>3</code>：无符号整数（数据在 <code>history_uint</code> 表中）。</p>
+</li>
+<li>
+<p><code>4</code>：文本（数据在 <code>history_text</code> 表中）。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="查询某台主机的hostid">查询某台主机的hostid</h1>
+<pre tabindex="0"><code>SELECT hostid
+FROM hosts
+WHERE name LIKE &#39;%xxxx%&#39;;
+</code></pre><p><img src="2024-0905-01%5Cimage-20240906195131547.png" alt="image-20240906195131547"></p>
+<h1 id="查询某台电脑的所有监控项">查询某台电脑的所有监控项</h1>
+<pre tabindex="0"><code>SELECT itemid, name 
+FROM items 
+WHERE hostid = 10591;
+</code></pre><p><img src="2024-0905-01%5Cimage-123213.png" alt="image-123213"></p>
+<h1 id="查询某个监控项对应的监控项id">查询某个监控项对应的监控项ID</h1>
+<pre tabindex="0"><code>SELECT name FROM items WHERE itemid = 52781;
+</code></pre><p><img src="2024-0905-01%5Cimage-20240906203830611.png" alt="image-20240906203830611"></p>
+<h1 id="查询hostid为某个值的监控项的值">查询hostid为某个值的监控项的值</h1>
+<p>比如：查询 XX宇 电脑监控项 Memory utilization 的最近十条数据</p>
+<p>首先查询出了 Memory utilization 的 itemid 是啥</p>
+<p><img src="2024-0905-01%5Cimage-20240906203914994.png" alt="image-20240906203914994"></p>
+<p>然后开始查询</p>
+<pre tabindex="0"><code>SELECT h.clock, h.value
+FROM history h
+JOIN items i ON h.itemid = i.itemid
+WHERE i.itemid = 52738 
+  AND i.hostid = 10591
+ORDER BY h.clock DESC 
+LIMIT 10;
+</code></pre><p><img src="2024-0905-01%5Cimage-20240906203953815.png" alt="image-20240906203953815"></p>
+<h1 id="查询hostid为某个值的监控项的值把clock进行转换为正常时间">查询hostid为某个值的监控项的值，把clock进行转换为正常时间</h1>
+<pre tabindex="0"><code>SELECT FROM_UNIXTIME(h.clock) AS datetime, h.value
+FROM history_uint h
+JOIN items i ON h.itemid = i.itemid
+WHERE i.itemid = 52754 
+  AND i.hostid = 10591
+ORDER BY h.clock DESC 
+LIMIT 10;
+</code></pre><p><img src="2024-0905-01%5Cimage-20240906204023290.png" alt="image-20240906204023290"></p>
+<h1 id="查询某个组的groupid">查询某个组的groupid</h1>
+<p>当我们在zabbix中，建了一些分组的时候，我们需要查询一些分组的 groupid，比如：信息测试组</p>
+<p><img src="2024-0905-01%5Cimage-20240906204901941.png" alt="image-20240906204901941"></p>
+<h1 id="获取信息测试组的所有主机id">获取信息测试组的所有主机id</h1>
+<p><img src="2024-0905-01%5Cimage-20240906205131066.png" alt="image-20240906205131066"></p>
+<h1 id="获取信息测试组中所有主机的监控项中包含ping的监控项的最新值">获取信息测试组中所有主机的监控项中包含“ping”的监控项的最新值</h1>
+<p>这里获取的其实就是 Zabbix agent ping 监控项，主要用来判断电脑或者windows服务器是否在线，在线就是1</p>
+<pre tabindex="0"><code>SELECT FROM_UNIXTIME(h.clock) AS datetime, h.value, i.hostid, i.itemid
+FROM history_uint h
+JOIN items i ON h.itemid = i.itemid
+JOIN hosts_groups hg ON i.hostid = hg.hostid
+JOIN (
+    SELECT i.hostid, i.itemid, MAX(h.clock) AS max_clock
+    FROM history_uint h
+    JOIN items i ON h.itemid = i.itemid
+    JOIN hosts_groups hg ON i.hostid = hg.hostid
+    WHERE i.itemid IN (
+        SELECT itemid
+        FROM items
+        WHERE name LIKE &#39;%ping%&#39;
+    )
+    AND hg.groupid = 22
+    GROUP BY i.hostid, i.itemid
+) latest ON i.hostid = latest.hostid AND i.itemid = latest.itemid AND h.clock = latest.max_clock
+WHERE hg.groupid = 22
+ORDER BY i.hostid, i.itemid;
+</code></pre><p><img src="2024-0905-01%5Cimage-20240906210935024.png" alt="image-20240906210935024"></p>
+<p>我们发现这里展示的时间就是最后一次在线的时间，对应的value就是1</p>
+<p>在这个基础上进阶，把电脑名显示出来，如下：</p>
+<pre tabindex="0"><code>SELECT 
+    FROM_UNIXTIME(h.clock) AS datetime, 
+    h.value, 
+    i.hostid, 
+    i.itemid,
+    hst.name AS hostname
+FROM history_uint h
+JOIN items i ON h.itemid = i.itemid
+JOIN hosts_groups hg ON i.hostid = hg.hostid
+JOIN (
+    SELECT 
+        i.hostid, 
+        i.itemid, 
+        MAX(h.clock) AS max_clock
+    FROM history_uint h
+    JOIN items i ON h.itemid = i.itemid
+    JOIN hosts_groups hg ON i.hostid = hg.hostid
+    WHERE i.itemid IN (
+        SELECT itemid
+        FROM items
+        WHERE name LIKE &#39;%ping%&#39;
+    )
+    AND hg.groupid = 22
+    GROUP BY i.hostid, i.itemid
+) latest ON i.hostid = latest.hostid 
+           AND i.itemid = latest.itemid 
+           AND h.clock = latest.max_clock
+JOIN hosts hst ON i.hostid = hst.hostid
+WHERE hg.groupid = 22
+ORDER BY i.hostid, i.itemid;
+</code></pre><p><img src="2024-0905-01%5Cimage-20240906211334047.png" alt="image-20240906211334047"></p>
+<p>为了判断实际电脑是否在线，一般是获取最近3分钟的数据，如下：</p>
+<pre tabindex="0"><code>SELECT 
+    FROM_UNIXTIME(h.clock) AS datetime, 
+    h.value, 
+    i.hostid, 
+    i.itemid,
+    hst.name AS hostname
+FROM history_uint h
+JOIN items i ON h.itemid = i.itemid
+JOIN hosts_groups hg ON i.hostid = hg.hostid
+JOIN (
+    SELECT 
+        i.hostid, 
+        i.itemid, 
+        MAX(h.clock) AS max_clock
+    FROM history_uint h
+    JOIN items i ON h.itemid = i.itemid
+    JOIN hosts_groups hg ON i.hostid = hg.hostid
+    WHERE i.itemid IN (
+        SELECT itemid
+        FROM items
+        WHERE name LIKE &#39;%ping%&#39;
+    )
+    AND hg.groupid = 22
+    AND h.clock &gt;= UNIX_TIMESTAMP(NOW()) - 180  -- 最近3分钟的数据
+    GROUP BY i.hostid, i.itemid
+) latest ON i.hostid = latest.hostid 
+           AND i.itemid = latest.itemid 
+           AND h.clock = latest.max_clock
+JOIN hosts hst ON i.hostid = hst.hostid
+WHERE hg.groupid = 22
+  AND h.clock &gt;= UNIX_TIMESTAMP(NOW()) - 180  -- 最近3分钟的数据
+ORDER BY i.hostid, i.itemid;
+</code></pre><p>但是现在没有电脑在线，最近3分钟查询不出数据</p>
+<p><img src="2024-0905-01%5Cimage-20240906211630908.png" alt="image-20240906211630908"></p>
+<p>为了查询出数据，并且方便在 grafana中做 数据展示，我们可以让最近不在线的电脑value值填充为0，如下</p>
+<pre tabindex="0"><code>SELECT 
+    FROM_UNIXTIME(COALESCE(h.clock, UNIX_TIMESTAMP())) AS datetime, 
+    COALESCE(h.value, 0) AS value, 
+    i.hostid, 
+    i.itemid,
+    hst.name AS hostname
+FROM hosts_groups hg
+JOIN hosts hst ON hg.hostid = hst.hostid
+LEFT JOIN items i ON i.hostid = hg.hostid
+LEFT JOIN history_uint h ON h.itemid = i.itemid
+AND h.clock = (
+    SELECT MAX(h2.clock)
+    FROM history_uint h2
+    WHERE h2.itemid = i.itemid
+      AND h2.clock &gt;= UNIX_TIMESTAMP(NOW()) - 180 -- 最近3分钟的数据
+)
+WHERE i.itemid IN (
+    SELECT itemid
+    FROM items
+    WHERE name LIKE &#39;%ping%&#39;
+)
+AND hg.groupid = 22
+ORDER BY i.hostid, i.itemid;
+</code></pre><p><img src="2024-0905-01%5Cimage-20240906211949720.png" alt="image-20240906211949720"></p>
+<p>上面的查询语法直接用于 grafana 中就可以展示如下电脑在线效果：</p>
+<p><img src="2024-0905-01%5Cimage-20240906200641092.png" alt="image-20240906200641092"></p>
+<p>待续。。。</p>
+</article>
+              </div>
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagination-nav">
+        <div class="pagination-button next-post">
+          
+        </div>
+        
+        <div class="pagination-button previous-post">
+          
+          <a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-0819-01/">反代钓鱼技巧&nbsp;</a><div> »</div>
+          
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script type="application/javascript" src='https://0xo7.github.io/js/toc.js'></script>
+<link rel="stylesheet" href='https://0xo7.github.io/css/toc.css' />
+
+
+  <div class="footer container-xl width-full p-responsive">
+  <div
+    class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between flex-sm-items-center pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mr-lg-4" href="https://0xo7.github.io/">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24">
+        <path fill-rule="evenodd"
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+        </path>
+      </svg>
+    </a>
+    <ul class="list-style-none d-flex flex-wrap col-12 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+      
+      <li class="mr-3 mr-lg-0">Theme by <a href='https://github.com/MeiK2333/github-style'>github-style</a></li>
+      
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+
+
+</div>
+</body>
+
+<script type="application/javascript" src="https://0xo7.github.io/js/github-style.js"></script>
+
+<script src="https://0xo7.github.io/js/mark.es6.min.js"></script>
+
+
+
+
+
+
+
+</html>

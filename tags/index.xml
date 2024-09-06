@@ -6,7 +6,25 @@
     <description>Recent content in Tags on 0xo7&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 19 Aug 2024 21:43:50 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 Sep 2024 20:52:27 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Grafana</title>
+      <link>https://0xo7.github.io/tags/grafana/</link>
+      <pubDate>Thu, 05 Sep 2024 20:52:27 +0800</pubDate>
+      
+      <guid>https://0xo7.github.io/tags/grafana/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Zabbix</title>
+      <link>https://0xo7.github.io/tags/zabbix/</link>
+      <pubDate>Thu, 05 Sep 2024 20:52:27 +0800</pubDate>
+      
+      <guid>https://0xo7.github.io/tags/zabbix/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>水坑</title>
       <link>https://0xo7.github.io/tags/%E6%B0%B4%E5%9D%91/</link>
@@ -22,15 +40,6 @@
       <pubDate>Mon, 19 Aug 2024 21:43:50 +0800</pubDate>
       
       <guid>https://0xo7.github.io/tags/%E7%BD%91%E7%BB%9C%E9%92%93%E9%B1%BC/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Grafana</title>
-      <link>https://0xo7.github.io/tags/grafana/</link>
-      <pubDate>Sun, 11 Aug 2024 11:26:04 +0800</pubDate>
-      
-      <guid>https://0xo7.github.io/tags/grafana/</guid>
       <description></description>
     </item>
     
@@ -62,9 +71,18 @@
     </item>
     
     <item>
+      <title>博客主题优化</title>
+      <link>https://0xo7.github.io/tags/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Fri, 26 Jul 2024 21:41:05 +0800</pubDate>
+      
+      <guid>https://0xo7.github.io/tags/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>8086汇编</title>
       <link>https://0xo7.github.io/tags/8086%E6%B1%87%E7%BC%96/</link>
-      <pubDate>Sun, 28 Jul 2024 19:19:29 +0800</pubDate>
+      <pubDate>Thu, 25 Aug 2022 08:41:24 +0800</pubDate>
       
       <guid>https://0xo7.github.io/tags/8086%E6%B1%87%E7%BC%96/</guid>
       <description></description>
@@ -73,7 +91,7 @@
     <item>
       <title>Debug</title>
       <link>https://0xo7.github.io/tags/debug/</link>
-      <pubDate>Sun, 28 Jul 2024 19:19:29 +0800</pubDate>
+      <pubDate>Thu, 28 Jul 2022 19:19:29 +0800</pubDate>
       
       <guid>https://0xo7.github.io/tags/debug/</guid>
       <description></description>
@@ -82,7 +100,7 @@
     <item>
       <title>寄存器</title>
       <link>https://0xo7.github.io/tags/%E5%AF%84%E5%AD%98%E5%99%A8/</link>
-      <pubDate>Sun, 28 Jul 2024 19:19:29 +0800</pubDate>
+      <pubDate>Thu, 28 Jul 2022 19:19:29 +0800</pubDate>
       
       <guid>https://0xo7.github.io/tags/%E5%AF%84%E5%AD%98%E5%99%A8/</guid>
       <description></description>
@@ -91,18 +109,9 @@
     <item>
       <title>段地址和偏移</title>
       <link>https://0xo7.github.io/tags/%E6%AE%B5%E5%9C%B0%E5%9D%80%E5%92%8C%E5%81%8F%E7%A7%BB/</link>
-      <pubDate>Sun, 28 Jul 2024 19:19:29 +0800</pubDate>
+      <pubDate>Thu, 28 Jul 2022 19:19:29 +0800</pubDate>
       
       <guid>https://0xo7.github.io/tags/%E6%AE%B5%E5%9C%B0%E5%9D%80%E5%92%8C%E5%81%8F%E7%A7%BB/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>博客主题优化</title>
-      <link>https://0xo7.github.io/tags/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/</link>
-      <pubDate>Fri, 26 Jul 2024 21:41:05 +0800</pubDate>
-      
-      <guid>https://0xo7.github.io/tags/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/</guid>
       <description></description>
     </item>
     

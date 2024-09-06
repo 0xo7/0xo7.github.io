@@ -71,7 +71,7 @@
 <meta property="og:image:width" content="2048" />
 <meta property="og:image:height" content="1024" />
 
-<meta property="article:published_time" content="2024-07-28 19:19:29 &#43;0800 &#43;0800" />
+<meta property="article:published_time" content="2022-07-28 19:19:29 &#43;0800 &#43;0800" />
 
 
 
@@ -286,15 +286,15 @@
                       href="https://0xo7.github.io/post/2024-0728-01/">8086 汇编语言（一）</a></strong>
                 </h1>
                 <div class="note m-0">
-                  Created <relative-time datetime="Sun, 28 Jul 2024 19:19:29 &#43;0800"
+                  Created <relative-time datetime="Thu, 28 Jul 2022 19:19:29 &#43;0800"
                     class="no-wrap">
-                    Sun, 28 Jul 2024 19:19:29 &#43;0800</relative-time>
+                    Thu, 28 Jul 2022 19:19:29 &#43;0800</relative-time>
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Fri, 23 Aug 2024 14:41:00 &#43;0000"
+                  Modified <relative-time datetime="Fri, 06 Sep 2024 13:36:22 &#43;0000"
                     class="no-wrap">
-                    Fri, 23 Aug 2024 14:41:00 &#43;0000</relative-time>
+                    Fri, 06 Sep 2024 13:36:22 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -324,7 +324,7 @@
                         </div>
                       </div>
                     </details-menu>
-                      7168 Words
+                      7162 Words
                     <span class="file-info-divider"></span>
                                         33 min
 
@@ -597,7 +597,7 @@ add ax,[2]	 	;这里为啥是2呢，因为这里是“字”型数据，所以�
 0010H
 </code></pre><p>解析：</p>
 <p>如下图，栈是空的</p>
-<p>![image-20220830205826726 (1)](2024-0728-01\image-20220830205826726 (1).png)</p>
+<p><img src="2024-0728-01%5Cimage-20220830205826726.png" alt="image-20220830205826726"></p>
 <p>如果这里我们压入数据 1122H，这里那么毫无疑问，如下图：</p>
 <p><img src="2024-0728-01%5Cimage-20220830205835841.png" alt="image-20220830205835841"></p>
 <p>但是这里问题是没有任何数据，那么我们直接把刚才写入的数据出栈即可，sp由000EH减2，如下图：</p>
@@ -609,7 +609,7 @@ add ax,[2]	 	;这里为啥是2呢，因为这里是“字”型数据，所以�
 <p>但是如果我们持续push压入数据的话，那么就会覆盖掉其它的数据，如下，并且如果压入的指令的话，并且把指令压入了CS:IP指向的内存空间，而8086 cpu任意时刻都会从CS:IP指向的内存中读取指令，那么程序就直接执行我们压入的指令了</p>
 <p><img src="2024-0728-01%5Cimage-20220830210005867.png" alt="image-20220830210005867"></p>
 <p>pop可能造成栈顶越界，栈顶到了其它的内存空间</p>
-<p>![image-20220830210014390 (1)](2024-0728-01\image-20220830210014390 (1).png)</p>
+<p><img src="2024-0728-01%5Cimage-20220830210014390.png" alt="image-20220830210014390"></p>
 <p>为了防止上面的溢出或者越界，CPU最好能够记录栈顶的上限和下限在哪里，这样一直pop就不越界，但这里学习的16位cpu没有该功能，32位的是有这个功能的。（Canary金丝雀保护机制）</p>
 <pre tabindex="0"><code>作业:
 补齐下面程序，使他可以将10000H-1000FH中的8个字，逆序复制到20000H-2000FH中
@@ -672,13 +672,11 @@ pop [0]
       <div class="pagination-nav">
         <div class="pagination-button next-post">
           
-          <div>«&nbsp;</div><a class="pagination-link link-reverse" href="https://0xo7.github.io/readme/"> Readme</a>
+          <div>«&nbsp;</div><a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-0825-01/"> 8086 汇编语言（二）</a>
           
         </div>
         
         <div class="pagination-button previous-post">
-          
-          <a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-0726-01/">github-style 主题优化&nbsp;</a><div> »</div>
           
         </div>
       </div>
