@@ -292,9 +292,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Fri, 06 Sep 2024 14:04:13 &#43;0000"
+                  Modified <relative-time datetime="Sun, 22 Sep 2024 15:18:48 &#43;0000"
                     class="no-wrap">
-                    Fri, 06 Sep 2024 14:04:13 &#43;0000</relative-time>
+                    Sun, 22 Sep 2024 15:18:48 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -324,9 +324,9 @@
                         </div>
                       </div>
                     </details-menu>
-                      1628 Words
+                      2094 Words
                     <span class="file-info-divider"></span>
-                                        7 min
+                                        10 min
 
                   </div>
                   <div class="file-actions flex-order-2 pt-0">
@@ -567,7 +567,79 @@ ORDER BY i.hostid, i.itemid;
 </code></pre><p><img src="2024-0905-01%5Cimage-20240906211949720.png" alt="image-20240906211949720"></p>
 <p>上面的查询语法直接用于 grafana 中就可以展示如下电脑在线效果：</p>
 <p><img src="2024-0905-01%5Cimage-20240906200641092.png" alt="image-20240906200641092"></p>
-<p>待续。。。</p>
+<h1 id="获取信息测试组里面所有主机监控项中包含uptime的监控项的值">获取信息测试组里面所有主机监控项中包含“Uptime”的监控项的值</h1>
+<p>默认查询出来的是秒，查询MYSQL代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nf">FROM_UNIXTIME</span><span class="p">(</span><span class="n">h</span><span class="p">.</span><span class="n">clock</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="kt">datetime</span><span class="p">,</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">h</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">uptime_seconds</span><span class="p">,</span><span class="w">  </span><span class="c1">-- 显示原始秒数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="n">i</span><span class="p">.</span><span class="n">hostid</span><span class="p">,</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">i</span><span class="p">.</span><span class="n">itemid</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">hst</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">hostname</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">history_uint</span><span class="w"> </span><span class="n">h</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">JOIN</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">h</span><span class="p">.</span><span class="n">itemid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">itemid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">JOIN</span><span class="w"> </span><span class="n">hosts_groups</span><span class="w"> </span><span class="n">hg</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">hostid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hg</span><span class="p">.</span><span class="n">hostid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">JOIN</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">SELECT</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">i</span><span class="p">.</span><span class="n">hostid</span><span class="p">,</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">i</span><span class="p">.</span><span class="n">itemid</span><span class="p">,</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nf">MAX</span><span class="p">(</span><span class="n">h</span><span class="p">.</span><span class="n">clock</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">max_clock</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">history_uint</span><span class="w"> </span><span class="n">h</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">JOIN</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">h</span><span class="p">.</span><span class="n">itemid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">itemid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">JOIN</span><span class="w"> </span><span class="n">hosts_groups</span><span class="w"> </span><span class="n">hg</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">hostid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hg</span><span class="p">.</span><span class="n">hostid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">itemid</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="n">itemid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">items</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%Uptime%&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="n">hg</span><span class="p">.</span><span class="n">groupid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">22</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">hostid</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">itemid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">latest</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">hostid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">latest</span><span class="p">.</span><span class="n">hostid</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="k">AND</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">itemid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">latest</span><span class="p">.</span><span class="n">itemid</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="k">AND</span><span class="w"> </span><span class="n">h</span><span class="p">.</span><span class="n">clock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">latest</span><span class="p">.</span><span class="n">max_clock</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">JOIN</span><span class="w"> </span><span class="n">hosts</span><span class="w"> </span><span class="n">hst</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">hostid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hst</span><span class="p">.</span><span class="n">hostid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">hg</span><span class="p">.</span><span class="n">groupid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">22</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">hostid</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">itemid</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p><img src="2024-0905-01%5Cimage-20240918205521703.png" alt="image-20240918205521703"></p>
+<p>如下代码是把秒换算成了 “小时:分钟:秒”</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">FROM_UNIXTIME</span><span class="p">(</span><span class="n">h</span><span class="p">.</span><span class="n">clock</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">datetime</span><span class="p">,</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">SEC_TO_TIME</span><span class="p">(</span><span class="n">h</span><span class="p">.</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">uptime</span><span class="p">,</span><span class="w">  </span><span class="c1">-- 将秒转换为“小时:分钟:秒”
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="n">i</span><span class="p">.</span><span class="n">hostid</span><span class="p">,</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">i</span><span class="p">.</span><span class="n">itemid</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">hst</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">hostname</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">history_uint</span><span class="w"> </span><span class="n">h</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">JOIN</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">h</span><span class="p">.</span><span class="n">itemid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">itemid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">JOIN</span><span class="w"> </span><span class="n">hosts_groups</span><span class="w"> </span><span class="n">hg</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">hostid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hg</span><span class="p">.</span><span class="n">hostid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">JOIN</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">SELECT</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">i</span><span class="p">.</span><span class="n">hostid</span><span class="p">,</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">i</span><span class="p">.</span><span class="n">itemid</span><span class="p">,</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">MAX</span><span class="p">(</span><span class="n">h</span><span class="p">.</span><span class="n">clock</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">max_clock</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">history_uint</span><span class="w"> </span><span class="n">h</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">JOIN</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">h</span><span class="p">.</span><span class="n">itemid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">itemid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">JOIN</span><span class="w"> </span><span class="n">hosts_groups</span><span class="w"> </span><span class="n">hg</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">hostid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hg</span><span class="p">.</span><span class="n">hostid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">itemid</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="n">itemid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">items</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%Uptime%&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="n">hg</span><span class="p">.</span><span class="n">groupid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">22</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">hostid</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">itemid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">latest</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">hostid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">latest</span><span class="p">.</span><span class="n">hostid</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="k">AND</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">itemid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">latest</span><span class="p">.</span><span class="n">itemid</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="k">AND</span><span class="w"> </span><span class="n">h</span><span class="p">.</span><span class="n">clock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">latest</span><span class="p">.</span><span class="n">max_clock</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">JOIN</span><span class="w"> </span><span class="n">hosts</span><span class="w"> </span><span class="n">hst</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">hostid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hst</span><span class="p">.</span><span class="n">hostid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">hg</span><span class="p">.</span><span class="n">groupid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">22</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">hostid</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">itemid</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p><img src="2024-0905-01%5Cimage-20240918195125264.png" alt="image-20240918195125264"></p>
+<p>这里实际上更加推荐使用秒，因为一般会设置当开机时长大于10个小时的时候，显示为红色，也就是阈值设置大于3600秒的时候，如果我们在查询的时候直接转换为  “小时:分钟:秒”  格式的话，无法设置阈值</p>
+<p>当然，要达到 grafana 中如下的效果，比如要想显示出如下效果：</p>
+<p><img src="2024-0905-01%5Cimage-20240918205814023.png" alt="image-20240918205814023"></p>
+<p>还需要在 grafana 中做如下设置：</p>
+<p><img src="2024-0905-01%5Cimage-20240918205834153.png" alt="image-20240918205834153"></p>
+<p><img src="2024-0905-01%5Cimage-20240918205947833.png" alt="image-20240918205947833"></p>
+<p><img src="2024-0905-01%5Cimage-20240918205922238.png" alt="image-20240918205922238"></p>
+<h1 id="获取信息测试组里面所有主机监控项中包含uptime的监控项的值-1">获取信息测试组里面所有主机监控项中包含“Uptime”的监控项的值</h1>
 </article>
               </div>
 
@@ -579,6 +651,8 @@ ORDER BY i.hostid, i.itemid;
 
       <div class="pagination-nav">
         <div class="pagination-button next-post">
+          
+          <div>«&nbsp;</div><a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-0920-01/"> VMware horizon 概念解析</a>
           
         </div>
         

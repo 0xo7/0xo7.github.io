@@ -6,7 +6,16 @@
     <description>Recent content on 0xo7&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 05 Sep 2024 20:52:27 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Sep 2024 20:29:36 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VMware horizon 概念解析</title>
+      <link>https://0xo7.github.io/post/2024-0920-01/</link>
+      <pubDate>Fri, 20 Sep 2024 20:29:36 +0800</pubDate>
+      
+      <guid>https://0xo7.github.io/post/2024-0920-01/</guid>
+      <description>本文章旨在对 horizon 有一个初步的了解，了解 horizon 云桌面中的一些基础概念，关于实际操作步骤和搭建等可参考其它文章 &amp;hellip;</description>
+    </item>
+    
     <item>
       <title>Zabbix 6.2 数据库分析</title>
       <link>https://0xo7.github.io/post/2024-0905-01/</link>

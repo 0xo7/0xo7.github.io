@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <script
+    type="application/javascript"
+    src='https://0xo7.github.io/js/theme-mode.js'
+  ></script>
+  <link rel="stylesheet" href='https://0xo7.github.io/css/frameworks.min.css' />
+  <link rel="stylesheet" href='https://0xo7.github.io/css/github.min.css' />
+  <link rel="stylesheet" href='https://0xo7.github.io/css/github-style.css' />
+  <link rel="stylesheet" href='https://0xo7.github.io/css/light.css' />
+  <link rel="stylesheet" href='https://0xo7.github.io/css/dark.css' />
+  <link rel="stylesheet" href='https://0xo7.github.io/css/syntax.css' />
+  
+  <link rel="stylesheet" href="/custom.css" />
+  
+  <title>
+    VMware horizon 概念解析 | 0xo7&#39;s Blog
+  </title>
+  
+  <link rel="icon" type="image/x-icon" href="/images/github-mark.png" />
+  
+  <meta name="theme-color" content="#1e2327" />
+
+  
+  <meta
+  name="description"
+  content="本文章旨在对 horizon 有一个初步的了解，了解 horizon 云桌面中的一些基础概念，关于实际操作步骤和搭建等可参考其它文章 &amp;hellip;"
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://0xo7.github.io/post/2024-0920-01/" />
+
+
+<meta name="twitter:card" content="summary" />
+<meta
+  name="twitter:title"
+  content="VMware horizon 概念解析 - 0xo7&#39;s Blog"
+/>
+<meta
+  name="twitter:description"
+  content="本文章旨在对 horizon 有一个初步的了解，了解 horizon 云桌面中的一些基础概念，关于实际操作步骤和搭建等可参考其它文章 &amp;hellip;"
+/>
+<meta name="twitter:site" content="https://0xo7.github.io/" />
+<meta name="twitter:creator" content="" />
+<meta
+  name="twitter:image"
+  content="https://0xo7.github.io/"
+/>
+
+
+<meta
+  property="og:type"
+  content="article"
+/>
+<meta
+  property="og:title"
+  content="VMware horizon 概念解析 - 0xo7&#39;s Blog"
+/>
+<meta
+  property="og:description"
+  content="本文章旨在对 horizon 有一个初步的了解，了解 horizon 云桌面中的一些基础概念，关于实际操作步骤和搭建等可参考其它文章 &amp;hellip;"
+/>
+<meta property="og:url" content="https://0xo7.github.io/post/2024-0920-01/" />
+<meta property="og:site_name" content="VMware horizon 概念解析" />
+<meta
+  property="og:image"
+  content="https://0xo7.github.io/"
+/>
+<meta property="og:image:width" content="2048" />
+<meta property="og:image:height" content="1024" />
+
+<meta property="article:published_time" content="2024-09-20 20:29:36 &#43;0800 &#43;0800" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body>
+  
+
+<style>
+  .height-limitation {
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+
+  .loader {
+    border: 4px solid #f3f3f3;
+    border-bottom: 4px solid var(--color-fg-muted);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
+<div style="position: relative">
+  <header
+    class="Header js-details-container Details px-3 px-md-4 px-lg-5 flex-wrap flex-md-nowrap open Details--on"
+  >
+    <div
+      class="Header-item mobile-none"
+      style="margin-top: -4px; margin-bottom: -4px"
+    >
+      <a class="Header-link" href="https://0xo7.github.io/" aria-label="Home">
+        <svg
+          class="octicon"
+          height="32"
+          viewBox="0 0 16 16"
+          version="1.1"
+          width="32"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+          ></path>
+        </svg>
+      </a>
+    </div>
+    <div class="Header-item d-md-none">
+      <button
+        class="Header-link btn-link js-details-target"
+        type="button"
+        onclick="document.querySelector('#header-search').style.display = document.querySelector('#header-search').style.display == 'none'? 'block': 'none'"
+        aria-label="Search"
+      >
+        <svg
+          height="24"
+          class="octicon octicon-three-bars"
+          viewBox="0 0 16 16"
+          version="1.1"
+          width="24"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"
+          ></path>
+        </svg>
+      </button>
+    </div>
+    <div
+      style="display: none"
+      id="header-search"
+      class="Header-item Header-item--full flex-column flex-md-row width-full flex-order-2 flex-md-order-none mr-0 mr-md-3 mt-3 mt-md-0 Details-content--hidden-not-important d-md-flex"
+    >
+      <div
+        class="Header-search header-search flex-auto js-site-search position-relative flex-self-stretch flex-md-self-auto mb-3 mb-md-0 mr-0 mr-md-3 scoped-search site-scoped-search js-jump-to"
+      >
+        <div class="position-relative">
+          <form
+            target="_blank"
+            action="https://www.google.com/search"
+            accept-charset="UTF-8"
+            method="get"
+            autocomplete="off"
+          >
+            <label
+              class="Header-search-label form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center"
+            >
+              <input
+                type="text"
+                class="Header-search-input form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
+                name="q"
+                value=""
+                placeholder="Search"
+                autocomplete="off"
+              />
+              <input type="hidden" name="q" value="site:https://0xo7.github.io/" />
+              <div
+                class="js-jump-to-suggestions-container jump-to-suggestions overflow-hidden position-absolute"
+              >
+                <div
+                  id="search-progress"
+                  class="d-none color-bg-primary no-underline p-2"
+                  role="progress"
+                  aria-selected="false"
+                >
+                  <div class="loader"></div>
+                </div>
+
+                <ul
+                  id="jump-to-results"
+                  role="listbox"
+                  class="Box border-0 p-0 m-0 js-navigation-container jump-to-suggestions-results-container js-jump-to-suggestions-results-container js-active-navigation-container height-limitation"
+                ></ul>
+              </div>
+            </label>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="Header-item Header-item--full flex-justify-center d-md-none position-relative"
+    >
+      <a class="Header-link" href="https://0xo7.github.io/" aria-label="Home">
+        <svg
+          class="octicon octicon-mark-github v-align-middle"
+          height="32"
+          viewBox="0 0 16 16"
+          version="1.1"
+          width="32"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+          ></path>
+        </svg>
+      </a>
+    </div>
+    <div class="Theme-switcher Header-item" style="margin-right: 0">
+      <span
+        role="button"
+        class="Header-link no-select"
+        onclick="switchTheme()"
+        style="cursor: pointer"
+        aria-label="Switch theme"
+      >
+        <svg
+          style="fill: var(--color-profile-color-modes-toggle-moon)"
+          class="no-select"
+          viewBox="0 0 16 16"
+          version="1.1"
+          width="16"
+          height="16"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z"
+          ></path>
+        </svg>
+      </span>
+    </div>
+  </header>
+</div>
+
+  
+<script type="text/javascript" src="/js/initimage.js"></script>
+
+
+
+<div>
+  <main>
+    <div class="gisthead pagehead bg-gray-light pb-0 pt-3 mb-4">
+      <div class="px-0">
+        <div class="mb-3 d-flex px-3 px-md-3 px-lg-5">
+          <div class="flex-auto min-width-0 width-fit mr-3">
+            <div class="d-flex">
+              <div class="d-none d-md-block">
+                <a class="avatar mr-2 flex-shrink-0" href="https://0xo7.github.io/">
+                  <img class=" avatar-user"
+                    src="/images/avatar.png"
+                    width="32" height="32" alt="Thunnus"></a>
+              </div>
+              <div class="d-flex flex-column">
+                <h1 class="break-word f3 text-normal mb-md-0 mb-1">
+                  <span class="author">
+                    <a href="https://0xo7.github.io/">Thunnus</a></span><span
+                    class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
+                      href="https://0xo7.github.io/post/2024-0920-01/">VMware horizon 概念解析</a></strong>
+                </h1>
+                <div class="note m-0">
+                  Created <relative-time datetime="Fri, 20 Sep 2024 20:29:36 &#43;0800"
+                    class="no-wrap">
+                    Fri, 20 Sep 2024 20:29:36 &#43;0800</relative-time>
+
+                  
+                  <span class="file-info-divider"></span>
+                  Modified <relative-time datetime="Sun, 22 Sep 2024 15:18:48 &#43;0000"
+                    class="no-wrap">
+                    Sun, 22 Sep 2024 15:18:48 &#43;0000</relative-time>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-lg px-3 new-discussion-timeline">
+      <div class="repository-content gist-content">
+        <div>
+          <div class="js-gist-file-update-container js-task-list-container file-box">
+            <div id="file-pytest" class="file my-2">
+              <div id="post-header" class="file-header d-flex flex-md-items-center flex-items-start sticky-header" style="z-index: 2">
+                <div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto">
+                  <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                    
+                    <summary id="toc-toggle" onclick="clickToc()" class="btn btn-octicon m-0 mr-2 p-2">
+                      <svg aria-hidden="true" viewBox="0 0 16 16" height="16" width="16" class="octicon octicon-list-unordered">
+                        <path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zM3 8a1 1 0 11-2 0 1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"></path>
+                      </svg>
+                    </summary>
+                    <details-menu class="SelectMenu" id="toc-details" style="display: none;">
+                      <div class="SelectMenu-modal rounded-3 mt-1" style="max-height: 340px;">
+                        <div class="SelectMenu-list SelectMenu-list--borderless p-2" style="overscroll-behavior: contain;" id="toc-list">
+                        </div>
+                      </div>
+                    </details-menu>
+                      5123 Words
+                    <span class="file-info-divider"></span>
+                                        23 min
+
+                  </div>
+                  <div class="file-actions flex-order-2 pt-0">
+                    
+                    
+                    <a class="muted-link mr-3" href="/tags/horizon">
+                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                        </path>
+                      </svg>
+                      horizon
+                    </a>
+                    
+                    <a class="muted-link mr-3" href="/tags/%E4%BA%91%E6%A1%8C%E9%9D%A2">
+                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                        </path>
+                      </svg>
+                      云桌面
+                    </a>
+                    
+                    
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="Box-body px-5 pb-5" style="z-index: 1">
+                <article class="markdown-body entry-content container-lg"><blockquote>
+<p>整个 Horizon 文章分为四个模块，即桌面发布、环境管理|应用管理、在互联网发布桌面、其它优化等。本文主要介绍前两个模块。</p>
+</blockquote>
+<p><img src="2024-0920-01%5Cimage-20240920204619030.png" alt="image-20240920204619030"></p>
+<h1 id="桌面发布">桌面发布</h1>
+<p>桌面发布依赖于 Connect Server 服务器、AD 域服务器和 Vsphere 平台实现</p>
+<p><img src="2024-0920-01%5Cimage-20240920205244524.png" alt="image-20240920205244524"></p>
+<ul>
+<li>连接 （Connect） 服务器
+<ul>
+<li>（员工使用的）客户端与虚拟桌面的连接代理</li>
+<li>提供 Horizon 管理员的管理页面</li>
+</ul>
+</li>
+<li>活动目录（AD域）服务器
+<ul>
+<li>账号管理（员工账号密码都存在这里）</li>
+<li>策略配置（为用户/桌面下发对应的策略，比如：统一更换桌面壁纸等）</li>
+</ul>
+</li>
+</ul>
+<p>如何实现桌面发布：</p>
+<ul>
+<li>通过 Connect Server 的管理平台上创建桌面池（ Vsphere上指定一个或多个VM ）</li>
+<li>授权哪些 AD 域用户可以使用桌面池中的桌面</li>
+<li>对应的用户就可以使用桌面了</li>
+</ul>
+<p>桌面池的分类：</p>
+<ul>
+<li>手动桌面池</li>
+<li>自动桌面池</li>
+</ul>
+<h2 id="手动桌面池">手动桌面池</h2>
+<p><img src="2024-0920-01%5Cimage-20240920210139808.png" alt="image-20240920210139808"></p>
+<p><img src="2024-0920-01%5Cimage-20240920211031767.png" alt="image-20240920211031767"></p>
+<ul>
+<li>
+<p>云：创建桌面池 &amp;&amp; 授权用户</p>
+<ul>
+<li>
+<p>（管理员）创建手动桌面池：在 vCenter 上创建几个 VM 虚拟机，将这几个 VM 虚拟机征为云桌面专用，这几个 VM 虚拟机的集合就是云桌面的 ”桌面池“ （所以，所谓创建手动桌面池其实就是选择几个VM组合在一起）</p>
+<ul>
+<li>
+<p>创建 VM</p>
+<ul>
+<li>
+<p>创建虚拟机：在 Vsphere 的 vCenter 上创建一个 VM</p>
+</li>
+<li>
+<p>安装操作系统：为企业员工安装操作系统（如：win10）</p>
+<ul>
+<li>
+<p>User Profile：传统认知的操作系统 = User Profile + 操作系统 （User Profile 可以理解成个人用户文件夹下配置和文件等等，一些个人的个性化配置）</p>
+<p><img src="2024-0920-01%5Cimage-20240922220830263.png" alt="image-20240922220830263"></p>
+</li>
+<li>
+<p>工作组/AD域：可配置桌面的运行模式是工作组还是AD域（企业一般是AD域）</p>
+</li>
+</ul>
+</li>
+<li>
+<p>安装软件等</p>
+</li>
+</ul>
+</li>
+<li>
+<p>将 VM 发布为桌面池（创建桌面池）</p>
+<ul>
+<li>为 VM 安装 agent：为需要发布为桌面的 VM 安装 horizon agent，只有安装了 agent 的 VM 才可以被发布为桌面（Win10、centos、Ubuntu等操作系统均可安装 agent，注意 win7 在最新版本中已不被支持）</li>
+<li>创建桌面池：在 Horizon Connect Server 的管理页面上创建一个 “桌面池” （可以容纳一个或多个桌面）</li>
+<li>将指定的 VM 加入桌面池：选择指定的 VM （来自 vSphere）加入桌面池，加入桌面池的 VM 又被称为 “桌面”，企业员工使用的云桌面其实就是对应桌面池中的这些桌面（ vSphere 中的 VM ）</li>
+</ul>
+</li>
+<li>
+<p>授权用户（允许哪些用户使用云桌面）</p>
+<ul>
+<li>
+<p>选择用户：为桌面池指定可以使用该桌面池的用户，被授权的用户可以使用该桌面池中的一个桌面（员工通过对应的客户端进行登录）</p>
+</li>
+<li>
+<p>用户来自AD域：Horizon Connect Server必须基于AD域环境部署，管理员使用域管理员账号登录管理平台（因此具有调用AD域用户的权限）</p>
+</li>
+<li>
+<p>某个用户登录进来使用桌面池中的哪个桌面？管理员可配置（分类2种情况：浮动、专用）</p>
+<p><img src="2024-0920-01%5Cimage-20240920213550944.png" alt="image-20240920213550944"></p>
+<ul>
+<li>浮动：每次都是不同的桌面。用户每次登录，都是随机在桌面池中拿一个桌面使用（每一次拿到的桌面可能都不一样）</li>
+<li>专用：永远不换桌面。用户首次登录时在桌面池中拿到一个没被用过的桌面，第二次及以后该桌面会一直给该用户使用（其他用户无法使用该桌面，即使桌面没有人使用）
+<ul>
+<li>自动分配：
+<ul>
+<li>勾选，代表在桌面池授权用户即可，使用哪个桌面由系统分配</li>
+<li>不勾选，代表必须要基于桌面来授权才可以（基于桌面授权无法为其自动分配桌面）</li>
+</ul>
+</li>
+<li>多用户分配：
+<ul>
+<li>勾选，代表一个桌面允许多个不同的用户登录</li>
+</ul>
+</li>
+<li>这里有几个注意事项：
+<ul>
+<li>多用户分配下，多个用户不能同时登录一个桌面</li>
+<li>勾选自动分配后，无法勾选多用户分配</li>
+<li>多用户分配必须基于桌面来授权，不能基于桌面池授权</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>管：选择远程桌面的协议</p>
+<ul>
+<li>
+<p>用户为什么能够看到 “ 云端 ” 的桌面</p>
+<ul>
+<li>通过远程桌面协议
+<ul>
+<li>概述：horizon agent 和 horizon client建立连接，通过 “远程桌面传输协议” 将云端 VM 的画面传输在终端上显示</li>
+<li>原理：通过 VM 上的 horizon agent 对桌面的画面进行 “编码”，转换为数字信号通过网络发送给终端，终端上的 horizon client 接收到后对信号进行解码，将信息转换为 “画面”，最终在终端的显示器上显示出来</li>
+<li>VMware 支持的 3 个桌面传输协议 ：VMware Blast/PCoIP/RDP</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>外设如何使用 ？</p>
+<ul>
+<li>
+<p>因为云桌面是运行在服务器上的，普通用户肯定无法接触服务器， 使用u盘等外设的时候，云桌面如何读取u盘呢 ？</p>
+<ul>
+<li>
+<p>解决方法：为了保持用户的使用习惯等，直接在自己的终端上插入u盘就行，horizon 自动将 usb 等设备重定向到云端的 VM 中读取并呈现</p>
+<p><img src="2024-0920-01%5Cimage-20240920225317991.png" alt="image-20240920225317991"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>VMware 支持的 3 个桌面传输协议</p>
+<p><img src="2024-0920-01%5Cimage-20240920225530895.png" alt="image-20240920225530895"></p>
+<ul>
+<li>PCoIP：VMware 早期主推的传输协议，与 Teradici 公司一起联合开发的，在网络环境较好的局域网环境中使用体验较好（采用UDP协议）</li>
+<li>RDP：微软开发的远程桌面协议，集成在windows操作系统中，性能相对较弱但兼容性强（采用TCP协议）</li>
+<li>VMware Blast：VMware自研的协议，也是目前horizon默认采用的传输协议，体验已经全面超过PCoIP和RDP（同时支持可靠性更高的TCP，性能更好的UDP）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>端：访问桌面客户端</p>
+<ul>
+<li>（员工）访问桌面：用户通过浏览器/horizon client通过自己的账号和密码获取自己使用的云桌面</li>
+</ul>
+</li>
+</ul>
+<h2 id="自动桌面池完整链接即时克隆">自动桌面池（完整/链接/即时克隆）</h2>
+<p>手动桌面池有一些很麻烦的问题：</p>
+<ul>
+<li>创建模板 VM 麻烦：“手动桌面池” 只能选择指定 VM 发布桌面，而 VM 只能在 vSphere 上面一个个创建/克隆，如果需要置备的 VM 较多（比如：500个），那工作量会非常大</li>
+<li>桌面更新麻烦：如果要想为所有人增加一个软件，需要通过 vSphere 进入<code>所有的桌面分别</code>安装，非常的麻烦</li>
+</ul>
+<p><img src="2024-0920-01%5Cimage-20240920230959350.png" alt="image-20240920230959350"></p>
+<p>那么什么是自动桌面池呢 ？自动桌面池中的桌面，是通过 VM 克隆技术自动生成的，而不是像手动桌面池一样在 vSphere 一个个手动创建</p>
+<p>自动桌面池的特点：</p>
+<ul>
+<li>快速桌面置备：通过 VM 克隆技术一键生成的，不需要管理员自己一个个的创建</li>
+<li>一键桌面更新：想要给所有 VM 更新软件只需要在模块 VM 中更新，然后一键即可应用到所有的桌面上</li>
+</ul>
+<p>桌面池的三种类型：（根据克隆方案的不同可以把自动桌面池分为三种类型）</p>
+<ul>
+<li>完整克隆</li>
+<li>链接克隆（horizon 8.1之后不支持链接克隆了，用即时克隆代替）</li>
+<li>即时克隆</li>
+</ul>
+<h3 id="快速桌面置备">快速桌面置备</h3>
+<h4 id="完整克隆">完整克隆</h4>
+<p>什么是完整克隆 ?</p>
+<ul>
+<li>
+<p>全量克隆：将 “指定VM” （该VM也被称为镜像模板）的所有数据全量拷贝，复制出的 VM 就和用户自己创建的 VM 一样（镜像模板和克隆出来的VM大小基本一样）</p>
+</li>
+<li>
+<p>为什么说基本一样，而不是说一模一样呢 ？</p>
+<ul>
+<li>
+<p>因为有些配置是个性化配置，有的配置在多个 VM 中肯定不能重复，这部分配置可以由用户自己定义（通过vSphere平台上的 “自定义” 规范设置，horizon可以调用该设置）</p>
+<p><img src="2024-0920-01%5Cimage-20240920232301997.png" alt="image-20240920232301997"></p>
+<ul>
+<li>
+<p>哪些配置在多个 VM 之间不能一样？</p>
+<ul>
+<li>mac、ip、sid、计算机名（AD域环境下）、软件的激活信息等（克隆后的VM可能激活会失效）</li>
+</ul>
+</li>
+<li>
+<p>可以配置成和模板不一样有哪些？</p>
+<ul>
+<li>DNS、工作组/加域、时区、虚拟机名</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>形成桌面池：可以通过一次配置、一个“模板”，一次性置备多个桌面（也就是VM）</p>
+</li>
+</ul>
+<h4 id="链接克隆">链接克隆</h4>
+<p>完整克隆存在的问题：</p>
+<ul>
+<li>桌面的创建时间太长（拷贝数据量太大）</li>
+<li>占用存储空间较大（全量拷贝）</li>
+</ul>
+<p>为了解决上面的问题，就可以采用链接克隆的方案</p>
+<p><img src="2024-0920-01%5Cimage-20240922143532547.png" alt="image-20240922143532547"></p>
+<p>链接克隆可以解决的问题：被克隆出的 VM 不会是完整的虚拟磁盘文件，而是以只读的方式形成</p>
+<ul>
+<li>
+<p>创建一个镜像模板：创建一个VM，并安装对应的软件和完成各种配置工作（包括 horizon agent）</p>
+</li>
+<li>
+<p>为镜像模板创建快照：关闭上面创建的 VM，然后后其创建一个快照</p>
+</li>
+<li>
+<p>完整克隆一个VM：基于上面的创建的快照，完整克隆出一个 VM（名字叫Replica）</p>
+</li>
+<li>
+<p>生成 N 个链接克隆的 VM（重点）：基于上面的 Replica 虚拟机的磁盘生成多个链接克隆的 VM，链接克隆的 VM 不是直接复制整个虚拟磁盘，而是将 Replica 的磁盘通过只读的方式共享给所有 VM 使用</p>
+<p><img src="2024-0920-01%5Cimage-20240922162434543.png" alt="image-20240922162434543"></p>
+<ul>
+<li>
+<p>当然，每个链接克隆出的 VM 肯定会产生新的数据，比如：放一些个人的文件等，这部分新的数据通过写时复制的方式保存在整个 VM 的虚拟磁盘中，这部分增量数据又被称之为 ”VM的差分“</p>
+<p><img src="2024-0920-01%5Cimage-20240922162457540.png" alt="image-20240922162457540"></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>链接克隆的价值：</p>
+<ul>
+<li>VM 快速生成：只需要一个完整克隆出一个 VM，链接克隆的 VM 几乎可以瞬间生成（因为没有数据拷贝的过程）</li>
+<li>节省存储空间：链接克隆的 VM 以只读的方式读取 Replica 的虚拟磁盘数据，只有 VM 写的时候才会以写时复制的方式存储 ”差分“</li>
+</ul>
+<h4 id="即时克隆">即时克隆</h4>
+<p>链接克隆存在什么问题？</p>
+<ul>
+<li>
+<p>启动风暴：VM 开机的时候会向模板 VM 所在的存储申请必要的数据写入内存。如果同时启动的 VM 过多就会导致存储要在短时间内进行大量的读写操作，此时存储的性能就成为瓶颈。导致 VM 启动时间过长，甚至启动失败。（最终用户直观感受就是桌面开机速度很慢）</p>
+<p><img src="2024-0920-01%5Cimage-20240922164155033.png" alt="image-20240922164155033"></p>
+</li>
+<li>
+<p>内存风暴：并发的启动的 VM 较多时，VM 要短时间内申请大量内存，造成 Hypervisor 在短时间内调度内存的巨大压力，完成操作要很久（最终用户的感受也是桌面开机速度慢）</p>
+<p><img src="2024-0920-01%5Cimage-20240922164720867.png" alt="image-20240922164720867"></p>
+</li>
+</ul>
+<p>即时克隆就是为了解决上面的问题而诞生的</p>
+<p>那么，即时克隆是如何解决上面的问题呢 ？</p>
+<ul>
+<li>
+<p>硬盘链接克隆：硬盘的操作与链接克隆一致，即时克隆的 VM 不会生成独立硬盘， 而是直接使用模板 VM 的硬盘文件（只读），VM 的差分通过写时复制的方式为每个 VM 保存（在硬盘方面和链接克隆一样）</p>
+</li>
+<li>
+<p>内存链接克隆（VMfork）：与硬盘的链接克隆类似，即时克隆的 VM 不会生成独立的内存文件，而是直接使用模板 VM 的内存数据（只读），模板 VM 之所以有内存是因为模板 VM 是开机状态的。VM 的内存差分通过写时复制的方式为每个 VM 保存</p>
+<p><img src="2024-0920-01%5Cimage-20240922173413565.png" alt="image-20240922173413565"></p>
+</li>
+</ul>
+<p>即时克隆的实现流程 ？</p>
+<ul>
+<li>
+<p>创建一个模板 VM，并创建快照：创建一个 VM，并安装对应的软件和完成各种配置工作（包括 horizon agent）。并关闭 VM，然后为其创建一个快照。</p>
+</li>
+<li>
+<p>链接克隆出 Template：通过上面创建好的模板 VM 链接克隆出 Template VM （注意：这些Template VM 都是 horizon 自己克隆出来的，每个存储设备都会有一个）</p>
+</li>
+<li>
+<p>链接克隆出 Parent：在每台服务器上启动一个永不关机的 VM：Parent，作为即时克隆的 VM 模板（每台服务器一个，也就是每克隆出一个云桌面给人用，就对应着有一个 Parent，不会占用 CPU 资源，这个 Parent 也是 horizon 自己克隆的）</p>
+</li>
+<li>
+<p>即时克隆出桌面：基于 Parents 的磁盘和内存数据生成多个即时克隆的 VM。VM 的内存数据直接使用 template 的内存数据（只读）、硬盘数据直接使用 template （只读）。每个 VM 自己产生的差分直接通过写时复制的方式单独存储。（毫无疑问，这个也是 horizon 自己克隆的）</p>
+<p><img src="2024-0920-01%5Cimage-20240922204716591.png" alt="image-20240922204716591"></p>
+</li>
+</ul>
+<p><img src="2024-0920-01%5Cimage-20240922174953392.png" alt="image-20240922174953392"></p>
+<p><img src="2024-0920-01%5Cimage-20240922204803348.png" alt="image-20240922204803348"></p>
+<p>即时桌面的优势：</p>
+<ul>
+<li>秒级桌面启动：超快的桌面启动速度，早高峰依然可以实现一秒桌面，不会出现启动风暴</li>
+<li>节省内存和硬盘：即时克隆出的VM共享模板 VM 的内存和硬盘数据，只有每个 VM 的差分才会占据存储空间，相比完整克隆可以大大节省硬盘和内存资源</li>
+</ul>
+<h3 id="补充更新桌面池内的-vm">补充：更新桌面池内的 VM</h3>
+<p>场景：首次发布完桌面后，因为安全要求，需要给每一个桌面上安装一个软件</p>
+<p>自动桌面池的解决方案：</p>
+<ul>
+<li>
+<p>管理员更新模板 VM，并且打一个快照（在 vSphere）</p>
+</li>
+<li>
+<p>在桌面池中选择 ”计划“ 更新到新快照（在 Horizon），桌面池内的所有 VM 就完成了更新</p>
+<p><img src="2024-0920-01%5Cimage-20240922205846420.png" alt="image-20240922205846420"></p>
+</li>
+</ul>
+<h3 id="补充克隆出的-vm-用哪些硬件资源">补充：克隆出的 VM 用哪些硬件资源</h3>
+<p>克隆出的 VM 使用哪些硬件资源呢 ？</p>
+<ul>
+<li>
+<p>创建自动桌面池时，可以手动指定（对应 vCenter 上的）计算、存储、网络资源</p>
+<p><img src="2024-0920-01%5Cimage-20240922210413594.png" alt="image-20240922210413594"></p>
+<p><img src="2024-0920-01%5Cimage-20240922210434348.png" alt="image-20240922210434348"></p>
+</li>
+</ul>
+<h3 id="补充克隆时的个性化配置方案">补充：克隆时的个性化配置方案</h3>
+<p>背景：从一个模板VM克隆新VM时，新的 VM 有些信息是需要进行个性化配置的</p>
+<ul>
+<li>
+<p>哪些配置克隆后的多个 VM 之间不能一样呢 ？</p>
+<ul>
+<li>MAC、IP、SID、UUID、计算机名（AD域情况下）、软件激活信息（克隆后的VM可能失效）</li>
+</ul>
+</li>
+<li>
+<p>可以配置成和模板不一样的有哪些？</p>
+<ul>
+<li>DNS、工作组/加域、时区、虚拟机名</li>
+</ul>
+</li>
+</ul>
+<p>个性化配置方案有三种：</p>
+<ul>
+<li>
+<p>Sysprep：微软设计的 Windows 操作系统层面的个性化配置工具，任何克隆模式都可以使用该工具进行个性化配置（功能最强、速度最慢、需要重启一次才能完成）</p>
+<p><img src="2024-0920-01%5Cimage-20240922211758335.png" alt="image-20240922211758335"></p>
+</li>
+<li>
+<p>Quickprep：VMware 针对链接克隆设计的个性化配置功能，仅支持用于链接克隆模式下（功能较少，速度快）</p>
+</li>
+<li>
+<p>Cloneprep：VMware 针对即时克隆设计的个性化配置功能，仅支持用于即时克隆模式下（功能较少，速度快），与Quickprep功能基本一致</p>
+<p><img src="2024-0920-01%5Cimage-20240922211813016.png" alt="image-20240922211813016"></p>
+</li>
+</ul>
+<h3 id="补充持久桌面非持久桌面">补充：持久桌面&amp;非持久桌面</h3>
+<p><img src="2024-0920-01%5Cimage-20240922211843062.png" alt="image-20240922211843062"></p>
+<p>持久桌面：关机不会导致桌面上的信息被删除（个人电脑通常采用该模式）</p>
+<ul>
+<li>优点：用户体验好，数据永不丢失</li>
+<li>缺点：时间长中毒、卡顿问题多、管理员运维量大，故障多</li>
+</ul>
+<p>非持久桌面：关机删除本次操作删除的数据（网吧基本都是这种模式）</p>
+<ul>
+<li>优点：时间长桌面也不会改变使用体验、运维量小</li>
+<li>缺点：用户使用的数据关机就删除、使用者要自己保存数据</li>
+</ul>
+<p><img src="2024-0920-01%5Cimage-20240922213716161.png" alt="image-20240922213716161"></p>
+<p>完整克隆：仅支持持久桌面</p>
+<p>即时克隆：仅支持非持久桌面</p>
+<p>链接克隆：即支持支持桌面又支持非持久桌面</p>
+<p>从上面的方案来看，最好的克隆方式是即时克隆，但是企业内肯定是要用持久桌面的，即时克隆又无法支持持久桌面，如何处理呢 ？ 后面会了解到，如何漫游配置文件</p>
+<h2 id="rds桌面">RDS桌面</h2>
+<p>场景：通过 手动/自动桌面池 可以发布桌面给员工使用，解决中大型企业桌面的 ①运维问题 ②信息安全问题 ③移动办公 等问题</p>
+<p>手动/自动桌面池带来的问题：</p>
+<ul>
+<li>无法发布 Windows Server 桌面：自动/手动桌面池无法发布 Windows Server操作系统，但是部分用户可能需要使用（尤其是开发猜测是场景）</li>
+<li>无法使用 RDS 云桌面方案：成本极度敏感的情况下，期望可以使用微软的RDS的云桌面方案（当前在实际中使用相当少）</li>
+</ul>
+<p>解决方案：RDS 桌面池</p>
+<ul>
+<li>RDS：RDS（Remote Desktop Services远程桌面服务），让多个用户可以在同一时间内使用同一个Windows srever系统</li>
+<li>RDS 桌面池：可以发布windows server操作系统桌面 ，还可以让一个windows server桌面共享给多个用户在同一时间同时使用</li>
+</ul>
+<p>RDS 场：因为 RDS 桌面和用户是多对多关系，因此业务流程</p>
+<h1 id="环境管理应用管理">环境管理、应用管理</h1>
+<h2 id="漫游配置文件">漫游配置文件</h2>
+</article>
+              </div>
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagination-nav">
+        <div class="pagination-button next-post">
+          
+        </div>
+        
+        <div class="pagination-button previous-post">
+          
+          <a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-0905-01/">Zabbix 6.2 数据库分析&nbsp;</a><div> »</div>
+          
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script type="application/javascript" src='https://0xo7.github.io/js/toc.js'></script>
+<link rel="stylesheet" href='https://0xo7.github.io/css/toc.css' />
+
+
+  <div class="footer container-xl width-full p-responsive">
+  <div
+    class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between flex-sm-items-center pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mr-lg-4" href="https://0xo7.github.io/">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24">
+        <path fill-rule="evenodd"
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+        </path>
+      </svg>
+    </a>
+    <ul class="list-style-none d-flex flex-wrap col-12 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+      
+      <li class="mr-3 mr-lg-0">Theme by <a href='https://github.com/MeiK2333/github-style'>github-style</a></li>
+      
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+
+
+</div>
+</body>
+
+<script type="application/javascript" src="https://0xo7.github.io/js/github-style.js"></script>
+
+<script src="https://0xo7.github.io/js/mark.es6.min.js"></script>
+
+
+
+
+
+
+
+</html>
