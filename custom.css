@@ -78,3 +78,9 @@ pre code {
 #hihere-is-my-blog- {
   font-family: 'MyFont', sans-serif; /* 使用MyFont字体，并提供后备字体 */
 }
+
+
+
+.markdown-body blockquote, .markdown-body details, .markdown-body dl, .markdown-body ol, .markdown-body p, .markdown-body pre, .markdown-body table, .markdown-body ul{
+	margin-top: 16px !important;
+}

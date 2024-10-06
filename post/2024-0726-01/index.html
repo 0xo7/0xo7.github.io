@@ -321,9 +321,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Sun, 22 Sep 2024 15:18:48 &#43;0000"
+                  Modified <relative-time datetime="Sun, 06 Oct 2024 15:55:11 &#43;0000"
                     class="no-wrap">
-                    Sun, 22 Sep 2024 15:18:48 &#43;0000</relative-time>
+                    Sun, 06 Oct 2024 15:55:11 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -353,7 +353,7 @@
                         </div>
                       </div>
                     </details-menu>
-                      2102 Words
+                      2179 Words
                     <span class="file-info-divider"></span>
                                         10 min
 
@@ -751,7 +751,14 @@
 </span></span><span class="line"><span class="cl"><span class="p">});</span>
 </span></span></code></pre></div><p>添加后在 md 里面插入文件的时候语法如下：</p>
 <p><img src="2024-0726-01%5Cimage-20240819205828530.png" alt="image-20240819205828530"></p>
-</article>
+<h1 id="修改p标签的边距">修改p标签的边距</h1>
+<p><img src="2024-0726-01%5Cimage-20241004194453389.png" alt="image-20241004194453389"></p>
+<p>有的时候编辑文章会出现上面的问题，图片和文字边距过窄，直接为 p 标签添加 上边距</p>
+<p>在 static/custom.css 中添加如下内容即可</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-CSS" data-lang="CSS"><span class="line"><span class="cl"><span class="p">.</span><span class="nc">markdown-body</span> <span class="nt">blockquote</span><span class="o">,</span> <span class="p">.</span><span class="nc">markdown-body</span> <span class="nt">details</span><span class="o">,</span> <span class="p">.</span><span class="nc">markdown-body</span> <span class="nt">dl</span><span class="o">,</span> <span class="p">.</span><span class="nc">markdown-body</span> <span class="nt">ol</span><span class="o">,</span> <span class="p">.</span><span class="nc">markdown-body</span> <span class="nt">p</span><span class="o">,</span> <span class="p">.</span><span class="nc">markdown-body</span> <span class="nt">pre</span><span class="o">,</span> <span class="p">.</span><span class="nc">markdown-body</span> <span class="nt">table</span><span class="o">,</span> <span class="p">.</span><span class="nc">markdown-body</span> <span class="nt">ul</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">margin-top</span><span class="p">:</span> <span class="mi">16</span><span class="kt">px</span> <span class="cp">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></article>
               </div>
 
               

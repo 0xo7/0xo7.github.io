@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>共享文件夹审计 on 0xo7&#39;s Blog</title>
+    <link>https://0xo7.github.io/tags/%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E5%AE%A1%E8%AE%A1/</link>
+    <description>Recent content in 共享文件夹审计 on 0xo7&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 04 Oct 2024 18:52:29 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/tags/%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E5%AE%A1%E8%AE%A1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>共享文件夹审计及分析</title>
+      <link>https://0xo7.github.io/post/2024-1004-01/</link>
+      <pubDate>Fri, 04 Oct 2024 18:52:29 +0800</pubDate>
+      
+      <guid>https://0xo7.github.io/post/2024-1004-01/</guid>
+      <description>企业内监控共享文件的的方法有很多，可从驱动层入手、也可通过日志入手。但要不就是太过繁琐，对于新手难度过大，要不就是监控的不准确 &amp;hellip;</description>
+    </item>
+    
+  </channel>
+</rss>

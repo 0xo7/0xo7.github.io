@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker Compose on 0xo7&#39;s Blog</title>
+    <link>https://0xo7.github.io/tags/docker-compose/</link>
+    <description>Recent content in Docker Compose on 0xo7&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 23 Sep 2024 22:19:22 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/tags/docker-compose/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker Swarm 入门指北</title>
+      <link>https://0xo7.github.io/post/2024-0923-01/</link>
+      <pubDate>Mon, 23 Sep 2024 22:19:22 +0800</pubDate>
+      
+      <guid>https://0xo7.github.io/post/2024-0923-01/</guid>
+      <description>Docker的三件套即Docker、Docker compose、Docker Swarm，本文主要介绍Docker Swarm相关的内容，虽然现在使用较多的依然是K8s，但在使用中 Swarm 也有自己的优势&amp;hellip;</description>
+    </item>
+    
+  </channel>
+</rss>

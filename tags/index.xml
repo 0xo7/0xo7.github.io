@@ -6,7 +6,52 @@
     <description>Recent content in Tags on 0xo7&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 20 Sep 2024 20:29:36 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Oct 2024 18:52:29 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>共享文件夹审计</title>
+      <link>https://0xo7.github.io/tags/%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E5%AE%A1%E8%AE%A1/</link>
+      <pubDate>Fri, 04 Oct 2024 18:52:29 +0800</pubDate>
+      
+      <guid>https://0xo7.github.io/tags/%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E5%AE%A1%E8%AE%A1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>工具</title>
+      <link>https://0xo7.github.io/tags/%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Thu, 03 Oct 2024 22:33:36 +0800</pubDate>
+      
+      <guid>https://0xo7.github.io/tags/%E5%B7%A5%E5%85%B7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker Compose</title>
+      <link>https://0xo7.github.io/tags/docker-compose/</link>
+      <pubDate>Mon, 23 Sep 2024 22:19:22 +0800</pubDate>
+      
+      <guid>https://0xo7.github.io/tags/docker-compose/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker Swarm</title>
+      <link>https://0xo7.github.io/tags/docker-swarm/</link>
+      <pubDate>Mon, 23 Sep 2024 22:19:22 +0800</pubDate>
+      
+      <guid>https://0xo7.github.io/tags/docker-swarm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>集群</title>
+      <link>https://0xo7.github.io/tags/%E9%9B%86%E7%BE%A4/</link>
+      <pubDate>Mon, 23 Sep 2024 22:19:22 +0800</pubDate>
+      
+      <guid>https://0xo7.github.io/tags/%E9%9B%86%E7%BE%A4/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>horizon</title>
       <link>https://0xo7.github.io/tags/horizon/</link>

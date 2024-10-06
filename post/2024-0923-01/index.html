@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <script
+    type="application/javascript"
+    src='https://0xo7.github.io/js/theme-mode.js'
+  ></script>
+  <link rel="stylesheet" href='https://0xo7.github.io/css/frameworks.min.css' />
+  <link rel="stylesheet" href='https://0xo7.github.io/css/github.min.css' />
+  <link rel="stylesheet" href='https://0xo7.github.io/css/github-style.css' />
+  <link rel="stylesheet" href='https://0xo7.github.io/css/light.css' />
+  <link rel="stylesheet" href='https://0xo7.github.io/css/dark.css' />
+  <link rel="stylesheet" href='https://0xo7.github.io/css/syntax.css' />
+  
+  <link rel="stylesheet" href="/custom.css" />
+  
+  <title>
+    Docker Swarm 入门指北 | 0xo7&#39;s Blog
+  </title>
+  
+  <link rel="icon" type="image/x-icon" href="/images/github-mark.png" />
+  
+  <meta name="theme-color" content="#1e2327" />
+
+  
+  <meta
+  name="description"
+  content="Docker的三件套即Docker、Docker compose、Docker Swarm，本文主要介绍Docker Swarm相关的内容，虽然现在使用较多的依然是K8s，但在使用中 Swarm 也有自己的优势&amp;hellip;"
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://0xo7.github.io/post/2024-0923-01/" />
+
+
+<meta name="twitter:card" content="summary" />
+<meta
+  name="twitter:title"
+  content="Docker Swarm 入门指北 - 0xo7&#39;s Blog"
+/>
+<meta
+  name="twitter:description"
+  content="Docker的三件套即Docker、Docker compose、Docker Swarm，本文主要介绍Docker Swarm相关的内容，虽然现在使用较多的依然是K8s，但在使用中 Swarm 也有自己的优势&amp;hellip;"
+/>
+<meta name="twitter:site" content="https://0xo7.github.io/" />
+<meta name="twitter:creator" content="" />
+<meta
+  name="twitter:image"
+  content="https://0xo7.github.io/"
+/>
+
+
+<meta
+  property="og:type"
+  content="article"
+/>
+<meta
+  property="og:title"
+  content="Docker Swarm 入门指北 - 0xo7&#39;s Blog"
+/>
+<meta
+  property="og:description"
+  content="Docker的三件套即Docker、Docker compose、Docker Swarm，本文主要介绍Docker Swarm相关的内容，虽然现在使用较多的依然是K8s，但在使用中 Swarm 也有自己的优势&amp;hellip;"
+/>
+<meta property="og:url" content="https://0xo7.github.io/post/2024-0923-01/" />
+<meta property="og:site_name" content="Docker Swarm 入门指北" />
+<meta
+  property="og:image"
+  content="https://0xo7.github.io/"
+/>
+<meta property="og:image:width" content="2048" />
+<meta property="og:image:height" content="1024" />
+
+<meta property="article:published_time" content="2024-09-23 22:19:22 &#43;0800 &#43;0800" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body>
+  
+
+<style>
+  .height-limitation {
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+
+  .loader {
+    border: 4px solid #f3f3f3;
+    border-bottom: 4px solid var(--color-fg-muted);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
+<div style="position: relative">
+  <header
+    class="Header js-details-container Details px-3 px-md-4 px-lg-5 flex-wrap flex-md-nowrap open Details--on"
+  >
+    <div
+      class="Header-item mobile-none"
+      style="margin-top: -4px; margin-bottom: -4px"
+    >
+      <a class="Header-link" href="https://0xo7.github.io/" aria-label="Home">
+        <svg
+          class="octicon"
+          height="32"
+          viewBox="0 0 16 16"
+          version="1.1"
+          width="32"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+          ></path>
+        </svg>
+      </a>
+    </div>
+    <div class="Header-item d-md-none">
+      <button
+        class="Header-link btn-link js-details-target"
+        type="button"
+        onclick="document.querySelector('#header-search').style.display = document.querySelector('#header-search').style.display == 'none'? 'block': 'none'"
+        aria-label="Search"
+      >
+        <svg
+          height="24"
+          class="octicon octicon-three-bars"
+          viewBox="0 0 16 16"
+          version="1.1"
+          width="24"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"
+          ></path>
+        </svg>
+      </button>
+    </div>
+    <div
+      style="display: none"
+      id="header-search"
+      class="Header-item Header-item--full flex-column flex-md-row width-full flex-order-2 flex-md-order-none mr-0 mr-md-3 mt-3 mt-md-0 Details-content--hidden-not-important d-md-flex"
+    >
+      <div
+        class="Header-search header-search flex-auto js-site-search position-relative flex-self-stretch flex-md-self-auto mb-3 mb-md-0 mr-0 mr-md-3 scoped-search site-scoped-search js-jump-to"
+      >
+        <div class="position-relative">
+          <form
+            target="_blank"
+            action="https://www.google.com/search"
+            accept-charset="UTF-8"
+            method="get"
+            autocomplete="off"
+          >
+            <label
+              class="Header-search-label form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center"
+            >
+              <input
+                type="text"
+                class="Header-search-input form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
+                name="q"
+                value=""
+                placeholder="Search"
+                autocomplete="off"
+              />
+              <input type="hidden" name="q" value="site:https://0xo7.github.io/" />
+              <div
+                class="js-jump-to-suggestions-container jump-to-suggestions overflow-hidden position-absolute"
+              >
+                <div
+                  id="search-progress"
+                  class="d-none color-bg-primary no-underline p-2"
+                  role="progress"
+                  aria-selected="false"
+                >
+                  <div class="loader"></div>
+                </div>
+
+                <ul
+                  id="jump-to-results"
+                  role="listbox"
+                  class="Box border-0 p-0 m-0 js-navigation-container jump-to-suggestions-results-container js-jump-to-suggestions-results-container js-active-navigation-container height-limitation"
+                ></ul>
+              </div>
+            </label>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="Header-item Header-item--full flex-justify-center d-md-none position-relative"
+    >
+      <a class="Header-link" href="https://0xo7.github.io/" aria-label="Home">
+        <svg
+          class="octicon octicon-mark-github v-align-middle"
+          height="32"
+          viewBox="0 0 16 16"
+          version="1.1"
+          width="32"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+          ></path>
+        </svg>
+      </a>
+    </div>
+    <div class="Theme-switcher Header-item" style="margin-right: 0">
+      <span
+        role="button"
+        class="Header-link no-select"
+        onclick="switchTheme()"
+        style="cursor: pointer"
+        aria-label="Switch theme"
+      >
+        <svg
+          style="fill: var(--color-profile-color-modes-toggle-moon)"
+          class="no-select"
+          viewBox="0 0 16 16"
+          version="1.1"
+          width="16"
+          height="16"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z"
+          ></path>
+        </svg>
+      </span>
+    </div>
+  </header>
+</div>
+
+  
+<script type="text/javascript" src="/js/initimage.js"></script>
+
+
+
+<div>
+  <main>
+    <div class="gisthead pagehead bg-gray-light pb-0 pt-3 mb-4">
+      <div class="px-0">
+        <div class="mb-3 d-flex px-3 px-md-3 px-lg-5">
+          <div class="flex-auto min-width-0 width-fit mr-3">
+            <div class="d-flex">
+              <div class="d-none d-md-block">
+                <a class="avatar mr-2 flex-shrink-0" href="https://0xo7.github.io/">
+                  <img class=" avatar-user"
+                    src="/images/avatar.png"
+                    width="32" height="32" alt="Thunnus"></a>
+              </div>
+              <div class="d-flex flex-column">
+                <h1 class="break-word f3 text-normal mb-md-0 mb-1">
+                  <span class="author">
+                    <a href="https://0xo7.github.io/">Thunnus</a></span><span
+                    class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
+                      href="https://0xo7.github.io/post/2024-0923-01/">Docker Swarm 入门指北</a></strong>
+                </h1>
+                <div class="note m-0">
+                  Created <relative-time datetime="Mon, 23 Sep 2024 22:19:22 &#43;0800"
+                    class="no-wrap">
+                    Mon, 23 Sep 2024 22:19:22 &#43;0800</relative-time>
+
+                  
+                  <span class="file-info-divider"></span>
+                  Modified <relative-time datetime="Sun, 06 Oct 2024 15:55:11 &#43;0000"
+                    class="no-wrap">
+                    Sun, 06 Oct 2024 15:55:11 &#43;0000</relative-time>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-lg px-3 new-discussion-timeline">
+      <div class="repository-content gist-content">
+        <div>
+          <div class="js-gist-file-update-container js-task-list-container file-box">
+            <div id="file-pytest" class="file my-2">
+              <div id="post-header" class="file-header d-flex flex-md-items-center flex-items-start sticky-header" style="z-index: 2">
+                <div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto">
+                  <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                    
+                    <summary id="toc-toggle" onclick="clickToc()" class="btn btn-octicon m-0 mr-2 p-2">
+                      <svg aria-hidden="true" viewBox="0 0 16 16" height="16" width="16" class="octicon octicon-list-unordered">
+                        <path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zM3 8a1 1 0 11-2 0 1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"></path>
+                      </svg>
+                    </summary>
+                    <details-menu class="SelectMenu" id="toc-details" style="display: none;">
+                      <div class="SelectMenu-modal rounded-3 mt-1" style="max-height: 340px;">
+                        <div class="SelectMenu-list SelectMenu-list--borderless p-2" style="overscroll-behavior: contain;" id="toc-list">
+                        </div>
+                      </div>
+                    </details-menu>
+                      5360 Words
+                    <span class="file-info-divider"></span>
+                                        24 min
+
+                  </div>
+                  <div class="file-actions flex-order-2 pt-0">
+                    
+                    
+                    <a class="muted-link mr-3" href="/tags/%E9%9B%86%E7%BE%A4">
+                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                        </path>
+                      </svg>
+                      集群
+                    </a>
+                    
+                    <a class="muted-link mr-3" href="/tags/docker-swarm">
+                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                        </path>
+                      </svg>
+                      Docker Swarm
+                    </a>
+                    
+                    <a class="muted-link mr-3" href="/tags/docker-compose">
+                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                        </path>
+                      </svg>
+                      Docker Compose
+                    </a>
+                    
+                    
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="Box-body px-5 pb-5" style="z-index: 1">
+                <article class="markdown-body entry-content container-lg"><h1 id="什么是docker-swarm">什么是Docker Swarm</h1>
+<p>Swarm 本义是指群，集群。Docker Swarm就是用来管理Docker集群的工具。</p>
+<p>从Docker v1.12.0版本开始，Docker Swarm已包含在Docker引擎中。</p>
+<h1 id="与-docker-compose的异同">与 Docker Compose的异同</h1>
+<p>两者都是为了简化容器化应用程序的部署、管理和扩展的工具</p>
+<p>Docker Compose 适用于单机上容器化应用程序的编排。（单机环境）</p>
+<p>Docker Swarm 则为了满足容器化应用程序在生产环境中的需求而开发的一个容器编排和集群管理工具。（集群环境）</p>
+<h1 id="单机环境和集群环境的区别">单机环境和集群环境的区别</h1>
+<p>单机环境如下：一个最简单的前后端分离程序需要最基本的三个服务（容器），即 db-c1（数据库容器）、back-c2（后端容器）</p>
+<p>、front-c3（前端容器），三个容器部署在一个 Docker 主机上，每个容器只有一个，当这个容器发生故障的时候，应用程序也会发生问题。如果 Docker 主机发生故障，这样三个容器都会故障，程序也就无法提供任何服务了。</p>
+<p><img src="2024-0923-01%5Cimage-20240926195427287.png" alt="image-20240926195427287"></p>
+<p>为了优化上面问题，出现了集群模式，对于单机环境，每个服务只有独立的一份，最简单的解决方法就是把这个服务部署成多份，放到多个 Docker 主机上，以 db-c1（数据库容器）为例，我们可以把这个容器放到多个 Docker 主机上（其它容器也是一样），如下：</p>
+<p><img src="2024-0923-01%5Cimage-20240926200244592.png" alt="image-20240926200244592"></p>
+<p>所以，集群解决的主要问题就是服务高可用</p>
+<h1 id="docker-swarm-的工作原理">Docker Swarm 的工作原理</h1>
+<h2 id="基本概念">基本概念</h2>
+<p>Swarm 集群中的每一个Docker主机都被称之为 ”节点（node）“，这些节点根据身份又能够分为两种类型：</p>
+<ul>
+<li>Manager 节点：管理节点。负责集群的管理和控制，Swarm集群允许多个Manager节点，多个Manager节点中仅允许唯一一个Leader（Leader就是在管理节点中权限和身份最高的那个管理节点）</li>
+<li>Worker 节点：工作节点。负责接收来自Manager节点的任务分配，并执行相应的容器操作。</li>
+<li>节点的多重身份：Swarm 节点既可以是 Manager，也可以是 Worker。</li>
+</ul>
+<p>Raft 协议：该协议用于选举 Manager 节点的 Leader（至少2个Manager节点参与选举），并确保众多 Manager 节点之间的状态信息同步</p>
+<p>Raft 协议出现的原因是啥呢 ？ 因为 Leader 是唯一的，如果 Leader 节点出现故障，那么如何处理呢 ？那么就必须有其它的 Manager 节点来接替 Leader 的位置，这样也就出现了 Raft 协议</p>
+<h2 id="工作流程">工作流程</h2>
+<p>集群初始化：通过 docker swarm init 初始化集群，执行该命令的 Docker 主机自动成为 Manager 节点（Leader），还会产生两种口令，分别是管理节点的口令和工作节点的口令。</p>
+<p><img src="2024-0923-01%5Cimage-20240926203941644.png" alt="image-20240926203941644"></p>
+<p>节点加入：将其他 Docker 主机加入集群。 节点加入集群的时候要扮演什么样的身份就获取什么口令即可</p>
+<p><img src="2024-0923-01%5Cimage-20240926204436809.png" alt="image-20240926204436809"></p>
+<p>服务定义：用户通过定义服务来描述容器化应用程序，定义完成后交给Manager节点去分配。比如：现在要对数据库的服务 db-c1 （容器）进行定义，当我们定义好了之后并不会让 db-c1 直接去 Worker 节点中去执行，而是借助 manager 节点向 worker 节点发送任务来执行具体的任务。 假设这里 db-c1 这个服务发送给了 Docker主机2 ，当然也可以给其他 Docker 主机（不一定必须是leader），这时候这个 manager 节点就会进行任务调度和编排</p>
+<p><img src="2024-0923-01%5Cimage-20240926205154171.png" alt="image-20240926205154171"></p>
+<p>调度策略：manager节点根据调度策略（spread—默认策略、binpack和random）在集群中选择合适的节点来部署容器实例</p>
+<ul>
+<li>spread策略：manager节点收到任务的时候，在选择哪个worker节点主机去运行这个任务的时候，会先判断当前这些docker主机里面哪个主机运行的容器最少，然后当前的任务就会交给最少的主机运行</li>
+<li>binpack策略：刚好与spread相反，选择的是当前任务最多的docker主机来运行任务。为啥会这样做呢 ？主要就是为了避免当前容器的碎片化</li>
+<li>random策略：就是随机选择一个worker节点主机来执行当前任务</li>
+</ul>
+<p>容器编排：manager节点负责对容器进行编排和管理，包括创建、启动、停止、重启容器实例等操作</p>
+<h1 id="swarm-集群管理">Swarm 集群管理</h1>
+<h2 id="准备工作">准备工作</h2>
+<p>先准备 4 个主机（2个作为manager节点、2个作为worker节点）</p>
+<p>Manager1：192.168.56.106 【主机名hostname=manager1】</p>
+<p>Manager2：192.168.56.107 【主机名hostname=manager2】</p>
+<p>Worker1：192.168.56.116【主机名hostname=worker1】</p>
+<p>Worker2：192.168.56.117【主机名hostname=worker2】</p>
+<h2 id="初始化集群">初始化集群</h2>
+<p>在 Manager1 节点上进行初始化</p>
+<p>执行命令：docker swarm init &ndash;advertise-addr=192.168.56.106</p>
+<ul>
+<li>
+<p>说明： &ndash;advertise-addr 叫做广播地址 。广播地址是定义当前节点与集群的其他节点用来通讯的IP地址（端口默认2377）</p>
+<ul>
+<li>
+<p>为啥需要添加上这个参数  &ndash;advertise-addr 呢 ？</p>
+<p>因为在 manager1 节点中，目前定义了两个网卡，如下：</p>
+<p><img src="2024-0923-01%5Cimage-20240926214801818.png" alt="image-20240926214801818"></p>
+<p>那么，我们到底用哪个网卡和集群的其他节点进行通讯呢 ？所以我们要用 &ndash;advertise-addr 来指定。所以如果是多网卡主机，该参数必须要进行指定</p>
+</li>
+</ul>
+</li>
+<li>
+<p>执行 docker swarm init &ndash;advertise-addr=192.168.56.106 结果如下：</p>
+<p>直接给出了工作口令</p>
+<p><img src="2024-0923-01%5Cimage-20240926215459479.png" alt="image-20240926215459479"></p>
+<p>我们再执行 docker swarm join-token manager 获取到管理口令，如下：</p>
+<p><img src="2024-0923-01%5Cimage-20240926215924549.png" alt="image-20240926215924549"></p>
+</li>
+<li>
+<p>特别说明：</p>
+<ul>
+<li>docker swarm init &ndash;advertise-addr=192.168.56.106 命令执行成功后，Swarm 会自动将当前节点作为 Manager 节点并自动生成集群的 token</li>
+<li>token 分为两类：管理token和工作token，分别用于其他的管理节点和工作节点加入集群使用
+<ul>
+<li>docker swarm join-token  worker（该命令要在管理节点上执行，在工作节点上无法执行，没有权限，可以用于查看工作token）</li>
+<li>docker swarm join-token manager （和上面的命令一样，用于查看管理token）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="加入节点">加入节点</h2>
+<p><img src="2024-0923-01%5Cimage-20240926220459630.png" alt="image-20240926220459630"></p>
+<p>首先加入 manager2 节点，在 manager2 节点上执行如下命令：</p>
+<pre tabindex="0"><code>docker swarm join --advertise-addr= Manager的广播地址 \
+--token 管理token \
+manager1的广播地址:2377
+</code></pre><p><img src="2024-0923-01%5Cimage-20240926221225273.png" alt="image-20240926221225273"></p>
+<p>端口可以不写，默认不写就是2377</p>
+<p>加入worker1、worker2节点，在对应的节点上执行如下命令：</p>
+<pre tabindex="0"><code>docker swarm join --advertise-addr= worker的广播地址 \
+--token 工作token \
+manager1的广播地址:2377
+</code></pre><p><img src="2024-0923-01%5Cimage-20240926221526456.png" alt="image-20240926221526456"></p>
+<p><img src="2024-0923-01%5Cimage-20240926221545216.png" alt="image-20240926221545216"></p>
+<h2 id="集群解散">集群解散</h2>
+<p>当我们不再需要集群时候，可通过如下命令解散集群</p>
+<ul>
+<li>首先我们需要把集群里面所有的节点一一退出
+<ul>
+<li>工作节点退出：docker swarm leave</li>
+<li>管理节点退出：docker swarm leave &ndash;force （manager节点退出必须要加上&ndash;force，否则无法退出）</li>
+</ul>
+</li>
+<li>然后我们要在 manager 节点上删掉退出节点的主机名（如果不删除，下次这个节点就没办法加入到集群了）
+<ul>
+<li>docker node rm 退出节点的主机名</li>
+</ul>
+</li>
+</ul>
+<p>我们来解散整个集群，如下：</p>
+<ul>
+<li>
+<p>解散 worker2 节点</p>
+<p><img src="2024-0923-01%5Cimage-20240926222845599.png" alt="image-20240926222845599"></p>
+</li>
+<li>
+<p>然后我们发现在 manager 节点中，worker2 节点的状态已经变成了 down</p>
+<p><img src="2024-0923-01%5Cimage-20240926222924206.png" alt="image-20240926222924206"></p>
+</li>
+<li>
+<p>然后我们在 manager 节点中删除 worker2 主机（注意：必须状态变成down之后，才能删除worker2主机，否则会删除失败）</p>
+<p><img src="C:%5CUsers%5Cxxy%5CDesktop%5CGithub-style-Blog%5Ccontent%5Cpost%5C2024-0923-01%5Cimage-20240926223010000.png" alt="image-20240926223010000"></p>
+</li>
+<li>
+<p>worker1 主机退出集群和 worker2 一样</p>
+</li>
+<li>
+<p>然后我们 manager2 管理节点，如下</p>
+<p><img src="2024-0923-01%5Cimage-20240926223156145.png" alt="image-20240926223156145"></p>
+</li>
+<li>
+<p>最后当只剩下一个管理节点 manager1 的时候，我们在 manager1 节点上查看集群中的相关节点，发现集群已经不可用了，如下</p>
+<p><img src="2024-0923-01%5Cimage-20240926223301198.png" alt="image-20240926223301198"></p>
+<p>当然我们也可以把 manager1 节点退出，这样集群彻底解散</p>
+<p><img src="2024-0923-01%5Cimage-20240926223348176.png" alt="image-20240926223348176"></p>
+</li>
+</ul>
+<h1 id="节点管理">节点管理</h1>
+<p>注意：节点管理命令均在管理节点上操作，工作节点上没有操作权限</p>
+<h2 id="查看集群节点">查看集群节点</h2>
+<pre tabindex="0"><code>docker node ls                          #查看集群所有节点
+docker node inspect 节点的主机名          # 查看集群指定节点
+</code></pre><p><img src="2024-0923-01%5Cimage-20240927195619190.png" alt="image-20240927195619190"></p>
+<h2 id="节点升级和降级">节点升级和降级</h2>
+<pre tabindex="0"><code>docker node promote	节点的主机名		#worker升级成manager
+docker node demote 节点的主机名		#manager降级成worker
+</code></pre><h2 id="节点上线下线">节点上线/下线</h2>
+<p><img src="2024-0923-01%5Cimage-20240927200945077.png" alt="image-20240927200945077"></p>
+<p>上图表示这四个节点，都能够接收来自系统的任务分配，有的时候，因为资源紧张等原因，需要临时暂停一下，也就是让节点下线</p>
+<pre tabindex="0"><code># 节点下线
+docker node update --availability drain 节点的主机名   	#节点暂停接受任务
+# 节点上线
+docker node update --availability active 节点的主机名		#节点重新接受任务
+</code></pre><p><img src="2024-0923-01%5Cimage-20240927201648598.png" alt="image-20240927201648598"></p>
+<p><img src="2024-0923-01%5Cimage-20240927201706214.png" alt="image-20240927201706214"></p>
+<h1 id="服务管理">服务管理</h1>
+<p>注意：节点管理命令均在管理节点上操作，工作节点上没有操作权限</p>
+<h2 id="服务定义">服务定义</h2>
+<pre tabindex="0"><code>docker service create --name 服务名 \
+[-d] [-p] [-e] [--network] [--replicas] [--mount] \
+image:tag
+
+说明：
+-d 后台运行
+-p 代表端口映射
+-e 代表环境变量
+--network 代表使用的网络
+--replicas 代表副本数量（任务要执行多少次）
+--mount 代表文件系统挂载
+image:tag 代表基础镜像和tag
+</code></pre><h2 id="实验">实验</h2>
+<blockquote>
+<p>部署 nginx 服务，然后在集群节点中运行两份nginx服务</p>
+</blockquote>
+<h3 id="准备工作-1">准备工作</h3>
+<p>nginx 是有默认的首页的，这个首页当然可以自定义，nginx 的首页可以在 nginx/html/index.html 定义，编辑 index.html 就是编辑 nginx 首页</p>
+<p>那么，因为我们要运行两份 nginx 服务，但是这两份 nginx 服务不确定运行在四个节点中的哪个两个几点中，所以每个节点中都要创建 nginx/html/index.html 文件</p>
+<p>首先，在 manager1 节点创建 nginx/html/index.html ，并且写入 <code>&lt;h1&gt;Hello Swarm&lt;/h1&gt;</code>，执行如下操作</p>
+<pre tabindex="0"><code>mkdir nginx/html -p 		#创建目录
+vim nginx/html/index.html   # 编辑index.html，写入Hello Swarm
+</code></pre><p>由于每个节点都需要执行上面的操作，所以我们直接用 scp 命令拷贝 nginx 整个目录即可</p>
+<pre tabindex="0"><code>scp -r nginx root@对应节点的IP:/root			#这里的对应节点IP就是manager2节点、worker1节点、worker2节点的IP
+</code></pre><h3 id="服务定义-1">服务定义</h3>
+<pre tabindex="0"><code>docker service create -d --name mynginx --replicas=2 \
+-p 81:80
+--mount type=bind,source=/root/nginx/html,target=/usr/share/nginx/html \
+nginx
+</code></pre><blockquote>
+<p>&ndash;replicas = 2 代表生成两个副本，也就是最终会生成两个nginx的docker容器，这两个容器最终运行在哪个节点上，由调度策略决定</p>
+<p>这里挂载相关用的是 &ndash;mount 参数，而不是docker中常见的 -v 参数，type=bind 代表目录绑定目录的形式，也就是宿主机命令和容器目录进行绑定，source指的是宿主机目录，target代表容器内部的目录</p>
+</blockquote>
+<h2 id="服务查看">服务查看</h2>
+<p>执行完服务定义后，如何了解这个任务是否执行呢，如何了解这个任务最后被调度到哪个节点上执行呢 ？</p>
+<p>上面的 nginx 实验中，我们生成了 2 个副本，最终生成的 2 个nginx容器在哪个节点上执行呢 ？</p>
+<pre tabindex="0"><code>docker service ls				# 查看集群中的所有服务
+docker service ps 服务名		# 查看集群中的指定服务（包含服务运行的节点）
+</code></pre><p><img src="2024-0923-01%5Cimage-20241003124135972.png" alt="image-20241003124135972"></p>
+<p><img src="2024-0923-01%5Cimage-20241003124200197.png" alt="image-20241003124200197"></p>
+<p>针对于上面的 nginx 实验，我们可以查看具体的效果，我们知道两个 nginx容器 是在 manager1 节点（192.168.56.106）和 worker2 节点（192.168.56.117）中，如下：</p>
+<p><img src="2024-0923-01%5Cimage-20241003124702341.png" alt="image-20241003124702341"></p>
+<p><img src="2024-0923-01%5Cimage-20241003124719271.png" alt="image-20241003124719271"></p>
+<p>虽然，最终的 nginx 容器是在  manager1 节点 和  worker2 节点上，但是实际上在其他的节点上也可以访问 nginx 服务</p>
+<p><img src="2024-0923-01%5Cimage-20241003124829322.png" alt="image-20241003124829322"></p>
+<p><img src="2024-0923-01%5Cimage-20241003124843023.png" alt="image-20241003124843023"></p>
+<p>也就是说，一个服务在 Swarm 集群中部署编排后，集群的每个节点都能够访问这个服务，但真正运行的容器并不是在所有节点上</p>
+<p>那么，其他没有运行容器的节点是如何访问相关服务呢 ？这就要说到 Swarm 中的内部网络优势了</p>
+<p>当我们访问 192.168.56.107:81（manager2节点） 的时候，manager2 节点会把收到的请求进行判断，如果没有nginx服务，然后会把这个请求转发到集群内部，有这个服务的其他节点来提供。如果有 nginx 服务，则直接提供</p>
+<h2 id="服务移除">服务移除</h2>
+<pre tabindex="0"><code>docker service rm 服务名	# 移除集群中的一个或多个服务
+</code></pre><h2 id="服务模式">服务模式</h2>
+<pre tabindex="0"><code># 副本服务模式（默认）：在每个node上运行一个或多个副本
+docekr service create ... --mode replicated ...
+# 全局服务模式：强制在每个node上都运行一个副本（例如收集所有容器的日志）
+docker service create ... --mode global ...
+</code></pre><h2 id="服务日志">服务日志</h2>
+<pre tabindex="0"><code>docker service logs 服务名
+</code></pre><h1 id="swarm-集群的弹性伸缩">Swarm 集群的弹性伸缩</h1>
+<p>弹性伸缩就是动态的增加或减少集群中某个服务的任务数量</p>
+<pre tabindex="0"><code>docker service create -d --name mydb --replicas=2 \
+-p 3306:3306 \
+-e MYSQL_ROOT_PASSWORD=123456 \
+mysql:5.7
+</code></pre><p><img src="2024-0923-01%5Cimage-20241003210735570.png" alt="image-20241003210735570"></p>
+<p><img src="2024-0923-01%5Cimage-20241003210757983.png" alt="image-20241003210757983"></p>
+<p><img src="2024-0923-01%5Cimage-20241003210849279.png" alt="image-20241003210849279"></p>
+<h2 id="实现方式一">实现方式一</h2>
+<pre tabindex="0"><code>docker service update --replicas 新副本数 服务名
+</code></pre><p><img src="2024-0923-01%5Cimage-20241003211817897.png" alt="image-20241003211817897"></p>
+<p><img src="2024-0923-01%5Cimage-20241003211835407.png" alt="image-20241003211835407"></p>
+<p>【root@manager1 ~】docker service ps  结果如下：</p>
+<p><img src="2024-0923-01%5Cimage-20241003211928424.png" alt="image-20241003211928424"></p>
+<h2 id="实现方式二">实现方式二</h2>
+<pre tabindex="0"><code>docker service scale 服务名=新副本数
+</code></pre><p>从上面的5个副本再改回2个副本</p>
+<p><img src="2024-0923-01%5Cimage-20241003212123376.png" alt="image-20241003212123376"></p>
+<p><img src="2024-0923-01%5Cimage-20241003212147801.png" alt="image-20241003212147801"></p>
+<h1 id="swarm-集群服务的滚动更新">Swarm 集群服务的滚动更新</h1>
+<h2 id="灰度更新">灰度更新</h2>
+<p>滚动更新即在不停止服务的情况下去更新服务，也称灰度更新</p>
+<pre tabindex="0"><code>docker service update \	
+--image 基础镜像 \
+--update-delay 定义滚动更新的时间间隔（默认0），单位为：s、m、h。1h20m30s即1小时20分钟30秒 \
+--update-parallelism 定义并行更新的最大数量（比如：在5秒钟内最多可以更新多少个任务副本，正在更新的任务副本是不对外提供服务的） \
+服务名
+</code></pre><h2 id="visualizer-镜像">visualizer 镜像</h2>
+<p>visualizer 镜像可以让Swarm服务滚动更新的过程实时显示在 ui 界面上，便于观察滚动更新的过程</p>
+<p>这个 visualizer 镜像需要在 manager 节点上执行，在manager1节点上执行：</p>
+<pre tabindex="0"><code>docker service create \
+--name viz \
+--publish=8088:8080/tcp \
+--constraint=node,role=manager \
+--mount=type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock \
+dockersamples/visualizer
+</code></pre><p><img src="2024-0923-01%5Cimage-20241003215010811.png" alt="image-20241003215010811"></p>
+<p>访问manager1节点的viz服务：http://manager1节点IP:8080</p>
+<p><img src="2024-0923-01%5Cimage-20241003215034314.png" alt="image-20241003215034314"></p>
+<h2 id="实验-1">实验</h2>
+<p>升级 mysql 服务基础镜像（v5.7—&gt;v8.0），由原2个副本扩展到5个副本，每60s扩容5个副本</p>
+<p><img src="2024-0923-01%5Cimage-20241003215830280.png" alt="image-20241003215830280"></p>
+<p><img src="2024-0923-01%5Cimage-20241003220018308.png" alt="image-20241003220018308"></p>
+<h1 id="swarm-中使用-docker-compose">Swarm 中使用 Docker compose</h1>
+<h2 id="docker-create-service的缺点">Docker create service的缺点</h2>
+<p>一个命令仅能够创建一个service，对于多service的应用程序而言，实属繁琐</p>
+<h2 id="docker-composeyml-中有关-swarm-集群的属性">Docker-compose.yml 中有关 swarm 集群的属性</h2>
+<p><img src="2024-0923-01%5Cimage-20241004110427225.png" alt="image-20241004110427225"></p>
+<p>特别注意：</p>
+<ul>
+<li>docker-compose 是用来快速部署和配置多个docker容器的，但是这些容器都是运行在单一主机上的</li>
+<li>docker-compose 一般使用 docker-compose up -d 方式来部署</li>
+</ul>
+<p>我们先来看一个通过 docker-compose 部署的单机版应用程序</p>
+<p><img src="2024-0923-01%5Cimage-20241004102249807.png" alt="image-20241004102249807"></p>
+<p>这个单机程序可以通过  docker-compose up -d 部署启动，该程序就是前后端分离的程序，如下：</p>
+<p><img src="2024-0923-01%5Cimage-20241004102720892.png" alt="image-20241004102720892"></p>
+<p>现在我们需要把这个单机版的应用程序部署成集群环境</p>
+<p>docker-compose.yml 如下：</p>
+<pre tabindex="0"><code>version: &#34;3.8&#34;
+name: &#34;mysapp&#34;
+services:
+	appdb:
+		build: ./db
+		ports:
+			- &#34;3306:3306&#34;
+		network:
+			- net1
+		volumes:
+			- ./db/my.cnf:/etc/mysql/my.cnf
+			- ./db/conf.d:/etc/mysql/conf.d
+			- ./db/data:/var/lib/mysql
+		environment:
+			- MYSQL_ROOT_PASSWPORD=123456
+			- MYSQL_DATABASE=testdb
+	appbackend:
+		build: ./backend
+		ports:
+			- &#34;8899:8899&#34;
+		networks:
+			-net1
+		volume:
+			- ./backend/application.yml:/app/application.yml
+		depends_on:
+			- appdb
+	appfrontend:
+		build: ./frontend
+		ports:
+			- &#34;80:80&#34;
+		networks:
+			- net1
+		volumes:
+			- ./frontend/nginx.conf:/etc/nginx/nginx.conf
+			- ./frontend/conf.d:/etc/nginx/conf.d
+		depends_on:
+			- appbackend
+</code></pre><p>为了把上面的应用部署成集群环境，首先我们把 appdb 服务变成集群环境，我们肯定要对  docker-compose.yml 文件进行修改，如下，添加 deploy 参数：</p>
+<p><img src="2024-0923-01%5Cimage-20241004112403349.png" alt="image-20241004112403349"></p>
+<p>修改完后，我们执行 docker-compose up -d ？（不对，这里执行 docker-compose up -d 是单机环境下的部署，执行  docker-compose up 会忽略deploy 参数，那么我们应该部署呢 ？我们需要通过 docker stack 来部署 ）</p>
+<h2 id="docker-stack">Docker stack</h2>
+<p>Docker stack 是 Swarm 堆栈的管理工具，可以结合 docker-compose 实现多 service 应用程序的部署</p>
+<p>部署命令如下：</p>
+<pre tabindex="0"><code>docker stack deploy -c yml文件名 自定义的stack名
+</code></pre><p>在上面用 docker-compose.yml 部署 swarm 环境时，我们可以用如下命令来部署：</p>
+<p><img src="2024-0923-01%5Cimage-20241004112026705.png" alt="image-20241004112026705"></p>
+<p>执行命令后，我们发现了报错，这是因为我们的 docker-compose.yml 文件有问题</p>
+<p><img src="2024-0923-01%5Cimage-20241004112603310.png" alt="image-20241004112603310"></p>
+<p>删除后，我们重新部署，如下：</p>
+<p><img src="2024-0923-01%5Cimage-20241004112645009.png" alt="image-20241004112645009"></p>
+<p>我们发现又出现了个问题，我们构建服务的时候，采用的是 buid 的方式，也就是基于 docker build 来自定义镜像，但是在 stack 里不支持这种模式，这个镜像必须是已经存在的镜像（或者是一个远程仓库）</p>
+<p>那么，我们又要重新修改  docker-compose.yml  文件，修改后的文件如下：</p>
+<p><img src="2024-0923-01%5Cimage-20241004114141805.png" alt="image-20241004114141805"></p>
+<p>我们把 build 改成 image 后，肯定需要把这个 image 镜像手动构建出来，如下：</p>
+<p><img src="2024-0923-01%5Cimage-20241004114423048.png" alt="image-20241004114423048"></p>
+<p><img src="2024-0923-01%5Cimage-20241004114449497.png" alt="image-20241004114449497"></p>
+<p><img src="2024-0923-01%5Cimage-20241004114520163.png" alt="image-20241004114520163"></p>
+<p>构建完镜像后，当前 manager1 节点中项目的文件夹也要同步到其他节点中去，如下：</p>
+<p><img src="2024-0923-01%5Cimage-20241004114722176.png" alt="image-20241004114722176"></p>
+<p><img src="2024-0923-01%5Cimage-20241004114737687.png" alt="image-20241004114737687"></p>
+<p><img src="2024-0923-01%5Cimage-20241004114758794.png" alt="image-20241004114758794"></p>
+<p>拷贝完项目文件夹后，我们还要去其他节点上手动构建  image  镜像，和上面在 manager1 节点上的操作一样</p>
+<p>最后在 manager1 节点上重新执行部署</p>
+<p><img src="2024-0923-01%5Cimage-20241004115103347.png" alt="image-20241004115103347"></p>
+<p>那么，如何检测上面的服务是否正确执行呢 ？</p>
+<p>采用 docker stack ls 命令，如下：</p>
+<p><img src="2024-0923-01%5Cimage-20241004115157810.png" alt="image-20241004115157810"></p>
+<p>如果我们要查看 mystack 的详细情况呢 ？ 可以采用 docker stack ps mystack，如下：</p>
+<p>我们发现 3 个服务，每个服务都是运行两个副本</p>
+<p><img src="2024-0923-01%5Cimage-20241004115356348.png" alt="image-20241004115356348"></p>
+<p>如果要移除 mystack 呢 ，可以采用 docker stack down 命令</p>
+<p><img src="2024-0923-01%5Cimage-20241004115613038.png" alt="image-20241004115613038"></p>
+<h1 id="企业环境下部署-jumpserver">企业环境下部署 jumpserver</h1>
+<p><a href="https://github.com/jumpserver/Dockerfile/tree/master/swarm">https://github.com/jumpserver/Dockerfile/tree/master/swarm</a></p>
+</article>
+              </div>
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagination-nav">
+        <div class="pagination-button next-post">
+          
+          <div>«&nbsp;</div><a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-1003-01/"> NSSM 管理 Windows 服务</a>
+          
+        </div>
+        
+        <div class="pagination-button previous-post">
+          
+          <a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-0920-01/">VMware horizon 概念解析&nbsp;</a><div> »</div>
+          
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script type="application/javascript" src='https://0xo7.github.io/js/toc.js'></script>
+<link rel="stylesheet" href='https://0xo7.github.io/css/toc.css' />
+
+
+  <div class="footer container-xl width-full p-responsive">
+  <div
+    class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between flex-sm-items-center pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mr-lg-4" href="https://0xo7.github.io/">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24">
+        <path fill-rule="evenodd"
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+        </path>
+      </svg>
+    </a>
+    <ul class="list-style-none d-flex flex-wrap col-12 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+      
+      <li class="mr-3 mr-lg-0">Theme by <a href='https://github.com/MeiK2333/github-style'>github-style</a></li>
+      
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+
+
+</div>
+</body>
+
+<script type="application/javascript" src="https://0xo7.github.io/js/github-style.js"></script>
+
+<script src="https://0xo7.github.io/js/mark.es6.min.js"></script>
+
+
+
+
+
+
+
+</html>

@@ -6,7 +6,43 @@
     <description>Recent content in Posts on 0xo7&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 20 Sep 2024 20:29:36 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Oct 2024 19:17:14 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>域控审计及分析</title>
+      <link>https://0xo7.github.io/post/2024-1004-02/</link>
+      <pubDate>Fri, 04 Oct 2024 19:17:14 +0800</pubDate>
+      
+      <guid>https://0xo7.github.io/post/2024-1004-02/</guid>
+      <description>企业内审计域控的方法多种多样，可以分析</description>
+    </item>
+    
+    <item>
+      <title>共享文件夹审计及分析</title>
+      <link>https://0xo7.github.io/post/2024-1004-01/</link>
+      <pubDate>Fri, 04 Oct 2024 18:52:29 +0800</pubDate>
+      
+      <guid>https://0xo7.github.io/post/2024-1004-01/</guid>
+      <description>企业内监控共享文件的的方法有很多，可从驱动层入手、也可通过日志入手。但要不就是太过繁琐，对于新手难度过大，要不就是监控的不准确 &amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>NSSM 管理 Windows 服务</title>
+      <link>https://0xo7.github.io/post/2024-1003-01/</link>
+      <pubDate>Thu, 03 Oct 2024 22:33:36 +0800</pubDate>
+      
+      <guid>https://0xo7.github.io/post/2024-1003-01/</guid>
+      <description>NSSM是一个服务封装程序，它可以将普通exe程序封装成服务，使之像windows服务一样运行。同类型的工具还有微软自己的srvany，不过nssm更加简单易用，并且功能强大&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Docker Swarm 入门指北</title>
+      <link>https://0xo7.github.io/post/2024-0923-01/</link>
+      <pubDate>Mon, 23 Sep 2024 22:19:22 +0800</pubDate>
+      
+      <guid>https://0xo7.github.io/post/2024-0923-01/</guid>
+      <description>Docker的三件套即Docker、Docker compose、Docker Swarm，本文主要介绍Docker Swarm相关的内容，虽然现在使用较多的依然是K8s，但在使用中 Swarm 也有自己的优势&amp;hellip;</description>
+    </item>
+    
     <item>
       <title>VMware horizon 概念解析</title>
       <link>https://0xo7.github.io/post/2024-0920-01/</link>

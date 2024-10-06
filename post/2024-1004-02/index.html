@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <script
+    type="application/javascript"
+    src='https://0xo7.github.io/js/theme-mode.js'
+  ></script>
+  <link rel="stylesheet" href='https://0xo7.github.io/css/frameworks.min.css' />
+  <link rel="stylesheet" href='https://0xo7.github.io/css/github.min.css' />
+  <link rel="stylesheet" href='https://0xo7.github.io/css/github-style.css' />
+  <link rel="stylesheet" href='https://0xo7.github.io/css/light.css' />
+  <link rel="stylesheet" href='https://0xo7.github.io/css/dark.css' />
+  <link rel="stylesheet" href='https://0xo7.github.io/css/syntax.css' />
+  
+  <link rel="stylesheet" href="/custom.css" />
+  
+  <title>
+    域控审计及分析 | 0xo7&#39;s Blog
+  </title>
+  
+  <link rel="icon" type="image/x-icon" href="/images/github-mark.png" />
+  
+  <meta name="theme-color" content="#1e2327" />
+
+  
+  <meta
+  name="description"
+  content="企业内审计域控的方法多种多样，可以分析"
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://0xo7.github.io/post/2024-1004-02/" />
+
+
+<meta name="twitter:card" content="summary" />
+<meta
+  name="twitter:title"
+  content="域控审计及分析 - 0xo7&#39;s Blog"
+/>
+<meta
+  name="twitter:description"
+  content="企业内审计域控的方法多种多样，可以分析"
+/>
+<meta name="twitter:site" content="https://0xo7.github.io/" />
+<meta name="twitter:creator" content="" />
+<meta
+  name="twitter:image"
+  content="https://0xo7.github.io/"
+/>
+
+
+<meta
+  property="og:type"
+  content="article"
+/>
+<meta
+  property="og:title"
+  content="域控审计及分析 - 0xo7&#39;s Blog"
+/>
+<meta
+  property="og:description"
+  content="企业内审计域控的方法多种多样，可以分析"
+/>
+<meta property="og:url" content="https://0xo7.github.io/post/2024-1004-02/" />
+<meta property="og:site_name" content="域控审计及分析" />
+<meta
+  property="og:image"
+  content="https://0xo7.github.io/"
+/>
+<meta property="og:image:width" content="2048" />
+<meta property="og:image:height" content="1024" />
+
+<meta property="article:published_time" content="2024-10-04 19:17:14 &#43;0800 &#43;0800" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body>
+  
+
+<style>
+  .height-limitation {
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+
+  .loader {
+    border: 4px solid #f3f3f3;
+    border-bottom: 4px solid var(--color-fg-muted);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
+<div style="position: relative">
+  <header
+    class="Header js-details-container Details px-3 px-md-4 px-lg-5 flex-wrap flex-md-nowrap open Details--on"
+  >
+    <div
+      class="Header-item mobile-none"
+      style="margin-top: -4px; margin-bottom: -4px"
+    >
+      <a class="Header-link" href="https://0xo7.github.io/" aria-label="Home">
+        <svg
+          class="octicon"
+          height="32"
+          viewBox="0 0 16 16"
+          version="1.1"
+          width="32"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+          ></path>
+        </svg>
+      </a>
+    </div>
+    <div class="Header-item d-md-none">
+      <button
+        class="Header-link btn-link js-details-target"
+        type="button"
+        onclick="document.querySelector('#header-search').style.display = document.querySelector('#header-search').style.display == 'none'? 'block': 'none'"
+        aria-label="Search"
+      >
+        <svg
+          height="24"
+          class="octicon octicon-three-bars"
+          viewBox="0 0 16 16"
+          version="1.1"
+          width="24"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"
+          ></path>
+        </svg>
+      </button>
+    </div>
+    <div
+      style="display: none"
+      id="header-search"
+      class="Header-item Header-item--full flex-column flex-md-row width-full flex-order-2 flex-md-order-none mr-0 mr-md-3 mt-3 mt-md-0 Details-content--hidden-not-important d-md-flex"
+    >
+      <div
+        class="Header-search header-search flex-auto js-site-search position-relative flex-self-stretch flex-md-self-auto mb-3 mb-md-0 mr-0 mr-md-3 scoped-search site-scoped-search js-jump-to"
+      >
+        <div class="position-relative">
+          <form
+            target="_blank"
+            action="https://www.google.com/search"
+            accept-charset="UTF-8"
+            method="get"
+            autocomplete="off"
+          >
+            <label
+              class="Header-search-label form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center"
+            >
+              <input
+                type="text"
+                class="Header-search-input form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
+                name="q"
+                value=""
+                placeholder="Search"
+                autocomplete="off"
+              />
+              <input type="hidden" name="q" value="site:https://0xo7.github.io/" />
+              <div
+                class="js-jump-to-suggestions-container jump-to-suggestions overflow-hidden position-absolute"
+              >
+                <div
+                  id="search-progress"
+                  class="d-none color-bg-primary no-underline p-2"
+                  role="progress"
+                  aria-selected="false"
+                >
+                  <div class="loader"></div>
+                </div>
+
+                <ul
+                  id="jump-to-results"
+                  role="listbox"
+                  class="Box border-0 p-0 m-0 js-navigation-container jump-to-suggestions-results-container js-jump-to-suggestions-results-container js-active-navigation-container height-limitation"
+                ></ul>
+              </div>
+            </label>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="Header-item Header-item--full flex-justify-center d-md-none position-relative"
+    >
+      <a class="Header-link" href="https://0xo7.github.io/" aria-label="Home">
+        <svg
+          class="octicon octicon-mark-github v-align-middle"
+          height="32"
+          viewBox="0 0 16 16"
+          version="1.1"
+          width="32"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+          ></path>
+        </svg>
+      </a>
+    </div>
+    <div class="Theme-switcher Header-item" style="margin-right: 0">
+      <span
+        role="button"
+        class="Header-link no-select"
+        onclick="switchTheme()"
+        style="cursor: pointer"
+        aria-label="Switch theme"
+      >
+        <svg
+          style="fill: var(--color-profile-color-modes-toggle-moon)"
+          class="no-select"
+          viewBox="0 0 16 16"
+          version="1.1"
+          width="16"
+          height="16"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z"
+          ></path>
+        </svg>
+      </span>
+    </div>
+  </header>
+</div>
+
+  
+<script type="text/javascript" src="/js/initimage.js"></script>
+
+
+
+<div>
+  <main>
+    <div class="gisthead pagehead bg-gray-light pb-0 pt-3 mb-4">
+      <div class="px-0">
+        <div class="mb-3 d-flex px-3 px-md-3 px-lg-5">
+          <div class="flex-auto min-width-0 width-fit mr-3">
+            <div class="d-flex">
+              <div class="d-none d-md-block">
+                <a class="avatar mr-2 flex-shrink-0" href="https://0xo7.github.io/">
+                  <img class=" avatar-user"
+                    src="/images/avatar.png"
+                    width="32" height="32" alt="Thunnus"></a>
+              </div>
+              <div class="d-flex flex-column">
+                <h1 class="break-word f3 text-normal mb-md-0 mb-1">
+                  <span class="author">
+                    <a href="https://0xo7.github.io/">Thunnus</a></span><span
+                    class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
+                      href="https://0xo7.github.io/post/2024-1004-02/">域控审计及分析</a></strong>
+                </h1>
+                <div class="note m-0">
+                  Created <relative-time datetime="Fri, 04 Oct 2024 19:17:14 &#43;0800"
+                    class="no-wrap">
+                    Fri, 04 Oct 2024 19:17:14 &#43;0800</relative-time>
+
+                  
+                  <span class="file-info-divider"></span>
+                  Modified <relative-time datetime="Sun, 06 Oct 2024 15:55:11 &#43;0000"
+                    class="no-wrap">
+                    Sun, 06 Oct 2024 15:55:11 &#43;0000</relative-time>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-lg px-3 new-discussion-timeline">
+      <div class="repository-content gist-content">
+        <div>
+          <div class="js-gist-file-update-container js-task-list-container file-box">
+            <div id="file-pytest" class="file my-2">
+              <div id="post-header" class="file-header d-flex flex-md-items-center flex-items-start sticky-header" style="z-index: 2">
+                <div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto">
+                  <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                    
+                    <summary id="toc-toggle" onclick="clickToc()" class="btn btn-octicon m-0 mr-2 p-2">
+                      <svg aria-hidden="true" viewBox="0 0 16 16" height="16" width="16" class="octicon octicon-list-unordered">
+                        <path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zM3 8a1 1 0 11-2 0 1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"></path>
+                      </svg>
+                    </summary>
+                    <details-menu class="SelectMenu" id="toc-details" style="display: none;">
+                      <div class="SelectMenu-modal rounded-3 mt-1" style="max-height: 340px;">
+                        <div class="SelectMenu-list SelectMenu-list--borderless p-2" style="overscroll-behavior: contain;" id="toc-list">
+                        </div>
+                      </div>
+                    </details-menu>
+                      1224 Words
+                    <span class="file-info-divider"></span>
+                                        6 min
+
+                  </div>
+                  <div class="file-actions flex-order-2 pt-0">
+                    
+                    
+                    <a class="muted-link mr-3" href="/tags/nil">
+                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                        </path>
+                      </svg>
+                      
+                    </a>
+                    
+                    
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="Box-body px-5 pb-5" style="z-index: 1">
+                <article class="markdown-body entry-content container-lg"><h1 id="powershell-监控域控账号变化">PowerShell 监控域控账号变化</h1>
+<p>10 秒钟检查一次</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="c"># 定期轮询检查从上次查询以来的新增用户</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$lastRunTime</span> <span class="p">=</span> <span class="nb">Get-Date</span>  <span class="c"># 初始化为当前时间</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="p">(</span><span class="vm">$true</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># 获取从上次查询以来的指定事件 ID 的事件</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$events</span> <span class="p">=</span> <span class="nb">Get-WinEvent</span> <span class="n">-FilterHashtable</span> <span class="vm">@</span><span class="p">{</span><span class="n">LogName</span><span class="p">=</span><span class="s1">&#39;Security&#39;</span><span class="p">;</span> <span class="n">Id</span><span class="p">=</span><span class="mf">4720</span><span class="p">,</span> <span class="mf">4722</span><span class="p">,</span> <span class="mf">4723</span><span class="p">,</span> <span class="mf">4724</span><span class="p">,</span> <span class="mf">4725</span><span class="p">,</span> <span class="mf">4726</span><span class="p">;</span> <span class="n">StartTime</span><span class="p">=</span><span class="nv">$lastRunTime</span><span class="p">}</span> <span class="n">-ErrorAction</span> <span class="n">SilentlyContinue</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$event</span> <span class="k">in</span> <span class="nv">$events</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$eventId</span> <span class="p">=</span> <span class="nv">$event</span><span class="p">.</span><span class="py">Id</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$username</span> <span class="p">=</span> <span class="nv">$event</span><span class="p">.</span><span class="n">Properties</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="py">Value</span>  <span class="c"># 获取用户名</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$timeCreated</span> <span class="p">=</span> <span class="nv">$event</span><span class="p">.</span><span class="py">TimeCreated</span>  <span class="c"># 获取事件的创建时间</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c"># 根据事件 ID 输出相应的用户操作和时间</span>
+</span></span><span class="line"><span class="cl">        <span class="k">switch</span> <span class="p">(</span><span class="nv">$eventId</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="mf">4720</span> <span class="p">{</span> <span class="s2">&#34;[</span><span class="nv">$timeCreated</span><span class="s2">] Added_User: </span><span class="nv">$username</span><span class="s2">&#34;</span> <span class="p">|</span> <span class="nb">Out-Host</span> <span class="p">}</span>                     <span class="c"># 创建新用户账户</span>
+</span></span><span class="line"><span class="cl">            <span class="mf">4722</span> <span class="p">{</span> <span class="s2">&#34;[</span><span class="nv">$timeCreated</span><span class="s2">] Enabled_User: </span><span class="nv">$username</span><span class="s2">&#34;</span> <span class="p">|</span> <span class="nb">Out-Host</span> <span class="p">}</span>                   <span class="c"># 启用用户账户</span>
+</span></span><span class="line"><span class="cl">            <span class="mf">4723</span> <span class="p">{</span> <span class="s2">&#34;[</span><span class="nv">$timeCreated</span><span class="s2">] Password_Change_Attempt: </span><span class="nv">$username</span><span class="s2">&#34;</span> <span class="p">|</span> <span class="nb">Out-Host</span> <span class="p">}</span>        <span class="c"># 尝试更改用户账户密码</span>
+</span></span><span class="line"><span class="cl">            <span class="mf">4724</span> <span class="p">{</span> <span class="s2">&#34;[</span><span class="nv">$timeCreated</span><span class="s2">] Password_Reset_Attempt: </span><span class="nv">$username</span><span class="s2">&#34;</span> <span class="p">|</span> <span class="nb">Out-Host</span> <span class="p">}</span>         <span class="c"># 尝试重置用户账户密码</span>
+</span></span><span class="line"><span class="cl">            <span class="mf">4725</span> <span class="p">{</span> <span class="s2">&#34;[</span><span class="nv">$timeCreated</span><span class="s2">] Disabled_User: </span><span class="nv">$username</span><span class="s2">&#34;</span> <span class="p">|</span> <span class="nb">Out-Host</span> <span class="p">}</span>                  <span class="c"># 禁用用户账户</span>
+</span></span><span class="line"><span class="cl">            <span class="mf">4726</span> <span class="p">{</span> <span class="s2">&#34;[</span><span class="nv">$timeCreated</span><span class="s2">] Deleted_User: </span><span class="nv">$username</span><span class="s2">&#34;</span> <span class="p">|</span> <span class="nb">Out-Host</span> <span class="p">}</span>                   <span class="c"># 删除用户账户</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c"># 更新最后查询时间为当前时间</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$lastRunTime</span> <span class="p">=</span> <span class="nb">Get-Date</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c"># 等待 10 秒后再次检查</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">Start-Sleep</span> <span class="n">-Seconds</span> <span class="mf">10</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>为了后期方便相关分析，把数据写入 Mysql 数据库 AdEvent</p>
+<p>首先在数据库中创建表，语法如下：</p>
+<pre tabindex="0"><code>CREATE TABLE UserEvents (
+    Id INT AUTO_INCREMENT PRIMARY KEY,
+    EventType VARCHAR(50),
+    Username VARCHAR(50),
+    TimeCreated DATETIME
+);
+</code></pre><p>然后需要在域控上连接 Mysql 数据库</p>
+<p>先下载并在域控上安装 <a href="https://dev.mysql.com/downloads/connector/net/">mysql.net.connector</a></p>
+<p>然后 powershell 执行</p>
+<pre tabindex="0"><code>[Reflection.Assembly]::LoadFrom(&#34;C:\Program Files (x86)\MySQL\MySQL Connector NET 9.0\MySql.Data.dll&#34;)
+</code></pre><p><img src="2024-1004-02%5Cimage-20241006180158290.png" alt="image-20241006180158290"></p>
+<pre tabindex="0"><code># 加载 MySQL 数据库连接库
+[Reflection.Assembly]::LoadFrom(&#34;C:\Program Files (x86)\MySQL\MySQL Connector NET 9.0\MySql.Data.dll&#34;)
+
+# MySQL 连接字符串
+$connectionString = &#34;server=10.64.112.85;port=3306;user id=root;password=root;database=file;&#34;
+
+# 创建 MySQL 连接
+$connection = New-Object MySql.Data.MySqlClient.MySqlConnection($connectionString)
+
+# 尝试打开连接并处理错误
+try {
+    $connection.Open()
+    Write-Host &#34;MySQL connection successful!&#34;
+} catch {
+    Write-Host &#34;MySQL connection error: $_&#34;
+    exit 1  # 如果连接失败，则退出脚本
+}
+
+# 循环以检查新增用户事件
+$lastRunTime = Get-Date  # 初始化为当前时间
+
+while ($true) {
+    # 获取指定事件 ID 的事件
+    $events = Get-WinEvent -FilterHashtable @{LogName=&#39;Security&#39;; Id=4720, 4722, 4723, 4724, 4725, 4726; StartTime=$lastRunTime} -ErrorAction SilentlyContinue
+
+    if ($events.Count -eq 0) {
+        Start-Sleep -Seconds 10
+        continue  # 没有新事件，继续下一轮
+    }
+
+    # 使用事务处理
+    $transaction = $connection.BeginTransaction()
+
+    try {
+        foreach ($event in $events) {
+            $eventId = $event.Id
+            $username = $event.Properties[0].Value  # 获取用户名
+            $timeCreated = $event.TimeCreated  # 获取事件的创建时间
+            $timeCreatedString = $timeCreated.ToString(&#34;yyyy-MM-dd HH:mm:ss&#34;)  # 转换为字符串格式
+
+            # 根据事件 ID 确定事件类型
+            $eventType = switch ($eventId) {
+                4720 { &#34;Added_User&#34; }
+                4722 { &#34;Enabled_User&#34; }
+                4723 { &#34;Password_Change_Attempt&#34; }
+                4724 { &#34;Password_Reset_Attempt&#34; }
+                4725 { &#34;Disabled_User&#34; }
+                4726 { &#34;Deleted_User&#34; }
+                default { &#34;Unknown_Event&#34; }
+            }
+
+            # 确保数据有效
+            if ([string]::IsNullOrWhiteSpace($username) -or [string]::IsNullOrWhiteSpace($eventType)) {
+                Write-Host &#34;Invalid data: Username or EventType is empty.&#34;
+                continue
+            }
+
+            # 创建命令对象
+            $command = $connection.CreateCommand()
+            $command.CommandText = &#34;INSERT INTO UserEvents (EventType, Username, TimeCreated) VALUES (@EventType, @Username, @TimeCreated)&#34;
+
+            # 添加参数
+            $command.Parameters.Add((New-Object MySql.Data.MySqlClient.MySqlParameter(&#34;@EventType&#34;, $eventType)))
+            $command.Parameters.Add((New-Object MySql.Data.MySqlClient.MySqlParameter(&#34;@Username&#34;, $username)))
+            $command.Parameters.Add((New-Object MySql.Data.MySqlClient.MySqlParameter(&#34;@TimeCreated&#34;, $timeCreatedString)))
+
+            # 执行命令
+            $command.ExecuteNonQuery()
+            Write-Host &#34;Data inserted successfully!&#34;
+        }
+
+        # 提交事务
+        $transaction.Commit()
+    } catch {
+        if ($transaction -ne $null) {
+            $transaction.Rollback()
+        }
+        Write-Host &#34;Transaction error: $($_.Exception.Message)&#34;
+        Write-Host &#34;Parameters: EventType=$eventType, Username=$username, TimeCreated=$timeCreatedString&#34;  # 只在异常时输出参数
+    }
+
+    # 更新最后查询时间为当前时间
+    $lastRunTime = Get-Date
+
+    # 等待 10 秒后再次检查
+    Start-Sleep -Seconds 10
+}
+
+# 关闭 MySQL 连接
+$connection.Close()
+</code></pre><pre tabindex="0"><code># 加载 MySQL 数据库连接库
+[Reflection.Assembly]::LoadFrom(&#34;C:\Program Files (x86)\MySQL\MySQL Connector NET 9.0\MySql.Data.dll&#34;)
+
+# MySQL 连接字符串
+$connectionString = &#34;server=10.64.112.85;port=3306;user id=root;password=root;database=file;&#34;
+
+# 创建 MySQL 连接
+$connection = New-Object MySql.Data.MySqlClient.MySqlConnection($connectionString)
+
+# 尝试打开连接并处理错误
+try {
+    $connection.Open()
+    Write-Host &#34;MySQL connection successful!&#34;
+} catch {
+    Write-Host &#34;MySQL connection error: $_&#34;
+    exit 1  # 如果连接失败，则退出脚本
+}
+
+# 循环以检查新增用户事件
+$lastRunTime = Get-Date  # 初始化为当前时间
+
+while ($true) {
+    # 轻量级查询以保持连接活跃
+    try {
+        $keepAliveCommand = $connection.CreateCommand()
+        $keepAliveCommand.CommandText = &#34;SELECT 1&#34;
+        $keepAliveCommand.ExecuteNonQuery()
+    } catch {
+        Write-Host &#34;Keep-alive query failed: $_&#34;
+        # 重新建立连接
+        $connection.Close()
+        $connection.Open()
+    }
+
+    # 获取指定事件 ID 的事件
+    $events = Get-WinEvent -FilterHashtable @{LogName=&#39;Security&#39;; Id=4720, 4722, 4723, 4724, 4725, 4726; StartTime=$lastRunTime} -ErrorAction SilentlyContinue
+
+    if ($events.Count -eq 0) {
+        Start-Sleep -Seconds 10
+        continue  # 没有新事件，继续下一轮
+    }
+
+    # 使用事务处理
+    $transaction = $connection.BeginTransaction()
+
+    try {
+        foreach ($event in $events) {
+            $eventId = $event.Id
+            $username = $event.Properties[0].Value  # 获取用户名
+            $timeCreated = $event.TimeCreated  # 获取事件的创建时间
+            $timeCreatedString = $timeCreated.ToString(&#34;yyyy-MM-dd HH:mm:ss&#34;)  # 转换为字符串格式
+
+            # 根据事件 ID 确定事件类型
+            $eventType = switch ($eventId) {
+                4720 { &#34;Added_User&#34; }
+                4722 { &#34;Enabled_User&#34; }
+                4723 { &#34;Password_Change_Attempt&#34; }
+                4724 { &#34;Password_Reset_Attempt&#34; }
+                4725 { &#34;Disabled_User&#34; }
+                4726 { &#34;Deleted_User&#34; }
+                default { &#34;Unknown_Event&#34; }
+            }
+
+            # 确保数据有效
+            if ([string]::IsNullOrWhiteSpace($username) -or [string]::IsNullOrWhiteSpace($eventType)) {
+                Write-Host &#34;Invalid data: Username or EventType is empty.&#34;
+                continue
+            }
+
+            # 创建命令对象
+            $command = $connection.CreateCommand()
+            $command.CommandText = &#34;INSERT INTO UserEvents (EventType, Username, TimeCreated) VALUES (@EventType, @Username, @TimeCreated)&#34;
+
+            # 添加参数
+            $command.Parameters.Add((New-Object MySql.Data.MySqlClient.MySqlParameter(&#34;@EventType&#34;, $eventType)))
+            $command.Parameters.Add((New-Object MySql.Data.MySqlClient.MySqlParameter(&#34;@Username&#34;, $username)))
+            $command.Parameters.Add((New-Object MySql.Data.MySqlClient.MySqlParameter(&#34;@TimeCreated&#34;, $timeCreatedString)))
+
+            # 执行命令
+            $command.ExecuteNonQuery()
+            Write-Host &#34;Data inserted successfully!&#34;
+        }
+
+        # 提交事务
+        $transaction.Commit()
+    } catch {
+        if ($transaction -ne $null) {
+            $transaction.Rollback()
+        }
+        Write-Host &#34;Transaction error: $($_.Exception.Message)&#34;
+    }
+
+    # 更新最后查询时间为当前时间
+    $lastRunTime = Get-Date
+
+    # 等待 10 秒后再次检查
+    Start-Sleep -Seconds 10
+}
+
+# 关闭 MySQL 连接
+$connection.Close()
+</code></pre><h1 id="查询用户登录的logonworkstations属性">查询用户登录的LogonWorkstations属性</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-POWERSHELL" data-lang="POWERSHELL"><span class="line"><span class="cl"><span class="n">获取所有用户的</span> <span class="n">Name</span> <span class="n">和</span> <span class="n">LogonWorkstations</span> <span class="n">属性</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Get-ADUser</span> <span class="n">-Filter</span> <span class="p">*</span> <span class="n">-Properties</span> <span class="n">LogonWorkstations</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">Name</span><span class="p">,</span> <span class="n">LogonWorkstations</span>
+</span></span></code></pre></div></article>
+              </div>
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagination-nav">
+        <div class="pagination-button next-post">
+          
+        </div>
+        
+        <div class="pagination-button previous-post">
+          
+          <a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-1004-01/">共享文件夹审计及分析&nbsp;</a><div> »</div>
+          
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script type="application/javascript" src='https://0xo7.github.io/js/toc.js'></script>
+<link rel="stylesheet" href='https://0xo7.github.io/css/toc.css' />
+
+
+  <div class="footer container-xl width-full p-responsive">
+  <div
+    class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between flex-sm-items-center pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mr-lg-4" href="https://0xo7.github.io/">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24">
+        <path fill-rule="evenodd"
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+        </path>
+      </svg>
+    </a>
+    <ul class="list-style-none d-flex flex-wrap col-12 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+      
+      <li class="mr-3 mr-lg-0">Theme by <a href='https://github.com/MeiK2333/github-style'>github-style</a></li>
+      
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+
+
+</div>
+</body>
+
+<script type="application/javascript" src="https://0xo7.github.io/js/github-style.js"></script>
+
+<script src="https://0xo7.github.io/js/mark.es6.min.js"></script>
+
+
+
+
+
+
+
+</html>
