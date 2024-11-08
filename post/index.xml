@@ -6,23 +6,41 @@
     <description>Recent content in Posts on 0xo7&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 04 Oct 2024 19:17:14 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Nov 2024 09:53:18 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>域控审计及分析</title>
+      <title>域环境软件安装</title>
+      <link>https://0xo7.github.io/post/2024-1103-01/</link>
+      <pubDate>Sun, 03 Nov 2024 09:53:18 +0800</pubDate>
+      
+      <guid>https://0xo7.github.io/post/2024-1103-01/</guid>
+      <description>在桌面运维中，企业内有时候会限制员工自行安装软件，这会带来大量工作。本文旨在优化域环境下的软件安装问题&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>SIEM 日志中心节点搭建</title>
+      <link>https://0xo7.github.io/post/2024-1020-01/</link>
+      <pubDate>Sun, 20 Oct 2024 08:31:45 +0800</pubDate>
+      
+      <guid>https://0xo7.github.io/post/2024-1020-01/</guid>
+      <description>在 SIEM （安全应急事件管理） 搭建中，日志是及其重要的一环。对于黑客掌上的明珠——域控， 它的日志监控是非常重要的，</description>
+    </item>
+    
+    <item>
+      <title>PowerShell脚本汇总</title>
       <link>https://0xo7.github.io/post/2024-1004-02/</link>
       <pubDate>Fri, 04 Oct 2024 19:17:14 +0800</pubDate>
       
       <guid>https://0xo7.github.io/post/2024-1004-02/</guid>
-      <description>企业内审计域控的方法多种多样，可以分析</description>
+      <description>对一些实际能够用的powershell脚本进行汇总 &amp;hellip;</description>
     </item>
     
     <item>
-      <title>共享文件夹审计及分析</title>
+      <title>企业共享文件夹审计</title>
       <link>https://0xo7.github.io/post/2024-1004-01/</link>
       <pubDate>Fri, 04 Oct 2024 18:52:29 +0800</pubDate>
       
       <guid>https://0xo7.github.io/post/2024-1004-01/</guid>
-      <description>企业内监控共享文件的的方法有很多，可从驱动层入手、也可通过日志入手。但要不就是太过繁琐，对于新手难度过大，要不就是监控的不准确 &amp;hellip;</description>
+      <description>企业内监控共享文件的的方法有很多，可从驱动层入手、也可通过日志入手。但要不就是太过繁琐，对于新手难度过大，要不就是监控的不准确，无法获取访问访问文件的用户等 &amp;hellip;</description>
     </item>
     
     <item>

@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/custom.css" />
   
   <title>
-    域控审计及分析 | 0xo7&#39;s Blog
+    PowerShell脚本汇总 | 0xo7&#39;s Blog
   </title>
   
   <link rel="icon" type="image/x-icon" href="/images/github-mark.png" />
@@ -27,7 +27,7 @@
   
   <meta
   name="description"
-  content="企业内审计域控的方法多种多样，可以分析"
+  content="对一些实际能够用的powershell脚本进行汇总 &amp;hellip;"
 />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://0xo7.github.io/post/2024-1004-02/" />
@@ -36,11 +36,11 @@
 <meta name="twitter:card" content="summary" />
 <meta
   name="twitter:title"
-  content="域控审计及分析 - 0xo7&#39;s Blog"
+  content="PowerShell脚本汇总 - 0xo7&#39;s Blog"
 />
 <meta
   name="twitter:description"
-  content="企业内审计域控的方法多种多样，可以分析"
+  content="对一些实际能够用的powershell脚本进行汇总 &amp;hellip;"
 />
 <meta name="twitter:site" content="https://0xo7.github.io/" />
 <meta name="twitter:creator" content="" />
@@ -56,14 +56,14 @@
 />
 <meta
   property="og:title"
-  content="域控审计及分析 - 0xo7&#39;s Blog"
+  content="PowerShell脚本汇总 - 0xo7&#39;s Blog"
 />
 <meta
   property="og:description"
-  content="企业内审计域控的方法多种多样，可以分析"
+  content="对一些实际能够用的powershell脚本进行汇总 &amp;hellip;"
 />
 <meta property="og:url" content="https://0xo7.github.io/post/2024-1004-02/" />
-<meta property="og:site_name" content="域控审计及分析" />
+<meta property="og:site_name" content="PowerShell脚本汇总" />
 <meta
   property="og:image"
   content="https://0xo7.github.io/"
@@ -283,7 +283,7 @@
                   <span class="author">
                     <a href="https://0xo7.github.io/">Thunnus</a></span><span
                     class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
-                      href="https://0xo7.github.io/post/2024-1004-02/">域控审计及分析</a></strong>
+                      href="https://0xo7.github.io/post/2024-1004-02/">PowerShell脚本汇总</a></strong>
                 </h1>
                 <div class="note m-0">
                   Created <relative-time datetime="Fri, 04 Oct 2024 19:17:14 &#43;0800"
@@ -292,9 +292,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Sun, 06 Oct 2024 15:55:11 &#43;0000"
+                  Modified <relative-time datetime="Fri, 08 Nov 2024 13:59:22 &#43;0000"
                     class="no-wrap">
-                    Sun, 06 Oct 2024 15:55:11 &#43;0000</relative-time>
+                    Fri, 08 Nov 2024 13:59:22 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -330,18 +330,24 @@
 
                   </div>
                   <div class="file-actions flex-order-2 pt-0">
-                    
-                    
-                    <a class="muted-link mr-3" href="/tags/nil">
-                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
-                        <path fill-rule="evenodd"
-                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
-                        </path>
-                      </svg>
-                      
-                    </a>
-                    
-                    
+  
+    
+       
+       
+       
+       
+      
+      
+        
+        
+       
+      <a class="muted-link mr-3" href="/tags/nil">
+        <span class="repo-language-color" style="background-color: #649895"></span>
+        
+      </a>
+    
+  
+
                   </div>
                 </div>
               </div>
@@ -583,7 +589,8 @@ while ($true) {
 
 # 关闭 MySQL 连接
 $connection.Close()
-</code></pre><h1 id="查询用户登录的logonworkstations属性">查询用户登录的LogonWorkstations属性</h1>
+</code></pre><p><img src="C:%5CUsers%5Cxxy%5CDesktop%5CGithub-style-Blog%5Ccontent%5Cpost%5C2024-1004-02%5Cimage-20241008214403228.png" alt="image-20241008214403228"></p>
+<h1 id="查询用户登录的logonworkstations属性">查询用户登录的LogonWorkstations属性</h1>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-POWERSHELL" data-lang="POWERSHELL"><span class="line"><span class="cl"><span class="n">获取所有用户的</span> <span class="n">Name</span> <span class="n">和</span> <span class="n">LogonWorkstations</span> <span class="n">属性</span>
 </span></span><span class="line"><span class="cl"><span class="nb">Get-ADUser</span> <span class="n">-Filter</span> <span class="p">*</span> <span class="n">-Properties</span> <span class="n">LogonWorkstations</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">Name</span><span class="p">,</span> <span class="n">LogonWorkstations</span>
 </span></span></code></pre></div></article>
@@ -598,11 +605,13 @@ $connection.Close()
       <div class="pagination-nav">
         <div class="pagination-button next-post">
           
+          <div>«&nbsp;</div><a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-1020-01/"> SIEM 日志中心节点搭建</a>
+          
         </div>
         
         <div class="pagination-button previous-post">
           
-          <a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-1004-01/">共享文件夹审计及分析&nbsp;</a><div> »</div>
+          <a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-1004-01/">企业共享文件夹审计&nbsp;</a><div> »</div>
           
         </div>
       </div>

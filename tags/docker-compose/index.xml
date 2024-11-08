@@ -6,7 +6,16 @@
     <description>Recent content in Docker Compose on 0xo7&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 23 Sep 2024 22:19:22 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/tags/docker-compose/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Nov 2024 09:53:18 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/tags/docker-compose/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>域环境软件安装</title>
+      <link>https://0xo7.github.io/post/2024-1103-01/</link>
+      <pubDate>Sun, 03 Nov 2024 09:53:18 +0800</pubDate>
+      
+      <guid>https://0xo7.github.io/post/2024-1103-01/</guid>
+      <description>在桌面运维中，企业内有时候会限制员工自行安装软件，这会带来大量工作。本文旨在优化域环境下的软件安装问题&amp;hellip;</description>
+    </item>
+    
     <item>
       <title>Docker Swarm 入门指北</title>
       <link>https://0xo7.github.io/post/2024-0923-01/</link>

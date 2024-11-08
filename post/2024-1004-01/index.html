@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/custom.css" />
   
   <title>
-    共享文件夹审计及分析 | 0xo7&#39;s Blog
+    企业共享文件夹审计 | 0xo7&#39;s Blog
   </title>
   
   <link rel="icon" type="image/x-icon" href="/images/github-mark.png" />
@@ -27,7 +27,7 @@
   
   <meta
   name="description"
-  content="企业内监控共享文件的的方法有很多，可从驱动层入手、也可通过日志入手。但要不就是太过繁琐，对于新手难度过大，要不就是监控的不准确 &amp;hellip;"
+  content="企业内监控共享文件的的方法有很多，可从驱动层入手、也可通过日志入手。但要不就是太过繁琐，对于新手难度过大，要不就是监控的不准确，无法获取访问访问文件的用户等 &amp;hellip;"
 />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://0xo7.github.io/post/2024-1004-01/" />
@@ -36,11 +36,11 @@
 <meta name="twitter:card" content="summary" />
 <meta
   name="twitter:title"
-  content="共享文件夹审计及分析 - 0xo7&#39;s Blog"
+  content="企业共享文件夹审计 - 0xo7&#39;s Blog"
 />
 <meta
   name="twitter:description"
-  content="企业内监控共享文件的的方法有很多，可从驱动层入手、也可通过日志入手。但要不就是太过繁琐，对于新手难度过大，要不就是监控的不准确 &amp;hellip;"
+  content="企业内监控共享文件的的方法有很多，可从驱动层入手、也可通过日志入手。但要不就是太过繁琐，对于新手难度过大，要不就是监控的不准确，无法获取访问访问文件的用户等 &amp;hellip;"
 />
 <meta name="twitter:site" content="https://0xo7.github.io/" />
 <meta name="twitter:creator" content="" />
@@ -56,14 +56,14 @@
 />
 <meta
   property="og:title"
-  content="共享文件夹审计及分析 - 0xo7&#39;s Blog"
+  content="企业共享文件夹审计 - 0xo7&#39;s Blog"
 />
 <meta
   property="og:description"
-  content="企业内监控共享文件的的方法有很多，可从驱动层入手、也可通过日志入手。但要不就是太过繁琐，对于新手难度过大，要不就是监控的不准确 &amp;hellip;"
+  content="企业内监控共享文件的的方法有很多，可从驱动层入手、也可通过日志入手。但要不就是太过繁琐，对于新手难度过大，要不就是监控的不准确，无法获取访问访问文件的用户等 &amp;hellip;"
 />
 <meta property="og:url" content="https://0xo7.github.io/post/2024-1004-01/" />
-<meta property="og:site_name" content="共享文件夹审计及分析" />
+<meta property="og:site_name" content="企业共享文件夹审计" />
 <meta
   property="og:image"
   content="https://0xo7.github.io/"
@@ -312,7 +312,7 @@
                   <span class="author">
                     <a href="https://0xo7.github.io/">Thunnus</a></span><span
                     class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
-                      href="https://0xo7.github.io/post/2024-1004-01/">共享文件夹审计及分析</a></strong>
+                      href="https://0xo7.github.io/post/2024-1004-01/">企业共享文件夹审计</a></strong>
                 </h1>
                 <div class="note m-0">
                   Created <relative-time datetime="Fri, 04 Oct 2024 18:52:29 &#43;0800"
@@ -321,9 +321,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Sun, 06 Oct 2024 15:55:11 &#43;0000"
+                  Modified <relative-time datetime="Fri, 08 Nov 2024 13:59:22 &#43;0000"
                     class="no-wrap">
-                    Sun, 06 Oct 2024 15:55:11 &#43;0000</relative-time>
+                    Fri, 08 Nov 2024 13:59:22 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -353,74 +353,51 @@
                         </div>
                       </div>
                     </details-menu>
-                      499 Words
+                      517 Words
                     <span class="file-info-divider"></span>
                                         2 min
 
                   </div>
                   <div class="file-actions flex-order-2 pt-0">
-                    
-                    
-                    <a class="muted-link mr-3" href="/tags/%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E5%AE%A1%E8%AE%A1">
-                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
-                        <path fill-rule="evenodd"
-                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
-                        </path>
-                      </svg>
-                      共享文件夹审计
-                    </a>
-                    
-                    
+  
+    
+       
+       
+       
+       
+      
+        
+        
+      
+       
+      <a class="muted-link mr-3" href="/tags/%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E5%AE%A1%E8%AE%A1">
+        <span class="repo-language-color" style="background-color: #9d9966"></span>
+        共享文件夹审计
+      </a>
+    
+  
+
                   </div>
                 </div>
               </div>
 
 
               <div class="Box-body px-5 pb-5" style="z-index: 1">
-                <article class="markdown-body entry-content container-lg"><h1 id="directory-monitorhttpsdirectorymonitorcom"><a href="https://directorymonitor.com/">Directory Monitor</a></h1>
-<p>企业内有足够的预算，共享文件夹的监控方案可以采用卓豪的方案，本着公司一毛不拔的原则，直接 PASS 掉。那么如何监控共享文件夹的访问和使用情况呢 ？</p>
+                <article class="markdown-body entry-content container-lg"><p>企业内有足够的预算，共享文件夹的监控方案可以采用卓豪的方案，本着公司一毛不拔的原则，直接 PASS 掉。那么如何监控共享文件夹的访问和使用情况呢 ？</p>
 <img src="2024-1004-01\image-20241004192849608.png" alt="image-20241004192849608" style="zoom: 33%;" />
-<p>最直接的思路，可以<a href="https://github.com/EaseFilterSDK/mini-filter-driver-framework">从驱动层入手</a> 。本着能偷懒绝对不自己搞的原则，这里使用成熟的 Directory Monitor 来监控共享目录的变更情况，Directory Monitor 支持把结果写入 MySql 和 syslog 日志服务器。</p>
-<p>当然，Directory Monitor 也是要付费的，这里需要自己去想办法</p>
+<h1 id="日志审计">日志审计</h1>
+<p>我们可从审计 windows 用户的日志入手，需要涉及到日志转发，并且在筛选日志的时候非常麻烦，往往一个删除或添加操作会处触发多个事件ID，所以这里也是非常不推荐</p>
+<h1 id="easefiltersdkhttpsgithubcomeasefiltersdkmini-filter-driver-framework"><a href="https://github.com/EaseFilterSDK/mini-filter-driver-framework">EaseFilterSDK</a></h1>
+<p>从驱动层面入手，可以直接使用 <a href="(https://github.com/EaseFilterSDK/mini-filter-driver-framework)">EaseFilterSDK</a>，当然该驱动在使用的时候是收费，非常成熟。除此之外，也可以自己从驱动层面来实现。当然，本文暂时不提供如何实现，后续再专门写一篇文章</p>
 <img src="2024-1004-01\image-20241004200220058.png" alt="image-20241004200220058" style="zoom:33%;" />
-<p>运行后显示如下：</p>
+<h1 id="directory-monitorhttpsdirectorymonitorcom"><a href="https://directorymonitor.com/">Directory Monitor</a></h1>
+<p>Directory Monitor 也是要付费的，这里毫无疑问采用 crack 版本，我们正常安装 Directory Monitor，安装后，解压 Patch-dm2108x.rar  压缩包，然后把解压后的 exe 放到 Directory Monitor 安装路径里面，以管理员身份执行即可 crack</p>
+<p>正常打开软件显示如下所示：</p>
 <img src="2024-1004-01\image-20241004200354040.png" alt="image-20241004200354040" style="zoom:67%;" />
-<p>通过把<a href="https://directorymonitor.com/feature-database">结果保存到数据库</a>的方式，就很容易做访问情况展示</p>
-<img src="2024-1004-01\image-20241004200440345.png" alt="image-20241004200440345" style="zoom:67%;" />
-<h1 id="写入-mysql-数据库">写入 MySql 数据库</h1>
-<p>这里为了方便演示，直接使用 phpstudy 搭建 Mysql 数据库</p>
-<p>搭建完毕后，连接数据库，在连接的时候默认会提示：host xxxx is not allowed to connect to this mysql server</p>
-<p>这是因为mysql数据库只允许自身所在的本机器连接，不允许远程连接</p>
-<p>这样我们需要进入 <code>mysql</code>  数据库，然后执行，显示如下：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-MYSQL" data-lang="MYSQL"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="k">user</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><p><img src="2024-1004-01%5Cimage-20241004220428957.png" alt="image-20241004220428957"></p>
-<p>然后如下语句即可</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-MYSQL" data-lang="MYSQL"><span class="line"><span class="cl"><span class="k">update</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="kt">set</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">flush</span><span class="w"> </span><span class="k">privileges</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><p>然后就可以允许连接 mysql 数据库了</p>
-<img src="2024-1004-01\image-20241004220658542.png" alt="image-20241004220658542" style="zoom:50%;" />
-<p>连接成功后，可以用如下语句查询</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-MYSQL" data-lang="MYSQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">EventTime</span><span class="w"> </span><span class="n">EventTime</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">et</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="n">EventType</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">d</span><span class="p">.</span><span class="n">Path</span><span class="w"> </span><span class="n">Directory</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">e</span><span class="p">.</span><span class="n">Path</span><span class="w"> </span><span class="n">FullePath</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="nf">LENGTH</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Path</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="k">RIGHT</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Path</span><span class="p">,</span><span class="w"> </span><span class="nf">LOCATE</span><span class="p">(</span><span class="s1">&#39;\\&#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">REVERSE</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Path</span><span class="p">))</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="n">END</span><span class="w"> </span><span class="n">FileName</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">e</span><span class="p">.</span><span class="n">OldPath</span><span class="w"> </span><span class="n">OldFullPath</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="nf">LENGTH</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">OldPath</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="k">RIGHT</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Path</span><span class="p">,</span><span class="w"> </span><span class="nf">LOCATE</span><span class="p">(</span><span class="s1">&#39;\\&#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">REVERSE</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">OldPath</span><span class="p">))</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="n">END</span><span class="w"> </span><span class="n">OldFileName</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">u</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="n">UserName</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">p</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="n">ProcessName</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">EventInfo</span><span class="w"> </span><span class="n">e</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">JOIN</span><span class="w"> </span><span class="n">EventType</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">et</span><span class="p">.</span><span class="n">EventTypeId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">EventTypeId</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">JOIN</span><span class="w"> </span><span class="n">Directory</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">DirectoryId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">DirectoryId</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">UserInfo</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">UserId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">UserId</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">ProcessInfo</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">ProcessId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">ProcessId</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">EventTime</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><p><img src="2024-1004-01%5Cimage-20241004220747874.png" alt="image-20241004220747874"></p>
-<p>后续的操作只需要在 grafana 中展示相关数据就行</p>
-<img src="2024-1004-01\image-20241004221126304.png" alt="image-20241004221126304" style="zoom:67%;" />
-<h1 id="grafana-展示共享访问情况">Grafana 展示共享访问情况</h1>
-<p>待补充</p>
+<p>但在企业中实际使用过后，发现在监控远程共享路径的时候总是会出现一些问题，有时仅能够获取文件夹的添加、删除等，但是无法获取到是哪个用户操作的（可能是环境设置有问题），这样就有点鸡肋。</p>
+<h1 id="fileaduit">FileAduit</h1>
+<p>FileAduit 相对于 Directory Monitor 更加成熟，当然毫无疑问肯定也是收费的，这里也采用  FileAudit 6.5.0.28 的 Crack 版，安装  FileAudit 6.5.0.28 版本后，只需替换 Assemblies 文件夹下的 FileAuditAPI.dll 和 FileAuditLibrary.dll 文件即可</p>
+<p>当然，我们在替换的时候可能会出现一些问题，如：无法替换  FileAuditAPI.dll 和 FileAuditLibrary.dll 文件的问题</p>
 </article>
               </div>
 
@@ -433,7 +410,7 @@
       <div class="pagination-nav">
         <div class="pagination-button next-post">
           
-          <div>«&nbsp;</div><a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-1004-02/"> 域控审计及分析</a>
+          <div>«&nbsp;</div><a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-1004-02/"> PowerShell脚本汇总</a>
           
         </div>
         
