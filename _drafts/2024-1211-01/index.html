@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/custom.css" />
   
   <title>
-    Win10 系统封装教程 | 0xo7&#39;s Blog
+     | 0xo7&#39;s Blog
   </title>
   
   <link rel="icon" type="image/x-icon" href="/images/github-mark.png" />
@@ -27,20 +27,20 @@
   
   <meta
   name="description"
-  content="本文为系统封装教程，旨在优化企业内系统安装时间，其中包含了封装系统中的各种注意事项 &amp;hellip;"
+  content=""
 />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://0xo7.github.io/post/2024-1126-01/" />
+<link rel="canonical" href="https://0xo7.github.io/_drafts/2024-1211-01/" />
 
 
 <meta name="twitter:card" content="summary" />
 <meta
   name="twitter:title"
-  content="Win10 系统封装教程 - 0xo7&#39;s Blog"
+  content=" - 0xo7&#39;s Blog"
 />
 <meta
   name="twitter:description"
-  content="本文为系统封装教程，旨在优化企业内系统安装时间，其中包含了封装系统中的各种注意事项 &amp;hellip;"
+  content=""
 />
 <meta name="twitter:site" content="https://0xo7.github.io/" />
 <meta name="twitter:creator" content="" />
@@ -56,22 +56,20 @@
 />
 <meta
   property="og:title"
-  content="Win10 系统封装教程 - 0xo7&#39;s Blog"
+  content=" - 0xo7&#39;s Blog"
 />
 <meta
   property="og:description"
-  content="本文为系统封装教程，旨在优化企业内系统安装时间，其中包含了封装系统中的各种注意事项 &amp;hellip;"
+  content=""
 />
-<meta property="og:url" content="https://0xo7.github.io/post/2024-1126-01/" />
-<meta property="og:site_name" content="Win10 系统封装教程" />
+<meta property="og:url" content="https://0xo7.github.io/_drafts/2024-1211-01/" />
+<meta property="og:site_name" content="" />
 <meta
   property="og:image"
   content="https://0xo7.github.io/"
 />
 <meta property="og:image:width" content="2048" />
 <meta property="og:image:height" content="1024" />
-
-<meta property="article:published_time" content="2024-11-26 18:51:59 &#43;0800 &#43;0800" />
 
 
 
@@ -261,36 +259,7 @@
 </div>
 
   
-<script>
-    (function(){
-        var correctPassword = '2420011244';
-        var storedPassword = localStorage.getItem('pagePassword');
-
-        function verifyPassword(password) {
-            return password === correctPassword;
-        }
-
-        function promptPassword() {
-            var userPassword = prompt('请输入文章密码');
-            if (verifyPassword(userPassword)) {
-                localStorage.setItem('pagePassword', userPassword);
-            } else {
-                alert('密码错误！');
-                if (history.length === 1) {
-                    window.opener = null;
-                    window.open('', '_self');
-                    window.close();
-                } else {
-                    history.back();
-                }
-            }
-        }
-
-        if (!verifyPassword(storedPassword)) {
-            promptPassword();
-        }
-    })();
-</script><script type="text/javascript" src="/js/initimage.js"></script>
+<script type="text/javascript" src="/js/initimage.js"></script>
 
 
 
@@ -312,12 +281,12 @@
                   <span class="author">
                     <a href="https://0xo7.github.io/">Thunnus</a></span><span
                     class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
-                      href="https://0xo7.github.io/post/2024-1126-01/">Win10 系统封装教程</a></strong>
+                      href="https://0xo7.github.io/_drafts/2024-1211-01/"></a></strong>
                 </h1>
                 <div class="note m-0">
-                  Created <relative-time datetime="Tue, 26 Nov 2024 18:51:59 &#43;0800"
+                  Created <relative-time datetime="Mon, 01 Jan 0001 00:00:00 &#43;0000"
                     class="no-wrap">
-                    Tue, 26 Nov 2024 18:51:59 &#43;0800</relative-time>
+                    Mon, 01 Jan 0001 00:00:00 &#43;0000</relative-time>
 
                   
                   <span class="file-info-divider"></span>
@@ -353,28 +322,12 @@
                         </div>
                       </div>
                     </details-menu>
-                      1108 Words
+                      0 Words
                     <span class="file-info-divider"></span>
-                                        5 min
+                                        0 min
 
                   </div>
                   <div class="file-actions flex-order-2 pt-0">
-  
-    
-       
-       
-       
-       
-      
-        
-        
-        
-       
-      <a class="muted-link mr-3" href="/tags/%E6%A1%8C%E9%9D%A2%E8%BF%90%E7%BB%B4">
-        <span class="repo-language-color" style="background-color: #9a9b9c"></span>
-        桌面运维
-      </a>
-    
   
 
                   </div>
@@ -383,52 +336,7 @@
 
 
               <div class="Box-body px-5 pb-5" style="z-index: 1">
-                <article class="markdown-body entry-content container-lg"><h1 id="精简系统母盘">精简系统母盘</h1>
-<p>在企业中大批量应用的时候，并不是越精简越好，更多的是要考虑稳定性质，MSMG ToolKit 精简方式是以系统稳定为主，使用的是微软官方的组件精简方式，系统稳定是长处，系统体积不是优势。而 NTLITE 暴力删除精简方式，系统大小是优势，但是稳定性其实不是优势，日常肯定没有任何问题。</p>
-<h2 id="msmg-toolkithttpsmsmgtoolkitin"><a href="https://msmgtoolkit.in/">MSMG Toolkit</a></h2>
-<h3 id="精简组件">精简组件</h3>
-<h3 id="添加-net-35">添加 .NET 3.5</h3>
-<h3 id="导入注册表">导入注册表</h3>
-<h3 id="封装成-wmi-和-ios">封装成 WMI 和 IOS</h3>
-<h2 id="ntlitehttpswwwntlitecom"><a href="https://www.ntlite.com/">NTLite</a></h2>
-<p>NTLite 精简母盘采用暴力删除的方式，可精简的选项和组件非常多。由于 NTLite 的收费性质，网上所有的破解版本都不能支持比较新的 win10 版本，这里暂时不选用，实际 NTLite 是精简系统母盘非常棒的工具，价格实际也不贵，小鱼儿yr拼车价格100一年。</p>
-<h1 id="母盘安装及优化">母盘安装及优化</h1>
-<h1 id="安装常用软件">安装常用软件</h1>
-<h1 id="封装前的优化">封装前的优化</h1>
-<h1 id="使用-es5s-进行封装">使用 ES5S 进行封装</h1>
-<h1 id="其它相关教程">其它相关教程</h1>
-<h2 id="修改和关联默认应用">修改和关联默认应用</h2>
-<h3 id="setuserfta">SetUserFTA</h3>
-<h3 id="setdefaultbrowser">SetDefaultBrowser</h3>
-<h3 id="注册表研究">注册表研究</h3>
-<h2 id="干掉-ucpdsys-驱动">干掉 UCPD.sys 驱动</h2>
-<p>IT之家 4 月 8 日消息，微软今年 2 月面向 Windows 10 用户推送 KB5034763 更新、面向 Windows 11 用户推送 KB5034765 更新，其中一项调整是阻止用户使用软件或者修改注册表方式，配置系统的默认浏览器。</p>
-<p>IT之家 3 月 26 日已经报道过这个问题，现在关于这个问题的更多细节被披露。IT 顾问 Christoph Kolbicz 率先发现微软的这项调整，安装 2 月更新之后导致其 SetUserFTA 和 SetDefaultBrowser 程序无法正常使用。</p>
-<p>SetUserFTA 是一个命令行程序，可让 Windows 管理员通过登录脚本和其他方法更改文件关联；SetDefaultBrowser 的工作原理类似，但只能用于更改 Windows 中的默认浏览器。</p>
-<h3 id="背景介绍">背景介绍</h3>
-<p>微软自 Windows 8 系统开始就引入了新的安全机制，为了防止恶意软件和恶意脚本篡改，将文件扩展名、URL 协议与默认程序关联起来。</p>
-<p>微软的这一新机制，将文件扩展名或 URL 协议关联，存储在 UserChoice 注册表键值下。</p>
-<p>例如，分配给 HTTPS URL 协议的默认网络浏览器的路径如下：</p>
-<pre tabindex="0"><code>Windows Registry Editor Version 5.00
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\Shell\Associations\UrlAssociations\https\UserChoice]
-&#34;ProgId&#34;=&#34;ChromeHTML&#34;
-&#34;Hash&#34;=&#34;N3eikAB1HhI=&#34;
-</code></pre><p>如果未使用正确的哈希值，Windows 将忽略注册表值，并使用该 URL 协议的默认程序，即 Microsoft Edge。</p>
-<p><a href="https://kolbi.cz/blog/">Kolbicz</a> 逆向设计了这种 Hashing 算法，创建了 SetUserFTA 和 SetDefaultBrowser 程序来更改默认程序。</p>
-<h3 id="2024-年-2-月新调整">2024 年 2 月新调整</h3>
-<p>不过 Windows 10 和 Windows 11 系统安装 2 月更新之后，Kolbicz 注意到这些注册表键值现在已被锁定，在 Windows 设置之外修改时会出现错误。</p>
-<p>例如，使用 Windows 注册表编辑器修改这些设置时会出现错误，提示“无法编辑哈希值：错误写入值的新内容”。</p>
-<p>经过进一步研究，<a href="https://kolbi.cz/blog/">Kolbicz</a>  发现微软在二月份的更新中引入了一个新的 Windows 过滤驱动程序（C:\Windows\System32\drivers\UCPD.sys）。</p>
-<p>该驱动程序被称为 &ldquo;用户选择保护驱动程序&rdquo;，加载后的作用就是阻止对 UserChoice 注册表项的访问。</p>
-<h3 id="阻止-ucdp-生效">阻止 UCDP 生效</h3>
-<p>Kolbicz 在一篇博文中解释说，虽然不能卸载驱动程序，但可以在注册表中禁用它。</p>
-<h2 id="win10-解决删除部分文件需要-trustedinstaller权限">Win10 解决删除部分文件需要 trustedinstaller权限</h2>
-<p>win10 在删除 UCDP.sys 文件的时候，需要trustedinstaller权限。</p>
-<p><img src="2024-1126-01%5Cimage-20241204202107997.png" alt="image-20241204202107997"></p>
-<h2 id="注册表优化">注册表优化</h2>
-<h3 id="更改系统休眠时间">更改系统休眠时间</h3>
-<h3 id="更改锁屏时间">更改锁屏时间</h3>
-</article>
+                <article class="markdown-body entry-content container-lg"></article>
               </div>
 
               
@@ -440,11 +348,11 @@
       <div class="pagination-nav">
         <div class="pagination-button next-post">
           
+          <div>«&nbsp;</div><a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-0728-01/"> 8086 汇编语言（一）</a>
+          
         </div>
         
         <div class="pagination-button previous-post">
-          
-          <a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-1103-01/">Runasspc 使用技巧&nbsp;</a><div> »</div>
           
         </div>
       </div>
