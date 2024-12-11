@@ -84,3 +84,20 @@ pre code {
 .markdown-body blockquote, .markdown-body details, .markdown-body dl, .markdown-body ol, .markdown-body p, .markdown-body pre, .markdown-body table, .markdown-body ul{
 	margin-top: 16px !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+.markdown-body h1 {
+    font-size: 30px;	
+    border-bottom: 1px solid #34475242;
+}

@@ -292,9 +292,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Wed, 11 Dec 2024 10:14:59 &#43;0000"
+                  Modified <relative-time datetime="Wed, 11 Dec 2024 10:20:57 &#43;0000"
                     class="no-wrap">
-                    Wed, 11 Dec 2024 10:14:59 &#43;0000</relative-time>
+                    Wed, 11 Dec 2024 10:20:57 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -324,9 +324,9 @@
                         </div>
                       </div>
                     </details-menu>
-                      1224 Words
+                      12 Words
                     <span class="file-info-divider"></span>
-                                        6 min
+                                        0 min
 
                   </div>
                   <div class="file-actions flex-order-2 pt-0">
@@ -337,13 +337,13 @@
        
        
       
+        
       
         
-        
        
-      <a class="muted-link mr-3" href="/tags/nil">
-        <span class="repo-language-color" style="background-color: #649895"></span>
-        
+      <a class="muted-link mr-3" href="/tags/powershell">
+        <span class="repo-language-color" style="background-color: #966696"></span>
+        powershell
       </a>
     
   
@@ -354,246 +354,8 @@
 
 
               <div class="Box-body px-5 pb-5" style="z-index: 1">
-                <article class="markdown-body entry-content container-lg"><h1 id="powershell-监控域控账号变化">PowerShell 监控域控账号变化</h1>
-<p>10 秒钟检查一次</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="c"># 定期轮询检查从上次查询以来的新增用户</span>
-</span></span><span class="line"><span class="cl"><span class="nv">$lastRunTime</span> <span class="p">=</span> <span class="nb">Get-Date</span>  <span class="c"># 初始化为当前时间</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="p">(</span><span class="vm">$true</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c"># 获取从上次查询以来的指定事件 ID 的事件</span>
-</span></span><span class="line"><span class="cl">    <span class="nv">$events</span> <span class="p">=</span> <span class="nb">Get-WinEvent</span> <span class="n">-FilterHashtable</span> <span class="vm">@</span><span class="p">{</span><span class="n">LogName</span><span class="p">=</span><span class="s1">&#39;Security&#39;</span><span class="p">;</span> <span class="n">Id</span><span class="p">=</span><span class="mf">4720</span><span class="p">,</span> <span class="mf">4722</span><span class="p">,</span> <span class="mf">4723</span><span class="p">,</span> <span class="mf">4724</span><span class="p">,</span> <span class="mf">4725</span><span class="p">,</span> <span class="mf">4726</span><span class="p">;</span> <span class="n">StartTime</span><span class="p">=</span><span class="nv">$lastRunTime</span><span class="p">}</span> <span class="n">-ErrorAction</span> <span class="n">SilentlyContinue</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$event</span> <span class="k">in</span> <span class="nv">$events</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nv">$eventId</span> <span class="p">=</span> <span class="nv">$event</span><span class="p">.</span><span class="py">Id</span>
-</span></span><span class="line"><span class="cl">        <span class="nv">$username</span> <span class="p">=</span> <span class="nv">$event</span><span class="p">.</span><span class="n">Properties</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="py">Value</span>  <span class="c"># 获取用户名</span>
-</span></span><span class="line"><span class="cl">        <span class="nv">$timeCreated</span> <span class="p">=</span> <span class="nv">$event</span><span class="p">.</span><span class="py">TimeCreated</span>  <span class="c"># 获取事件的创建时间</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="c"># 根据事件 ID 输出相应的用户操作和时间</span>
-</span></span><span class="line"><span class="cl">        <span class="k">switch</span> <span class="p">(</span><span class="nv">$eventId</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="mf">4720</span> <span class="p">{</span> <span class="s2">&#34;[</span><span class="nv">$timeCreated</span><span class="s2">] Added_User: </span><span class="nv">$username</span><span class="s2">&#34;</span> <span class="p">|</span> <span class="nb">Out-Host</span> <span class="p">}</span>                     <span class="c"># 创建新用户账户</span>
-</span></span><span class="line"><span class="cl">            <span class="mf">4722</span> <span class="p">{</span> <span class="s2">&#34;[</span><span class="nv">$timeCreated</span><span class="s2">] Enabled_User: </span><span class="nv">$username</span><span class="s2">&#34;</span> <span class="p">|</span> <span class="nb">Out-Host</span> <span class="p">}</span>                   <span class="c"># 启用用户账户</span>
-</span></span><span class="line"><span class="cl">            <span class="mf">4723</span> <span class="p">{</span> <span class="s2">&#34;[</span><span class="nv">$timeCreated</span><span class="s2">] Password_Change_Attempt: </span><span class="nv">$username</span><span class="s2">&#34;</span> <span class="p">|</span> <span class="nb">Out-Host</span> <span class="p">}</span>        <span class="c"># 尝试更改用户账户密码</span>
-</span></span><span class="line"><span class="cl">            <span class="mf">4724</span> <span class="p">{</span> <span class="s2">&#34;[</span><span class="nv">$timeCreated</span><span class="s2">] Password_Reset_Attempt: </span><span class="nv">$username</span><span class="s2">&#34;</span> <span class="p">|</span> <span class="nb">Out-Host</span> <span class="p">}</span>         <span class="c"># 尝试重置用户账户密码</span>
-</span></span><span class="line"><span class="cl">            <span class="mf">4725</span> <span class="p">{</span> <span class="s2">&#34;[</span><span class="nv">$timeCreated</span><span class="s2">] Disabled_User: </span><span class="nv">$username</span><span class="s2">&#34;</span> <span class="p">|</span> <span class="nb">Out-Host</span> <span class="p">}</span>                  <span class="c"># 禁用用户账户</span>
-</span></span><span class="line"><span class="cl">            <span class="mf">4726</span> <span class="p">{</span> <span class="s2">&#34;[</span><span class="nv">$timeCreated</span><span class="s2">] Deleted_User: </span><span class="nv">$username</span><span class="s2">&#34;</span> <span class="p">|</span> <span class="nb">Out-Host</span> <span class="p">}</span>                   <span class="c"># 删除用户账户</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c"># 更新最后查询时间为当前时间</span>
-</span></span><span class="line"><span class="cl">    <span class="nv">$lastRunTime</span> <span class="p">=</span> <span class="nb">Get-Date</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c"># 等待 10 秒后再次检查</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">Start-Sleep</span> <span class="n">-Seconds</span> <span class="mf">10</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>为了后期方便相关分析，把数据写入 Mysql 数据库 AdEvent</p>
-<p>首先在数据库中创建表，语法如下：</p>
-<pre tabindex="0"><code>CREATE TABLE UserEvents (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
-    EventType VARCHAR(50),
-    Username VARCHAR(50),
-    TimeCreated DATETIME
-);
-</code></pre><p>然后需要在域控上连接 Mysql 数据库</p>
-<p>先下载并在域控上安装 <a href="https://dev.mysql.com/downloads/connector/net/">mysql.net.connector</a></p>
-<p>然后 powershell 执行</p>
-<pre tabindex="0"><code>[Reflection.Assembly]::LoadFrom(&#34;C:\Program Files (x86)\MySQL\MySQL Connector NET 9.0\MySql.Data.dll&#34;)
-</code></pre><p><img src="2024-1004-02%5Cimage-20241006180158290.png" alt="image-20241006180158290"></p>
-<pre tabindex="0"><code># 加载 MySQL 数据库连接库
-[Reflection.Assembly]::LoadFrom(&#34;C:\Program Files (x86)\MySQL\MySQL Connector NET 9.0\MySql.Data.dll&#34;)
-
-# MySQL 连接字符串
-$connectionString = &#34;server=10.64.112.85;port=3306;user id=root;password=root;database=file;&#34;
-
-# 创建 MySQL 连接
-$connection = New-Object MySql.Data.MySqlClient.MySqlConnection($connectionString)
-
-# 尝试打开连接并处理错误
-try {
-    $connection.Open()
-    Write-Host &#34;MySQL connection successful!&#34;
-} catch {
-    Write-Host &#34;MySQL connection error: $_&#34;
-    exit 1  # 如果连接失败，则退出脚本
-}
-
-# 循环以检查新增用户事件
-$lastRunTime = Get-Date  # 初始化为当前时间
-
-while ($true) {
-    # 获取指定事件 ID 的事件
-    $events = Get-WinEvent -FilterHashtable @{LogName=&#39;Security&#39;; Id=4720, 4722, 4723, 4724, 4725, 4726; StartTime=$lastRunTime} -ErrorAction SilentlyContinue
-
-    if ($events.Count -eq 0) {
-        Start-Sleep -Seconds 10
-        continue  # 没有新事件，继续下一轮
-    }
-
-    # 使用事务处理
-    $transaction = $connection.BeginTransaction()
-
-    try {
-        foreach ($event in $events) {
-            $eventId = $event.Id
-            $username = $event.Properties[0].Value  # 获取用户名
-            $timeCreated = $event.TimeCreated  # 获取事件的创建时间
-            $timeCreatedString = $timeCreated.ToString(&#34;yyyy-MM-dd HH:mm:ss&#34;)  # 转换为字符串格式
-
-            # 根据事件 ID 确定事件类型
-            $eventType = switch ($eventId) {
-                4720 { &#34;Added_User&#34; }
-                4722 { &#34;Enabled_User&#34; }
-                4723 { &#34;Password_Change_Attempt&#34; }
-                4724 { &#34;Password_Reset_Attempt&#34; }
-                4725 { &#34;Disabled_User&#34; }
-                4726 { &#34;Deleted_User&#34; }
-                default { &#34;Unknown_Event&#34; }
-            }
-
-            # 确保数据有效
-            if ([string]::IsNullOrWhiteSpace($username) -or [string]::IsNullOrWhiteSpace($eventType)) {
-                Write-Host &#34;Invalid data: Username or EventType is empty.&#34;
-                continue
-            }
-
-            # 创建命令对象
-            $command = $connection.CreateCommand()
-            $command.CommandText = &#34;INSERT INTO UserEvents (EventType, Username, TimeCreated) VALUES (@EventType, @Username, @TimeCreated)&#34;
-
-            # 添加参数
-            $command.Parameters.Add((New-Object MySql.Data.MySqlClient.MySqlParameter(&#34;@EventType&#34;, $eventType)))
-            $command.Parameters.Add((New-Object MySql.Data.MySqlClient.MySqlParameter(&#34;@Username&#34;, $username)))
-            $command.Parameters.Add((New-Object MySql.Data.MySqlClient.MySqlParameter(&#34;@TimeCreated&#34;, $timeCreatedString)))
-
-            # 执行命令
-            $command.ExecuteNonQuery()
-            Write-Host &#34;Data inserted successfully!&#34;
-        }
-
-        # 提交事务
-        $transaction.Commit()
-    } catch {
-        if ($transaction -ne $null) {
-            $transaction.Rollback()
-        }
-        Write-Host &#34;Transaction error: $($_.Exception.Message)&#34;
-        Write-Host &#34;Parameters: EventType=$eventType, Username=$username, TimeCreated=$timeCreatedString&#34;  # 只在异常时输出参数
-    }
-
-    # 更新最后查询时间为当前时间
-    $lastRunTime = Get-Date
-
-    # 等待 10 秒后再次检查
-    Start-Sleep -Seconds 10
-}
-
-# 关闭 MySQL 连接
-$connection.Close()
-</code></pre><pre tabindex="0"><code># 加载 MySQL 数据库连接库
-[Reflection.Assembly]::LoadFrom(&#34;C:\Program Files (x86)\MySQL\MySQL Connector NET 9.0\MySql.Data.dll&#34;)
-
-# MySQL 连接字符串
-$connectionString = &#34;server=10.64.112.85;port=3306;user id=root;password=root;database=file;&#34;
-
-# 创建 MySQL 连接
-$connection = New-Object MySql.Data.MySqlClient.MySqlConnection($connectionString)
-
-# 尝试打开连接并处理错误
-try {
-    $connection.Open()
-    Write-Host &#34;MySQL connection successful!&#34;
-} catch {
-    Write-Host &#34;MySQL connection error: $_&#34;
-    exit 1  # 如果连接失败，则退出脚本
-}
-
-# 循环以检查新增用户事件
-$lastRunTime = Get-Date  # 初始化为当前时间
-
-while ($true) {
-    # 轻量级查询以保持连接活跃
-    try {
-        $keepAliveCommand = $connection.CreateCommand()
-        $keepAliveCommand.CommandText = &#34;SELECT 1&#34;
-        $keepAliveCommand.ExecuteNonQuery()
-    } catch {
-        Write-Host &#34;Keep-alive query failed: $_&#34;
-        # 重新建立连接
-        $connection.Close()
-        $connection.Open()
-    }
-
-    # 获取指定事件 ID 的事件
-    $events = Get-WinEvent -FilterHashtable @{LogName=&#39;Security&#39;; Id=4720, 4722, 4723, 4724, 4725, 4726; StartTime=$lastRunTime} -ErrorAction SilentlyContinue
-
-    if ($events.Count -eq 0) {
-        Start-Sleep -Seconds 10
-        continue  # 没有新事件，继续下一轮
-    }
-
-    # 使用事务处理
-    $transaction = $connection.BeginTransaction()
-
-    try {
-        foreach ($event in $events) {
-            $eventId = $event.Id
-            $username = $event.Properties[0].Value  # 获取用户名
-            $timeCreated = $event.TimeCreated  # 获取事件的创建时间
-            $timeCreatedString = $timeCreated.ToString(&#34;yyyy-MM-dd HH:mm:ss&#34;)  # 转换为字符串格式
-
-            # 根据事件 ID 确定事件类型
-            $eventType = switch ($eventId) {
-                4720 { &#34;Added_User&#34; }
-                4722 { &#34;Enabled_User&#34; }
-                4723 { &#34;Password_Change_Attempt&#34; }
-                4724 { &#34;Password_Reset_Attempt&#34; }
-                4725 { &#34;Disabled_User&#34; }
-                4726 { &#34;Deleted_User&#34; }
-                default { &#34;Unknown_Event&#34; }
-            }
-
-            # 确保数据有效
-            if ([string]::IsNullOrWhiteSpace($username) -or [string]::IsNullOrWhiteSpace($eventType)) {
-                Write-Host &#34;Invalid data: Username or EventType is empty.&#34;
-                continue
-            }
-
-            # 创建命令对象
-            $command = $connection.CreateCommand()
-            $command.CommandText = &#34;INSERT INTO UserEvents (EventType, Username, TimeCreated) VALUES (@EventType, @Username, @TimeCreated)&#34;
-
-            # 添加参数
-            $command.Parameters.Add((New-Object MySql.Data.MySqlClient.MySqlParameter(&#34;@EventType&#34;, $eventType)))
-            $command.Parameters.Add((New-Object MySql.Data.MySqlClient.MySqlParameter(&#34;@Username&#34;, $username)))
-            $command.Parameters.Add((New-Object MySql.Data.MySqlClient.MySqlParameter(&#34;@TimeCreated&#34;, $timeCreatedString)))
-
-            # 执行命令
-            $command.ExecuteNonQuery()
-            Write-Host &#34;Data inserted successfully!&#34;
-        }
-
-        # 提交事务
-        $transaction.Commit()
-    } catch {
-        if ($transaction -ne $null) {
-            $transaction.Rollback()
-        }
-        Write-Host &#34;Transaction error: $($_.Exception.Message)&#34;
-    }
-
-    # 更新最后查询时间为当前时间
-    $lastRunTime = Get-Date
-
-    # 等待 10 秒后再次检查
-    Start-Sleep -Seconds 10
-}
-
-# 关闭 MySQL 连接
-$connection.Close()
-</code></pre><p><img src="C:%5CUsers%5Cxxy%5CDesktop%5CGithub-style-Blog%5Ccontent%5Cpost%5C2024-1004-02%5Cimage-20241008214403228.png" alt="image-20241008214403228"></p>
-<h1 id="查询用户登录的logonworkstations属性">查询用户登录的LogonWorkstations属性</h1>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-POWERSHELL" data-lang="POWERSHELL"><span class="line"><span class="cl"><span class="n">获取所有用户的</span> <span class="n">Name</span> <span class="n">和</span> <span class="n">LogonWorkstations</span> <span class="n">属性</span>
-</span></span><span class="line"><span class="cl"><span class="nb">Get-ADUser</span> <span class="n">-Filter</span> <span class="p">*</span> <span class="n">-Properties</span> <span class="n">LogonWorkstations</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">Name</span><span class="p">,</span> <span class="n">LogonWorkstations</span>
-</span></span></code></pre></div></article>
+                <article class="markdown-body entry-content container-lg"><h1 id="powershell-分析共享文件夹访问情况">PowerShell 分析共享文件夹访问情况</h1>
+<pre tabindex="0"><code></code></pre></article>
               </div>
 
               

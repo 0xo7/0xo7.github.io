@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>powershell on 0xo7&#39;s Blog</title>
+    <link>https://0xo7.github.io/tags/powershell/</link>
+    <description>Recent content in powershell on 0xo7&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 04 Oct 2024 19:17:14 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/tags/powershell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PowerShell脚本汇总</title>
+      <link>https://0xo7.github.io/post/2024-1004-02/</link>
+      <pubDate>Fri, 04 Oct 2024 19:17:14 +0800</pubDate>
+      
+      <guid>https://0xo7.github.io/post/2024-1004-02/</guid>
+      <description>对一些实际能够用的powershell脚本进行汇总 &amp;hellip;</description>
+    </item>
+    
+  </channel>
+</rss>

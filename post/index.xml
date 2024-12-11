@@ -6,18 +6,18 @@
     <description>Recent content in Posts on 0xo7&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 11 Dec 2024 09:18:38 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 26 Nov 2024 18:51:59 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>测试撒旦</title>
-      <link>https://0xo7.github.io/post/fasfasdadsa/</link>
-      <pubDate>Wed, 11 Dec 2024 09:18:38 +0800</pubDate>
+      <title>Win10 系统封装教程</title>
+      <link>https://0xo7.github.io/post/2024-1126-01/</link>
+      <pubDate>Tue, 26 Nov 2024 18:51:59 +0800</pubDate>
       
-      <guid>https://0xo7.github.io/post/fasfasdadsa/</guid>
-      <description>dasfasczxczxczxcz</description>
+      <guid>https://0xo7.github.io/post/2024-1126-01/</guid>
+      <description>本文为系统封装教程，旨在优化企业内系统安装时间，其中包含了封装系统中的各种注意事项 &amp;hellip;</description>
     </item>
     
     <item>
-      <title>域环境软件安装</title>
+      <title>Runasspc 使用技巧</title>
       <link>https://0xo7.github.io/post/2024-1103-01/</link>
       <pubDate>Sun, 03 Nov 2024 09:53:18 +0800</pubDate>
       
@@ -53,15 +53,6 @@
     </item>
     
     <item>
-      <title>NSSM 管理 Windows 服务</title>
-      <link>https://0xo7.github.io/post/2024-1003-01/</link>
-      <pubDate>Thu, 03 Oct 2024 22:33:36 +0800</pubDate>
-      
-      <guid>https://0xo7.github.io/post/2024-1003-01/</guid>
-      <description>NSSM是一个服务封装程序，它可以将普通exe程序封装成服务，使之像windows服务一样运行。同类型的工具还有微软自己的srvany，不过nssm更加简单易用，并且功能强大&amp;hellip;</description>
-    </item>
-    
-    <item>
       <title>Docker Swarm 入门指北</title>
       <link>https://0xo7.github.io/post/2024-0923-01/</link>
       <pubDate>Mon, 23 Sep 2024 22:19:22 +0800</pubDate>
@@ -89,12 +80,12 @@
     </item>
     
     <item>
-      <title>反代钓鱼技巧</title>
+      <title>水坑技巧</title>
       <link>https://0xo7.github.io/post/2024-0819-01/</link>
       <pubDate>Mon, 19 Aug 2024 21:43:50 +0800</pubDate>
       
       <guid>https://0xo7.github.io/post/2024-0819-01/</guid>
-      <description>本文主要是利用反向代理伪造各种网站来钓鱼，同时通过注入js来解决反向代理后出现的一些问题，简单暴力，特别适用于企业内钓鱼演练 &amp;hellip;</description>
+      <description>本文主要是介绍如何利用反向代理伪造各种网站来钓鱼，同时通过注入js来解决反向代理后出现的一些问题，简单暴力，特别适用于企业内钓鱼演练 &amp;hellip;</description>
     </item>
     
     <item>
@@ -140,24 +131,6 @@
       
       <guid>https://0xo7.github.io/post/2024-0728-01/</guid>
       <description>对于绝大多数人来说，二进制程序是不可读的，当然有能人可以读，比如第一代程序员，但这类人快灭绝了，直接看二进制不容易看出来究竟做了什么事情&amp;hellip;&amp;hellip;</description>
-    </item>
-    
-    <item>
-      <title>Qexi文章测试</title>
-      <link>https://0xo7.github.io/post/facxzrq/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://0xo7.github.io/post/facxzrq/</guid>
-      <description>摘要测试123123</description>
-    </item>
-    
-    <item>
-      <title>发布测试12312313</title>
-      <link>https://0xo7.github.io/post/test111.md/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://0xo7.github.io/post/test111.md/</guid>
-      <description>测试股测是测试</description>
     </item>
     
   </channel>
