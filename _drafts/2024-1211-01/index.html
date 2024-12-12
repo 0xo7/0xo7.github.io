@@ -321,9 +321,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Thu, 12 Dec 2024 03:02:13 &#43;0000"
+                  Modified <relative-time datetime="Thu, 12 Dec 2024 03:10:18 &#43;0000"
                     class="no-wrap">
-                    Thu, 12 Dec 2024 03:02:13 &#43;0000</relative-time>
+                    Thu, 12 Dec 2024 03:10:18 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -353,7 +353,7 @@
                         </div>
                       </div>
                     </details-menu>
-                      641 Words
+                      755 Words
                     <span class="file-info-divider"></span>
                                         3 min
 
@@ -460,8 +460,12 @@ docker run -d \
   -v &#34;/etc/localtime:/etc/localtime:ro&#34; \
   -v &#34;/etc/timezone:/etc/timezone:ro&#34; \
   codepzj/qexo:1.0
+</code></pre><p>为了更加方便的使用 docker 镜像，我们可以把 docker 镜像打包上传到 DockerHub，具体操作如下所示：</p>
+<pre tabindex="0"><code>docker login    # 输入账号密码进行登录
+docker tag 43d03519e1e0 ayuxy/qexo   # 给对应的 docker 镜像打标签
+docker push ayuxy/qexo     # 推送到 dockerhub 上面
 </code></pre><h2 id="vercel-部署">Vercel 部署</h2>
-<p>参考：</p>
+<p>参考：Qexo 的官方更加推荐 Vercel 部署，Vercel 部署的方式非常的简单</p>
 <h2 id="qexo-图床问题">Qexo 图床问题</h2>
 <h3 id="阿里云-oss">阿里云 OSS</h3>
 </article>
