@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/custom.css" />
   
   <title>
-    Grafana 面板笔记 | 0xo7&#39;s Blog
+    Qexo 搭建指南 | 0xo7&#39;s Blog
   </title>
   
   <link rel="icon" type="image/x-icon" href="/images/github-mark.png" />
@@ -27,20 +27,20 @@
   
   <meta
   name="description"
-  content="目前市面上Grafana的教程很少，大多数教程都不能够满足企业内数据的可视化展示，本文记录对Grafana面板的研究和学习 &amp;hellip;"
+  content="Qexo&#43;Github&#43;Vercel 在线编辑 Hugo 博客的文章指南"
 />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://0xo7.github.io/post/2024-0811-01/" />
+<link rel="canonical" href="https://0xo7.github.io/_drafts/2024-1211-01/" />
 
 
 <meta name="twitter:card" content="summary" />
 <meta
   name="twitter:title"
-  content="Grafana 面板笔记 - 0xo7&#39;s Blog"
+  content="Qexo 搭建指南 - 0xo7&#39;s Blog"
 />
 <meta
   name="twitter:description"
-  content="目前市面上Grafana的教程很少，大多数教程都不能够满足企业内数据的可视化展示，本文记录对Grafana面板的研究和学习 &amp;hellip;"
+  content="Qexo&#43;Github&#43;Vercel 在线编辑 Hugo 博客的文章指南"
 />
 <meta name="twitter:site" content="https://0xo7.github.io/" />
 <meta name="twitter:creator" content="" />
@@ -56,14 +56,14 @@
 />
 <meta
   property="og:title"
-  content="Grafana 面板笔记 - 0xo7&#39;s Blog"
+  content="Qexo 搭建指南 - 0xo7&#39;s Blog"
 />
 <meta
   property="og:description"
-  content="目前市面上Grafana的教程很少，大多数教程都不能够满足企业内数据的可视化展示，本文记录对Grafana面板的研究和学习 &amp;hellip;"
+  content="Qexo&#43;Github&#43;Vercel 在线编辑 Hugo 博客的文章指南"
 />
-<meta property="og:url" content="https://0xo7.github.io/post/2024-0811-01/" />
-<meta property="og:site_name" content="Grafana 面板笔记" />
+<meta property="og:url" content="https://0xo7.github.io/_drafts/2024-1211-01/" />
+<meta property="og:site_name" content="Qexo 搭建指南" />
 <meta
   property="og:image"
   content="https://0xo7.github.io/"
@@ -71,7 +71,7 @@
 <meta property="og:image:width" content="2048" />
 <meta property="og:image:height" content="1024" />
 
-<meta property="article:published_time" content="2024-08-11 11:26:04 &#43;0800 &#43;0800" />
+<meta property="article:published_time" content="2024-12-11 20:59:35 &#43;0800 &#43;0800" />
 
 
 
@@ -261,7 +261,36 @@
 </div>
 
   
-<script type="text/javascript" src="/js/initimage.js"></script>
+<script>
+    (function(){
+        var correctPassword = '2420011244';
+        var storedPassword = localStorage.getItem('pagePassword');
+
+        function verifyPassword(password) {
+            return password === correctPassword;
+        }
+
+        function promptPassword() {
+            var userPassword = prompt('请输入文章密码');
+            if (verifyPassword(userPassword)) {
+                localStorage.setItem('pagePassword', userPassword);
+            } else {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    window.opener = null;
+                    window.open('', '_self');
+                    window.close();
+                } else {
+                    history.back();
+                }
+            }
+        }
+
+        if (!verifyPassword(storedPassword)) {
+            promptPassword();
+        }
+    })();
+</script><script type="text/javascript" src="/js/initimage.js"></script>
 
 
 
@@ -283,12 +312,12 @@
                   <span class="author">
                     <a href="https://0xo7.github.io/">Thunnus</a></span><span
                     class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
-                      href="https://0xo7.github.io/post/2024-0811-01/">Grafana 面板笔记</a></strong>
+                      href="https://0xo7.github.io/_drafts/2024-1211-01/">Qexo 搭建指南</a></strong>
                 </h1>
                 <div class="note m-0">
-                  Created <relative-time datetime="Sun, 11 Aug 2024 11:26:04 &#43;0800"
+                  Created <relative-time datetime="Wed, 11 Dec 2024 20:59:35 &#43;0800"
                     class="no-wrap">
-                    Sun, 11 Aug 2024 11:26:04 &#43;0800</relative-time>
+                    Wed, 11 Dec 2024 20:59:35 &#43;0800</relative-time>
 
                   
                   <span class="file-info-divider"></span>
@@ -324,9 +353,9 @@
                         </div>
                       </div>
                     </details-menu>
-                      30 Words
+                      522 Words
                     <span class="file-info-divider"></span>
-                                        0 min
+                                        2 min
 
                   </div>
                   <div class="file-actions flex-order-2 pt-0">
@@ -339,39 +368,11 @@
       
         
         
-      
-       
-      <a class="muted-link mr-3" href="/tags/grafana">
-        <span class="repo-language-color" style="background-color: #959764"></span>
-        Grafana
-      </a>
-    
-       
-       
-       
-       
-      
-        
-        
         
        
-      <a class="muted-link mr-3" href="/tags/zabbix%E5%8F%AF%E8%A7%86%E5%8C%96">
-        <span class="repo-language-color" style="background-color: #9a979b"></span>
-        zabbix可视化
-      </a>
-    
-       
-       
-       
-       
-      
-      
-        
-      
-       
-      <a class="muted-link mr-3" href="/tags/jumpserver%E5%8F%AF%E8%A7%86%E5%8C%96">
-        <span class="repo-language-color" style="background-color: #649d65"></span>
-        JumpServer可视化
+      <a class="muted-link mr-3" href="/tags/qexo">
+        <span class="repo-language-color" style="background-color: #c5959a"></span>
+        Qexo
       </a>
     
   
@@ -382,9 +383,68 @@
 
 
               <div class="Box-body px-5 pb-5" style="z-index: 1">
-                <article class="markdown-body entry-content container-lg"><h1 id="变量-variables">变量 Variables</h1>
-<p>变量在 Grafana 中至关重要，以如下页面来讲解 grafana 的变量如何使用：</p>
-<p><img src="image-20240811171550532.png" alt="image-20240811171550532"></p>
+                <article class="markdown-body entry-content container-lg"><h1 id="部署qexo">部署Qexo</h1>
+<p>Hugo 为纯静态博客，不同于 WordPress、Typecho，并无管理后台。一般都是通过本地推送到 github 私有仓库，然后再通过 Action 推送到 GitPages，但是有的时候并不方便，比如：无法使用手机编辑博客，在公司电脑上写博客不方便等</p>
+<p>为了能够通过网页编辑 Hugo 博客，可以通过 Qexo 编辑文章内容，并自动推送到 Github 私有仓库，然后再通过 Action 推送到 GitPages，实现博客的网页端编辑</p>
+<h2 id="docker-本地部署">Docker 本地部署</h2>
+<p>Qexo 推荐的本地部署方式是直接采用 Python 环境部署，这种方式实际并不方便，所以采用 Docker 部署</p>
+<p>首先，新建 Qexo 文件夹，用于存放 Qexo 应用程序和构建镜像所需要的文件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">mkdir /www/qexo -p
+</span></span><span class="line"><span class="cl">cd /www/qexo
+</span></span><span class="line"><span class="cl">mkdir build
+</span></span><span class="line"><span class="cl">cd build
+</span></span></code></pre></div><p>进入 buid 文件夹，新增三个文件：<code>Dockerfile</code>，<code>configs.py</code>，<code>run.sh</code></p>
+<p>Dockerfile 文件内容如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">FROM python:3.11.3-alpine
+</span></span><span class="line"><span class="cl"># 维护者信息
+</span></span><span class="line"><span class="cl">LABEL maintainer=&#34;codepzj&#34;
+</span></span><span class="line"><span class="cl"># 设置生产模式环境变量
+</span></span><span class="line"><span class="cl"># ENV APP_ENV production
+</span></span><span class="line"><span class="cl"># pipy源设置
+</span></span><span class="line"><span class="cl">RUN pip config set global.index-url https://mirrors.cloud.tencent.com/pypi/simple/
+</span></span><span class="line"><span class="cl"># 设置时区
+</span></span><span class="line"><span class="cl">RUN sed -i &#39;s/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g&#39; /etc/apk/repositories &amp;&amp; \
+</span></span><span class="line"><span class="cl">    apk --no-cache add tzdata &amp;&amp; \
+</span></span><span class="line"><span class="cl">    cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &amp;&amp; \
+</span></span><span class="line"><span class="cl">    apk --no-cache del tzdata &amp;&amp; \
+</span></span><span class="line"><span class="cl">    apk --no-cache add git &amp;&amp; \
+</span></span><span class="line"><span class="cl">    mkdir /app
+</span></span><span class="line"><span class="cl"># 设置工作目录
+</span></span><span class="line"><span class="cl">WORKDIR /app
+</span></span><span class="line"><span class="cl"># 拷贝数据
+</span></span><span class="line"><span class="cl">RUN git clone -b dev https://github.com/Qexo/Qexo.git .
+</span></span><span class="line"><span class="cl"># 安装依赖
+</span></span><span class="line"><span class="cl">RUN pip install --upgrade pip
+</span></span><span class="line"><span class="cl">RUN pip install -r requirements.txt
+</span></span><span class="line"><span class="cl"># 拷贝启动脚本
+</span></span><span class="line"><span class="cl">COPY . /app/
+</span></span><span class="line"><span class="cl">RUN chmod +x /app/run.sh
+</span></span><span class="line"><span class="cl"># 暴露端口
+</span></span><span class="line"><span class="cl">EXPOSE 8000
+</span></span><span class="line"><span class="cl"># 挂载目录
+</span></span><span class="line"><span class="cl">VOLUME [&#34;/app/db&#34;, &#34;/app/data&#34;]
+</span></span><span class="line"><span class="cl"># 启动django
+</span></span><span class="line"><span class="cl">ENTRYPOINT [&#34;/bin/sh&#34;, &#34;/app/run.sh&#34;]
+</span></span></code></pre></div><p>configs.py 内容如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">import pymysql
+</span></span><span class="line"><span class="cl">import os
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">DOMAINS = &#34;*&#34;
+</span></span><span class="line"><span class="cl">DATABASES = {
+</span></span><span class="line"><span class="cl">    &#39;default&#39;: {
+</span></span><span class="line"><span class="cl">        &#39;ENGINE&#39;: &#39;django.db.backends.sqlite3&#39;,
+</span></span><span class="line"><span class="cl">        &#39;NAME&#39;: os.path.join(&#39;/app/db&#39;, &#39;db.sqlite3&#39;),
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>run.sh 内容如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">#!/bin/bash
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">python3 manage.py makemigrations
+</span></span><span class="line"><span class="cl">python3 manage.py migrate
+</span></span><span class="line"><span class="cl">python3 manage.py runserver 0.0.0.0:8000 --noreload
+</span></span></code></pre></div><h2 id="vercel-部署">Vercel 部署</h2>
+<h2 id="qexo-图床问题">Qexo 图床问题</h2>
+<h3 id="阿里云-oss">阿里云 OSS</h3>
 </article>
               </div>
 
@@ -397,13 +457,11 @@
       <div class="pagination-nav">
         <div class="pagination-button next-post">
           
-          <div>«&nbsp;</div><a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-0819-01/"> 水坑技巧</a>
-          
         </div>
         
         <div class="pagination-button previous-post">
           
-          <a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-0807-01/">JumpServer 的各种踩坑&nbsp;</a><div> »</div>
+          <a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-1211-01/">Qexo 搭建指南&nbsp;</a><div> »</div>
           
         </div>
       </div>
