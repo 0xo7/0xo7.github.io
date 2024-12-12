@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/custom.css" />
   
   <title>
-    博客搭建指南 | 0xo7&#39;s Blog
+    Qexo 搭建指南 | 0xo7&#39;s Blog
   </title>
   
   <link rel="icon" type="image/x-icon" href="/images/github-mark.png" />
@@ -27,7 +27,7 @@
   
   <meta
   name="description"
-  content="Docker部署Qexo 我们可以"
+  content="Qexo&#43;Github&#43;Vercel 在线编辑 Hugo 博客的文章指南"
 />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://0xo7.github.io/post/2024-1211-01/" />
@@ -36,11 +36,11 @@
 <meta name="twitter:card" content="summary" />
 <meta
   name="twitter:title"
-  content="博客搭建指南 - 0xo7&#39;s Blog"
+  content="Qexo 搭建指南 - 0xo7&#39;s Blog"
 />
 <meta
   name="twitter:description"
-  content="Docker部署Qexo 我们可以"
+  content="Qexo&#43;Github&#43;Vercel 在线编辑 Hugo 博客的文章指南"
 />
 <meta name="twitter:site" content="https://0xo7.github.io/" />
 <meta name="twitter:creator" content="" />
@@ -56,14 +56,14 @@
 />
 <meta
   property="og:title"
-  content="博客搭建指南 - 0xo7&#39;s Blog"
+  content="Qexo 搭建指南 - 0xo7&#39;s Blog"
 />
 <meta
   property="og:description"
-  content="Docker部署Qexo 我们可以"
+  content="Qexo&#43;Github&#43;Vercel 在线编辑 Hugo 博客的文章指南"
 />
 <meta property="og:url" content="https://0xo7.github.io/post/2024-1211-01/" />
-<meta property="og:site_name" content="博客搭建指南" />
+<meta property="og:site_name" content="Qexo 搭建指南" />
 <meta
   property="og:image"
   content="https://0xo7.github.io/"
@@ -312,7 +312,7 @@
                   <span class="author">
                     <a href="https://0xo7.github.io/">Thunnus</a></span><span
                     class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
-                      href="https://0xo7.github.io/post/2024-1211-01/">博客搭建指南</a></strong>
+                      href="https://0xo7.github.io/post/2024-1211-01/">Qexo 搭建指南</a></strong>
                 </h1>
                 <div class="note m-0">
                   Created <relative-time datetime="Wed, 11 Dec 2024 20:59:35 &#43;0800"
@@ -321,9 +321,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Thu, 12 Dec 2024 00:25:17 &#43;0000"
+                  Modified <relative-time datetime="Thu, 12 Dec 2024 00:38:23 &#43;0000"
                     class="no-wrap">
-                    Thu, 12 Dec 2024 00:25:17 &#43;0000</relative-time>
+                    Thu, 12 Dec 2024 00:38:23 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -353,9 +353,9 @@
                         </div>
                       </div>
                     </details-menu>
-                      16 Words
+                      479 Words
                     <span class="file-info-divider"></span>
-                                        0 min
+                                        2 min
 
                   </div>
                   <div class="file-actions flex-order-2 pt-0">
@@ -367,8 +367,51 @@
 
 
               <div class="Box-body px-5 pb-5" style="z-index: 1">
-                <article class="markdown-body entry-content container-lg"><h1 id="docker部署qexo">Docker部署Qexo</h1>
-<p>我们可以</p>
+                <article class="markdown-body entry-content container-lg"><h1 id="部署qexo">部署Qexo</h1>
+<p>Hugo 为纯静态博客，不同于 WordPress、Typecho，并无管理后台。一般都是通过本地推送到 github 私有仓库，然后再通过 Action 推送到 GitPages，但是有的时候并不方便，比如：无法使用手机编辑博客，在公司电脑上写博客不方便等</p>
+<p>为了能够通过网页编辑 Hugo 博客，可以通过 Qexo 编辑文章内容，并自动推送到 Github 私有仓库，然后再通过 Action 推送到 GitPages，实现博客的网页端编辑</p>
+<h2 id="docker-本地部署">Docker 本地部署</h2>
+<p>Qexo 推荐的本地部署方式是直接采用 Python 环境部署，这种方式实际并不方便，所以采用 Docker 部署</p>
+<p>首先，新建 Qexo 文件夹，用于存放 Qexo 应用程序和构建镜像所需要的文件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">mkdir /www/qexo -p
+</span></span><span class="line"><span class="cl">cd /www/qexo
+</span></span><span class="line"><span class="cl">mkdir build
+</span></span><span class="line"><span class="cl">cd build
+</span></span></code></pre></div><p>进入 buid 文件夹，新增三个文件：<code>Dockerfile</code>，<code>configs.py</code>，<code>run.sh</code></p>
+<p>Dockerfile 文件内容如下：</p>
+<pre tabindex="0"><code>FROM python:3.11.3-alpine
+# 维护者信息
+LABEL maintainer=&#34;codepzj&#34;
+# 设置生产模式环境变量
+# ENV APP_ENV production
+# pipy源设置
+RUN pip config set global.index-url https://mirrors.cloud.tencent.com/pypi/simple/
+# 设置时区
+RUN sed -i &#39;s/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g&#39; /etc/apk/repositories &amp;&amp; \
+    apk --no-cache add tzdata &amp;&amp; \
+    cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &amp;&amp; \
+    apk --no-cache del tzdata &amp;&amp; \
+    apk --no-cache add git &amp;&amp; \
+    mkdir /app
+# 设置工作目录
+WORKDIR /app
+# 拷贝数据
+RUN git clone -b main https://github.com/0xo7/Qexo.git .
+# 安装依赖
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
+# 拷贝启动脚本
+COPY . /app/
+RUN chmod +x /app/run.sh
+# 暴露端口
+EXPOSE 8000
+# 挂载目录
+VOLUME [&#34;/app/db&#34;, &#34;/app/data&#34;]
+# 启动django
+ENTRYPOINT [&#34;/bin/sh&#34;, &#34;/app/run.sh&#34;]
+</code></pre><h2 id="vercel-部署">Vercel 部署</h2>
+<h2 id="qexo-图床问题">Qexo 图床问题</h2>
+<h3 id="阿里云-oss">阿里云 OSS</h3>
 </article>
               </div>
 
