@@ -321,9 +321,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Thu, 12 Dec 2024 03:45:45 &#43;0000"
+                  Modified <relative-time datetime="Thu, 12 Dec 2024 11:10:53 &#43;0000"
                     class="no-wrap">
-                    Thu, 12 Dec 2024 03:45:45 &#43;0000</relative-time>
+                    Thu, 12 Dec 2024 11:10:53 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -353,9 +353,9 @@
                         </div>
                       </div>
                     </details-menu>
-                      525 Words
+                      809 Words
                     <span class="file-info-divider"></span>
-                                        2 min
+                                        4 min
 
                   </div>
                   <div class="file-actions flex-order-2 pt-0">
@@ -387,6 +387,9 @@
 <p>Hugo 为纯静态博客，不同于 WordPress、Typecho，并无管理后台。一般都是通过本地推送到 github 私有仓库，然后再通过 Action 推送到 GitPages，但是有的时候并不方便，比如：无法使用手机编辑博客，在公司电脑上写博客不方便等</p>
 <p>为了能够通过网页编辑 Hugo 博客，可以通过 Qexo 编辑文章内容，并自动推送到 Github 私有仓库，然后再通过 Action 推送到 GitPages，实现博客的网页端编辑</p>
 <h2 id="docker-本地部署">Docker 本地部署</h2>
+<blockquote>
+<p>参考：https://haohanxinghe.com/posts/21.html</p>
+</blockquote>
 <p>Qexo 推荐的本地部署方式是直接采用 Python 环境部署，这种方式实际并不方便，所以采用 Docker 部署</p>
 <p>首先，新建 Qexo 文件夹，用于存放 Qexo 应用程序和构建镜像所需要的文件</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">mkdir /www/qexo -p
@@ -442,10 +445,31 @@
 </span></span><span class="line"><span class="cl">python3 manage.py makemigrations
 </span></span><span class="line"><span class="cl">python3 manage.py migrate
 </span></span><span class="line"><span class="cl">python3 manage.py runserver 0.0.0.0:8000 --noreload
-</span></span></code></pre></div><h2 id="vercel-部署">Vercel 部署</h2>
-<p>参考：</p>
+</span></span></code></pre></div><p>使用如下命令打包镜像</p>
+<pre tabindex="0"><code>docker build -t qexo .
+</code></pre><p>然后使用如下命令即可运行 docker 管理后台：</p>
+<pre tabindex="0"><code># 创建需要挂载的目录
+mkdir -p ./data/blog ./data/qexo/db
+
+# 运行容器
+docker run -d \
+  --name qexo \
+  -p 8000:8000 \
+  -v &#34;$(pwd)/data/blog:/app/data&#34; \
+  -v &#34;$(pwd)/data/qexo/db:/app/db&#34; \
+  -v &#34;/etc/localtime:/etc/localtime:ro&#34; \
+  -v &#34;/etc/timezone:/etc/timezone:ro&#34; \
+  codepzj/qexo:1.0
+</code></pre><p>为了更加方便的使用 docker 镜像，我们可以把 docker 镜像打包上传到 DockerHub，具体操作如下所示：</p>
+<pre tabindex="0"><code>docker login    # 输入账号密码进行登录
+docker tag 43d03519e1e0 ayuxy/qexo   # 给对应的 docker 镜像打标签
+docker push ayuxy/qexo     # 推送到 dockerhub 上面
+</code></pre><h2 id="vercel-部署">Vercel 部署</h2>
+<p>参考：https://cloud.tencent.com/developer/article/2446592
+Qexo 官方更加推荐 <a href="%5Bhttps://%5D(https://www.oplog.cn/qexo/start/build.html)">Vercel 部署</a>，Vercel 部署的方式非常的简单，首先我们需要</p>
 <h2 id="qexo-图床问题">Qexo 图床问题</h2>
 <h3 id="阿里云-oss">阿里云 OSS</h3>
+<p><img src="blogpic-ayu.oss-cn-beijing.aliyuncs.com" alt="1"></p>
 </article>
               </div>
 
