@@ -321,9 +321,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Fri, 13 Dec 2024 12:30:11 &#43;0000"
+                  Modified <relative-time datetime="Fri, 13 Dec 2024 12:42:06 &#43;0000"
                     class="no-wrap">
-                    Fri, 13 Dec 2024 12:30:11 &#43;0000</relative-time>
+                    Fri, 13 Dec 2024 12:42:06 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -353,7 +353,7 @@
                         </div>
                       </div>
                     </details-menu>
-                      1077 Words
+                      1183 Words
                     <span class="file-info-divider"></span>
                                         5 min
 
@@ -386,6 +386,8 @@
                 <article class="markdown-body entry-content container-lg"><h1 id="部署qexo">部署Qexo</h1>
 <p>Hugo 为纯静态博客，不同于 WordPress、Typecho，并无管理后台。一般都是通过本地推送到 github 私有仓库，然后再通过 Action 推送到 GitPages，但是有的时候并不方便，比如：无法使用手机编辑博客，在公司电脑上写博客不方便等</p>
 <p>为了能够通过网页编辑 Hugo 博客，可以通过 Qexo 编辑文章内容，并自动推送到 Github 私有仓库，然后再通过 Action 推送到 GitPages，实现博客的网页端编辑</p>
+<p>因为 Qexo 创建 Hugo 文章的时候，默认是在 content/posts 里面进行创建，但由于这里使用的主题文章路径为 content/post，所以我们需要对 Qexo 的源码进行修改，直接在 github 克隆一份 Qexo 源码，修改内容如下：</p>
+<p><img src="https://blogpic-ayu.oss-cn-beijing.aliyuncs.com/24/12/277a9deddb15389979e047fdfb0cf8df.png" alt=""></p>
 <h2 id="docker-本地部署">Docker 本地部署</h2>
 <blockquote>
 <p>参考：https://haohanxinghe.com/posts/21.html</p>
@@ -397,7 +399,7 @@
 </span></span><span class="line"><span class="cl">mkdir build
 </span></span><span class="line"><span class="cl">cd build
 </span></span></code></pre></div><p>进入 buid 文件夹，新增三个文件：<code>Dockerfile</code>，<code>configs.py</code>，<code>run.sh</code></p>
-<p>Dockerfile 文件内容如下：</p>
+<p>Dockerfile 文件内容如下（注意下面拉取的是我自己克隆的 Qexo 仓库）：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">FROM python:3.11.3-alpine
 </span></span><span class="line"><span class="cl"># 维护者信息
 </span></span><span class="line"><span class="cl">LABEL maintainer=&#34;codepzj&#34;
