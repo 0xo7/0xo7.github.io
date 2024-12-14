@@ -321,9 +321,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Sat, 14 Dec 2024 13:04:46 &#43;0000"
+                  Modified <relative-time datetime="Sat, 14 Dec 2024 13:11:06 &#43;0000"
                     class="no-wrap">
-                    Sat, 14 Dec 2024 13:04:46 &#43;0000</relative-time>
+                    Sat, 14 Dec 2024 13:11:06 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -461,7 +461,7 @@ docker run -d \
   -v &#34;$(pwd)/data/qexo/db:/app/db&#34; \
   -v &#34;/etc/localtime:/etc/localtime:ro&#34; \
   -v &#34;/etc/timezone:/etc/timezone:ro&#34; \
-  codepzj/qexo:1.0
+  qexo:1.0
 </code></pre><p>为了更加方便的使用 docker 镜像，我们可以把 docker 镜像打包上传到 DockerHub，具体操作如下所示：</p>
 <pre tabindex="0"><code>docker login    # 输入账号密码进行登录
 docker tag 43d03519e1e0 ayuxy/qexo   # 给对应的 docker 镜像打标签
