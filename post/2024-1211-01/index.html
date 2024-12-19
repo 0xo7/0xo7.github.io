@@ -321,9 +321,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Thu, 19 Dec 2024 06:56:16 &#43;0000"
+                  Modified <relative-time datetime="Thu, 19 Dec 2024 08:17:01 &#43;0000"
                     class="no-wrap">
-                    Thu, 19 Dec 2024 06:56:16 &#43;0000</relative-time>
+                    Thu, 19 Dec 2024 08:17:01 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -353,9 +353,9 @@
                         </div>
                       </div>
                     </details-menu>
-                      1734 Words
+                      1461 Words
                     <span class="file-info-divider"></span>
-                                        8 min
+                                        7 min
 
                   </div>
                   <div class="file-actions flex-order-2 pt-0">
@@ -398,45 +398,9 @@
 </span></span><span class="line"><span class="cl">cd /www/qexo
 </span></span><span class="line"><span class="cl">mkdir build
 </span></span><span class="line"><span class="cl">cd build
-</span></span><span class="line"><span class="cl">```txt
-</span></span><span class="line"><span class="cl">mkdir /www/qexo -p
-</span></span><span class="line"><span class="cl">cd /www/qexo
-</span></span><span class="line"><span class="cl">mkdir build
-</span></span><span class="line"><span class="cl">cd build
 </span></span></code></pre></div><p>进入 buid 文件夹，新增三个文件：<code>Dockerfile</code>，<code>configs.py</code>，<code>run.sh</code></p>
 <p>Dockerfile 文件内容如下（注意下面拉取的是我自己克隆的 Qexo 仓库）：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">FROM python:3.11.3-alpine
-</span></span><span class="line"><span class="cl"># 维护者信息
-</span></span><span class="line"><span class="cl">LABEL maintainer=&#34;codepzj&#34;
-</span></span><span class="line"><span class="cl"># 设置生产模式环境变量
-</span></span><span class="line"><span class="cl"># ENV APP_ENV production
-</span></span><span class="line"><span class="cl"># pipy源设置
-</span></span><span class="line"><span class="cl">RUN pip config set global.index-url https://mirrors.cloud.tencent.com/pypi/simple/
-</span></span><span class="line"><span class="cl"># 设置时区
-</span></span><span class="line"><span class="cl">RUN sed -i &#39;s/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g&#39; /etc/apk/repositories &amp;&amp; \
-</span></span><span class="line"><span class="cl">    apk --no-cache add tzdata &amp;&amp; \
-</span></span><span class="line"><span class="cl">    cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &amp;&amp; \
-</span></span><span class="line"><span class="cl">    apk --no-cache del tzdata &amp;&amp; \
-</span></span><span class="line"><span class="cl">    apk --no-cache add git &amp;&amp; \
-</span></span><span class="line"><span class="cl">    mkdir /app
-</span></span><span class="line"><span class="cl"># 设置工作目录
-</span></span><span class="line"><span class="cl">WORKDIR /app
-</span></span><span class="line"><span class="cl"># 拷贝数据
-</span></span><span class="line"><span class="cl">RUN git clone -b master https://github.com/0xo7/Qexo.git .
-</span></span><span class="line"><span class="cl"># 安装依赖
-</span></span><span class="line"><span class="cl">RUN pip install --upgrade pip
-</span></span><span class="line"><span class="cl">RUN pip install -r requirements.txt
-</span></span><span class="line"><span class="cl"># 拷贝启动脚本
-</span></span><span class="line"><span class="cl">COPY . /app/
-</span></span><span class="line"><span class="cl">RUN chmod +x /app/run.sh
-</span></span><span class="line"><span class="cl"># 暴露端口
-</span></span><span class="line"><span class="cl">EXPOSE 8000
-</span></span><span class="line"><span class="cl"># 挂载目录
-</span></span><span class="line"><span class="cl">VOLUME [&#34;/app/db&#34;, &#34;/app/data&#34;]
-</span></span><span class="line"><span class="cl"># 启动django
-</span></span><span class="line"><span class="cl">ENTRYPOINT [&#34;/bin/sh&#34;, &#34;/app/run.sh&#34;]
-</span></span><span class="line"><span class="cl">```txt
-</span></span><span class="line"><span class="cl">FROM python:3.11.3-alpine
 </span></span><span class="line"><span class="cl"># 维护者信息
 </span></span><span class="line"><span class="cl">LABEL maintainer=&#34;codepzj&#34;
 </span></span><span class="line"><span class="cl"># 设置生产模式环境变量
@@ -477,33 +441,14 @@
 </span></span><span class="line"><span class="cl">        &#39;NAME&#39;: os.path.join(&#39;/app/db&#39;, &#39;db.sqlite3&#39;),
 </span></span><span class="line"><span class="cl">    }
 </span></span><span class="line"><span class="cl">}
-</span></span><span class="line"><span class="cl">```txt
-</span></span><span class="line"><span class="cl">import pymysql
-</span></span><span class="line"><span class="cl">import os
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">DOMAINS = &#34;*&#34;
-</span></span><span class="line"><span class="cl">DATABASES = {
-</span></span><span class="line"><span class="cl">    &#39;default&#39;: {
-</span></span><span class="line"><span class="cl">        &#39;ENGINE&#39;: &#39;django.db.backends.sqlite3&#39;,
-</span></span><span class="line"><span class="cl">        &#39;NAME&#39;: os.path.join(&#39;/app/db&#39;, &#39;db.sqlite3&#39;),
-</span></span><span class="line"><span class="cl">    }
-</span></span><span class="line"><span class="cl">}
 </span></span></code></pre></div><p>run.sh 内容如下：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">#!/bin/bash
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">python3 manage.py makemigrations
 </span></span><span class="line"><span class="cl">python3 manage.py migrate
 </span></span><span class="line"><span class="cl">python3 manage.py runserver 0.0.0.0:8000 --noreload
-</span></span><span class="line"><span class="cl">```txt
-</span></span><span class="line"><span class="cl">#!/bin/bash
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">python3 manage.py makemigrations
-</span></span><span class="line"><span class="cl">python3 manage.py migrate
-</span></span><span class="line"><span class="cl">python3 manage.py runserver 0.0.0.0:8000 --noreload
 </span></span></code></pre></div><p>使用如下命令打包镜像</p>
 <pre tabindex="0"><code>docker build -t qexo .
-
-docker build -t qexo .
 </code></pre><p>然后使用如下命令即可运行 docker 管理后台：</p>
 <pre tabindex="0"><code># 创建需要挂载的目录
 mkdir -p ./data/blog ./data/qexo/db
@@ -517,27 +462,8 @@ docker run -d \
   -v &#34;/etc/localtime:/etc/localtime:ro&#34; \
   -v &#34;/etc/timezone:/etc/timezone:ro&#34; \
   qexo
-
- 创建需要挂载的目录
-
-mkdir -p ./data/blog ./data/qexo/db
-
- 运行容器
-
-docker run -d 
---name qexo 
--p 8000:8000 
--v &#34;$(pwd)/data/blog:/app/data&#34; 
--v &#34;$(pwd)/data/qexo/db:/app/db&#34; 
--v &#34;/etc/localtime:/etc/localtime:ro&#34; 
--v &#34;/etc/timezone:/etc/timezone:ro&#34; 
-qexo
 </code></pre><p>为了更加方便的使用 docker 镜像，我们可以把 docker 镜像打包上传到 DockerHub，具体操作如下所示：</p>
 <pre tabindex="0"><code>docker login    # 输入账号密码进行登录
-docker tag 43d03519e1e0 ayuxy/qexo   # 给对应的 docker 镜像打标签
-docker push ayuxy/qexo     # 推送到 dockerhub 上面
-
-docker login    # 输入账号密码进行登录
 docker tag 43d03519e1e0 ayuxy/qexo   # 给对应的 docker 镜像打标签
 docker push ayuxy/qexo     # 推送到 dockerhub 上面
 </code></pre><h2 id="vercel-部署">Vercel 部署</h2>
