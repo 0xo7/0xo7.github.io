@@ -6,7 +6,16 @@
     <description>Recent content on 0xo7&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 19 Dec 2024 21:13:41 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 19 Dec 2024 21:19:28 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>系统封装—默认应用关联</title>
+      <link>https://0xo7.github.io/post/2024-1219-02/</link>
+      <pubDate>Thu, 19 Dec 2024 21:19:28 +0800</pubDate>
+      
+      <guid>https://0xo7.github.io/post/2024-1219-02/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>系统封装之—锁屏|休眠|睡眠</title>
       <link>https://0xo7.github.io/post/2024-1219-01/</link>
