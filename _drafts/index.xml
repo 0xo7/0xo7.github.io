@@ -6,7 +6,16 @@
     <description>Recent content in _drafts on 0xo7&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 19 Dec 2024 21:19:28 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/_drafts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Dec 2024 08:27:38 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/_drafts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows共享盘权可视化分析</title>
+      <link>https://0xo7.github.io/_drafts/2024-1220-01/</link>
+      <pubDate>Fri, 20 Dec 2024 08:27:38 +0800</pubDate>
+      
+      <guid>https://0xo7.github.io/_drafts/2024-1220-01/</guid>
+      <description>目前，依然有不少企业使用传统的 Windows 共享盘，但使用传统 Windwos 的共享很难对已有的权限进行梳理和分析&amp;hellip;</description>
+    </item>
+    
     <item>
       <title>系统封装—默认应用关联</title>
       <link>https://0xo7.github.io/_drafts/2024-1219-02/</link>
@@ -14,15 +23,6 @@
       
       <guid>https://0xo7.github.io/_drafts/2024-1219-02/</guid>
       <description>系统封装前设置的默认应用关联方式很多会被清理掉，特别是对于部分绿色免安装软件等。在切换域用户时，也存在该问题 &amp;hellip;</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://0xo7.github.io/_drafts/2024-1220-01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://0xo7.github.io/_drafts/2024-1220-01/</guid>
-      <description></description>
     </item>
     
   </channel>
