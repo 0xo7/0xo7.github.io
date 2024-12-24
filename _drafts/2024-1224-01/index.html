@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/custom.css" />
   
   <title>
-     | 0xo7&#39;s Blog
+    Goland 配置 | 0xo7&#39;s Blog
   </title>
   
   <link rel="icon" type="image/x-icon" href="/images/github-mark.png" />
@@ -27,7 +27,9 @@
   
   <meta
   name="description"
-  content=""
+  content="GOPATH和GOROOT Go开发相关的环境变量如下：
+GOROOT：GOROOT就是Go的安装目录，（类似于java的JDK） GOPATH：GOPATH是我们的工作空间，保存go项目代码和第三方依赖包 GOPATH 可以设置多个，其中，第一个将会是默认的包目录，使用 go get 下载的包都会在第一个 path 中的 src 目录下，使用 go install 时，在哪个 GOPATH 中找到了这个包，就会在哪个 GOPATH 下的bin目录生成可执行文件
+GOROOT 作为 go 的安装目录，我们可以在安装 Goland 前，提前安装好 go 语言，"
 />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://0xo7.github.io/_drafts/2024-1224-01/" />
@@ -36,11 +38,13 @@
 <meta name="twitter:card" content="summary" />
 <meta
   name="twitter:title"
-  content=" - 0xo7&#39;s Blog"
+  content="Goland 配置 - 0xo7&#39;s Blog"
 />
 <meta
   name="twitter:description"
-  content=""
+  content="GOPATH和GOROOT Go开发相关的环境变量如下：
+GOROOT：GOROOT就是Go的安装目录，（类似于java的JDK） GOPATH：GOPATH是我们的工作空间，保存go项目代码和第三方依赖包 GOPATH 可以设置多个，其中，第一个将会是默认的包目录，使用 go get 下载的包都会在第一个 path 中的 src 目录下，使用 go install 时，在哪个 GOPATH 中找到了这个包，就会在哪个 GOPATH 下的bin目录生成可执行文件
+GOROOT 作为 go 的安装目录，我们可以在安装 Goland 前，提前安装好 go 语言，"
 />
 <meta name="twitter:site" content="https://0xo7.github.io/" />
 <meta name="twitter:creator" content="" />
@@ -56,14 +60,16 @@
 />
 <meta
   property="og:title"
-  content=" - 0xo7&#39;s Blog"
+  content="Goland 配置 - 0xo7&#39;s Blog"
 />
 <meta
   property="og:description"
-  content=""
+  content="GOPATH和GOROOT Go开发相关的环境变量如下：
+GOROOT：GOROOT就是Go的安装目录，（类似于java的JDK） GOPATH：GOPATH是我们的工作空间，保存go项目代码和第三方依赖包 GOPATH 可以设置多个，其中，第一个将会是默认的包目录，使用 go get 下载的包都会在第一个 path 中的 src 目录下，使用 go install 时，在哪个 GOPATH 中找到了这个包，就会在哪个 GOPATH 下的bin目录生成可执行文件
+GOROOT 作为 go 的安装目录，我们可以在安装 Goland 前，提前安装好 go 语言，"
 />
 <meta property="og:url" content="https://0xo7.github.io/_drafts/2024-1224-01/" />
-<meta property="og:site_name" content="" />
+<meta property="og:site_name" content="Goland 配置" />
 <meta
   property="og:image"
   content="https://0xo7.github.io/"
@@ -281,7 +287,7 @@
                   <span class="author">
                     <a href="https://0xo7.github.io/">Thunnus</a></span><span
                     class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
-                      href="https://0xo7.github.io/_drafts/2024-1224-01/"></a></strong>
+                      href="https://0xo7.github.io/_drafts/2024-1224-01/">Goland 配置</a></strong>
                 </h1>
                 <div class="note m-0">
                   Created <relative-time datetime="Mon, 01 Jan 0001 00:00:00 &#43;0000"
@@ -290,9 +296,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Tue, 24 Dec 2024 13:01:47 &#43;0000"
+                  Modified <relative-time datetime="Tue, 24 Dec 2024 13:10:30 &#43;0000"
                     class="no-wrap">
-                    Tue, 24 Dec 2024 13:01:47 &#43;0000</relative-time>
+                    Tue, 24 Dec 2024 13:10:30 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -322,9 +328,9 @@
                         </div>
                       </div>
                     </details-menu>
-                      0 Words
+                      213 Words
                     <span class="file-info-divider"></span>
-                                        0 min
+                                        1 min
 
                   </div>
                   <div class="file-actions flex-order-2 pt-0">
@@ -336,7 +342,15 @@
 
 
               <div class="Box-body px-5 pb-5" style="z-index: 1">
-                <article class="markdown-body entry-content container-lg"></article>
+                <article class="markdown-body entry-content container-lg"><h1 id="gopath和goroot">GOPATH和GOROOT</h1>
+<p>Go开发相关的环境变量如下：</p>
+<ul>
+<li>GOROOT：GOROOT就是Go的安装目录，（类似于java的JDK）</li>
+<li>GOPATH：GOPATH是我们的工作空间，保存go项目代码和第三方依赖包</li>
+</ul>
+<p><code>GOPATH</code> 可以设置多个，其中，第一个将会是默认的包目录，使用 go get 下载的包都会在第一个 path 中的 src 目录下，使用 go install 时，在哪个 <code>GOPATH</code> 中找到了这个包，就会在哪个 <code>GOPATH</code> 下的bin目录生成可执行文件</p>
+<p>GOROOT 作为 go 的安装目录，我们可以在安装 Goland 前，提前安装好 go 语言，</p>
+</article>
               </div>
 
               
