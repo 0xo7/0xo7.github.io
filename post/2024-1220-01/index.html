@@ -30,7 +30,7 @@
   content="目前，依然有不少企业使用传统的 Windows 共享盘，但使用传统 Windwos 的共享很难对已有的权限进行梳理和分析&amp;hellip;"
 />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://0xo7.github.io/_drafts/2024-1220-01/" />
+<link rel="canonical" href="https://0xo7.github.io/post/2024-1220-01/" />
 
 
 <meta name="twitter:card" content="summary" />
@@ -62,7 +62,7 @@
   property="og:description"
   content="目前，依然有不少企业使用传统的 Windows 共享盘，但使用传统 Windwos 的共享很难对已有的权限进行梳理和分析&amp;hellip;"
 />
-<meta property="og:url" content="https://0xo7.github.io/_drafts/2024-1220-01/" />
+<meta property="og:url" content="https://0xo7.github.io/post/2024-1220-01/" />
 <meta property="og:site_name" content="Windows共享盘权可视化分析" />
 <meta
   property="og:image"
@@ -312,7 +312,7 @@
                   <span class="author">
                     <a href="https://0xo7.github.io/">Thunnus</a></span><span
                     class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
-                      href="https://0xo7.github.io/_drafts/2024-1220-01/">Windows共享盘权可视化分析</a></strong>
+                      href="https://0xo7.github.io/post/2024-1220-01/">Windows共享盘权可视化分析</a></strong>
                 </h1>
                 <div class="note m-0">
                   Created <relative-time datetime="Fri, 20 Dec 2024 08:27:38 &#43;0800"
@@ -321,9 +321,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Fri, 20 Dec 2024 02:26:08 &#43;0000"
+                  Modified <relative-time datetime="Tue, 24 Dec 2024 11:41:25 &#43;0000"
                     class="no-wrap">
-                    Fri, 20 Dec 2024 02:26:08 &#43;0000</relative-time>
+                    Tue, 24 Dec 2024 11:41:25 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -353,9 +353,9 @@
                         </div>
                       </div>
                     </details-menu>
-                      1100 Words
+                      959 Words
                     <span class="file-info-divider"></span>
-                                        5 min
+                                        4 min
 
                   </div>
                   <div class="file-actions flex-order-2 pt-0">
@@ -559,94 +559,24 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="c">#restore the error action</span>
 </span></span><span class="line"><span class="cl"><span class="nv">$ErrorActionPreference</span> <span class="p">=</span> <span class="nv">$RecordErrorAction</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">```</span><span class="n">powershell</span>
-</span></span><span class="line"><span class="cl"><span class="nv">$Username</span> <span class="p">=</span> <span class="s2">&#34;zg\yxadmin&#34;</span>
+</span></span></code></pre></div><p>运行上面的脚本会在 D 盘里面获取到三个表格，分别对应着不同共享服务器信息，获取到的内容如下所示：</p>
+<p><img src="https://blogpic-ayu.oss-cn-beijing.aliyuncs.com/24/12/e793f1cefc26c316139ef802adb43282.png" alt=""></p>
+<p>除此之外，我们还需要用 powershell 获取 共享文件夹的父共享文件名和路径等，如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$Username</span> <span class="p">=</span> <span class="s2">&#34;zg\yxadmin&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="nv">$Password</span> <span class="p">=</span> <span class="nb">ConvertTo-SecureString</span> <span class="s2">&#34;yxzg.+5056&#34;</span> <span class="n">-AsPlainText</span> <span class="n">-Force</span>
 </span></span><span class="line"><span class="cl"><span class="nv">$Credential</span> <span class="p">=</span> <span class="nb">New-Object</span> <span class="n">System</span><span class="p">.</span><span class="py">Management</span><span class="p">.</span><span class="py">Automation</span><span class="p">.</span><span class="py">PSCredential</span><span class="p">(</span><span class="nv">$Username</span><span class="p">,</span> <span class="nv">$Password</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nv">$RecordErrorAction</span> <span class="p">=</span> <span class="nv">$ErrorActionPreference</span>
-</span></span><span class="line"><span class="cl"><span class="c">#change the error action temporarily</span>
+</span></span><span class="line"><span class="cl"><span class="c"># Change the error action temporarily</span>
 </span></span><span class="line"><span class="cl"><span class="nv">$ErrorActionPreference</span> <span class="p">=</span> <span class="s2">&#34;SilentlyContinue&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">Function</span><span class="w"> </span><span class="nb">GetSharedFolderPermission($ComputerName</span><span class="p">,</span> <span class="nv">$Credential</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c">#test server connectivity</span>
-</span></span><span class="line"><span class="cl">    <span class="nv">$PingResult</span> <span class="p">=</span> <span class="nb">Test-Connection</span> <span class="n">-ComputerName</span> <span class="nv">$ComputerName</span> <span class="n">-Count</span> <span class="mf">1</span> <span class="n">-Quiet</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="nv">$PingResult</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c">#check the credential whether trigger</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="nv">$Credential</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nv">$SharedFolderSecs</span> <span class="p">=</span> <span class="nb">Get-WmiObject</span> <span class="n">-Class</span> <span class="n">Win32_LogicalShareSecuritySetting</span> <span class="p">`</span>
-</span></span><span class="line"><span class="cl">            <span class="n">-ComputerName</span> <span class="nv">$ComputerName</span> <span class="n">-Credential</span> <span class="nv">$Credential</span> <span class="n">-ErrorAction</span> <span class="n">SilentlyContinue</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">else</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nv">$SharedFolderSecs</span> <span class="p">=</span> <span class="nb">Get-WmiObject</span> <span class="n">-Class</span> <span class="n">Win32_LogicalShareSecuritySetting</span> <span class="p">`</span>
-</span></span><span class="line"><span class="cl">            <span class="n">-ComputerName</span> <span class="nv">$ComputerName</span> <span class="n">-ErrorAction</span> <span class="n">SilentlyContinue</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$SharedFolderSec</span> <span class="k">in</span> <span class="nv">$SharedFolderSecs</span><span class="p">)</span> 
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> 
-</span></span><span class="line"><span class="cl">            <span class="nv">$Objs</span> <span class="p">=</span> <span class="vm">@</span><span class="p">()</span> <span class="c">#define the empty array</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">            <span class="nv">$SecDescriptor</span> <span class="p">=</span> <span class="nv">$SharedFolderSec</span><span class="p">.</span><span class="py">GetSecurityDescriptor</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">            <span class="k">foreach</span><span class="p">(</span><span class="nv">$DACL</span> <span class="k">in</span> <span class="nv">$SecDescriptor</span><span class="p">.</span><span class="py">Descriptor</span><span class="p">.</span><span class="n">DACL</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="p">{</span>  
-</span></span><span class="line"><span class="cl">                <span class="nv">$DACLDomain</span> <span class="p">=</span> <span class="nv">$DACL</span><span class="p">.</span><span class="py">Trustee</span><span class="p">.</span><span class="py">Domain</span>
-</span></span><span class="line"><span class="cl">                <span class="nv">$DACLName</span> <span class="p">=</span> <span class="nv">$DACL</span><span class="p">.</span><span class="py">Trustee</span><span class="p">.</span><span class="py">Name</span>
-</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="nv">$DACLDomain</span> <span class="o">-ne</span> <span class="vm">$null</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                    <span class="nv">$UserName</span> <span class="p">=</span> <span class="s2">&#34;</span><span class="nv">$DACLDomain</span><span class="s2">\</span><span class="nv">$DACLName</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">                <span class="p">}</span>
-</span></span><span class="line"><span class="cl">                <span class="k">else</span>
-</span></span><span class="line"><span class="cl">                <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                    <span class="nv">$UserName</span> <span class="p">=</span> <span class="s2">&#34;</span><span class="nv">$DACLName</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">                <span class="p">}</span>
-</span></span><span class="line"><span class="cl">            
-</span></span><span class="line"><span class="cl">                <span class="c">#customize the property</span>
-</span></span><span class="line"><span class="cl">                <span class="nv">$Properties</span> <span class="p">=</span> <span class="vm">@</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">                    <span class="s1">&#39;ComputerName&#39;</span> <span class="p">=</span> <span class="nv">$ComputerName</span>
-</span></span><span class="line"><span class="cl">                    <span class="s1">&#39;ConnectionStatus&#39;</span> <span class="p">=</span> <span class="s2">&#34;Success&#34;</span>
-</span></span><span class="line"><span class="cl">                    <span class="s1">&#39;SharedFolderName&#39;</span> <span class="p">=</span> <span class="nv">$SharedFolderSec</span><span class="p">.</span><span class="py">Name</span>
-</span></span><span class="line"><span class="cl">                    <span class="s1">&#39;SecurityPrincipal&#39;</span> <span class="p">=</span> <span class="nv">$UserName</span>
-</span></span><span class="line"><span class="cl">                    <span class="s1">&#39;FileSystemRights&#39;</span> <span class="p">=</span> <span class="p">[</span><span class="no">Security.AccessControl.FileSystemRights</span><span class="p">]`</span>
-</span></span><span class="line"><span class="cl">                    <span class="vm">$</span><span class="p">(</span><span class="nv">$DACL</span><span class="p">.</span><span class="py">AccessMask</span> <span class="o">-as</span> <span class="p">[</span><span class="no">Security.AccessControl.FileSystemRights</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">                    <span class="s1">&#39;AccessControlType&#39;</span> <span class="p">=</span> <span class="p">[</span><span class="no">Security.AccessControl.AceType</span><span class="p">]</span><span class="nv">$DACL</span><span class="p">.</span><span class="py">AceType</span>
-</span></span><span class="line"><span class="cl">                <span class="p">}</span>
-</span></span><span class="line"><span class="cl">                <span class="nv">$SharedACLs</span> <span class="p">=</span> <span class="nb">New-Object</span> <span class="n">-TypeName</span> <span class="n">PSObject</span> <span class="n">-Property</span> <span class="nv">$Properties</span>
-</span></span><span class="line"><span class="cl">                <span class="nv">$Objs</span> <span class="p">+=</span> <span class="nv">$SharedACLs</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">            <span class="nv">$Objs</span><span class="p">|</span><span class="nb">Select-Object</span> <span class="n">ComputerName</span><span class="p">,</span><span class="n">ConnectionStatus</span><span class="p">,</span><span class="n">SharedFolderName</span><span class="p">,</span><span class="n">SecurityPrincipal</span><span class="p">,</span> <span class="p">`</span>
-</span></span><span class="line"><span class="cl">            <span class="n">FileSystemRights</span><span class="p">,</span><span class="n">AccessControlType</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>  
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">else</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nv">$Properties</span> <span class="p">=</span> <span class="vm">@</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="s1">&#39;ComputerName&#39;</span> <span class="p">=</span> <span class="nv">$ComputerName</span>
-</span></span><span class="line"><span class="cl">            <span class="s1">&#39;ConnectionStatus&#39;</span> <span class="p">=</span> <span class="s2">&#34;Fail&#34;</span>
-</span></span><span class="line"><span class="cl">            <span class="s1">&#39;SharedFolderName&#39;</span> <span class="p">=</span> <span class="s2">&#34;Not Available&#34;</span>
-</span></span><span class="line"><span class="cl">            <span class="s1">&#39;SecurityPrincipal&#39;</span> <span class="p">=</span> <span class="s2">&#34;Not Available&#34;</span>
-</span></span><span class="line"><span class="cl">            <span class="s1">&#39;FileSystemRights&#39;</span> <span class="p">=</span> <span class="s2">&#34;Not Available&#34;</span>
-</span></span><span class="line"><span class="cl">            <span class="s1">&#39;AccessControlType&#39;</span> <span class="p">=</span> <span class="s2">&#34;Not Available&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="nv">$SharedACLs</span> <span class="p">=</span> <span class="nb">New-Object</span> <span class="n">-TypeName</span> <span class="n">PSObject</span> <span class="n">-Property</span> <span class="nv">$Properties</span>
-</span></span><span class="line"><span class="cl">        <span class="nv">$Objs</span> <span class="p">+=</span> <span class="nv">$SharedACLs</span>
-</span></span><span class="line"><span class="cl">        <span class="nv">$Objs</span><span class="p">|</span><span class="nb">Select-Object</span> <span class="n">ComputerName</span><span class="p">,</span><span class="n">ConnectionStatus</span><span class="p">,</span><span class="n">SharedFolderName</span><span class="p">,</span><span class="n">SecurityPrincipal</span><span class="p">,</span> <span class="p">`</span>
-</span></span><span class="line"><span class="cl">        <span class="n">FileSystemRights</span><span class="p">,</span><span class="n">AccessControlType</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">Function</span><span class="w"> </span><span class="nb">GetSharedFolderNTFSPermission($ComputerName</span><span class="p">,</span> <span class="nv">$Credential</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c">#test server connectivity</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># Test server connectivity</span>
 </span></span><span class="line"><span class="cl">    <span class="nv">$PingResult</span> <span class="p">=</span> <span class="nb">Test-Connection</span> <span class="n">-ComputerName</span> <span class="nv">$ComputerName</span> <span class="n">-Count</span> <span class="mf">1</span> <span class="n">-Quiet</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="nv">$PingResult</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c">#check the credential whether trigger</span>
+</span></span><span class="line"><span class="cl">        <span class="c"># Check the credential whether trigger</span>
 </span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="nv">$Credential</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="nv">$SharedFolders</span> <span class="p">=</span> <span class="nb">Get-WmiObject</span> <span class="n">-Class</span> <span class="n">Win32_Share</span> <span class="p">`</span>
@@ -658,54 +588,46 @@
 </span></span><span class="line"><span class="cl">            <span class="n">-ComputerName</span> <span class="nv">$ComputerName</span> <span class="n">-ErrorAction</span> <span class="n">SilentlyContinue</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nv">$FolderHierarchy</span> <span class="p">=</span> <span class="vm">@</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="k">foreach</span><span class="p">(</span><span class="nv">$SharedFolder</span> <span class="k">in</span> <span class="nv">$SharedFolders</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nv">$Objs</span> <span class="p">=</span> <span class="vm">@</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">            <span class="nv">$SharedFolderPath</span> <span class="p">=</span> <span class="p">[</span><span class="no">regex</span><span class="p">]::</span><span class="n">Escape</span><span class="p">(</span><span class="nv">$SharedFolder</span><span class="p">.</span><span class="n">Path</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="nv">$Credential</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="p">{</span>   
-</span></span><span class="line"><span class="cl">                <span class="nv">$SharedNTFSSecs</span> <span class="p">=</span> <span class="nb">Get-WmiObject</span> <span class="n">-Class</span> <span class="n">Win32_LogicalFileSecuritySetting</span> <span class="p">`</span>
-</span></span><span class="line"><span class="cl">                <span class="n">-Filter</span> <span class="s2">&#34;Path=&#39;</span><span class="nv">$SharedFolderPath</span><span class="s2">&#39;&#34;</span> <span class="n">-ComputerName</span> <span class="nv">$ComputerName</span>  <span class="n">-Credential</span> <span class="nv">$Credential</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">            <span class="k">else</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">$SharedFolderPath</span> <span class="p">=</span> <span class="nv">$SharedFolder</span><span class="p">.</span><span class="py">Path</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">$SharedFolderName</span> <span class="p">=</span> <span class="nv">$SharedFolder</span><span class="p">.</span><span class="py">Name</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c"># Initialize the ParentFolder to &#34;None&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">$ParentFolder</span> <span class="p">=</span> <span class="s2">&#34;None&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c"># Check if this folder is inside another shared folder</span>
+</span></span><span class="line"><span class="cl">            <span class="k">foreach</span><span class="p">(</span><span class="nv">$OtherFolder</span> <span class="k">in</span> <span class="nv">$SharedFolders</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">            <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="nv">$SharedNTFSSecs</span> <span class="p">=</span> <span class="nb">Get-WmiObject</span> <span class="n">-Class</span> <span class="n">Win32_LogicalFileSecuritySetting</span> <span class="p">`</span>
-</span></span><span class="line"><span class="cl">                <span class="n">-Filter</span> <span class="s2">&#34;Path=&#39;</span><span class="nv">$SharedFolderPath</span><span class="s2">&#39;&#34;</span> <span class="n">-ComputerName</span> <span class="nv">$ComputerName</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">            <span class="nv">$SecDescriptor</span> <span class="p">=</span> <span class="nv">$SharedNTFSSecs</span><span class="p">.</span><span class="py">GetSecurityDescriptor</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">            <span class="k">foreach</span><span class="p">(</span><span class="nv">$DACL</span> <span class="k">in</span> <span class="nv">$SecDescriptor</span><span class="p">.</span><span class="py">Descriptor</span><span class="p">.</span><span class="n">DACL</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="p">{</span>  
-</span></span><span class="line"><span class="cl">                <span class="nv">$DACLDomain</span> <span class="p">=</span> <span class="nv">$DACL</span><span class="p">.</span><span class="py">Trustee</span><span class="p">.</span><span class="py">Domain</span>
-</span></span><span class="line"><span class="cl">                <span class="nv">$DACLName</span> <span class="p">=</span> <span class="nv">$DACL</span><span class="p">.</span><span class="py">Trustee</span><span class="p">.</span><span class="py">Name</span>
-</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="nv">$DACLDomain</span> <span class="o">-ne</span> <span class="vm">$null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="c"># Skip comparing the folder with itself</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="nv">$SharedFolderName</span> <span class="o">-eq</span> <span class="nv">$OtherFolder</span><span class="p">.</span><span class="n">Name</span><span class="p">)</span> <span class="p">{</span> <span class="k">continue</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="c"># Check if the path of the other folder contains this folder&#39;s path</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="nv">$SharedFolderPath</span> <span class="o">-like</span> <span class="s2">&#34;</span><span class="p">$(</span><span class="nv">$OtherFolder</span><span class="p">.</span><span class="n">Path</span><span class="p">)</span><span class="s2">\*&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">                <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                    <span class="nv">$UserName</span> <span class="p">=</span> <span class="s2">&#34;</span><span class="nv">$DACLDomain</span><span class="s2">\</span><span class="nv">$DACLName</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">                    <span class="nv">$ParentFolder</span> <span class="p">=</span> <span class="nv">$OtherFolder</span><span class="p">.</span><span class="py">Name</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">break</span>
 </span></span><span class="line"><span class="cl">                <span class="p">}</span>
-</span></span><span class="line"><span class="cl">                <span class="k">else</span>
-</span></span><span class="line"><span class="cl">                <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                    <span class="nv">$UserName</span> <span class="p">=</span> <span class="s2">&#34;</span><span class="nv">$DACLName</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">                <span class="p">}</span>
-</span></span><span class="line"><span class="cl">            
-</span></span><span class="line"><span class="cl">                <span class="c">#customize the property</span>
-</span></span><span class="line"><span class="cl">                <span class="nv">$Properties</span> <span class="p">=</span> <span class="vm">@</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">                    <span class="s1">&#39;ComputerName&#39;</span> <span class="p">=</span> <span class="nv">$ComputerName</span>
-</span></span><span class="line"><span class="cl">                    <span class="s1">&#39;ConnectionStatus&#39;</span> <span class="p">=</span> <span class="s2">&#34;Success&#34;</span>
-</span></span><span class="line"><span class="cl">                    <span class="s1">&#39;SharedFolderName&#39;</span> <span class="p">=</span> <span class="nv">$SharedFolder</span><span class="p">.</span><span class="py">Name</span>
-</span></span><span class="line"><span class="cl">                    <span class="s1">&#39;SecurityPrincipal&#39;</span> <span class="p">=</span> <span class="nv">$UserName</span>
-</span></span><span class="line"><span class="cl">                    <span class="s1">&#39;FileSystemRights&#39;</span> <span class="p">=</span> <span class="p">[</span><span class="no">Security.AccessControl.FileSystemRights</span><span class="p">]`</span>
-</span></span><span class="line"><span class="cl">                    <span class="vm">$</span><span class="p">(</span><span class="nv">$DACL</span><span class="p">.</span><span class="py">AccessMask</span> <span class="o">-as</span> <span class="p">[</span><span class="no">Security.AccessControl.FileSystemRights</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">                    <span class="s1">&#39;AccessControlType&#39;</span> <span class="p">=</span> <span class="p">[</span><span class="no">Security.AccessControl.AceType</span><span class="p">]</span><span class="nv">$DACL</span><span class="p">.</span><span class="py">AceType</span>
-</span></span><span class="line"><span class="cl">                    <span class="s1">&#39;AccessControlFalgs&#39;</span> <span class="p">=</span> <span class="p">[</span><span class="no">Security.AccessControl.AceFlags</span><span class="p">]</span><span class="nv">$DACL</span><span class="p">.</span><span class="py">AceFlags</span>
-</span></span><span class="line"><span class="cl">                <span class="p">}</span>
-</span></span><span class="line"><span class="cl">            
-</span></span><span class="line"><span class="cl">                <span class="nv">$SharedNTFSACL</span> <span class="p">=</span> <span class="nb">New-Object</span> <span class="n">-TypeName</span> <span class="n">PSObject</span> <span class="n">-Property</span> <span class="nv">$Properties</span>
-</span></span><span class="line"><span class="cl">                <span class="nv">$Objs</span> <span class="p">+=</span> <span class="nv">$SharedNTFSACL</span>
 </span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">            <span class="nv">$Objs</span> <span class="p">|</span><span class="nb">Select-Object</span> <span class="n">ComputerName</span><span class="p">,</span><span class="n">ConnectionStatus</span><span class="p">,</span><span class="n">SharedFolderName</span><span class="p">,</span><span class="n">SecurityPrincipal</span><span class="p">,</span><span class="n">FileSystemRights</span><span class="p">,</span> <span class="p">`</span>
-</span></span><span class="line"><span class="cl">            <span class="n">AccessControlType</span><span class="p">,</span><span class="n">AccessControlFalgs</span> <span class="n">-Unique</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c"># Customize the property</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">$Properties</span> <span class="p">=</span> <span class="vm">@</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s1">&#39;ComputerName&#39;</span> <span class="p">=</span> <span class="nv">$ComputerName</span>
+</span></span><span class="line"><span class="cl">                <span class="s1">&#39;ConnectionStatus&#39;</span> <span class="p">=</span> <span class="s2">&#34;Success&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="s1">&#39;SharedFolderName&#39;</span> <span class="p">=</span> <span class="nv">$SharedFolderName</span>
+</span></span><span class="line"><span class="cl">                <span class="s1">&#39;SharedFolderPath&#39;</span> <span class="p">=</span> <span class="nv">$SharedFolderPath</span>
+</span></span><span class="line"><span class="cl">                <span class="s1">&#39;ParentFolder&#39;</span> <span class="p">=</span> <span class="nv">$ParentFolder</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">          
+</span></span><span class="line"><span class="cl">            <span class="c"># Create the object to display</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">$SharedNTFSACL</span> <span class="p">=</span> <span class="nb">New-Object</span> <span class="n">-TypeName</span> <span class="n">PSObject</span> <span class="n">-Property</span> <span class="nv">$Properties</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">$FolderHierarchy</span> <span class="p">+=</span> <span class="nv">$SharedNTFSACL</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c"># Display the hierarchy of shared folders</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$FolderHierarchy</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">ComputerName</span><span class="p">,</span> <span class="n">SharedFolderName</span><span class="p">,</span> <span class="n">SharedFolderPath</span><span class="p">,</span> <span class="n">ParentFolder</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="k">else</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
@@ -713,40 +635,31 @@
 </span></span><span class="line"><span class="cl">            <span class="s1">&#39;ComputerName&#39;</span> <span class="p">=</span> <span class="nv">$ComputerName</span>
 </span></span><span class="line"><span class="cl">            <span class="s1">&#39;ConnectionStatus&#39;</span> <span class="p">=</span> <span class="s2">&#34;Fail&#34;</span>
 </span></span><span class="line"><span class="cl">            <span class="s1">&#39;SharedFolderName&#39;</span> <span class="p">=</span> <span class="s2">&#34;Not Available&#34;</span>
-</span></span><span class="line"><span class="cl">            <span class="s1">&#39;SecurityPrincipal&#39;</span> <span class="p">=</span> <span class="s2">&#34;Not Available&#34;</span>
-</span></span><span class="line"><span class="cl">            <span class="s1">&#39;FileSystemRights&#39;</span> <span class="p">=</span> <span class="s2">&#34;Not Available&#34;</span>
-</span></span><span class="line"><span class="cl">            <span class="s1">&#39;AccessControlType&#39;</span> <span class="p">=</span> <span class="s2">&#34;Not Available&#34;</span>
-</span></span><span class="line"><span class="cl">            <span class="s1">&#39;AccessControlFalgs&#39;</span> <span class="p">=</span> <span class="s2">&#34;Not Available&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;SharedFolderPath&#39;</span> <span class="p">=</span> <span class="s2">&#34;Not Available&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;ParentFolder&#39;</span> <span class="p">=</span> <span class="s2">&#34;Not Available&#34;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">                
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="nv">$SharedNTFSACL</span> <span class="p">=</span> <span class="nb">New-Object</span> <span class="n">-TypeName</span> <span class="n">PSObject</span> <span class="n">-Property</span> <span class="nv">$Properties</span>
-</span></span><span class="line"><span class="cl">        <span class="nv">$Objs</span> <span class="p">+=</span> <span class="nv">$SharedNTFSACL</span>
-</span></span><span class="line"><span class="cl">        <span class="nv">$Objs</span> <span class="p">|</span><span class="nb">Select-Object</span> <span class="n">ComputerName</span><span class="p">,</span><span class="n">ConnectionStatus</span><span class="p">,</span><span class="n">SharedFolderName</span><span class="p">,</span><span class="n">SecurityPrincipal</span><span class="p">,</span><span class="n">FileSystemRights</span><span class="p">,</span> <span class="p">`</span>
-</span></span><span class="line"><span class="cl">        <span class="n">AccessControlType</span><span class="p">,</span><span class="n">AccessControlFalgs</span> <span class="n">-Unique</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$FolderHierarchy</span> <span class="p">+=</span> <span class="nv">$SharedNTFSACL</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c"># Display the hierarchy with the fail information</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$FolderHierarchy</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">ComputerName</span><span class="p">,</span> <span class="n">SharedFolderName</span><span class="p">,</span> <span class="n">SharedFolderPath</span><span class="p">,</span> <span class="n">ParentFolder</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nv">$ComputerNames</span> <span class="p">=</span> <span class="vm">@</span><span class="p">(</span><span class="s2">&#34;10.64.110.7&#34;</span><span class="p">,</span> <span class="s2">&#34;10.64.110.8&#34;</span><span class="p">,</span> <span class="s2">&#34;10.64.110.9&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">foreach</span><span class="p">(</span><span class="nv">$CN</span> <span class="k">in</span> <span class="nv">$ComputerNames</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$result</span> <span class="p">=</span> <span class="n">GetSharedFolderNTFSPermission</span> <span class="n">-ComputerName</span> <span class="nv">$CN</span> <span class="n">-Credential</span> <span class="nv">$Credential</span>
 </span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="nv">$NTFSPermission</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nv">$result</span> <span class="p">=</span> <span class="n">GetSharedFolderNTFSPermission</span> <span class="n">-ComputerName</span> <span class="nv">$CN</span> <span class="n">-Credential</span> <span class="nv">$Credential</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">else</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nv">$result</span> <span class="p">=</span> <span class="n">GetSharedFolderPermission</span> <span class="n">-ComputerName</span> <span class="nv">$CN</span> <span class="n">-Credential</span> <span class="nv">$Credential</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="c"># 导出结果到 Excel</span>
-</span></span><span class="line"><span class="cl">    <span class="nv">$result</span> <span class="p">|</span> <span class="nb">Export-Excel</span> <span class="n">-Path</span> <span class="s2">&#34;D:\File_</span><span class="nv">$CN</span><span class="s2">.xlsx&#34;</span> <span class="n">-AutoSize</span> <span class="n">-BoldTopRow</span>  
+</span></span><span class="line"><span class="cl">    <span class="c"># Export the results to Excel</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$result</span> <span class="p">|</span> <span class="nb">Export-Excel</span> <span class="n">-Path</span> <span class="s2">&#34;D:\SharedFolders_</span><span class="nv">$CN</span><span class="s2">.xlsx&#34;</span> <span class="n">-AutoSize</span> <span class="n">-BoldTopRow</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="c">#restore the error action</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Restore the error action preference</span>
 </span></span><span class="line"><span class="cl"><span class="nv">$ErrorActionPreference</span> <span class="p">=</span> <span class="nv">$RecordErrorAction</span>
-</span></span></code></pre></div><p>运行上面的脚本会在 D 盘里面获取到三个表格，分别对应着不同共享服务器信息，获取到的内容如下所示：</p>
-<p><img src="https://blogpic-ayu.oss-cn-beijing.aliyuncs.com/24/12/e793f1cefc26c316139ef802adb43282.png" alt=""></p>
-</article>
+</span></span></code></pre></div></article>
               </div>
 
               
