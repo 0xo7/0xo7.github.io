@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/custom.css" />
   
   <title>
-     | 0xo7&#39;s Blog
+    Go modules 剖析 | 0xo7&#39;s Blog
   </title>
   
   <link rel="icon" type="image/x-icon" href="/images/github-mark.png" />
@@ -27,20 +27,28 @@
   
   <meta
   name="description"
-  content=""
+  content="Go modules 是 Go 语言中正式官宣的项目依赖管理工具，Go modules（前身为vgo）于 Go1.11 正式发布，在 Go1.14 已经准备好，并且可以用在生产上（ready for production）了，鼓励所有用户从其他依赖项管理工具迁移到 Go modules。
+什么是Go Modules Go modules 是 Go 语言的依赖解决方案，发布于 Go1.11，成长于 Go1.12，丰富于 Go1.13，正式于 Go1.14 推荐在生产上使用。
+Go moudles 目前集成在 Go 的工具链中，只要安装了 Go，自然而然也就可以使用 Go moudles 了，而 Go modules 的出现也解决了在 Go1.11 前的几个常见争议问题：
+Go 语言长久以来的依赖管理问题。 “淘汰”现有的 GOPATH 的使用模式。 统一社区中的其它的依赖管理工具（提供迁移功能）。 GOPATH的那些点点滴滴 我们有提到 Go modules 的解决的问题之一就是“淘汰”掉 GOPATH，但是 GOPATH 又是什么呢，为什么在 Go1.11 前就使用 GOPATH，而 Go1.11 后就开始逐步建议使用 Go modules，不再推荐 GOPATH 的模式了呢？
+$ go env GOPATH=&amp;#34;/Users/eddycjy/go&amp;#34; ... 我们输入 go env命令行后可以查看到 GOPATH 变量的结果，我们进入到该目录下进行查看，如下："
 />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://0xo7.github.io/_drafts/2024-1225-01/" />
+<link rel="canonical" href="https://0xo7.github.io/post/2024-1225-01/" />
 
 
 <meta name="twitter:card" content="summary" />
 <meta
   name="twitter:title"
-  content=" - 0xo7&#39;s Blog"
+  content="Go modules 剖析 - 0xo7&#39;s Blog"
 />
 <meta
   name="twitter:description"
-  content=""
+  content="Go modules 是 Go 语言中正式官宣的项目依赖管理工具，Go modules（前身为vgo）于 Go1.11 正式发布，在 Go1.14 已经准备好，并且可以用在生产上（ready for production）了，鼓励所有用户从其他依赖项管理工具迁移到 Go modules。
+什么是Go Modules Go modules 是 Go 语言的依赖解决方案，发布于 Go1.11，成长于 Go1.12，丰富于 Go1.13，正式于 Go1.14 推荐在生产上使用。
+Go moudles 目前集成在 Go 的工具链中，只要安装了 Go，自然而然也就可以使用 Go moudles 了，而 Go modules 的出现也解决了在 Go1.11 前的几个常见争议问题：
+Go 语言长久以来的依赖管理问题。 “淘汰”现有的 GOPATH 的使用模式。 统一社区中的其它的依赖管理工具（提供迁移功能）。 GOPATH的那些点点滴滴 我们有提到 Go modules 的解决的问题之一就是“淘汰”掉 GOPATH，但是 GOPATH 又是什么呢，为什么在 Go1.11 前就使用 GOPATH，而 Go1.11 后就开始逐步建议使用 Go modules，不再推荐 GOPATH 的模式了呢？
+$ go env GOPATH=&amp;#34;/Users/eddycjy/go&amp;#34; ... 我们输入 go env命令行后可以查看到 GOPATH 变量的结果，我们进入到该目录下进行查看，如下："
 />
 <meta name="twitter:site" content="https://0xo7.github.io/" />
 <meta name="twitter:creator" content="" />
@@ -56,20 +64,26 @@
 />
 <meta
   property="og:title"
-  content=" - 0xo7&#39;s Blog"
+  content="Go modules 剖析 - 0xo7&#39;s Blog"
 />
 <meta
   property="og:description"
-  content=""
+  content="Go modules 是 Go 语言中正式官宣的项目依赖管理工具，Go modules（前身为vgo）于 Go1.11 正式发布，在 Go1.14 已经准备好，并且可以用在生产上（ready for production）了，鼓励所有用户从其他依赖项管理工具迁移到 Go modules。
+什么是Go Modules Go modules 是 Go 语言的依赖解决方案，发布于 Go1.11，成长于 Go1.12，丰富于 Go1.13，正式于 Go1.14 推荐在生产上使用。
+Go moudles 目前集成在 Go 的工具链中，只要安装了 Go，自然而然也就可以使用 Go moudles 了，而 Go modules 的出现也解决了在 Go1.11 前的几个常见争议问题：
+Go 语言长久以来的依赖管理问题。 “淘汰”现有的 GOPATH 的使用模式。 统一社区中的其它的依赖管理工具（提供迁移功能）。 GOPATH的那些点点滴滴 我们有提到 Go modules 的解决的问题之一就是“淘汰”掉 GOPATH，但是 GOPATH 又是什么呢，为什么在 Go1.11 前就使用 GOPATH，而 Go1.11 后就开始逐步建议使用 Go modules，不再推荐 GOPATH 的模式了呢？
+$ go env GOPATH=&amp;#34;/Users/eddycjy/go&amp;#34; ... 我们输入 go env命令行后可以查看到 GOPATH 变量的结果，我们进入到该目录下进行查看，如下："
 />
-<meta property="og:url" content="https://0xo7.github.io/_drafts/2024-1225-01/" />
-<meta property="og:site_name" content="" />
+<meta property="og:url" content="https://0xo7.github.io/post/2024-1225-01/" />
+<meta property="og:site_name" content="Go modules 剖析" />
 <meta
   property="og:image"
   content="https://0xo7.github.io/"
 />
 <meta property="og:image:width" content="2048" />
 <meta property="og:image:height" content="1024" />
+
+<meta property="article:published_time" content="2024-12-25 21:28:30 &#43;0800 &#43;0800" />
 
 
 
@@ -281,18 +295,18 @@
                   <span class="author">
                     <a href="https://0xo7.github.io/">Thunnus</a></span><span
                     class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
-                      href="https://0xo7.github.io/_drafts/2024-1225-01/"></a></strong>
+                      href="https://0xo7.github.io/post/2024-1225-01/">Go modules 剖析</a></strong>
                 </h1>
                 <div class="note m-0">
-                  Created <relative-time datetime="Mon, 01 Jan 0001 00:00:00 &#43;0000"
+                  Created <relative-time datetime="Wed, 25 Dec 2024 21:28:30 &#43;0800"
                     class="no-wrap">
-                    Mon, 01 Jan 0001 00:00:00 &#43;0000</relative-time>
+                    Wed, 25 Dec 2024 21:28:30 &#43;0800</relative-time>
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Wed, 25 Dec 2024 13:28:41 &#43;0000"
+                  Modified <relative-time datetime="Wed, 25 Dec 2024 13:59:16 &#43;0000"
                     class="no-wrap">
-                    Wed, 25 Dec 2024 13:28:41 &#43;0000</relative-time>
+                    Wed, 25 Dec 2024 13:59:16 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -322,9 +336,9 @@
                         </div>
                       </div>
                     </details-menu>
-                      0 Words
+                      1053 Words
                     <span class="file-info-divider"></span>
-                                        0 min
+                                        5 min
 
                   </div>
                   <div class="file-actions flex-order-2 pt-0">
@@ -336,7 +350,50 @@
 
 
               <div class="Box-body px-5 pb-5" style="z-index: 1">
-                <article class="markdown-body entry-content container-lg"></article>
+                <article class="markdown-body entry-content container-lg"><p>Go modules 是 Go 语言中正式官宣的项目依赖管理工具，Go modules（前身为vgo）于 Go1.11 正式发布，在 Go1.14 已经准备好，并且可以用在生产上（ready for production）了，鼓励所有用户从其他依赖项管理工具迁移到 Go modules。</p>
+<h1 id="什么是go-modules">什么是Go Modules</h1>
+<p>Go modules 是 Go 语言的依赖解决方案，发布于 Go1.11，成长于 Go1.12，丰富于 Go1.13，正式于 Go1.14 推荐在生产上使用。</p>
+<p>Go moudles 目前集成在 Go 的工具链中，只要安装了 Go，自然而然也就可以使用 Go moudles 了，而 Go modules 的出现也解决了在 Go1.11 前的几个常见争议问题：</p>
+<ol>
+<li>Go 语言长久以来的依赖管理问题。</li>
+<li>“淘汰”现有的 GOPATH 的使用模式。</li>
+<li>统一社区中的其它的依赖管理工具（提供迁移功能）。</li>
+</ol>
+<h1 id="gopath的那些点点滴滴">GOPATH的那些点点滴滴</h1>
+<p>我们有提到 Go modules 的解决的问题之一就是“淘汰”掉 GOPATH，但是 GOPATH 又是什么呢，为什么在 Go1.11 前就使用 GOPATH，而 Go1.11 后就开始逐步建议使用 Go modules，不再推荐 GOPATH 的模式了呢？</p>
+<pre tabindex="0"><code>$ go env
+GOPATH=&#34;/Users/eddycjy/go&#34;
+...
+</code></pre><p>我们输入 <code>go env</code>命令行后可以查看到 GOPATH 变量的结果，我们进入到该目录下进行查看，如下：</p>
+<pre tabindex="0"><code>go
+├── bin
+├── pkg
+└── src
+    ├── github.com
+    ├── golang.org
+    ├── google.golang.org
+    ├── gopkg.in
+    ....
+</code></pre><p>GOPATH目录下一共包含了三个子目录，分别是：</p>
+<ul>
+<li>bin：存储所编译生成的二进制文件。</li>
+<li>pkg：存储预编译的目标文件，以加快程序的后续编译速度。</li>
+<li>src：存储所有 <code>.go</code>文件或源代码。在编写 Go 应用程序，程序包和库时，一般会以 <code>$GOPATH/src/github.com/foo/bar</code> 的路径进行存放。</li>
+</ul>
+<p>因此在使用 GOPATH 模式下，我们需要将应用代码存放在固定的 <code>$GOPATH/src</code>目录下，并且如果执行 <code>go get</code>来拉取外部依赖会自动下载并安装到 <code>$GOPATH</code>目录下。</p>
+<h2 id="为什么弃用gopath模式">为什么弃用GOPATH模式</h2>
+<p>在 GOPATH 的 <code>$GOPATH/src</code> 下进行 <code>.go</code> 文件或源代码的存储，我们可以称其为 GOPATH 的模式，这个模式，看起来好像没有什么问题，那么为什么我们要弃用呢，参见如下原因：</p>
+<ul>
+<li>GOPATH 模式下没有版本控制的概念，具有致命的缺陷，至少会造成以下问题：
+<ul>
+<li>在执行 <code>go get</code>的时候，你无法传达任何的版本信息的期望，也就是说你也无法知道自己当前更新的是哪一个版本，也无法通过指定来拉取自己所期望的具体版本。</li>
+<li>在运行Go应用程序的时候，你无法保证其它人与你所期望依赖的第三方库是相同的版本，也就是说在项目依赖库的管理上，你无法保证所有人的依赖版本都一致。</li>
+<li>你没办法处理 v1、v2、v3 等等不同版本的引用问题，因为 GOPATH 模式下的导入路径都是一样的，都是 <code>github.com/foo/bar</code>。</li>
+</ul>
+</li>
+<li>Go 语言官方从 Go1.11 起开始推进 Go modules（前身vgo），Go1.13 起不再推荐使用 GOPATH 的使用模式，Go modules 也渐趋稳定，因此新项目也没有必要继续使用GOPATH模式。</li>
+</ul>
+</article>
               </div>
 
               
@@ -348,13 +405,11 @@
       <div class="pagination-nav">
         <div class="pagination-button next-post">
           
-          <div>«&nbsp;</div><a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-0728-01/"> 8086 汇编语言（一）</a>
-          
         </div>
         
         <div class="pagination-button previous-post">
           
-          <a class="pagination-link link-reverse" href="https://0xo7.github.io/_drafts/2024-1224-01/">Goland 配置&nbsp;</a><div> »</div>
+          <a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-1220-01/">Windows共享盘权可视化分析&nbsp;</a><div> »</div>
           
         </div>
       </div>

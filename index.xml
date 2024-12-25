@@ -6,7 +6,20 @@
     <description>Recent content on 0xo7&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 20 Dec 2024 08:27:38 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 25 Dec 2024 21:28:30 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go modules 剖析</title>
+      <link>https://0xo7.github.io/post/2024-1225-01/</link>
+      <pubDate>Wed, 25 Dec 2024 21:28:30 +0800</pubDate>
+      
+      <guid>https://0xo7.github.io/post/2024-1225-01/</guid>
+      <description>Go modules 是 Go 语言中正式官宣的项目依赖管理工具，Go modules（前身为vgo）于 Go1.11 正式发布，在 Go1.14 已经准备好，并且可以用在生产上（ready for production）了，鼓励所有用户从其他依赖项管理工具迁移到 Go modules。
+什么是Go Modules Go modules 是 Go 语言的依赖解决方案，发布于 Go1.11，成长于 Go1.12，丰富于 Go1.13，正式于 Go1.14 推荐在生产上使用。
+Go moudles 目前集成在 Go 的工具链中，只要安装了 Go，自然而然也就可以使用 Go moudles 了，而 Go modules 的出现也解决了在 Go1.11 前的几个常见争议问题：
+Go 语言长久以来的依赖管理问题。 “淘汰”现有的 GOPATH 的使用模式。 统一社区中的其它的依赖管理工具（提供迁移功能）。 GOPATH的那些点点滴滴 我们有提到 Go modules 的解决的问题之一就是“淘汰”掉 GOPATH，但是 GOPATH 又是什么呢，为什么在 Go1.11 前就使用 GOPATH，而 Go1.11 后就开始逐步建议使用 Go modules，不再推荐 GOPATH 的模式了呢？
+$ go env GOPATH=&amp;#34;/Users/eddycjy/go&amp;#34; ... 我们输入 go env命令行后可以查看到 GOPATH 变量的结果，我们进入到该目录下进行查看，如下：</description>
+    </item>
+    
     <item>
       <title>Windows共享盘权可视化分析</title>
       <link>https://0xo7.github.io/post/2024-1220-01/</link>
@@ -185,15 +198,6 @@
       
       <guid>https://0xo7.github.io/post/2024-0728-01/</guid>
       <description>对于绝大多数人来说，二进制程序是不可读的，当然有能人可以读，比如第一代程序员，但这类人快灭绝了，直接看二进制不容易看出来究竟做了什么事情&amp;hellip;&amp;hellip;</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://0xo7.github.io/_drafts/2024-1225-01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://0xo7.github.io/_drafts/2024-1225-01/</guid>
-      <description></description>
     </item>
     
     <item>
