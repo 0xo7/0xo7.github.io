@@ -8,12 +8,12 @@
     <language>zh-cn</language>
     <lastBuildDate>Thu, 19 Dec 2024 21:19:28 +0800</lastBuildDate><atom:link href="https://0xo7.github.io/_drafts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>系统封装相关知识</title>
+      <title>Windows 注册表探究</title>
       <link>https://0xo7.github.io/_drafts/2024-1219-02/</link>
       <pubDate>Thu, 19 Dec 2024 21:19:28 +0800</pubDate>
       
       <guid>https://0xo7.github.io/_drafts/2024-1219-02/</guid>
-      <description>在实际的系统封装过程中，经常会遇到很多问题，比如：默认应用方式的关联问题，防火墙设置问题，个性化配置的保存问题，电源选项的设置等 &amp;hellip;</description>
+      <description>注册表在整个 Windows &amp;hellip;</description>
     </item>
     
     <item>
