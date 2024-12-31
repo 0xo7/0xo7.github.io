@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/custom.css" />
   
   <title>
-    系统封装—默认应用关联 | 0xo7&#39;s Blog
+    系统封装相关知识 | 0xo7&#39;s Blog
   </title>
   
   <link rel="icon" type="image/x-icon" href="/images/github-mark.png" />
@@ -27,7 +27,7 @@
   
   <meta
   name="description"
-  content="系统封装前设置的默认应用关联方式很多会被清理掉，特别是对于部分绿色免安装软件等。在切换域用户时，也存在该问题 &amp;hellip;"
+  content="在实际的系统封装过程中，经常会遇到很多问题，比如：默认应用方式的关联问题，防火墙设置问题，个性化配置的保存问题，电源选项的设置等 &amp;hellip;"
 />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://0xo7.github.io/_drafts/2024-1219-02/" />
@@ -36,11 +36,11 @@
 <meta name="twitter:card" content="summary" />
 <meta
   name="twitter:title"
-  content="系统封装—默认应用关联 - 0xo7&#39;s Blog"
+  content="系统封装相关知识 - 0xo7&#39;s Blog"
 />
 <meta
   name="twitter:description"
-  content="系统封装前设置的默认应用关联方式很多会被清理掉，特别是对于部分绿色免安装软件等。在切换域用户时，也存在该问题 &amp;hellip;"
+  content="在实际的系统封装过程中，经常会遇到很多问题，比如：默认应用方式的关联问题，防火墙设置问题，个性化配置的保存问题，电源选项的设置等 &amp;hellip;"
 />
 <meta name="twitter:site" content="https://0xo7.github.io/" />
 <meta name="twitter:creator" content="" />
@@ -56,14 +56,14 @@
 />
 <meta
   property="og:title"
-  content="系统封装—默认应用关联 - 0xo7&#39;s Blog"
+  content="系统封装相关知识 - 0xo7&#39;s Blog"
 />
 <meta
   property="og:description"
-  content="系统封装前设置的默认应用关联方式很多会被清理掉，特别是对于部分绿色免安装软件等。在切换域用户时，也存在该问题 &amp;hellip;"
+  content="在实际的系统封装过程中，经常会遇到很多问题，比如：默认应用方式的关联问题，防火墙设置问题，个性化配置的保存问题，电源选项的设置等 &amp;hellip;"
 />
 <meta property="og:url" content="https://0xo7.github.io/_drafts/2024-1219-02/" />
-<meta property="og:site_name" content="系统封装—默认应用关联" />
+<meta property="og:site_name" content="系统封装相关知识" />
 <meta
   property="og:image"
   content="https://0xo7.github.io/"
@@ -283,7 +283,7 @@
                   <span class="author">
                     <a href="https://0xo7.github.io/">Thunnus</a></span><span
                     class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
-                      href="https://0xo7.github.io/_drafts/2024-1219-02/">系统封装—默认应用关联</a></strong>
+                      href="https://0xo7.github.io/_drafts/2024-1219-02/">系统封装相关知识</a></strong>
                 </h1>
                 <div class="note m-0">
                   Created <relative-time datetime="Thu, 19 Dec 2024 21:19:28 &#43;0800"
@@ -292,9 +292,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Wed, 25 Dec 2024 13:59:16 &#43;0000"
+                  Modified <relative-time datetime="Tue, 31 Dec 2024 05:57:35 &#43;0000"
                     class="no-wrap">
-                    Wed, 25 Dec 2024 13:59:16 &#43;0000</relative-time>
+                    Tue, 31 Dec 2024 05:57:35 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -324,7 +324,7 @@
                         </div>
                       </div>
                     </details-menu>
-                      233 Words
+                      240 Words
                     <span class="file-info-divider"></span>
                                         1 min
 
@@ -354,7 +354,8 @@
 
 
               <div class="Box-body px-5 pb-5" style="z-index: 1">
-                <article class="markdown-body entry-content container-lg"><h1 id="干掉-ucpdsys-驱动">干掉 UCPD.sys 驱动</h1>
+                <article class="markdown-body entry-content container-lg"><h1 id="注册表深入探究">注册表深入探究</h1>
+<h1 id="干掉-ucpdsys-驱动">干掉 UCPD.sys 驱动</h1>
 <p>IT之家 4 月 8 日消息，微软今年 2 月面向 Windows 10 用户推送 KB5034763 更新、面向 Windows 11 用户推送 KB5034765 更新，其中一项调整是阻止用户使用软件或者修改注册表方式，配置系统的默认浏览器。</p>
 <p>IT之家 3 月 26 日已经报道过这个问题，现在关于这个问题的更多细节被披露。IT 顾问 Christoph Kolbicz 率先发现微软的这项调整，安装 2 月更新之后导致其 SetUserFTA 和 SetDefaultBrowser 程序无法正常使用。</p>
 <p>SetUserFTA 是一个命令行程序，可让 Windows 管理员通过登录脚本和其他方法更改文件关联；SetDefaultBrowser 的工作原理类似，但只能用于更改 Windows 中的默认浏览器。</p>
@@ -370,13 +371,13 @@
       <div class="pagination-nav">
         <div class="pagination-button next-post">
           
-          <div>«&nbsp;</div><a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-1220-01/"> Windows共享盘权可视化分析</a>
+          <div>«&nbsp;</div><a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-1219-02/"> 系统封装—默认应用关联</a>
           
         </div>
         
         <div class="pagination-button previous-post">
           
-          <a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-1219-02/">系统封装—默认应用关联&nbsp;</a><div> »</div>
+          <a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-1219-01/">系统封装—锁屏|休眠|睡眠&nbsp;</a><div> »</div>
           
         </div>
       </div>

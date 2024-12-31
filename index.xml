@@ -31,20 +31,20 @@ $ go env GOPATH=&amp;#34;/Users/eddycjy/go&amp;#34; ... 我们输入 go env命�
     
     <item>
       <title>系统封装—默认应用关联</title>
-      <link>https://0xo7.github.io/_drafts/2024-1219-02/</link>
-      <pubDate>Thu, 19 Dec 2024 21:19:28 +0800</pubDate>
-      
-      <guid>https://0xo7.github.io/_drafts/2024-1219-02/</guid>
-      <description>系统封装前设置的默认应用关联方式很多会被清理掉，特别是对于部分绿色免安装软件等。在切换域用户时，也存在该问题 &amp;hellip;</description>
-    </item>
-    
-    <item>
-      <title>系统封装—默认应用关联</title>
       <link>https://0xo7.github.io/post/2024-1219-02/</link>
       <pubDate>Thu, 19 Dec 2024 21:19:28 +0800</pubDate>
       
       <guid>https://0xo7.github.io/post/2024-1219-02/</guid>
       <description>系统封装前设置的默认应用关联方式很多会被清理掉，特别是对于部分绿色免安装软件等。在切换域用户时，也存在该问题 &amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>系统封装相关知识</title>
+      <link>https://0xo7.github.io/_drafts/2024-1219-02/</link>
+      <pubDate>Thu, 19 Dec 2024 21:19:28 +0800</pubDate>
+      
+      <guid>https://0xo7.github.io/_drafts/2024-1219-02/</guid>
+      <description>在实际的系统封装过程中，经常会遇到很多问题，比如：默认应用方式的关联问题，防火墙设置问题，个性化配置的保存问题，电源选项的设置等 &amp;hellip;</description>
     </item>
     
     <item>
