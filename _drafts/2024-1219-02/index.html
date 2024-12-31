@@ -292,9 +292,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Tue, 31 Dec 2024 08:27:38 &#43;0000"
+                  Modified <relative-time datetime="Tue, 31 Dec 2024 08:31:26 &#43;0000"
                     class="no-wrap">
-                    Tue, 31 Dec 2024 08:27:38 &#43;0000</relative-time>
+                    Tue, 31 Dec 2024 08:31:26 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -324,7 +324,7 @@
                         </div>
                       </div>
                     </details-menu>
-                      1003 Words
+                      1140 Words
                     <span class="file-info-divider"></span>
                                         5 min
 
@@ -369,7 +369,7 @@
 <p>HKEY_CLASSES_ROOT（HKCR）：此根密钥包括启动应用程序所需的全部信息，包括拓展名，应用程序与文档之间的关系，驱动程序名，DDE和OLE信息，编号和应用程序与文档的图标等。</p>
 <p>HKEY_CURRENT_USER（HKCU）：此根密钥包括当前登录用户的配置信息，包括环境变量，个人程序以及桌面设置等。此根密钥中保存的信息（当前用户的子项信息）与HKEY_USERS_DEFAULT 下面的一摸一样的。任何对HKEY_CURRENT_USER 根密钥中信息的修改都会导致对 HKEY_USERS_DEFAULT 中子项的修改。</p>
 <p>HKEY_LOCAL_MACHINE：此根密钥包括本地计算机的系统信息，包括<strong>硬件</strong>和操作系统信息，安全数据和计算机专用的各类软件设置信息。此根密钥中存放的是用来控制系统和<strong>软件</strong>的设置，由于这些设置是针对那些使用Windows系统的用户而设置的，是一个公共配置信息，所以它与具体的用户没多大关系。</p>
-<p>HKEY_USERS：从名称中可以看到，此根密钥承载所有用户的所有设置，包括系统中任何登录和注销的用户。由于您可以找到有关其他用户的设置，请不要将此根键与 HKCU 混淆。</p>
+<p>HKEY_USERS：此根密钥包括计算机的所有用户使用的配置数据，这些数据只有在用户登录系统时才能访问。这些信息告诉系统当前用户使用的图标，激活的程序组，开始菜单的内容以及颜色，字体等。此根密钥中保存的是默认用户（default），当前登录用户和软件（software）的信息。其中 DEFAULT 子项是其中最重要的，它的配置是针对未来将会被创建的新用户的。新用户根据默认用户的配置信息来生成自己的配置文件，该配置文件包括环境、屏幕和声音等多种信息。</p>
 <p>HKEY_CURRENT_CONFIG</p>
 <h1 id="微软对于注册表的保护">微软对于注册表的保护</h1>
 <h2 id="干掉-udcpsys-驱动">干掉 UDCP.sys 驱动</h2>
