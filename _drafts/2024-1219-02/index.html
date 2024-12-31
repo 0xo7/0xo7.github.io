@@ -292,9 +292,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Tue, 31 Dec 2024 08:24:45 &#43;0000"
+                  Modified <relative-time datetime="Tue, 31 Dec 2024 08:26:27 &#43;0000"
                     class="no-wrap">
-                    Tue, 31 Dec 2024 08:24:45 &#43;0000</relative-time>
+                    Tue, 31 Dec 2024 08:26:27 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -366,7 +366,7 @@
 <p>Windows 注册表由三个主要组件组成 - 根级密钥、键和值。&ldquo;根级密钥&quot;承载所有&quot;密钥&rdquo;，&ldquo;密钥&quot;将有自己的一组&quot;值&rdquo;。你可以把它想像&quot;本地驱动器 -&gt;文件夹 -&gt;文件&quot;在您的系统中。</p>
 <p>注册表中有五个不同的根级密钥，它们有自己的特定用途。下面是这些根键的要点。</p>
 <p><img src="https://blogpic-ayu.oss-cn-beijing.aliyuncs.com/24/12/2a172e17eed7fdb2bc234c2270047e87.png" alt=""></p>
-<p>HKEY_CLASSES_ROOT（HKCR）：此根密钥由 Windows 用于管理对象链接和嵌入 （OLE） 和文件类型关联。这是 Windows 将所有文件链接到其相关程序的关键，以便您可以打开这些文件并与它们进行交互。</p>
+<p>HKEY_CLASSES_ROOT（HKCR）：此根密钥包括启动应用程序所需的全部信息，包括拓展名，应用程序与文档之间的关系，驱动程序名，DDE和OLE信息，编号和应用程序与文档的图标等。</p>
 <p>HKEY_CURRENT_USER（HKCU）：此根密钥包括当前登录用户的配置信息，包括环境变量，个人程序以及桌面设置等。此根密钥中保存的信息（当前用户的子项信息）与HKEY_USERS_DEFAULT 下面的一摸一样的。任何对HKEY_CURRENT_USER 根密钥中信息的修改都会导致对 HKEY_USERS_DEFAULT 中子项的修改。</p>
 <p>HKEY_LOCAL_MACHINE：无论用户状态如何，此根密钥包含所有与系统相关的密钥，包括任何硬件设置、软件设置等。由于此密钥承载了系统范围大部分信息，因此 HKLM 是 Windows 注册表中访问最多的根密钥之一。</p>
 <p>HKEY_USERS：从名称中可以看到，此根密钥承载所有用户的所有设置，包括系统中任何登录和注销的用户。由于您可以找到有关其他用户的设置，请不要将此根键与 HKCU 混淆。</p>
