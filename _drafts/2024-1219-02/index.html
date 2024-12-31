@@ -292,9 +292,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Tue, 31 Dec 2024 08:33:09 &#43;0000"
+                  Modified <relative-time datetime="Tue, 31 Dec 2024 08:33:50 &#43;0000"
                     class="no-wrap">
-                    Tue, 31 Dec 2024 08:33:09 &#43;0000</relative-time>
+                    Tue, 31 Dec 2024 08:33:50 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -324,9 +324,9 @@
                         </div>
                       </div>
                     </details-menu>
-                      1202 Words
+                      1288 Words
                     <span class="file-info-divider"></span>
-                                        5 min
+                                        6 min
 
                   </div>
                   <div class="file-actions flex-order-2 pt-0">
@@ -371,6 +371,7 @@
 <p>HKEY_LOCAL_MACHINE（HKLM）：此根密钥包括本地计算机的系统信息，包括<strong>硬件</strong>和操作系统信息，安全数据和计算机专用的各类软件设置信息。此根密钥中存放的是用来控制系统和<strong>软件</strong>的设置，由于这些设置是针对那些使用Windows系统的用户而设置的，是一个公共配置信息，所以它与具体的用户没多大关系。</p>
 <p>HKEY_USERS：此根密钥包括计算机的所有用户使用的配置数据，这些数据只有在用户登录系统时才能访问。这些信息告诉系统当前用户使用的图标，激活的程序组，开始菜单的内容以及颜色，字体等。此根密钥中保存的是默认用户（default），当前登录用户和软件（software）的信息。其中 DEFAULT 子项是其中最重要的，它的配置是针对未来将会被创建的新用户的。新用户根据默认用户的配置信息来生成自己的配置文件，该配置文件包括环境、屏幕和声音等多种信息。</p>
 <p>HKEY_CURRENT_CONFIG（HKCC）：此根密钥包括当前硬件的配置信息，其中的信息是从 HKEY_LOCAL_MACHINE 中映射出来的。</p>
+<p>实际上五大根键并不是五个，其实HKEY_LOCAL_MACHINE、 HKEY_USERS、这两个才是真正的注册表键，其他都是从某个分支映射出来的，相当于快捷键方式或是别名。</p>
 <h1 id="微软对于注册表的保护">微软对于注册表的保护</h1>
 <h2 id="干掉-udcpsys-驱动">干掉 UDCP.sys 驱动</h2>
 <p>IT之家 4 月 8 日消息，微软今年 2 月面向 Windows 10 用户推送 KB5034763 更新、面向 Windows 11 用户推送 KB5034765 更新，其中一项调整是阻止用户使用软件或者修改注册表方式，配置系统的默认浏览器。</p>
