@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/custom.css" />
   
   <title>
-    8086 汇编语言（二） | 0xo7&#39;s Blog
+    Windows 系统封装相关知识 | 0xo7&#39;s Blog
   </title>
   
   <link rel="icon" type="image/x-icon" href="/images/github-mark.png" />
@@ -27,20 +27,20 @@
   
   <meta
   name="description"
-  content="汇编"
+  content="Windows 系统封装前置基础知识 &amp;hellip;"
 />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://0xo7.github.io/post/2024-0825-01/" />
+<link rel="canonical" href="https://0xo7.github.io/_drafts/2024-1219-02/" />
 
 
 <meta name="twitter:card" content="summary" />
 <meta
   name="twitter:title"
-  content="8086 汇编语言（二） - 0xo7&#39;s Blog"
+  content="Windows 系统封装相关知识 - 0xo7&#39;s Blog"
 />
 <meta
   name="twitter:description"
-  content="汇编"
+  content="Windows 系统封装前置基础知识 &amp;hellip;"
 />
 <meta name="twitter:site" content="https://0xo7.github.io/" />
 <meta name="twitter:creator" content="" />
@@ -56,14 +56,14 @@
 />
 <meta
   property="og:title"
-  content="8086 汇编语言（二） - 0xo7&#39;s Blog"
+  content="Windows 系统封装相关知识 - 0xo7&#39;s Blog"
 />
 <meta
   property="og:description"
-  content="汇编"
+  content="Windows 系统封装前置基础知识 &amp;hellip;"
 />
-<meta property="og:url" content="https://0xo7.github.io/post/2024-0825-01/" />
-<meta property="og:site_name" content="8086 汇编语言（二）" />
+<meta property="og:url" content="https://0xo7.github.io/_drafts/2024-1219-02/" />
+<meta property="og:site_name" content="Windows 系统封装相关知识" />
 <meta
   property="og:image"
   content="https://0xo7.github.io/"
@@ -71,7 +71,7 @@
 <meta property="og:image:width" content="2048" />
 <meta property="og:image:height" content="1024" />
 
-<meta property="article:published_time" content="2022-08-25 08:41:24 &#43;0800 &#43;0800" />
+<meta property="article:published_time" content="2024-12-19 21:19:28 &#43;0800 &#43;0800" />
 
 
 
@@ -283,12 +283,12 @@
                   <span class="author">
                     <a href="https://0xo7.github.io/">Thunnus</a></span><span
                     class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
-                      href="https://0xo7.github.io/post/2024-0825-01/">8086 汇编语言（二）</a></strong>
+                      href="https://0xo7.github.io/_drafts/2024-1219-02/">Windows 系统封装相关知识</a></strong>
                 </h1>
                 <div class="note m-0">
-                  Created <relative-time datetime="Thu, 25 Aug 2022 08:41:24 &#43;0800"
+                  Created <relative-time datetime="Thu, 19 Dec 2024 21:19:28 &#43;0800"
                     class="no-wrap">
-                    Thu, 25 Aug 2022 08:41:24 &#43;0800</relative-time>
+                    Thu, 19 Dec 2024 21:19:28 &#43;0800</relative-time>
 
                   
                   <span class="file-info-divider"></span>
@@ -324,9 +324,9 @@
                         </div>
                       </div>
                     </details-menu>
-                      876 Words
+                      1471 Words
                     <span class="file-info-divider"></span>
-                                        4 min
+                                        7 min
 
                   </div>
                   <div class="file-actions flex-order-2 pt-0">
@@ -341,9 +341,9 @@
         
         
        
-      <a class="muted-link mr-3" href="/tags/8086%E6%B1%87%E7%BC%96">
-        <span class="repo-language-color" style="background-color: #9d9c97"></span>
-        8086汇编
+      <a class="muted-link mr-3" href="/tags/%E6%A1%8C%E9%9D%A2%E8%BF%90%E7%BB%B4">
+        <span class="repo-language-color" style="background-color: #9a9b9c"></span>
+        桌面运维
       </a>
     
   
@@ -354,83 +354,39 @@
 
 
               <div class="Box-body px-5 pb-5" style="z-index: 1">
-                <article class="markdown-body entry-content container-lg"><h1 id="bxloop指令">[bx]、loop指令</h1>
-<h2 id="bx">[bx]</h2>
-<p>前面的学习中，我们了解到了[0]的用法，如下：</p>
-<pre tabindex="0"><code>mov bx,1000H 
-mov ds,bx	
-mov al,[0]X86ASM
-</code></pre><p>但这里中括号中的0是常量，我们还可放变量，比如：[bx]</p>
-<pre tabindex="0"><code>;如果ds已经是2000H
-mov bx,10
-mov ax,[bx]		;这个指令就相当于mov ax,2000H:10,也就是把2000H:10这个字型数据给ax
-;如果是mov dl,[0]，那么这个是把字节型数据给mov，因为dl只有8位X86ASM
-</code></pre><p>inx bx 指令的作用是让bx+1，相当于bx=bx+1或者是bx++</p>
-<h2 id="loop指令">loop指令</h2>
-<p>loop 指令，在汇编里面代表循环，类似于c语言的while、for循环。</p>
-<p>loop 指令的使用格式：<code>loop 标号</code>，CPU 执行 loop 指令时，首先执行 CX = CX-1，然后判断 CX 的值，CX的值如果不为0，就会跳到标号处执行程序，如果为0，就按顺序向下执行。</p>
-<pre tabindex="0"><code>;比如：如果要用指令实现2的三次方，可用如下方法
-mov ax,2	;ax=2
-add ax,ax	;ax=2+2=4  
-add ax,ax	;ax=4+4=8
-;但是这里如果要实现2的12次方呢？？？用上面的方法一直加下去就不太好，这里就用循环实现，用如下代码实现
-assume cs:code
-code segment    
-	mov ax,2    
-	mov cx,11    
-	
-s:  add ax,ax    
-	loop s            
-	
-	mov ax,4c00h    
-	int 21h
-code ends
-endX86ASM
-</code></pre><p>对上面2的12次方debug下，-u后我们发现ayu.exe会先执行mov ax,0002，然后再执行mov cx,000B，一直向下执行下去，然后到loop指令的时候，会再跳回到上面的add ax,ax指令</p>
-<p><img src="2024-0825-01%5Cimage-20220830212722071.png" alt="image-20220830212722071"></p>
-<p>然后我们可以-t来一条条的指令看下</p>
-<p><img src="2024-0825-01%5Cimage-20220830212728134.png" alt="image-20220830212728134"></p>
-<p>注意，上面的第二条指令<code>mov cx,000B</code>，这里000B实际就是十进制的11，也就是源程序中的<code>mov cx,11</code>，当然mov cx,11也可以写成<code>mov cx,0BH</code>，这里必须是0BH，不能写成BH，在汇编中数据不能以字母开头，所以在前面加个0</p>
-<p><img src="2024-0825-01%5Cimage-20220830212735344.png" alt="image-20220830212735344"></p>
-<p>cx存放的是程序（机器码）长度（字节数），一共15个字节，也就是十六进制的F</p>
-<p><img src="2024-0825-01%5Cimage-20220830212744246.png" alt="image-20220830212744246"></p>
-<pre tabindex="0"><code>作业:
-编程，用加法计算123*236,结果存在ax中
-123*236就是236个123相乘，即123×123×123×123...
-代码如下：
-code segment
-	mov ax,123
-	mov cx,236
-s:	add ax,ax
-	loop s
-	mov ax,4c00h
-	int 21h
-code ends
-end
-</code></pre><h1 id="debug和汇编编译器处理指令的区别">Debug和汇编编译器处理指令的区别</h1>
-<p>用debug输入如下指令</p>
-<pre tabindex="0"><code>mov ax,2000h
-mov ds,ax
-mov al,[0]
-mov bl,[1]
-mov cl,[2]
-mov dl,[3]
-</code></pre><p><img src="2024-0825-01%5Cimage-20220902093058566.png" alt="image-20220902093058566"></p>
-<p>然后用编译器编译和debug如下程序</p>
-<pre tabindex="0"><code>assume cs:code
-code segment
-	mov ax,2000h
-	mov ds,ax
-	mov al,[0]
-	mov bl,[1]
-	mov cl,[2]
-	mov dl,[3]
-	
-	mov ax,4c00h
-	int 21h
-code ends
-end
-</code></pre></article>
+                <article class="markdown-body entry-content container-lg"><h1 id="注册表探究">注册表探究</h1>
+<p>微软给出的注册表知识：</p>
+<ul>
+<li><a href="https://learn.microsoft.com/zh-cn/windows/win32/sysinfo/registry">https://learn.microsoft.com/zh-cn/windows/win32/sysinfo/registry</a></li>
+<li><a href="https://learn.microsoft.com/zh-cn/troubleshoot/windows-server/performance/windows-registry-advanced-users">https://learn.microsoft.com/zh-cn/troubleshoot/windows-server/performance/windows-registry-advanced-users</a></li>
+</ul>
+<h2 id="注册表定义">注册表定义</h2>
+<p>注册表是系统定义的数据库，应用程序和系统组件在其中存储和检索配置数据。 存储在注册表中的数据因 Microsoft Windows 版本而异。 应用程序使用注册表 API 检索、修改或删除注册表数据。</p>
+<h2 id="windows-注册表的组件">Windows 注册表的组件</h2>
+<p>Windows 注册表由三个主要组件组成 - 根级密钥、键和值。&ldquo;根级密钥&quot;承载所有&quot;密钥&rdquo;，&ldquo;密钥&quot;将有自己的一组&quot;值&rdquo;。你可以把它想像&quot;本地驱动器 -&gt;文件夹 -&gt;文件&quot;在您的系统中。</p>
+<p>注册表中有五个不同的根级密钥，它们有自己的特定用途。下面是这些根键的要点。</p>
+<p><img src="https://blogpic-ayu.oss-cn-beijing.aliyuncs.com/24/12/2a172e17eed7fdb2bc234c2270047e87.png" alt=""></p>
+<p>HKEY_CLASSES_ROOT（HKCR）：此根密钥包括启动应用程序所需的全部信息，包括拓展名，应用程序与文档之间的关系，驱动程序名，DDE和OLE信息，编号和应用程序与文档的图标等。</p>
+<p>HKEY_CURRENT_USER（HKCU）：此根密钥包括当前登录用户的配置信息，包括环境变量，个人程序以及桌面设置等。此根密钥中保存的信息（当前用户的子项信息）与HKEY_USERS_DEFAULT 下面的一摸一样的。任何对HKEY_CURRENT_USER 根密钥中信息的修改都会导致对 HKEY_USERS_DEFAULT 中子项的修改。</p>
+<p>HKEY_LOCAL_MACHINE（HKLM）：此根密钥包括本地计算机的系统信息，包括<strong>硬件</strong>和操作系统信息，安全数据和计算机专用的各类软件设置信息。此根密钥中存放的是用来控制系统和<strong>软件</strong>的设置，由于这些设置是针对那些使用Windows系统的用户而设置的，是一个公共配置信息，所以它与具体的用户没多大关系。</p>
+<p>HKEY_USERS：此根密钥包括计算机的所有用户使用的配置数据，这些数据只有在用户登录系统时才能访问。这些信息告诉系统当前用户使用的图标，激活的程序组，开始菜单的内容以及颜色，字体等。此根密钥中保存的是默认用户（default），当前登录用户和软件（software）的信息。其中 DEFAULT 子项是其中最重要的，它的配置是针对未来将会被创建的新用户的。新用户根据默认用户的配置信息来生成自己的配置文件，该配置文件包括环境、屏幕和声音等多种信息。</p>
+<p>HKEY_CURRENT_CONFIG（HKCC）：此根密钥包括当前硬件的配置信息，其中的信息是从 HKEY_LOCAL_MACHINE 中映射出来的。</p>
+<p>实际上根密钥并不是五个，其实 HKEY_LOCAL_MACHINE、 HKEY_USERS 这两个才是真正的注册表根密钥，其他都是从某个分支映射出来的，相当于快捷键方式或是别名。</p>
+<p>对于上面注册表理解：</p>
+<ul>
+<li>HKEY_LOCAL_MACHINE = 当前机器的全局设置，影响所有用户。</li>
+<li>HKEY_CURRENT_USER = 当前用户的个性化配置，是 <code>HKEY_USERS\&lt;当前用户的SID&gt;</code> 的映射。</li>
+<li>HKEY_USERS = 包含所有用户的配置数据。</li>
+<li>HKEY_USERS\.DEFAULT = 登录界面及无用户登录时的系统默认设置，而非新用户模板。</li>
+</ul>
+<h2 id="ntuserdat">NTUser.dat</h2>
+<p>NTuser.dat 文件是用户配置文件的注册表部分。用户从计算机上注销时，系统将注册表的用户特定部分（即HKEY_CURRENT_USER）卸载到 NTuser.dat 文件中并进行更新。</p>
+<h1 id="微软对于注册表的保护">微软对于注册表的保护</h1>
+<h2 id="干掉-udcpsys-驱动">干掉 UDCP.sys 驱动</h2>
+<p>IT之家 4 月 8 日消息，微软今年 2 月面向 Windows 10 用户推送 KB5034763 更新、面向 Windows 11 用户推送 KB5034765 更新，其中一项调整是阻止用户使用软件或者修改注册表方式，配置系统的默认浏览器。</p>
+<p>IT之家 3 月 26 日已经报道过这个问题，现在关于这个问题的更多细节被披露。IT 顾问 Christoph Kolbicz 率先发现微软的这项调整，安装 2 月更新之后导致其 SetUserFTA 和 SetDefaultBrowser 程序无法正常使用。</p>
+<p>SetUserFTA 是一个命令行程序，可让 Windows 管理员通过登录脚本和其他方法更改文件关联；SetDefaultBrowser 的工作原理类似，但只能用于更改 Windows 中的默认浏览器。</p>
+</article>
               </div>
 
               
@@ -442,13 +398,13 @@ end
       <div class="pagination-nav">
         <div class="pagination-button next-post">
           
-          <div>«&nbsp;</div><a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-0726-01/"> github-style 主题优化</a>
+          <div>«&nbsp;</div><a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-1220-01/"> Windows共享盘权可视化分析</a>
           
         </div>
         
         <div class="pagination-button previous-post">
           
-          <a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-0728-01/">8086 汇编语言（一）&nbsp;</a><div> »</div>
+          <a class="pagination-link link-reverse" href="https://0xo7.github.io/post/2024-1219-02/">Windows 系统封装相关知识&nbsp;</a><div> »</div>
           
         </div>
       </div>
