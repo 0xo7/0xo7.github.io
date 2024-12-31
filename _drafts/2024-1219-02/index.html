@@ -292,9 +292,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Tue, 31 Dec 2024 06:45:48 &#43;0000"
+                  Modified <relative-time datetime="Tue, 31 Dec 2024 08:05:48 &#43;0000"
                     class="no-wrap">
-                    Tue, 31 Dec 2024 06:45:48 &#43;0000</relative-time>
+                    Tue, 31 Dec 2024 08:05:48 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -324,9 +324,9 @@
                         </div>
                       </div>
                     </details-menu>
-                      436 Words
+                      554 Words
                     <span class="file-info-divider"></span>
-                                        2 min
+                                        3 min
 
                   </div>
                   <div class="file-actions flex-order-2 pt-0">
@@ -362,8 +362,15 @@
 </ul>
 <h2 id="注册表定义">注册表定义</h2>
 <p>注册表是系统定义的数据库，应用程序和系统组件在其中存储和检索配置数据。 存储在注册表中的数据因 Microsoft Windows 版本而异。 应用程序使用注册表 API 检索、修改或删除注册表数据。</p>
-<h2 id="注册表结构">注册表结构</h2>
-<p>注册表是一个分层数据库，其中包含对 Windows 的操作以及 Windows 上运行的应用程序和服务至关重要的数据。 数据以树格式进行结构化。 树中的每个节点称为 键。 每个键可以同时包含 <em>子项</em> 和数据条目（称为 值）。</p>
+<h2 id="windows-注册表的组件">Windows 注册表的组件</h2>
+<p>Windows 注册表由三个主要组件组成 - 根级密钥、键和值。&ldquo;根级密钥&quot;承载所有&quot;密钥&rdquo;，&ldquo;密钥&quot;将有自己的一组&quot;值&rdquo;。你可以把它想像&quot;本地驱动器 -&gt;文件夹 -&gt;文件&quot;在您的系统中。</p>
+<p>注册表中有五个不同的根级密钥，它们有自己的特定用途。下面是这些根键的要点。</p>
+<p><img src="https://blogpic-ayu.oss-cn-beijing.aliyuncs.com/24/12/2a172e17eed7fdb2bc234c2270047e87.png" alt=""></p>
+<p>HKEY_CLASSES_ROOT：的撒</p>
+<p>HKEY_CURRENT_USER</p>
+<p>HKEY_LOCAL_MACHINE</p>
+<p>HKEY_USERS</p>
+<p>HKEY_CURRENT_CONFIG</p>
 <h1 id="微软对于注册表的保护">微软对于注册表的保护</h1>
 <h2 id="干掉-udcpsys-驱动">干掉 UDCP.sys 驱动</h2>
 <p>IT之家 4 月 8 日消息，微软今年 2 月面向 Windows 10 用户推送 KB5034763 更新、面向 Windows 11 用户推送 KB5034765 更新，其中一项调整是阻止用户使用软件或者修改注册表方式，配置系统的默认浏览器。</p>
