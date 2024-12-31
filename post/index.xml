@@ -13,11 +13,7 @@
       <pubDate>Wed, 25 Dec 2024 21:28:30 +0800</pubDate>
       
       <guid>https://0xo7.github.io/post/2024-1225-01/</guid>
-      <description>Go modules 是 Go 语言中正式官宣的项目依赖管理工具，Go modules（前身为vgo）于 Go1.11 正式发布，在 Go1.14 已经准备好，并且可以用在生产上（ready for production）了，鼓励所有用户从其他依赖项管理工具迁移到 Go modules。
-什么是Go Modules Go modules 是 Go 语言的依赖解决方案，发布于 Go1.11，成长于 Go1.12，丰富于 Go1.13，正式于 Go1.14 推荐在生产上使用。
-Go moudles 目前集成在 Go 的工具链中，只要安装了 Go，自然而然也就可以使用 Go moudles 了，而 Go modules 的出现也解决了在 Go1.11 前的几个常见争议问题：
-Go 语言长久以来的依赖管理问题。 “淘汰”现有的 GOPATH 的使用模式。 统一社区中的其它的依赖管理工具（提供迁移功能）。 GOPATH的那些点点滴滴 我们有提到 Go modules 的解决的问题之一就是“淘汰”掉 GOPATH，但是 GOPATH 又是什么呢，为什么在 Go1.11 前就使用 GOPATH，而 Go1.11 后就开始逐步建议使用 Go modules，不再推荐 GOPATH 的模式了呢？
-$ go env GOPATH=&amp;#34;/Users/eddycjy/go&amp;#34; ... 我们输入 go env命令行后可以查看到 GOPATH 变量的结果，我们进入到该目录下进行查看，如下：</description>
+      <description>Go Modules 的来龙去脉</description>
     </item>
     
     <item>
@@ -30,12 +26,12 @@ $ go env GOPATH=&amp;#34;/Users/eddycjy/go&amp;#34; ... 我们输入 go env命�
     </item>
     
     <item>
-      <title>系统封装—默认应用关联</title>
+      <title>Windows 注册表探究</title>
       <link>https://0xo7.github.io/post/2024-1219-02/</link>
       <pubDate>Thu, 19 Dec 2024 21:19:28 +0800</pubDate>
       
       <guid>https://0xo7.github.io/post/2024-1219-02/</guid>
-      <description>系统封装前设置的默认应用关联方式很多会被清理掉，特别是对于部分绿色免安装软件等。在切换域用户时，也存在该问题 &amp;hellip;</description>
+      <description>注册表在整个 Windows 环境中扮演非常重要的角色，恶意软件也注册表&amp;hellip;</description>
     </item>
     
     <item>
